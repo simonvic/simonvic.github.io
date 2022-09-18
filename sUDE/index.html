@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>sUDE | Tutorials</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="refresh" content="3">
+	<link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+	<link rel="stylesheet" href="/sUDE/css/style.css">
+</head>
+
+<body>
+	<main class="container">
+		<nav aria-label="breadcrumb">
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Category</a></li>
+				<li>Page</li>
+			</ul>
+		</nav>
+		<p>Difficulty: 5/10</p>
+		<progress value="5" max="10"></progress>
+		<p>Prerequisites</p>
+		<abbr title="Abbreviation">Abbr.</abbr>
+		<strong>Bold</strong>
+		<em>Italic</em>
+		<del>Deleted</del>
+		<ins>Inserted</ins>
+		<kbd>Ctrl + S</kbd>
+		<mark>Highlighted</mark>
+		<s>Strikethrough</s>
+		<small>Small</small>
+		<sub>Sub</sub>
+		<sup>Sup</sup>
+		<u>Underline</u>
+		<button>Button</button>
+		<a href="#">Primary</a>
+		<a href="#" class="secondary">Secondary</a>
+		<a href="#" class="contrast">Contrast</a>
+		<blockquote>
+			"Maecenas vehicula metus tellus, vitae congue turpis hendrerit non.
+			Nam at dui sit amet ipsum cursus ornare."
+			<footer>
+				<cite>- Phasellus eget lacinia</cite>
+			</footer>
+		</blockquote>
+		<table>
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Heading</th>
+					<th scope="col">Heading</th>
+					<th scope="col">Heading</th>
+					<th scope="col">Heading</th>
+					<th scope="col">Heading</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">1</th>
+					<td>Cell</td>
+					<td>Cell</td>
+					<td>Cell</td>
+					<td>Cell</td>
+					<td>Cell</td>
+				</tr>
+				<tr>
+					<th scope="row">1</th>
+					<td>Cell</td>
+					<td>Cell</td>
+					<td>Cell</td>
+					<td>Cell</td>
+					<td>Cell</td>
+				</tr>
+				<tr>
+					<th scope="row">1</th>
+					<td>Cell</td>
+					<td>Cell</td>
+					<td>Cell</td>
+					<td>Cell</td>
+					<td>Cell</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<th scope="col">#</th>
+					<td scope="col">Total</td>
+					<td scope="col">Total</td>
+					<td scope="col">Total</td>
+					<td scope="col">Total</td>
+					<td scope="col">Total</td>
+				</tr>
+			</tfoot>
+		</table>
+		<details>
+			<summary>Accordion 1</summary>
+			<p>…</p>
+		</details>
+
+		<details open>
+			<summary>Accordion 2</summary>
+			<p>blah blah blah</p>
+		</details>
+		<article>
+			<header>WARNING</header>
+			I'm a card!
+		</article>
+		<input type="submit">
+		<!-- Select -->
+		<label for="fruit">Fruit</label>
+		<select id="fruit" required>
+			<option value="" selected>Select a fruit…</option>
+			<option>…</option>
+		</select>
+
+		<!-- Radios -->
+		<fieldset>
+			<legend>Size</legend>
+			<label for="small">
+				<input type="radio" id="small" name="size" value="small" checked>
+				Small
+			</label>
+			<label for="medium">
+				<input type="radio" id="medium" name="size" value="medium">
+				Medium
+			</label>
+			<label for="large">
+				<input type="radio" id="large" name="size" value="large">
+				Large
+			</label>
+			<label for="extralarge">
+				<input type="radio" id="extralarge" name="size" value="extralarge" disabled>
+				Extra Large
+			</label>
+		</fieldset>
+
+		<!-- Checkboxes -->
+		<fieldset>
+			<label for="terms">
+				<input type="checkbox" id="terms" name="terms">
+				I agree to the Terms and Conditions
+			</label>
+			<label for="terms_sharing">
+				<input type="checkbox" id="terms_sharing" name="terms_sharing" disabled checked>
+				I agree to share my information with partners
+			</label>
+		</fieldset>
+
+		<!-- Switches -->
+		<fieldset>
+			<label for="switch">
+				<input type="checkbox" id="switch" name="switch" role="switch">
+				Publish on my profile
+			</label>
+			<label for="switch_disabled">
+				<input type="checkbox" id="switch_disabled" name="switch_disabled" role="switch_disabled" disabled
+					checked>
+				User must change password at next logon
+			</label>
+		</fieldset>
+	</main>
+</body>
+
+</html>
