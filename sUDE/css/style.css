@@ -1,3 +1,5 @@
+@import url(pico.min.css);
+
 :root:not([data-theme="light"]) {
 	--primary: #F0544C;
 	--primary-hover: #d32f2f;
