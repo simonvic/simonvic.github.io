@@ -1,30 +1,24 @@
-[data-theme="light"],
-:root:not([data-theme="dark"]) {
-	--primary: #e53935;
+:root:not([data-theme="light"]) {
+	--primary: #F0544C;
 	--primary-hover: #d32f2f;
 	--primary-focus: rgba(229, 57, 53, 0.125);
 	--primary-inverse: #FFF;
+	--background-color: #222222;
+	--muted-border-color: #444444;
+	--card-background-color: #333333;
+	--card-sectionning-background-color: #444444;
+	--form-element-background-color: #444444;
+	--form-element-border-color: #444444;
+	--switch-background-color: #333333;
+	--progress-background-color: #333333;
+	--color: #DADADA;
+	--muted-color: #BABABA;
+	--form-element-disabled-background-color: #303030;
+	--form-element-disabled-border-color: #303030;
 }
 
-@media only screen and (prefers-color-scheme: dark) {
-	:root:not([data-theme="light"]) {
-		--primary: #e53935;
-		--primary-hover: #f44336;
-		--primary-focus: rgba(229, 57, 53, 0.25);
-		--primary-inverse: #FFF;
-	}
-}
-
-[data-theme="dark"] {
-	--primary: #e53935;
-	--primary-hover: #f44336;
-	--primary-focus: rgba(229, 57, 53, 0.25);
-	--primary-inverse: #FFF;
-}
-
-:root {
-	--form-element-active-border-color: var(--primary);
-	--form-element-focus-color: var(--primary-focus);
-	--switch-color: var(--primary-inverse);
-	--switch-checked-background-color: var(--primary);
+:root:not([data-theme="dark"]) {
+	--primary: #F0544C;
+	--primary-hover: #d32f2f;
+	--primary-focus: rgba(229, 57, 53, 0.125);
 }
