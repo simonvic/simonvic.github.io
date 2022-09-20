@@ -1,0 +1,24 @@
+{
+	"mod": "modName",
+	"tag": "v0.69.420",
+	"type": "major",
+	"branch": "main",
+	"date": 1635188400,
+	"changes": {
+		"added": [
+			"added this",
+			"added that",
+			"added this other one"
+		],
+		"changed": [
+			"changed this",
+			"changed that",
+			"changed this other one"
+		],
+		"fixed": [
+			"fixed this",
+			"fixed that",
+			"fixed this other one <br/> awf"
+		]
+	}
+}
