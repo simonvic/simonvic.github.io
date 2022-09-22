@@ -38,7 +38,7 @@ function relativeTimeDifference(previous) {
 function fetchChangelogs(onSuccess) {
 	$.ajax({
 		type: "GET",
-		url: "changelog_sample.xml",
+		url: "changelogs.xml",
 		dataType: "xml",
 		success: xml => onSuccess(xml)
 	});
@@ -75,7 +75,7 @@ function parseChangelog(xml) {
 
 function buildChangelog(changelog) {
 	var html = "";
-	html += `<details open>`;
+	html += `<details>`;
 	html += "	<summary>";
 	html += `		${changelog.mod} | ${changelog.tag} | ${changelog.type} | <span>${relativeTimeDifference(new Date(changelog.date * 1000))}</span>`;
 	html += "	</summary>";

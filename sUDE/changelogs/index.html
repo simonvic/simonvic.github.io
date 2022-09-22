@@ -21,18 +21,19 @@
 
 		<div id="changelogContainer">
 			<script>
+
+				function addChangelogs(xml) {
+					$($(xml).find("changelog").get().reverse()).each((index, changelog) => {
+						const jsonChangelog = parseChangelog(changelog);
+						const html = buildChangelog(jsonChangelog);
+						document.getElementById("changelogContainer").innerHTML += html;
+					});
+				}
 				fetchChangelogs(xml => {
-					const jsonChangelog = parseChangelog(xml);
-					const html = buildChangelog(jsonChangelog);
-					document.getElementById("changelogContainer").innerHTML += html;
+					addChangelogs(xml);
+					console.log($("details")[0]);
 				});
 
-
-				/*
-				fetch("changelog_sample.json")
-					.then(response => response.json())
-					.then(changelog => document.getElementById("changelogContainer").innerHTML += buildChangelog(changelog));
-					*/
 			</script>
 		</div>
 	</main>
