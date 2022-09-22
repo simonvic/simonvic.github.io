@@ -22,17 +22,7 @@
 		<div id="changelogContainer">
 			<script>
 
-				function addChangelogs(xml) {
-					$($(xml).find("changelog").get().reverse()).each((index, changelog) => {
-						const jsonChangelog = parseChangelog(changelog);
-						const html = buildChangelog(jsonChangelog);
-						document.getElementById("changelogContainer").innerHTML += html;
-					});
-				}
-				fetchChangelogs(xml => {
-					addChangelogs(xml);
-					console.log($("details")[0]);
-				});
+				fetchChangelogs(xml => addChangelogs(xml));
 
 			</script>
 		</div>

@@ -77,8 +77,9 @@ function buildChangelog(changelog) {
 	var html = "";
 	html += `<details>`;
 	html += "	<summary>";
-	html += `		${changelog.mod} | ${changelog.tag} | ${changelog.type} | <span>${relativeTimeDifference(new Date(changelog.date * 1000))}</span>`;
+	html += `		${changelog.mod} | ${changelog.tag} | ${changelog.type} | <span>${relativeTimeDifference(new Date(changelog.date))}</span>`;
 	html += "	</summary>";
+	html += `<small>${changelog.date}</small>`;
 	html +=  `<p>${changelog.preamble}</p>`
 	changelog.changes.forEach((changes, category) => {
 		html += `<h5>${category.toUpperCase()}</h5>`;
@@ -96,4 +97,12 @@ function buildChangelog(changelog) {
 	// }
 	html += "</details>";
 	return html;
+}
+
+function addChangelogs(xml) {
+	$($(xml).find("changelog").get().reverse()).each((index, changelog) => {
+		const jsonChangelog = parseChangelog(changelog);
+		const html = buildChangelog(jsonChangelog);
+		document.getElementById("changelogContainer").innerHTML += html;
+	});
 }
