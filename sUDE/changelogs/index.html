@@ -4,8 +4,9 @@
 <head>
 	<title>sUDE | Changelogs</title>
 	<meta charset="UTF-8">
-	<meta http-equiv="refresh" content="10">
+	<!-- <meta http-equiv="refresh" content="10"> -->
 	<link rel="stylesheet" href="/sUDE/css/style.css">
+	<script src="/sUDE/js/jquery.js"></script>
 	<script src="/sUDE/js/main.js"></script>
 
 <body>
@@ -20,14 +21,18 @@
 
 		<div id="changelogContainer">
 			<script>
+				fetchChangelogs(xml => {
+					const jsonChangelog = parseChangelog(xml);
+					const html = buildChangelog(jsonChangelog);
+					document.getElementById("changelogContainer").innerHTML += html;
+				});
+
+
+				/*
 				fetch("changelog_sample.json")
-					.then(response => {
-						return response.json();
-					})
-					.then(changelog => {
-						var html = buildChangelog(changelog);
-						document.getElementById("changelogContainer").innerHTML += html;
-					});
+					.then(response => response.json())
+					.then(changelog => document.getElementById("changelogContainer").innerHTML += buildChangelog(changelog));
+					*/
 			</script>
 		</div>
 	</main>

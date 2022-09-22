@@ -1,0 +1,22 @@
+<changelog>
+	<mod>mod name</mod>
+	<tag>v0.69.420</tag>
+	<type>major</type>
+	<branch>main</branch>
+	<date>1635188400</date>
+	<preamble>awfawfawf</preamble>
+	<changes>
+		<added>Added this</added>
+		<added>Added that</added>
+		<added>Added this other one</added>
+		<changed>Changed this</changed>
+		<changed>Changed that</changed>
+		<changed>Changed this other one</changed>
+		<fixed>Fixed this</fixed>
+		<fixed>Fixed that</fixed>
+		<fixed>Fixed this other one</fixed>
+		<fixed>Blah blah blah</fixed>
+		<custom>awfawfawf</custom>
+		<someother name="some other"> awfawf </someother>
+	</changes>
+</changelog>

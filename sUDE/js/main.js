@@ -35,20 +35,65 @@ function relativeTimeDifference(previous) {
 	return timeDifference(previous, new Date());
 }
 
+function fetchChangelogs(onSuccess) {
+	$.ajax({
+		type: "GET",
+		url: "changelog_sample.xml",
+		dataType: "xml",
+		success: xml => onSuccess(xml)
+	});
+
+}
+
+function parseChangelog(xml) {
+	const doc = $(xml);
+
+	var preamble = "";
+	doc.find("preamble").each((i, p) => preamble += p.innerHTML);
+
+	var changes = new Map();
+	doc.find("changes").children().each((i, change) => {
+		var category = change.tagName;
+		if (change.hasAttribute("name")) {
+			category = $(change).attr("name");
+		}
+		if (!changes.has(category)) {
+			changes.set(category, new Array());
+		}
+		changes.get(category).push(change.innerHTML);
+	});
+	
+	return {
+		mod: doc.find("mod").text(),
+		tag: doc.find("tag").text(),
+		type: doc.find("type").text(),
+		date: doc.find("date").text(),
+		preamble: preamble,
+		changes: changes
+	};
+}
+
 function buildChangelog(changelog) {
 	var html = "";
-	html += `<details>`;
+	html += `<details open>`;
 	html += "	<summary>";
 	html += `		${changelog.mod} | ${changelog.tag} | ${changelog.type} | <span>${relativeTimeDifference(new Date(changelog.date * 1000))}</span>`;
 	html += "	</summary>";
-	for (const key in changelog.changes) {
-		html += `<h5>${key.toUpperCase()}</h5>`;
+	html +=  `<p>${changelog.preamble}</p>`
+	changelog.changes.forEach((changes, category) => {
+		html += `<h5>${category.toUpperCase()}</h5>`;
 		html += "<ul>";
-		changelog.changes[key].forEach(change =>
-			html += `<li>${change}</li>`
-		);
+		changes.forEach(change => html += `<li>${change}</li>`);
 		html += "</ul>";
-	}
+	});
+	// for (const key in changelog.changes) {
+	// 	html += `<h5>${key.toUpperCase()}</h5>`;
+	// 	html += "<ul>";
+	// 	changelog.changes[key].forEach(change =>
+	// 		html += `<li>${change}</li>`
+	// 	);
+	// 	html += "</ul>";
+	// }
 	html += "</details>";
 	return html;
 }
