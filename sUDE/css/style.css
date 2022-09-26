@@ -1,5 +1,6 @@
 @import url(pico.min.css);
 
+
 :root:not([data-theme="light"]) {
 	--primary: #F0544C;
 	--primary-hover: #d32f2f;
@@ -17,6 +18,7 @@
 	--muted-color: #BABABA;
 	--form-element-disabled-background-color: #303030;
 	--form-element-disabled-border-color: #303030;
+	--modal-overlay-background-color: #222222aa;
 }
 
 :root:not([data-theme="dark"]) {

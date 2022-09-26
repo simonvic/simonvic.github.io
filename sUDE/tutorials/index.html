@@ -4,22 +4,25 @@
 <head>
 	<title>sUDE | Tutorials</title>
 	<meta charset="UTF-8">
-	<meta http-equiv="refresh" content="10">
+	<meta http-equiv="refresh" content="100">
 	<link rel="stylesheet" href="/sUDE/css/style.css">
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/androidstudio.min.css">
-	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
-	<script>hljs.highlightAll();</script>
+	<link rel="stylesheet" href="/sUDE/css/highlight.css">
+	<script src="/sUDE/js/jquery.js"></script>
+	<script src="/sUDE/js/main.js"></script>
 </head>
 
 <body>
-	<main class="container">
+	<main class="container" id="tutorialCardContainer">
 		<nav aria-label="breadcrumb">
 			<ul>
 				<li><a href="/">Home</a></li>
 				<li><a href="/sUDE">sUDE</a></li>
-				<li><a href="/sUDE/tutorials">Tutorials</a></li>
+				<li><a href="/sUDE/Tutorials">Tutorials</a></li>
 			</ul>
 		</nav>
+		<script>
+			fetchXML("tutorials.xml", xml => addTutorialCards(xml));
+		</script>
 	</main>
 </body>
 
