@@ -4,24 +4,35 @@
 <head>
 	<title>sUDE | Tutorials</title>
 	<meta charset="UTF-8">
-	<meta http-equiv="refresh" content="100">
 	<link rel="stylesheet" href="/sUDE/css/style.css">
-	<link rel="stylesheet" href="/sUDE/css/highlight.css">
 	<script src="/sUDE/js/jquery.js"></script>
 	<script src="/sUDE/js/main.js"></script>
 </head>
 
 <body>
-	<main class="container" id="tutorialCardContainer">
+	<main class="container">
 		<nav aria-label="breadcrumb">
 			<ul>
 				<li><a href="/">Home</a></li>
 				<li><a href="/sUDE">sUDE</a></li>
-				<li><a href="/sUDE/Tutorials">Tutorials</a></li>
+				<li><a href="/sUDE/tutorials">Tutorials</a></li>
 			</ul>
 		</nav>
+		<form>
+			<div class="grid">
+				<label for="searchByKeyword">
+					Search
+					<input type="text" id="searchByKeyword" name="searchByKeyword" placeholder="How to...">
+				</label>
+				<label for="filterByTags">
+					Filter by tags
+					<input type="text" id="filterByTags" name="filterByTags" placeholder="sFramework,sGunplay,sVisual">
+				</label>
+			</div>
+		</form>
+		<div id="tutorialCardContainer"></div>
 		<script>
-			fetchXML("tutorials.xml", xml => addTutorialCards(xml));
+			addTutorialsCardsAll(document.getElementById("tutorialCardContainer"));
 		</script>
 	</main>
 </body>

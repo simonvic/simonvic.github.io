@@ -47,7 +47,7 @@ function fetchXML(url, onSuccess) {
 
 function parseChangelog(xml) {
 	const doc = $(xml);
-	
+
 	var preamble = "";
 	doc.find("preamble").each((i, p) => preamble += p.innerHTML);
 
@@ -62,7 +62,7 @@ function parseChangelog(xml) {
 		}
 		changes.get(category).push(change.innerHTML);
 	});
-	
+
 	return {
 		mod: doc.find("mod").text(),
 		tag: doc.find("tag").text(),
@@ -80,7 +80,7 @@ function buildChangelog(changelog) {
 	html += `		${changelog.mod} | ${changelog.tag} | ${changelog.type} | <span>${relativeTimeDifference(new Date(changelog.date))}</span>`;
 	html += "	</summary>";
 	html += `<small>${changelog.date}</small>`;
-	html +=  `<p>${changelog.preamble}</p>`
+	html += `<p>${changelog.preamble}</p>`
 	changelog.changes.forEach((changes, category) => {
 		html += `<h5>${category.toUpperCase()}</h5>`;
 		html += "<ul>";
@@ -108,19 +108,43 @@ function addChangelogs(xml) {
 }
 
 
-
+function fetchTutorial(id) {
+	return fetch(`/sUDE/tutorials/${id}/card.xml`)
+		.then(response => response.text())
+		.then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+		.then(xml => {
+			xml.id = id;
+			return parseTutorialCard(xml);
+		});
+}
 
 function parseTutorialCard(xml) {
-	const doc = $(xml);
-	var id = doc[0].id;
+	var prerequisiteIDs = new Array();
+	let prerequisites = xml.evaluate("//prerequisites//id", xml, null, XPathResult.ANY_TYPE);
+	let prerequisite = prerequisites.iterateNext();
+	while (prerequisite) {
+		prerequisiteIDs.push(prerequisite.textContent);
+		prerequisite = prerequisites.iterateNext();
+	}
+
+	var tags = new Array();
+	let xmlTags = xml.evaluate("//tags//tag", xml, null, XPathResult.ANY_TYPE);
+	let tag = xmlTags.iterateNext();
+	while (tag) {
+		tags.push(tag.textContent);
+		tag = xmlTags.iterateNext();
+	}
+
+
+	var href = xml.getElementsByTagName("tutorial")[0].getAttribute("href");
 	return {
-		id: id,
-		summary: doc.find("summary")[0].innerHTML,
-		description: doc.find("description")[0].innerHTML,
-		difficulty: doc.find("difficulty")[0].innerHTML,
-		prerequisiteIDs: doc.find("prerequisite").children().get().map((value, i) => value.innerHTML),
-		href: (doc[0].hasAttribute("href") ? doc.attr("href") : id + ".html"),
-		tags: doc.find("tags").text().split(",")
+		id: xml.id,
+		title: xml.getElementsByTagName("title")[0].innerHTML,
+		description: xml.getElementsByTagName("description")[0].innerHTML,
+		difficulty: xml.getElementsByTagName("difficulty")[0].innerHTML,
+		prerequisiteIDs: prerequisiteIDs,
+		href: href != null ? href : xml.id,
+		tags: tags
 	};
 }
 
@@ -128,7 +152,7 @@ function buildTutorialCard(tutorialCard) {
 	var html = "";
 	html += `<div id="${tutorialCard.id}"><details ${document.location.href.endsWith("#" + tutorialCard.id) ? "open" : ""}>`;
 	html += "	<summary>";
-	html += `		<a href="#${tutorialCard.id}">#${tutorialCard.id}</a> | <b>${tutorialCard.summary}</b>`;
+	html += `		<a href="#${tutorialCard.id}" onclick="$('#${tutorialCard.id} details').attr('open', true);">#${tutorialCard.id}</a> | <b>${tutorialCard.title}</b>`;
 	html += "	</summary>";
 	html += `	<div class="grid">`;
 	html += `		<p>${tutorialCard.description}</p>`;
@@ -136,7 +160,7 @@ function buildTutorialCard(tutorialCard) {
 	html += `			<p data-tooltip="The difficulty is relative and only an approximation of the required knowledge">Difficulty <progress value="${tutorialCard.difficulty}" max="100"></progress></p>`;
 	html += `			<nav>`;
 	html += `				<ul>`;
-	html += `					<li><a href="${tutorialCard.href}" role="button">Open</a></li>`;
+	html += `					<li><a href="${tutorialCard.href}?id=${tutorialCard.id}" role="button" ${tutorialCard.href == "wip.html" ? "data-tooltip='WORK IN PROGRESS'" : ""}>Open</a></li>`;
 	html += `				</ul>`;
 	html += `			</nav>`;
 	// html += `			<ul>`;
@@ -150,12 +174,15 @@ function buildTutorialCard(tutorialCard) {
 	return html;
 }
 
-function addTutorialCards(xml) {
-	$(xml).find("tutorial").each((index, tutorialCard) => {
-		const jsonTutorialCard = parseTutorialCard(tutorialCard);
-		const html = buildTutorialCard(jsonTutorialCard);
-		document.getElementById("tutorialCardContainer").innerHTML += html;
-	});
+function addTutorialsCardsAll(document) {
+	addTutorialsCards([1], document);
+}
+
+function addTutorialsCards(ids, document) {
+	ids.forEach(id => fetchTutorial(id)
+		.then(cardJson => document.innerHTML += buildTutorialCard(cardJson))
+		.catch(err => console.error(err))
+	);
 }
 
 function getBreadCrumbs(url) {

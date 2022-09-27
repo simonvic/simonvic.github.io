@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<tutorial>
+	<title>How to create and use PPEffects</title>
+	<description>
+		This tutorial will teach you the basics of creating, animating and applying
+		<em data-tooltip="Post processing effect">PPEffects</em> using sFramework's
+		<em data-tooltip="Post processing effect Manager">PPEManager</em>
+	</description>
+	<prerequisites>
+		<id>1</id>
+		<id>2</id>
+	</prerequisites>
+	<difficulty>25</difficulty>
+	<tags>
+		<tag>sFramework</tag>
+		<tag>sVisual</tag>
+	</tags>
+</tutorial>

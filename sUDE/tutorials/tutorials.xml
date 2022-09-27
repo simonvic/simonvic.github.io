@@ -1,6 +1,7 @@
 <tutorials>
 
-	<tutorial id="1" href="wip.html">
+	<tutorial id="1">
+		<title>How to create and use <em data-tooltip="Post processing effect">PPEffects</em></title>
 		<summary>How to create and use <em data-tooltip="Post processing effect">PPEffects</em></summary>
 		<description>
 			This tutorial will teach you the basics of creating, animating and applying
@@ -12,6 +13,7 @@
 	</tutorial>
 
 	<tutorial id="2" href="wip.html">
+		<title>How to personalize default <em data-tooltip="Post processing effect">PPEffects</em></title>
 		<summary>How to personalize default <em data-tooltip="Post processing effect">PPEffects</em></summary>
 		<description>
 			A brief tutorial on how to configure the default <em data-tooltip="Post processing effect">PPEffects</em>
@@ -21,108 +23,126 @@
 		<difficulty>5</difficulty>
 	</tutorial>
 	<tutorial id="3" href="wip.html">
+		<title>How to make and use a custom PostProcessing Effect</title>
 		<summary>How to make and use a custom PostProcessing Effect</summary>
 		<description>Description</description>
 		<difficulty>69</difficulty>
 		<tags></tags>
 	</tutorial>
 	<tutorial id="4" href="wip.html">
+		<title>How to make a custom PostProcessing Effect and apply it using sVisual</title>
 		<summary>How to make a custom PostProcessing Effect and apply it using sVisual</summary>
 		<description>Description</description>
 		<difficulty>69</difficulty>
 		<tags></tags>
 	</tutorial>
 	<tutorial id="5" href="wip.html">
+		<title>How to personalize default PostProcessing values</title>
 		<summary>How to personalize default PostProcessing values</summary>
 		<description>Description</description>
 		<difficulty>69</difficulty>
 		<tags></tags>
 	</tutorial>
 	<tutorial id="6" href="wip.html">
+		<title>How to personalize default PostProcessing values</title>
 		<summary>How to personalize default PostProcessing values</summary>
 		<description>Description</description>
 		<difficulty>69</difficulty>
 		<tags></tags>
 	</tutorial>
 	<tutorial id="7" href="wip.html">
+		<title>How to make a modded weapon compatible</title>
 		<summary>How to make a modded weapon compatible</summary>
 		<description>Description</description>
 		<difficulty>69</difficulty>
 		<tags></tags>
 	</tutorial>
 	<tutorial id="8" href="wip.html">
+		<title>How to make a modded weapon compatible</title>
 		<summary>How to make a modded weapon compatible</summary>
 		<description>Description</description>
 		<difficulty>69</difficulty>
 		<tags></tags>
 	</tutorial>
 	<tutorial id="9" href="wip.html">
+		<title>How to make a modded optic compatible</title>
 		<summary>How to make a modded optic compatible</summary>
 		<description>Description</description>
 		<difficulty>69</difficulty>
 		<tags></tags>
 	</tutorial>
 	<tutorial id="10" href="wip.html">
+		<title>How to make a modded optic compatible</title>
 		<summary>How to make a modded optic compatible</summary>
 		<description>Description</description>
 		<difficulty>69</difficulty>
 		<tags></tags>
 	</tutorial>
 	<tutorial id="11" href="wip.html">
+		<title>How to force user settings</title>
 		<summary>How to force user settings</summary>
 		<description>Description</description>
 		<difficulty>69</difficulty>
 		<tags></tags>
 	</tutorial>
 	<tutorial id="12" href="wip.html">
+		<title>How to force user settings</title>
 		<summary>How to force user settings</summary>
 		<description>Description</description>
 		<difficulty>69</difficulty>
 		<tags></tags>
 	</tutorial>
 	<tutorial id="13" href="wip.html">
+		<title>How to use the mods in offline mode</title>
 		<summary>How to use the mods in offline mode</summary>
 		<description>Description</description>
 		<difficulty>69</difficulty>
 		<tags></tags>
 	</tutorial>
 	<tutorial id="14" href="wip.html">
+		<title>How to use overlays</title>
 		<summary>How to use overlays</summary>
 		<description>Description</description>
 		<difficulty>69</difficulty>
 		<tags></tags>
 	</tutorial>
 	<tutorial id="15" href="wip.html">
+		<title>PostProcessing effects explanation</title>
 		<summary>PostProcessing effects explanation</summary>
 		<description>Description</description>
 		<difficulty>69</difficulty>
 		<tags></tags>
 	</tutorial>
 	<tutorial id="16" href="wip.html">
+		<title>How to make a mod compatible with sVisual</title>
 		<summary>How to make a mod compatible with sVisual</summary>
 		<description>Description</description>
 		<difficulty>69</difficulty>
 		<tags></tags>
 	</tutorial>
 	<tutorial id="17" href="wip.html">
+		<title>How to add OVERLAYS to clothing</title>
 		<summary>How to add OVERLAYS to clothing</summary>
 		<description>Description</description>
 		<difficulty>69</difficulty>
 		<tags></tags>
 	</tutorial>
 	<tutorial id="18" href="wip.html">
+		<title>How to create .edds file</title>
 		<summary>How to create .edds file</summary>
 		<description>Description</description>
 		<difficulty>69</difficulty>
 		<tags></tags>
 	</tutorial>
 	<tutorial id="19" href="wip.html">
+		<title>Quick start to mod sUDE modules</title>
 		<summary>Quick start to mod sUDE modules</summary>
 		<description>Description</description>
 		<difficulty>69</difficulty>
 		<tags></tags>
 	</tutorial>
 	<tutorial id="20" href="wip.html">
+		<title>How to constrain user settings from the server</title>
 		<summary>How to constrain user settings from the server</summary>
 		<description>Description</description>
 		<difficulty>69</difficulty>

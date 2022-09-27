@@ -10,8 +10,8 @@
 	--muted-border-color: #444444;
 	--card-background-color: #333333;
 	--card-sectionning-background-color: #444444;
-	--form-element-background-color: #444444;
-	--form-element-border-color: #444444;
+	--form-element-background-color: #353535;
+	--form-element-border-color: transparent;
 	--switch-background-color: #333333;
 	--progress-background-color: #333333;
 	--color: #DADADA;
@@ -25,4 +25,9 @@
 	--primary: #F0544C;
 	--primary-hover: #d32f2f;
 	--primary-focus: rgba(229, 57, 53, 0.125);
+}
+
+.vbox {
+	display: flex;
+	flex-direction: column;
 }

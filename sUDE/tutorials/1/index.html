@@ -2,11 +2,14 @@
 <html>
 
 <head>
-	<title>sUDE | Changelogs</title>
+	<title>sUDE | Tutorials</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="/sUDE/css/style.css">
+	<link rel="stylesheet" href="/sUDE/css/highlight.css">
 	<script src="/sUDE/js/jquery.js"></script>
 	<script src="/sUDE/js/main.js"></script>
+	<script src="/sUDE/tutorials/js/tutorials.js"></script>
+</head>
 
 <body>
 	<main class="container">
@@ -14,17 +17,11 @@
 			<ul>
 				<li><a href="/">Home</a></li>
 				<li><a href="/sUDE">sUDE</a></li>
-				<li><a href="/sUDE/changelogs">Changelogs</a></li>
+				<li><a href="/sUDE/tutorials">Tutorials</a></li>
+				<li><a href="/sUDE/tutorials">Tutorials</a></li>
 			</ul>
 		</nav>
-
-		<div id="changelogContainer">
-			<script>
-
-				fetchXML("changelogs.xml", xml => addChangelogs(xml));
-
-			</script>
-		</div>
+		
 	</main>
 </body>
 
