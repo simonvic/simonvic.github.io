@@ -9,6 +9,8 @@
 	<script src="/sUDE/js/jquery.js"></script>
 	<script src="/sUDE/js/main.js"></script>
 	<script src="/sUDE/tutorials/js/tutorials.js"></script>
+	<script src="/sUDE/js/highlight.js"></script>
+	<script>hljs.highlightAll();</script>
 </head>
 
 <body>
@@ -18,10 +20,114 @@
 				<li><a href="/">Home</a></li>
 				<li><a href="/sUDE">sUDE</a></li>
 				<li><a href="/sUDE/tutorials">Tutorials</a></li>
-				<li><a href="/sUDE/tutorials">Tutorials</a></li>
+				<li id="breadcrumb_current">...</li>
 			</ul>
 		</nav>
-		
+
+		<ol id="steps" class="steps">
+			<li><a href="#Setup">Setup</a></li>
+			<li><a href="#Defining_an_effect">Defining an effect</a></li>
+			<li><a href="#Applying_the_effect">Applying the effect</a></li>
+		</ol>
+
+		<ol>
+			<li>
+				<h3 id="Setup">Setup</h3>
+				<p>
+					Add sVisual as a dependency by adding it to the <mark>requiredAddons</mark>
+					inside your <mark>config.cpp</mark>
+				</p>
+				<pre><code>
+// more stuff here...
+class CfgPatches {
+	class YourMod {
+		// more stuff here...
+		requiredAddons[] = {
+			"sVisual"
+		};
+		// more stuff here...
+	};
+};
+// more stuff here...
+				</code></pre>
+
+			</li>
+			<li>
+				<h3 id="Defining_an_effect">Defining an effect</h3>
+				<p><mark>sVisual</mark> currently supports 3 types of effect:</p>
+				<ul>
+					<li><mark>SPPEffect</mark></li>
+					<li><mark>SPPEffectAnimated</mark></li>
+					<li><mark>SPPEffectTimed</mark></li>
+				</ul>
+				<p>Use a <mark>SPPEffect</mark> if you want to define a normal effect</p>
+				<pre><code>
+class MyStaticEffect : SPPEffect {
+	override void onInit() {
+		setVignette(0.69, Color.rgb(0xFF0000)); //intensity = 0.69 | color = red -> https://www.w3schools.com/cssref/css_colors.asp
+		//...
+	}  
+}
+				</code></pre>
+
+				<p>
+					Use a <mark>SPPEffectAnimated</mark> if you want to define an animated effect which will be animated
+					until deactivated
+				</p>
+				<pre><code>
+class MyLoopedEffect : SPPEffectAnimated {
+	//onInit() gets called only once
+	override void onInit(){
+		setVignetteColor(Color.rgb(0xFF0000));
+		//...
+	}
+
+	//onAnimate() gets called every frame!
+	override void onAnimate(float deltaTime){
+		setVignetteIntensity(Math.Sin(getTime())); // the intensity will follow a Sine function as the time passes
+	}
+}						
+				</code></pre>
+				<p>
+					Use a SPPEffectTimed if you want to define an animated effect which will be animated but must
+					terminate
+					after a certain amount of time
+					(the definition is the same as above)
+				</p>
+			</li>
+			<li>
+				<h3 id="Applying_the_effect">Applying the effect</h3>
+				<p>Let's say we want to make our effect visible when the player jumps</p>
+				<pre><code>
+modded class PlayerBase{
+	//Declare a variable of our effect
+	ref MyStaticEffect myStaticEffect; 
+	ref MyLoopedEffect myLoopedEffect;
+	ref MyTimedEffect myTimedEffect;
+	
+	void PlayerBase() {
+		myStaticEffect = new MyStaticEffect(); 
+		myLoopedEffect = new MyLoopedEffect();
+		//A PPETimedParams requires you to specify the time (seconds).
+		// myTimedEffect once activated will be animated for 10 seconds and then deactivated
+		myTimedEffect = new MyTimedEffect(10);
+	}
+
+	override void OnJumpStart(){
+		super.OnJumpStart();
+		//Make sure we apply the effect only client side 
+		if( GetInstanceType() == DayZPlayerInstanceType.INSTANCETYPE_CLIENT ){
+			//Activating the effects
+			SPPEManager.activate(myStaticEffect);
+			SPPEManager.activate(myLoopedEffect);
+			SPPEManager.activate(myTimedEffect);
+		}
+	}
+}					
+				</code></pre>
+			</li>
+		</ol>
+
 	</main>
 </body>
 

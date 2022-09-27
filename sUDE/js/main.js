@@ -160,7 +160,7 @@ function buildTutorialCard(tutorialCard) {
 	html += `			<p data-tooltip="The difficulty is relative and only an approximation of the required knowledge">Difficulty <progress value="${tutorialCard.difficulty}" max="100"></progress></p>`;
 	html += `			<nav>`;
 	html += `				<ul>`;
-	html += `					<li><a href="${tutorialCard.href}?id=${tutorialCard.id}" role="button" ${tutorialCard.href == "wip.html" ? "data-tooltip='WORK IN PROGRESS'" : ""}>Open</a></li>`;
+	html += `					<li><a href="${tutorialCard.href}" role="button" ${tutorialCard.href == "wip.html" ? "data-tooltip='WORK IN PROGRESS'" : ""}>Open</a></li>`;
 	html += `				</ul>`;
 	html += `			</nav>`;
 	// html += `			<ul>`;
@@ -175,7 +175,7 @@ function buildTutorialCard(tutorialCard) {
 }
 
 function addTutorialsCardsAll(document) {
-	addTutorialsCards([1], document);
+	addTutorialsCards([1, 2], document);
 }
 
 function addTutorialsCards(ids, document) {

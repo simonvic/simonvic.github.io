@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>sUDE | Tutorials</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/sUDE/css/style.css">
+	<link rel="stylesheet" href="/sUDE/css/highlight.css">
+	<script src="/sUDE/js/jquery.js"></script>
+	<script src="/sUDE/js/main.js"></script>
+	<script src="/sUDE/tutorials/js/tutorials.js"></script>
+	<script src="/sUDE/js/highlight.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body>
+	<main class="container">
+		<nav aria-label="breadcrumb">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/sUDE">sUDE</a></li>
+				<li><a href="/sUDE/tutorials">Tutorials</a></li>
+				<li id="breadcrumb_current">...</li>
+			</ul>
+		</nav>
+
+		<ol id="steps" class="steps">
+			<li><a href="#Setup">Setup</a></li>
+			<li><a href="#PiP">Add <em data-tooltip="Picture In Picture, aka lens magnification">PiP</em> to magnifying
+					optics</a></li>
+			<li><a href="#Recoils">Recoils</a>
+				<ol>
+					<li><a href="#Weapon-Recoils">Weapon recoils</a>
+					<li><a href="#Attachments_stats">Attachments stats</a>
+				</ol>
+			</li>
+		</ol>
+
+		<ol>
+			<li>
+				<h3 id="Setup">Setup</h3>
+				<p>
+					Add sGunplay as a dependency by adding it to the <mark>requiredAddons</mark>
+					inside your <mark>config.cpp</mark>
+				</p>
+
+				<pre><code>
+class CfgPatches {
+	class YourMod {
+		requiredAddons[] = {
+			"sGunplay"
+		};
+	};
+};
+				</code></pre>
+
+			</li>
+			<li>
+				<h3 id="PiP">Add <em data-tooltip="Picture In Picture, aka lens magnification">PiP</em> to magnifying
+					optics</h3>
+			</li>
+			<li>
+				<h3 id="Recoils">Recoils</h3>
+				<ol>
+					<li>
+						<h4 id="#Weapon-Recoils">Weapon recoils</h4>
+					</li>
+					<li>
+						<h4 id="#Attachments_stats">Attachments stats</h4>
+					</li>
+				</ol>
+			</li>
+		</ol>
+
+	</main>
+</body>
+
+</html>
