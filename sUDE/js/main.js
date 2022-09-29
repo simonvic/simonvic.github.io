@@ -36,23 +36,18 @@ function relativeTimeDifference(previous) {
 }
 
 function fetchXML(url, onSuccess) {
-	$.ajax({
-		type: "GET",
-		url: url,
-		dataType: "xml",
-		success: xml => onSuccess(xml)
-	});
-
+	return fetch(url)
+		.then(response => response.text())
+		.then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+		.then(xml => onSuccess(xml));
 }
 
 function parseChangelog(xml) {
-	const doc = $(xml);
-
 	var preamble = "";
-	doc.find("preamble").each((i, p) => preamble += p.innerHTML);
+	Array.from(xml.getElementsByTagName("preamble")).forEach(p => preamble += p.innerHTML);
 
 	var changes = new Map();
-	doc.find("changes").children().each((i, change) => {
+	Array.from(xml.getElementsByTagName("changes")[0].children).forEach(change => {
 		var category = change.tagName;
 		if (change.hasAttribute("name")) {
 			category = $(change).attr("name");
@@ -63,11 +58,12 @@ function parseChangelog(xml) {
 		changes.get(category).push(change.innerHTML);
 	});
 
+	console.log(xml.getElementsByTagName("mod")[0].innerHTML);
 	return {
-		mod: doc.find("mod").text(),
-		tag: doc.find("tag").text(),
-		type: doc.find("type").text(),
-		date: doc.find("date").text(),
+		mod: xml.getElementsByTagName("mod")[0].innerHTML,
+		tag: xml.getElementsByTagName("tag")[0].innerHTML,
+		type: xml.getElementsByTagName("type")[0].innerHTML,
+		date: xml.getElementsByTagName("date")[0].innerHTML,
 		preamble: preamble,
 		changes: changes
 	};
@@ -75,7 +71,7 @@ function parseChangelog(xml) {
 
 function buildChangelog(changelog) {
 	var html = "";
-	html += `<details>`;
+	html += `<details open>`;
 	html += "	<summary>";
 	html += `		${changelog.mod} | ${changelog.tag} | ${changelog.type} | <span>${relativeTimeDifference(new Date(changelog.date))}</span>`;
 	html += "	</summary>";
@@ -99,23 +95,12 @@ function buildChangelog(changelog) {
 	return html;
 }
 
-function addChangelogs(xml) {
-	$($(xml).find("changelog").get().reverse()).each((index, changelog) => {
-		const jsonChangelog = parseChangelog(changelog);
-		const html = buildChangelog(jsonChangelog);
-		document.getElementById("changelogContainer").innerHTML += html;
-	});
-}
 
-
-function fetchTutorial(id) {
-	return fetch(`/sUDE/tutorials/${id}/card.xml`)
+function fetchTutorial(id, onSuccess) {
+	return fetch(`/sUDE/tutorials/tutorials.xml`)
 		.then(response => response.text())
 		.then(str => new window.DOMParser().parseFromString(str, "text/xml"))
-		.then(xml => {
-			xml.id = id;
-			return parseTutorialCard(xml);
-		});
+		.then(xml => onSuccess(xml));
 }
 
 function parseTutorialCard(xml) {

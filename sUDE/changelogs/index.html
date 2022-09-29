@@ -20,9 +20,11 @@
 
 		<div id="changelogContainer">
 			<script>
-
-				fetchXML("changelogs.xml", xml => addChangelogs(xml));
-
+				fetchXML("changelogs.xml", xml => {
+					const container = document.getElementById("changelogContainer");
+					const changelogs = Array.from(xml.getElementsByTagName("changelog")).reverse();
+					changelogs.forEach(changelog => container.innerHTML += buildChangelog(parseChangelog(changelog)));
+				});
 			</script>
 		</div>
 	</main>
