@@ -22,6 +22,11 @@
 	--mark-background-color: #666666aa;
 	--mark-color: #DADADA;
 	--code-background-color: #303030;
+
+	--note-accent: rgb(216, 228, 76);
+	--note-accent-bg: rgba(216, 228, 76, 0.05);
+	--info-accent: rgb(74, 215, 234);
+	--info-accent-bg: rgba(74, 215, 234, 0.05);
 }
 
 :root:not([data-theme="dark"]) {
@@ -51,6 +56,33 @@ ol.steps {
 	border-inline-end: none;
 }
 
+
+
+blockquote.info:before {
+	content: "INFO\a";
+	white-space: pre;
+}
+
+blockquote.note:before {
+	content: "NOTE\a";
+	white-space: pre;
+}
+
+blockquote.info {
+	border-left: .25rem solid var(--info-accent);
+	-webkit-border-start: 0.25rem solid var(--info-accent);
+	border-inline-start: 0.25rem solid var(--info-accent);
+	background-color: var(--info-accent-bg);
+}
+
+blockquote.note {
+	border-left: .25rem solid var(--note-accent);
+	-webkit-border-start: 0.25rem solid var(--note-accent);
+	border-inline-start: 0.25rem solid var(--note-accent);
+	background-color: var(--note-accent-bg);
+}
+
 .hljs {
 	background-color: #303030 !important;
 }
+

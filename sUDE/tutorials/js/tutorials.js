@@ -7,4 +7,5 @@ window.onload = () => {
 function onTutorialLoad(tutorial) {
 	document.title = `sUDE | ${tutorial.title}`;
 	document.getElementById("breadcrumb_current").innerHTML = tutorial.title;
+	document.getElementsByTagName("main")[0].setAttribute("aria-busy", "false");
 }

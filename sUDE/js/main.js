@@ -121,19 +121,12 @@ function buildTutorialCard(tutorialCard) {
 	html += `		<a href="#${tutorialCard.id}" onclick="$('#${tutorialCard.id} details').attr('open', true);">#${tutorialCard.id}</a> | <b>${tutorialCard.title}</b>`;
 	html += "	</summary>";
 	html += `	<div class="grid">`;
-	html += `		<p>${tutorialCard.description}</p>`;
-	html += `		<div class="grid">`;
+	html += `		<div class="container">`;
+	html += `			<p>${tutorialCard.description}</p>`;
+	html += `		</div>`;
+	html += `		<div class="container">`;
 	html += `			<p data-tooltip="The difficulty is relative and only an approximation of the required knowledge">Difficulty <progress value="${tutorialCard.difficulty}" max="100"></progress></p>`;
-	html += `			<nav>`;
-	html += `				<ul>`;
-	html += `					<li><a href="${tutorialCard.href}" role="button" ${tutorialCard.href == "wip.html" ? "data-tooltip='WORK IN PROGRESS'" : ""}>Open</a></li>`;
-	html += `				</ul>`;
-	html += `			</nav>`;
-	// html += `			<ul>`;
-	// tutorialCard.prerequisiteIDs.forEach((id, index) => {
-	// 	html += `<li><a href="tutorial_${id}">${id}</a></li>`;
-	// });
-	// html += `			</ul>`;
+	html += `			<a href="${tutorialCard.href}" role="button" ${tutorialCard.href == "wip.html" ? "data-tooltip='WORK IN PROGRESS'" : ""}>Open</a>`;
 	html += `		</div>`;
 	html += `	</div>`;
 	html += `</details></div>`;

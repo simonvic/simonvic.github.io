@@ -13,7 +13,7 @@
 </head>
 
 <body>
-	<main class="container">
+	<main class="container" aria-busy="true">
 		<nav aria-label="breadcrumb">
 			<ul>
 				<li><a href="/">Home</a></li>
@@ -25,8 +25,12 @@
 
 		<ol id="steps" class="steps">
 			<li><a href="#Setup">Setup</a></li>
-			<li><a href="#PiP">Add <em data-tooltip="Picture In Picture, aka lens magnification">PiP</em> to magnifying
-					optics</a></li>
+			<li><a href="#Optics">Optics</a>
+				<ol>
+					<li><a href="#Optics_PiP">PiP</a></li>
+					<li><a href="#Optics_Other">Other parameters</a></li>
+				</ol>
+			</li>
 			<li><a href="#Recoils">Recoils</a>
 				<ol>
 					<li><a href="#Weapon-Recoils">Weapon recoils</a>
@@ -54,18 +58,103 @@ class CfgPatches {
 				</code></pre>
 
 			</li>
-			<li>
-				<h3 id="PiP">Add <em data-tooltip="Picture In Picture, aka lens magnification">PiP</em> to magnifying
-					optics</h3>
-			</li>
-			<li>
-				<h3 id="Recoils">Recoils</h3>
+			<li id="Optics">
+				<h3>Optics</h3>
+
 				<ol>
-					<li>
-						<h4 id="#Weapon-Recoils">Weapon recoils</h4>
+					<li id="Optics_PiP">
+						<h4><em data-tooltip="Picture In Picture, aka lens magnification">PiP</em></h4>
+						<p>
+							If your optic has magnification (e.g. 2x, 4x, 6x etc), you should define some additional
+							attributes
+							to enable the <em data-tooltip="Picture In Picture, aka lens magnification">PiP</em>. These
+							attributes will have to be added in the <mark>config.cpp</mark> class definition of your
+							optic.
+						</p>
+						<p>The configurable attributes are:</p>
+						<ul>
+							<li><mark>s_pipRadius</mark>: radius of the lens<br />
+								<small>0.1 = very small | 0.9 = almost full screen</small><br />
+								<img src="https://imgur.com/AWIRSGt.png" width="25%">
+							</li>
+							<li><mark>s_pipMagnification</mark>: intensity of the magnification<br />
+								<small>0.1 = low magnification | 0.5 = strong magnification</small><br />
+								<img src="https://imgur.com/PgpWOA5.png" width="25%">
+								<blockquote class="note">
+									The final lens magnification also depends on the user option of the lens magnification.
+									See <a>user options</a> for more info
+								</blockquote>
+							</li>
+							<li><mark>s_pipBlur</mark>: blur of the PiP circumference<br />
+								<small>0.01 = sharp | 0.3 = very blurred</small><br />
+								<img src="https://imgur.com/Tq9GTlT.png" width="25%">
+							</li>
+							<li><mark>s_pipChromAber</mark>: chromatic aberration intensity<br />
+								<small>0.01 = sharp | 0.3 = very blurred</small><br />
+								<img src="https://imgur.com/KET237w.png" width="25%">
+							</li>
+							<li><mark>s_pipOffset</mark>: horizontal and vertical offset of the PiP on the screen.<br />
+								<small>Acceptable values are between -1.0 and 1.0;</small><br />
+								<small>You shouldn't need to change these.</small><br />
+								<img src="https://imgur.com/YIDoj9b.png" width="25%">
+							</li>
+							<li><mark>s_pipLensOffset</mark>: horizontal and vertical offset of magnification<br />
+								<small>Acceptable values are between -1.0 and 1.0;</small><br />
+								<small>You shouldn't need to change these.</small><br />
+								<img src="https://imgur.com/74xNWlE.png" width="25%">
+							</li>
+						</ul>
+						<br />
 					</li>
-					<li>
-						<h4 id="#Attachments_stats">Attachments stats</h4>
+					<li id="Optics_Other">
+						<h4>Other parameters</h4>
+						<p>
+							If your optic has a "fullscreen reticle", like the vanilla <i>HuntingOptic</i>, you should
+							enable the <mark>s_isFullscreen</mark> to make the optic behave correctly, and
+							optionally the <mark>s_showEnterMisalignment</mark> to enable a slight misalignment effect
+							upon entering the optic.
+						</p>
+						<p>Both are boolean options: they accept <mark>true</mark>(1) or <mark>false</mark>(0)</p>
+						<pre><code>
+s_isFullscreen = 1;
+s_showEnterMisalignment = 1;
+						</code></pre>
+					</li>
+				</ol>
+				<p>This is an example configuration of two optics</p>
+				<pre><code>
+	class cfgVehicles {
+
+		class ItemOptics;
+		class NAME_OF_YOUR_OPTIC : ItemOptics {
+			s_pipRadius = 0.3;
+			s_pipMagnification = 0.3;
+			s_pipBlur = 0.01;
+			s_pipChromAber = 0.2;
+			// rest of your config.cpp
+		};
+
+		class NAME_OF_YOUR_SNIPER_OPTIC : ItemOptics {
+			s_isFullscreen = 1;
+			s_showEnterMisalignment = 1;
+			s_pipRadius = 1.0;
+			s_pipMagnification = 0.2;
+			s_pipBlur = 0.01;
+			s_pipChromAber = 0.3;
+			// rest of your config.cpp
+		};
+	};
+					</code></pre>
+
+			</li>
+			<li id="Recoils">
+				<h3>Recoils</h3>
+				<ol>
+					<li id="Weapon-Recoils">
+						<h4>Weapon recoils</h4>
+					</li>
+					<li id="Attachments_stats">
+						<h4>Attachments stats</h4>
 					</li>
 				</ol>
 			</li>
