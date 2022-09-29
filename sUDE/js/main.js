@@ -58,7 +58,6 @@ function parseChangelog(xml) {
 		changes.get(category).push(change.innerHTML);
 	});
 
-	console.log(xml.getElementsByTagName("mod")[0].innerHTML);
 	return {
 		mod: xml.getElementsByTagName("mod")[0].innerHTML,
 		tag: xml.getElementsByTagName("tag")[0].innerHTML,
@@ -71,7 +70,7 @@ function parseChangelog(xml) {
 
 function buildChangelog(changelog) {
 	var html = "";
-	html += `<details open>`;
+	html += `<details>`;
 	html += "	<summary>";
 	html += `		${changelog.mod} | ${changelog.tag} | ${changelog.type} | <span>${relativeTimeDifference(new Date(changelog.date))}</span>`;
 	html += "	</summary>";
@@ -95,33 +94,15 @@ function buildChangelog(changelog) {
 	return html;
 }
 
-
-function fetchTutorial(id, onSuccess) {
-	return fetch(`/sUDE/tutorials/tutorials.xml`)
-		.then(response => response.text())
-		.then(str => new window.DOMParser().parseFromString(str, "text/xml"))
-		.then(xml => onSuccess(xml));
-}
-
 function parseTutorialCard(xml) {
 	var prerequisiteIDs = new Array();
-	let prerequisites = xml.evaluate("//prerequisites//id", xml, null, XPathResult.ANY_TYPE);
-	let prerequisite = prerequisites.iterateNext();
-	while (prerequisite) {
-		prerequisiteIDs.push(prerequisite.textContent);
-		prerequisite = prerequisites.iterateNext();
-	}
+	Array.from(xml.getElementsByTagName("prerequisites")[0].children).forEach(id => prerequisiteIDs.push(id.innerHTML));
 
 	var tags = new Array();
-	let xmlTags = xml.evaluate("//tags//tag", xml, null, XPathResult.ANY_TYPE);
-	let tag = xmlTags.iterateNext();
-	while (tag) {
-		tags.push(tag.textContent);
-		tag = xmlTags.iterateNext();
-	}
+	Array.from(xml.getElementsByTagName("tags")[0].children).forEach(tag => tags.push(tag.innerHTML));
 
+	var href = xml.getAttribute("href");
 
-	var href = xml.getElementsByTagName("tutorial")[0].getAttribute("href");
 	return {
 		id: xml.id,
 		title: xml.getElementsByTagName("title")[0].innerHTML,
@@ -156,31 +137,5 @@ function buildTutorialCard(tutorialCard) {
 	html += `		</div>`;
 	html += `	</div>`;
 	html += `</details></div>`;
-	return html;
-}
-
-function addTutorialsCardsAll(document) {
-	addTutorialsCards([1, 2], document);
-}
-
-function addTutorialsCards(ids, document) {
-	ids.forEach(id => fetchTutorial(id)
-		.then(cardJson => document.innerHTML += buildTutorialCard(cardJson))
-		.catch(err => console.error(err))
-	);
-}
-
-function getBreadCrumbs(url) {
-	var html = "";
-	html += '<ul>';
-	var crumbs = /sUDE(.*)/.exec(url)[1].split("/");
-	crumbs.shift();
-	crumbs = ["Home", "sUDE"].concat(crumbs);
-	var url = "/sUDE";
-	crumbs.forEach((element, index) => {
-		html += `<li><a href=${url}>${element}</a></li>`;
-		url += `/${element}`;
-	});
-	html += '</ul>';
 	return html;
 }

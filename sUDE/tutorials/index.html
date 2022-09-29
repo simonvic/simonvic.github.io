@@ -5,7 +5,6 @@
 	<title>sUDE | Tutorials</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="/sUDE/css/style.css">
-	<script src="/sUDE/js/jquery.js"></script>
 	<script src="/sUDE/js/main.js"></script>
 </head>
 
@@ -30,9 +29,13 @@
 				</label>
 			</div>
 		</form>
-		<div id="tutorialCardContainer"></div>
+		<div id="tutorialsCardsContainer"></div>
 		<script>
-			addTutorialsCardsAll(document.getElementById("tutorialCardContainer"));
+			fetchXML("tutorials.xml", xml => {
+				const container = document.getElementById("tutorialsCardsContainer");
+				const cards = Array.from(xml.getElementsByTagName("tutorial"));
+				cards.forEach(card => container.innerHTML += buildTutorialCard(parseTutorialCard(card)));
+			});
 		</script>
 	</main>
 </body>
