@@ -43,21 +43,21 @@
 			<li>
 				<h3 id="Setup">Setup</h3>
 				<p>
-					Add sGunplay as a dependency by adding it to the <mark>requiredAddons</mark>
-					inside your <mark>config.cpp</mark>
+					Add sGunplay as a dependency by adding it to the <code>requiredAddons</code>
+					inside your <code>config.cpp</code>
 				</p>
 
 				<pre><code>
-class CfgPatches {
-	class YourMod {
-		requiredAddons[] = {
-			"sGunplay"
+	class CfgPatches {
+		class YourMod {
+			requiredAddons[] = {
+				"sGunplay"
+			};
 		};
 	};
-};
 				</code></pre>
-
 			</li>
+
 			<li id="Optics">
 				<h3>Optics</h3>
 
@@ -68,37 +68,38 @@ class CfgPatches {
 							If your optic has magnification (e.g. 2x, 4x, 6x etc), you should define some additional
 							attributes
 							to enable the <em data-tooltip="Picture In Picture, aka lens magnification">PiP</em>. These
-							attributes will have to be added in the <mark>config.cpp</mark> class definition of your
+							attributes will have to be added in the <code>config.cpp</code> class definition of your
 							optic.
 						</p>
 						<p>The configurable attributes are:</p>
 						<ul>
-							<li><mark>s_pipRadius</mark>: radius of the lens<br />
+							<li><code>s_pipRadius</code>: radius of the lens<br />
 								<small>0.1 = very small | 0.9 = almost full screen</small><br />
 								<img src="https://imgur.com/AWIRSGt.png" width="25%">
 							</li>
-							<li><mark>s_pipMagnification</mark>: intensity of the magnification<br />
+							<li><code>s_pipMagnification</code>: intensity of the magnification<br />
 								<small>0.1 = low magnification | 0.5 = strong magnification</small><br />
 								<img src="https://imgur.com/PgpWOA5.png" width="25%">
 								<blockquote class="note">
-									The final lens magnification also depends on the user option of the lens magnification.
+									The final lens magnification also depends on the user option of the lens
+									magnification.
 									See <a>user options</a> for more info
 								</blockquote>
 							</li>
-							<li><mark>s_pipBlur</mark>: blur of the PiP circumference<br />
+							<li><code>s_pipBlur</code>: blur of the PiP circumference<br />
 								<small>0.01 = sharp | 0.3 = very blurred</small><br />
 								<img src="https://imgur.com/Tq9GTlT.png" width="25%">
 							</li>
-							<li><mark>s_pipChromAber</mark>: chromatic aberration intensity<br />
+							<li><code>s_pipChromAber</code>: chromatic aberration intensity<br />
 								<small>0.01 = sharp | 0.3 = very blurred</small><br />
 								<img src="https://imgur.com/KET237w.png" width="25%">
 							</li>
-							<li><mark>s_pipOffset</mark>: horizontal and vertical offset of the PiP on the screen.<br />
+							<li><code>s_pipOffset</code>: horizontal and vertical offset of the PiP on the screen.<br />
 								<small>Acceptable values are between -1.0 and 1.0;</small><br />
 								<small>You shouldn't need to change these.</small><br />
 								<img src="https://imgur.com/YIDoj9b.png" width="25%">
 							</li>
-							<li><mark>s_pipLensOffset</mark>: horizontal and vertical offset of magnification<br />
+							<li><code>s_pipLensOffset</code>: horizontal and vertical offset of magnification<br />
 								<small>Acceptable values are between -1.0 and 1.0;</small><br />
 								<small>You shouldn't need to change these.</small><br />
 								<img src="https://imgur.com/74xNWlE.png" width="25%">
@@ -110,14 +111,14 @@ class CfgPatches {
 						<h4>Other parameters</h4>
 						<p>
 							If your optic has a "fullscreen reticle", like the vanilla <i>HuntingOptic</i>, you should
-							enable the <mark>s_isFullscreen</mark> to make the optic behave correctly, and
-							optionally the <mark>s_showEnterMisalignment</mark> to enable a slight misalignment effect
+							enable the <code>s_isFullscreen</code> to make the optic behave correctly, and
+							optionally the <code>s_showEnterMisalignment</code> to enable a slight misalignment effect
 							upon entering the optic.
 						</p>
-						<p>Both are boolean options: they accept <mark>true</mark>(1) or <mark>false</mark>(0)</p>
+						<p>Both are boolean options: they accept <code>true</code>(1) or <code>false</code>(0)</p>
 						<pre><code>
-s_isFullscreen = 1;
-s_showEnterMisalignment = 1;
+	s_isFullscreen = 1;
+	s_showEnterMisalignment = 1;
 						</code></pre>
 					</li>
 				</ol>
@@ -144,9 +145,10 @@ s_showEnterMisalignment = 1;
 			// rest of your config.cpp
 		};
 	};
-					</code></pre>
+				</code></pre>
 
 			</li>
+			
 			<li id="Recoils">
 				<h3>Recoils</h3>
 				<ol>

@@ -33,8 +33,8 @@
 			<li>
 				<h3 id="Setup">Setup</h3>
 				<p>
-					Add sVisual as a dependency by adding it to the <mark>requiredAddons</mark>
-					inside your <mark>config.cpp</mark>
+					Add sVisual as a dependency by adding it to the <code>requiredAddons</code>
+					inside your <code>config.cpp</code>
 				</p>
 				<pre><code>
 // more stuff here...
@@ -53,13 +53,13 @@ class CfgPatches {
 			</li>
 			<li>
 				<h3 id="Defining_an_effect">Defining an effect</h3>
-				<p><mark>sVisual</mark> currently supports 3 types of effect:</p>
+				<p><code>sVisual</code> currently supports 3 types of effect:</p>
 				<ul>
-					<li><mark>SPPEffect</mark></li>
-					<li><mark>SPPEffectAnimated</mark></li>
-					<li><mark>SPPEffectTimed</mark></li>
+					<li><code>SPPEffect</code></li>
+					<li><code>SPPEffectAnimated</code></li>
+					<li><code>SPPEffectTimed</code></li>
 				</ul>
-				<p>Use a <mark>SPPEffect</mark> if you want to define a normal effect</p>
+				<p>Use a <code>SPPEffect</code> if you want to define a normal effect</p>
 				<pre><code>
 class MyStaticEffect : SPPEffect {
 	override void onInit() {
@@ -70,7 +70,7 @@ class MyStaticEffect : SPPEffect {
 				</code></pre>
 
 				<p>
-					Use a <mark>SPPEffectAnimated</mark> if you want to define an animated effect which will be animated
+					Use a <code>SPPEffectAnimated</code> if you want to define an animated effect which will be animated
 					until deactivated
 				</p>
 				<pre><code>

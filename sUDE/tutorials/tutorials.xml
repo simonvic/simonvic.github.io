@@ -23,7 +23,7 @@
 		<title>How to be compatible with sGunplay</title>
 		<description>
 			This tutorial will show you how to make a modded weapon or optic
-			compatible with sGunplay via the <mark>config.cpp</mark>
+			compatible with sGunplay via the <code>config.cpp</code>
 		</description>
 		<prerequisites></prerequisites>
 		<difficulty>15</difficulty>
@@ -31,5 +31,6 @@
 			<tag>sGunplay</tag>
 		</tags>
 	</tutorial>
+
 
 </tutorials>
