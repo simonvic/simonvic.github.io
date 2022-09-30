@@ -33,8 +33,8 @@
 			</li>
 			<li><a href="#Recoils">Recoils</a>
 				<ol>
-					<li><a href="#Weapon-Recoils">Weapon recoils</a>
 					<li><a href="#Attachments_stats">Attachments stats</a>
+					<li><a href="#Integrated_attachments">Integrated attachments</a>
 				</ol>
 			</li>
 		</ol>
@@ -148,17 +148,151 @@
 				</code></pre>
 
 			</li>
-			
+
 			<li id="Recoils">
 				<h3>Recoils</h3>
+				<blockquote class="info">
+					If you have custom weapons which doesn't use custom recoil, but they instead use the recoils of some
+					existing vanilla weapons, you can skip to <a>this step</a>
+				</blockquote>
+				<p>
+					Before doing anything, it's important to understand how recoil works in sGunplay.
+					Unlike DayZ vanilla, they do not follow predetermined pattern, but they're
+					procedurally generated on many variables:
+				<ul>
+					<li>Weapon attachments</li>
+					<li>Player inventory weight</li>
+					<li>Weapon weight</li>
+					<li>Player stance (erect, crouched, prone)</li>
+					<li>Player movement (standing, walking, jogging)</li>
+					<li>Strength soft skill</li>
+				</ul>
+				</p>
+				<p>
+					Also it's important to know that the recoil definition is radically different from vanilla, since
+					they also behave radically different.<br />
+					Recoil intensity will "accumulate" if you shoot faster than your ability to control the recoil and
+					to reset the weapon.<br />
+					While short burst are manegeable, being accurate with a long spray is not an easy task (especially
+					at long engagements), but it will become easier once you reach the "apex" of the recoil. At that
+					point, you'll be able to be more consistent in controlling it.
+				</p>
+				<p>Let's first understand what recoil really is made of:</p>
+				<blockquote class="note">
+					The following recoil has been "amplified" for showcasing purposes
+				</blockquote>
+				<div class="grid">
+					<p>Mouse offset</p>
+					<p>
+						Here we see only the recoil being applied to the mouse, that the player should eventually
+						counter with mouse movements.
+					</p>
+					<img src="https://imgur.com/0QXdTjD.png" width="320px">
+				</div>
+				<div class="grid">
+					<p id="handsOffset">Hands offset</p>
+					<p>
+						Here we see only the "stability", which is the recoil being applied to the hands. More stability
+						means that the gun will stay closer to the center.
+					</p>
+					<img src="https://imgur.com/1hlcj8L.png" width="320px">
+				</div>
+				<div class="grid">
+					<p>Misalignment</p>
+					<p>
+						Here we see only the misalignment: the recoil causes the front and rear sight to misalign.
+					</p>
+					<img src="https://imgur.com/3DjtCnY.png" width="320px">
+				</div>
+				<div class="grid">
+					<p>Kick</p>
+					<p>
+						Here we see only the "kick", which is the recoil pushing the weapon into the shoulder.
+					</p>
+					<img src="https://imgur.com/OW09bwN.png" width="320px">
+				</div>
+				<div class="grid">
+					<p>The final result will be</p>
+					<blockquote class="note">
+						The recoil has been "amplified" for showcasing purposes.
+					</blockquote>
+					<img src="https://imgur.com/k5nrAl9.png" width="320px">
+				</div>
+				<p>Let's see how a recoil is defined in sGunplay, using the <code>AUGRecoil</code> as example</p>
+				<pre><code>
+modded class AUGRecoil {
+	override void initRecoilParameters() {
+
+		mouseRanges        = { 0.175, 0.250,  1.250,  1.750};
+		mouseTime          = 0.150;
+
+		handsRanges        = {-0.250, 0.550,  2.750,  3.985};
+		handsAccumSpeed    = 0.920;
+		handsResetSpeed    = 0.700;
+		
+		misalignIntensity  = {0.250, 0.250};
+		misalignAccumSpeed = 0.925;
+		misalignResetSpeed = 0.750;
+	
+		kick               = 0.015;
+		kickResetTime      = 2.250;
+	}
+}					
+				</code></pre>
+				<p>
+					<code>handsRanges</code> and <code>mouseRanges</code> define the the ranges of the horizontal and
+					vertical of the value that will be generated.
+					<code>{minimum_horizontal, maximum_horizontal, minimum_vertical, maximum_vertical}</code>
+				</p>
+				<p>
+					Similarily <code>misalignIntensity</code> defines the misalign intensity, which is based on the
+					<code>handsRanges</code>
+					<code>{horizontal_intensity, vertical_intensity}</code>
+				</p>
+				<p>
+					<code>kick</code> describes in metres how much the weapon should "kick" into the shoulder, while
+					<code>kickResetTime</code> will define how "fast" the kick will be reset.
+				</p>
+				<blockquote class="note">
+					Remember that the final recoil will depends on many variables, most importantly on
+					<b>attachments</b>.
+					Many weapons use the same recoil definition, but some of them allow attachments (i.e. buttstocks,
+					handguards, etc.), while some other do not.<br />
+					The recoil definition <b>SHOULD be made as if your weapon doesn't have any attachments currently
+						attached</b>.
+					For example an M4A1 without buttstock and handguard.<br />
+					Doing this, will allow other weapons to use the same recoil but with different attachments stats.
+					See
+					the next section for more info.
+				</blockquote>
+
 				<ol>
-					<li id="Weapon-Recoils">
-						<h4>Weapon recoils</h4>
-					</li>
 					<li id="Attachments_stats">
 						<h4>Attachments stats</h4>
+						<p>
+							Attachments play a major role in the final recoil computation as they could heavily modify
+							the before mentioned values of the recoils (i.e. mouse, stability, misalignment, kick),
+							hence improving (or also worsen) the recoil.
+						</p>
+
+						<h5>How attachments stats work</h5>
+						<p>
+							All the stats are defined in percentage (0.0 = 0%, 0.69 = 69%, 1.0 = 100%, -0.42 = -42%) and
+							they're <b>additive</b>, which means that if two attachments are being used, and they reduce
+							the "kick" respecitevly by 40% and 29%, the final kick reduction will be of 69% (40 + 29 =
+							69). <br />
+							So be mindful when choosing the stats.
+						</p>
+
 					</li>
+
+					<li id="Integrated_attachments">
+						<h4>Integrated attachments</h4>
+					</li>
+
+
 				</ol>
+
 			</li>
 		</ol>
 
