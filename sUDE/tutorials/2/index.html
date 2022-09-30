@@ -284,12 +284,131 @@ modded class AUGRecoil {
 							So be mindful when choosing the stats.
 						</p>
 
+						<h5>Define attachments stats</h5>
+						<p>
+							The definition is done through the <code>config.cpp</code>. The configurable attributes are:
+						</p>
+						<ul>
+							<li><code>s_recoilControlMouseX</code>: control of <b>horizontal</b> mouse offset</li>
+							<li><code>s_recoilControlMouseY</code>: control of <b>vertical</b> mouse offset</li>
+							<blocquote class="note">
+								I highly suggest not to modify the recoil control of the mouse offset, for a mere design
+								reason.
+							</blocquote>
+							<li><code>s_recoilControlStabilityX</code>: control of <b>horizontal</b>
+								<em data-tooltip="hands offset">stability</em>
+							</li>
+							<li><code>s_recoilControlStabilityY</code>: control of <b>vertical</b>
+								<em data-tooltip="hands offset">stability</em>
+							</li>
+							<li><code>s_recoilControlMisalignmentX</code>: control of <b>horizontal</b> misalignment
+							</li>
+							<li><code>s_recoilControlMisalignmentY</code>: control of <b>vertical</b> misalignment</li>
+							<li><code>s_recoilControlKick</code>: control of the kick</li>
+						</ul>
+						<p>This is an example of stats for Mp5 attachments:</p>
+						<pre><code>
+class cfgVehicles {
+	class Inventory_Base;
+	class MP5k_StockBttstck : Inventory_Base {
+		s_recoilControlStabilityX = 0.50;
+		s_recoilControlStabilityY = 0.50;
+		s_recoilControlMisalignmentX = 0.00;
+		s_recoilControlMisalignmentY = 0.25;
+		s_recoilControlKick = 0.75;
+	};
+	class MP5_RailHndgrd : Inventory_Base {
+		s_recoilControlStabilityX = 0.20;
+		s_recoilControlStabilityY = 0.20;
+		s_recoilControlMisalignmentX = 0.50;
+		s_recoilControlMisalignmentY = 0.50;
+	};
+	class MP5_Compensator : Inventory_Base {
+		s_recoilControlMisalignmentX = 0.45;
+		s_recoilControlMisalignmentY = 0.05;
+	};
+};							
+						</code></pre>
 					</li>
 
 					<li id="Integrated_attachments">
 						<h4>Integrated attachments</h4>
-					</li>
+						<p>Some weapons may not have removable attachments (e.g. M16A1 rifle)</p>
+						<p>In this case it's possible to add stats for "integrated attachment" directly in your weapon
+							class</p>
+						<pre><code>
+class cfgWeapons {
+	class Rifle_Base;
+	class M16A2_Base : Rifle_Base {
+		s_recoilControlStabilityX = 0.65;
+		s_recoilControlStabilityY = 0.65;
+		s_recoilControlMisalignmentX = 0.75;
+		s_recoilControlMisalignmentY = 0.80;
+		s_recoilControlKick = 0.75;
+	};			
+};
+						</code></pre>
+						<p>So in this example, the M16A1 rifle will have those stats without attachments</p>
 
+						<h5>A final example</h5>
+						<pre><code>
+class cfgVehicles {
+	class Inventory_Base;
+	class MyModdedButtstock : Inventory_Base {
+		s_recoilControlStabilityX = 0.50;
+		s_recoilControlStabilityY = 0.50;
+		s_recoilControlMisalignmentX = 0.00;
+		s_recoilControlMisalignmentY = 0.25;
+		s_recoilControlKick = 0.75;
+	};
+	class MyModdedHandguard : Inventory_Base {
+		s_recoilControlStabilityX = 0.20;
+		s_recoilControlStabilityY = 0.20;
+		s_recoilControlMisalignmentX = 0.30;
+		s_recoilControlMisalignmentY = 0.30;
+	};
+	class MyModdedCompensator : Inventory_Base {
+		s_recoilControlMisalignmentX = 0.45;
+		s_recoilControlMisalignmentY = 0.05;
+	};
+};
+class cfgWeapons {
+	class Rifle_Base;
+	class MyModdedWeapon : Rifle_Base {
+		s_recoilControlStabilityX = 0.10;
+		s_recoilControlStabilityY = 0.10;
+		s_recoilControlMisalignmentX = 0.10;
+		s_recoilControlMisalignmentY = 0.10;
+		s_recoilControlKick = 0.10;
+	};			
+};							
+						</code></pre>
+						<p>
+							So using a <code>MyModdedWeapon</code> with <code>MyModdedButtstock</code>,
+							<code>MyModdedHandguard</code> and <code>MyModdedCompensator</code> as attachments, will
+							result in a final recoil control of:
+						</p>
+						<table>
+							<thead>
+								<tr>
+									<th scope="col">stability control horizontal</th>
+									<th scope="col">stability control vertical</th>
+									<th scope="col">misalignment control horizontal</th>
+									<th scope="col">misalignment control vertical</th>
+									<th scope="col">kick control</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>0.80 (80%)</td>
+									<td>0.80 (80%)</td>
+									<td>0.85 (85%)</td>
+									<td>0.70 (70%)</td>
+									<td>0.85 (85%)</td>
+								</tr>
+							</tbody>
+						</table>
+					</li>
 
 				</ol>
 
