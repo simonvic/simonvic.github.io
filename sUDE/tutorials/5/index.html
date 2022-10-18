@@ -172,19 +172,26 @@ modded class PlayerBase{
 							A float value that ranges from 0.0 to 1.0 that represents the alpha channel
 							(trasparency) of the overlay
 						</p>
-						<pre><code class="language-csharp">setAlpha(0.69);</code></pre>
+						<pre><code class="language-csharp">setAlpha(alpha);</code></pre>
 						<p>Where the value can be:</p>
 						<ul>
 							<li>1.0 = fully visible (opaque)</li>
 							<li>0.5 = half transparent</li>
 							<li>0.0 = fully transparent</li>
 						</ul>
-						<img src="https://imgur.com/KET237w.gif" width="25%">
+						<div class="grid">
+							<pre><code>
+override void onUpdate(float deltaTime) {
+	setAlpha(Math.Sin(getTime()));
+}
+						</code></pre>
+							<img src="https://imgur.com/m0Bx1dC.gif">
+						</div>
 					</li>
 					<li id="position">
 						<h4><a href="#position" class="contrast">Position</a></h4>
 						<p>A couple of X and Y coordinates in screenspace</p>
-						<pre><code class="language-csharp">setPosition(0.1, 0.5);</code></pre>
+						<pre><code class="language-csharp">setPosition(x, y);</code></pre>
 						<p>Where the X value can be:</p>
 						<ul>
 							<li>0.0 = left of the screen</li>
@@ -200,12 +207,21 @@ modded class PlayerBase{
 						<blockquote class="info">
 							Values lower than 0.0 and higher than 1.0 are accepted
 						</blockquote>
-						<img src="https://imgur.com/KET237w.gif" width="25%">
+						<div class="grid">
+							<pre><code>
+override void onUpdate(float deltaTime) {
+	float x = Math.Sin(getTime()) * 0.25;
+	float y = Math.Cos(getTime()) * 0.25;
+	setPosition(x, y);
+}
+							</code></pre>
+							<img src="https://imgur.com/Q24tTWF.gif">
+						</div>
 					</li>
 					<li id="size">
 						<h4><a href="#size" class="contrast">Size</a></h4>
 						<p>A couple of X and Y values which determine the size of the image in screenspace</p>
-						<pre><code class="language-csharp">setSize(0.5, 0.75);</code></pre>
+						<pre><code class="language-csharp">setSize(x, y);</code></pre>
 						<p>Where the X value can be:</p>
 						<ul>
 							<li>1.0 = width of the screen</li>
@@ -222,17 +238,33 @@ modded class PlayerBase{
 							Values lower than 0.0 and higher than 1.0 are accepted, where negative values will mean the
 							overlay will be flipped
 						</blockquote>
-						<img src="https://imgur.com/KET237w.gif" width="25%">
+						<div class="grid">
+							<pre><code>
+override void onUpdate(float deltaTime) {
+	// seth both x and y to the same size
+	setSize(Math.Sin(getTime()));
+}
+							</code></pre>
+							<img src="https://imgur.com/Upq6uVO.gif">
+						</div>
 					</li>
 					<li id="rotation">
 						<h4><a href="#rotation" class="contrast">Rotation</a></h4>
 						<p>Yaw, Pitch and Roll angles of the overlay, defined in degrees [0° - 360°]</p>
-						<pre><code class="language-csharp">setRotation(42, 0, 69);</code></pre>
+						<pre><code class="language-csharp">setRotation(yaw, pitch, roll);</code></pre>
 						<blockquote class="note">
 							Setting an angle to 90° will make the overlay to be perpendicular to the camera, making it
 							not visible
 						</blockquote>
-						<img src="https://imgur.com/KET237w.gif" width="25%">
+						<div class="grid">
+							<pre><code>
+override void onUpdate(float deltaTime) {
+	float sine = Math.Sin(getTime()) * 360;
+	setRotation(sine, sine, sine);
+}
+							</code></pre>
+							<img src="https://imgur.com/kBlWILC.gif">
+						</div>
 					</li>
 					<li id="priority">
 						<h4><a href="#priority" class="contrast">Priority</a></h4>
@@ -242,10 +274,19 @@ modded class PlayerBase{
 							An overlay with higher priority will be placed on top of other overlays with lower priority,
 							potentially making them not visible
 						</p>
-						<pre><code class="language-csharp">setPriority(69);</code></pre>
+						<pre><code class="language-csharp">setPriority(priority);</code></pre>
 						<blockquote class="info">
 							Vanilla in game HUD has a priority of ~200
 						</blockquote>
+						<div class="grid">
+							<p>
+								The red overlay once has a priority of '2', while the other overlay has priority of '1',
+								making the red overlay stay on top of the other. <br />
+								They then swap priority (red overlay lesser priority than the other), making the red
+								overlay being occluded by the other overlay.
+							</p>
+							<img src="https://imgur.com/fmOiHDm.gif">
+						</div>
 					</li>
 					<li id="target_cameras">
 						<h4><a href="#target_camera" class="contrast">Target cameras</a></h4>
@@ -254,7 +295,22 @@ modded class PlayerBase{
 							currently used camera.
 							Super types can be used to allow the overlay on multiple cameras
 						</p>
-						<pre><code class="language-csharp">setTargetCameras({DayZPlayerCamera1stPerson, DayZPlayerCamera3rdPerson});</code></pre>
+						<pre><code class="language-csharp">setTargetCameras(arrayOfCamerasTypes);</code></pre>
+						<div class="grid">
+							<pre><code>
+override void onInit() {
+	setImage("MyMODS/sFramework/GUI/textures/masks/misc.edds");
+	setSize(0.5, 0.5);
+	setPosition(0.0, 0.0);
+	
+	setTargetCameras({
+		DayZPlayerCamera1stPerson,
+		DayZPlayerCameraOptics
+	});
+}
+							</code></pre>
+							<img src="https://imgur.com/c27yYT0.gif">
+						</div>
 					</li>
 					<li id="mask">
 						<h4><a href="#mask" class="contrast">Mask</a></h4>
@@ -269,7 +325,6 @@ modded class PlayerBase{
 							the mask itself)
 						</p>
 						<pre><code class="language-csharp">setMask("path/to/your/image.edds");</code></pre>
-						<img src="https://imgur.com/KET237w.gif" width="25%">
 					</li>
 					<li id="mask_progress">
 						<h4><a href="#mask_progress" class="contrast">Mask progress</a></h4>
@@ -279,10 +334,8 @@ modded class PlayerBase{
 							For progress x, pixels with alpha in <code>mask < x</code> will be opaque and alpha in
 							<code>mask > x</code> will be
 							transparent.<br />
-							For smooth transition see <a href="#mask_transition_width">mask transition width</a>.
 						</p>
 						<pre><code class="language-csharp">setMaskProgress(0.69);</code></pre>
-						<img src="https://imgur.com/KET237w.gif" width="25%">
 					</li>
 					<li id="mask_transition_width">
 						<h4><a href="#mask_transition_width" class="contrast">Mask transition width</a></h4>
@@ -293,7 +346,6 @@ modded class PlayerBase{
 							<code>maskProgress + maskTransitionWidth</code> will be smoothly transparent
 						</p>
 						<pre><code class="language-csharp">setMaskTransitionWidth(0.69);</code></pre>
-						<img src="https://imgur.com/KET237w.gif" width="25%">
 					</li>
 				</ul>
 			</li>
