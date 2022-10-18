@@ -35,7 +35,7 @@
 	<tutorial id="3">
 		<title>How to constrain user settings</title>
 		<description>
-			This tutorial will show you how to constrain user settings for all 
+			This tutorial will show you how to constrain user settings for all
 			players in your server by using sFramework's <em>server side constraints</em>
 		</description>
 		<prerequisites></prerequisites>
@@ -45,6 +45,34 @@
 			<tag>sFramework</tag>
 			<tag>sVisual</tag>
 			<tag>sGunplay</tag>
+		</tags>
+	</tutorial>
+
+	<tutorial id="4">
+		<title>How to personalize default PostProcessing values</title>
+		<description>
+			This tutorial will show how you can easily change the default <em
+				data-tooltip="PostProcessing Effect">PPE</em> values via the <code>config.cpp</code>
+		</description>
+		<prerequisites></prerequisites>
+		<difficulty>10</difficulty>
+		<tags>
+			<tag>sFramework</tag>
+			<tag>sVisual</tag>
+		</tags>
+	</tutorial>
+
+	<tutorial id="5">
+		<title>How to create and use camera overlays</title>
+		<description>
+			This tutorial will teach you the basics of creating, animating and applying camera overlays
+		</description>
+		<prerequisites></prerequisites>
+		<difficulty>25</difficulty>
+		<tags>
+			<tag>sUDE</tag>
+			<tag>sFramework</tag>
+			<tag>sVisual</tag>
 		</tags>
 	</tutorial>
 
