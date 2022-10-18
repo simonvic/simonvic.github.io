@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>sUDE | Tutorials</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/sUDE/css/style.css">
+	<link rel="stylesheet" href="/sUDE/css/highlight.css">
+	<script src="/sUDE/js/main.js"></script>
+	<script src="/sUDE/tutorials/js/tutorials.js"></script>
+	<script src="/sUDE/js/highlight.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body>
+	<main class="container" aria-busy="true">
+		<nav aria-label="breadcrumb">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/sUDE">sUDE</a></li>
+				<li><a href="/sUDE/tutorials">Tutorials</a></li>
+				<li id="breadcrumb_current">...</li>
+			</ul>
+		</nav>
+
+		<ol id="steps" class="steps">
+			<li><a href="#First_server_launch">First server launch</a></li>
+			<li><a href="#Edit_the_constraints">Edit the constraints</a></li>
+			<li><a href="#Save_and_restart">Save and restart</a></li>
+			<li><a href="#Additional_info">Additional info</a></li>
+		</ol>
+
+		<blockquote class="info">
+			The following tutorial applies to all sUDE mods, namely sVisual and sGunplay at the moment.
+		</blockquote>
+		<ol>
+			<li id="First_server_launch">
+				<h3>First server launch</h3>
+				<p>
+					Make sure you launch the server at least once with the mod of which you wish to constrain the user
+					settings; this will ensure the needed files will be automatically generated.
+				</p>
+
+				<p>
+					Now you have to locate your
+					<em data-tooltip="This is the folder where you server stores logs and configuration files">
+						server profile folder
+					</em>
+					which by default can be found in your
+					<em data-tooltip="C:\Program Files (x86)\Steam\steamapps\common\DayZServer\YOUR_PROFILE_FOLDER)">
+						server installation directory.
+					</em>
+					If you're using a dayz server provider, refer to its documentation.
+				</p>
+
+				<p>
+					Navigate to the folder <code>sUDE/config</code>, in which you'll find the constraints file.
+					They should be of the format <code>[NAME OF THE MOD]_constraints.json</code>;
+					it's a <a data-tooltip="JavaScript Object Notation"
+						href="https://en.wikipedia.org/wiki/JSON">json</a> file.
+				</p>
+
+				<blockquote class="note">
+					By default the constraints are disabled. Proceed to the next step to enable them.
+				</blockquote>
+
+			<li id="Edit_the_constraints">
+				<h3>Edit the constraints</h3>
+				<p>
+					Open the file with your favorite text editor and edit the constraints as needed
+				</p>
+				<blockquote class="note">
+					Make sure that the syntax of the file is correct, or the server will refuse to load the file and
+					will override it with the default values
+				</blockquote>
+
+				<h4>How a constraint work</h4>
+				<p>A constraint is made of mainly three fields:</p>
+				<ol>
+					<li>
+						<code>constrain</code>: a
+						<em data-tooltip="DayZ JSON parser also accepts '0' for 'false' and '1' for 'true'">boolean</em>
+						value.<br />
+						If set to <code>false</code> the user will be able to freely change the setting
+						without any constraint<br />
+						If set to <code>true</code> the user will be able to change the setting
+						based on the constrain you define.
+					</li>
+					<li>
+						<code>message</code>: A string containing a message that will be shown to the players when
+						trying to edit a constrained option.
+						<blockquote class="info">
+							A message also supports some basic <em
+								data-tooltip="subset of Pango markup <b>bold</b>, <i>italic</i> etc">markup</em> and
+							strings of different localizations from <code>stringtables.csv</code> (e.g.
+							"#MY_LOCALIZED_STRING")
+						</blockquote>
+					</li>
+					<li>
+						The actual constrained value: this may depends on the option you want to constrain.<br />
+						<ul>
+							<li>
+								If the option is a "checkbox" you'll see a <code>value</code> field: a
+								<em
+									data-tooltip="DayZ JSON parser also accepts '0' for 'false' and '1' for 'true'">boolean</em>
+								value.<br />
+								If set to <code>false</code> the user setting will be forced to be turned off<br />
+								If set to <code>true</code> the user setting will always be turned on
+							</li>
+							<li>
+								If the option is a "slider" you'll see two field <code>min</code> and <code>max</code>:
+								they will respecitevly constrain the minimum and maximum value.
+								<blockquote class="info">
+									If you don't want the player to change the setting at all, you can set constrain
+									both <code>min</code> and <code>max</code> at the same value
+								</blockquote>
+							</li>
+						</ul>
+
+					</li>
+				</ol>
+
+			</li>
+
+			<li id="Save_and_restart">
+				<h3>Save and restart</h3>
+				<p>
+					Once you finished editing the file, save it and restart the server to make sure the changes take
+					effect
+				</p>
+			</li>
+			<li id="Additional_info">
+				<h3>Additional info</h3>
+				<ul>
+					<li>Make sure your .json syntax is correct, otherwise the file will be regenerated with the default
+						values</li>
+					<li>Since the .json will be regenerated when incorrect, corrupt or can't be read from the server,
+						it's advised to keep a backup, so you won't loose your edits</li>
+					<li>The DayZ JSON parser is not capable of handling comments, so refrain from adding them in the
+						.json</li>
+					<li>The JSON parser accepts both 0 or false and 1 or true for boolean values</li>
+					<li>If you're having issues with constraints not working, delete the constraint file and let the
+						server regenerate it</li>
+				</ul>
+
+				<h4>Sample constraints configuration</h4>
+				<details>
+					<summary>sVisual constraints file</summary>
+					<pre><code>
+{
+	"ddofIntensity": {
+		"constrain": true,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"min": 5.0,
+		"max": 25.0
+	},
+	"ddofEnabledIn3PP": {
+		"constrain": true,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"value": false
+	},
+	"ddofEnabledInVehicle": {
+		"constrain": false,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"value": false
+	},
+	"headbobIntensity": {
+		"constrain": true,
+		"message": "Hello! <p>I've decided to block this settings</p> <i>Why?</i><br/> I don't know <b>LOL</b> <br/><font>This is a very cool font</font><br/><font>-----------------------</font>",
+		"min": 2.5,
+		"max": 5.0
+	},
+	"headbobEnabledIn3PP": {
+		"constrain": true,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"value": true
+	},
+	"motionBlurIntensity": {
+		"constrain": false,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"min": 0.0,
+		"max": 0.20000000298023225
+	},
+	"bloomIntensity": {
+		"constrain": false,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"min": 0.0,
+		"max": 5.0
+	},
+	"headLeanAngle": {
+		"constrain": true,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"min": 10.0,
+		"max": 10.0
+	}
+}						
+					</code></pre>
+				</details>
+				<details>
+					<summary>sGunplay constraints file</summary>
+					<pre><code>
+{
+	"adsFOVMultiplier": {
+		"constrain": true,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"min": 0.75,
+		"max": 1.0
+	},
+	"adsFOVMagnOpticsMultiplier": {
+		"constrain": true,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"min": 0.6,
+		"max": 0.6
+	},
+	"adsDOFIntensity": {
+		"constrain": false,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"min": 0.0,
+		"max": 1.0
+	},
+	"hideWeaponBarrelInOptic": {
+		"constrain": false,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"value": false
+	},
+	"hideClothingInOptic": {
+		"constrain": true,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"value": true
+	},
+	"lensZoomStrength": {
+		"constrain": true,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"min": 0.75,
+		"max": 0.75
+	},
+	"deadzoneLimits": {
+		"constrain": true,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"min": [
+			0.0,
+			0.0,
+			0.0,
+			0.0
+		],
+		"max": [
+			0.5,
+			0.5,
+			0.5,
+			0.5
+		]
+	},
+	"resetDeadzoneOnFocus": {
+		"constrain": true,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"value": true
+	},
+	"showDynamicCrosshair": {
+		"constrain": true,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"value": true
+	},
+	"dynamicCrosshairType": {
+		"constrain": true,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"value": 4
+	},
+	"dynamicCrosshairRGBA": {
+		"constrain": true,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"min": [
+			0.0,
+			0.0,
+			0.0,
+			10.0
+		],
+		"max": [
+			255.0,
+			255.0,
+			255.0,
+			130.0
+		]
+	}
+}					
+					</code></pre>
+				</details>
+			</li>
+		</ol>
+
+	</main>
+</body>
+
+</html>

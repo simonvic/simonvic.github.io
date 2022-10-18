@@ -32,5 +32,21 @@
 		</tags>
 	</tutorial>
 
+	<tutorial id="3">
+		<title>How to constrain user settings</title>
+		<description>
+			This tutorial will show you how to constrain user settings for all 
+			players in your server by using sFramework's <em>server side constraints</em>
+		</description>
+		<prerequisites></prerequisites>
+		<difficulty>5</difficulty>
+		<tags>
+			<tag>sUDE</tag>
+			<tag>sFramework</tag>
+			<tag>sVisual</tag>
+			<tag>sGunplay</tag>
+		</tags>
+	</tutorial>
+
 
 </tutorials>
