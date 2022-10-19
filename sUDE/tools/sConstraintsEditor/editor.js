@@ -1,28 +1,42 @@
+var form;
+var code;
+var modSelect;
+var downloadButton;
+
+var jsonConstraints;
+
 window.onload = function () {
+	modSelect = document.getElementById("mod");
+	form = document.getElementById("constraints_options");
+	code = document.getElementById("output_json");
+	downloadButton = document.getElementById('downloadCode');
 	onModChange(getSelectedMod());
 }
 
+
+
 function getSelectedMod() {
-	let mod = document.getElementById("mod");
-	return mod.options[mod.selectedIndex].value;
+	return modSelect.options[modSelect.selectedIndex].value;
 }
 
-var jsonConstraints = null;
 
 function fetchConstraints(mod) {
-	return fetch(`constraints/${mod}_constraints.json`)
-		.then(response => response.json());
+	return ;
 }
 
 
 function onModChange(newMod) {
 	if (newMod == "") return;
-	fetchConstraints(newMod)
+	code.setAttribute("aria-busy", true);
+	form.setAttribute("aria-busy", true);
+	fetch(`constraints/${newMod}_constraints.json`)
+		.then(response => response.json())
 		.then(json => {
 			jsonConstraints = json;
 			updateOutputJson();
-			let form = document.getElementById("constraints_options");
 			form.innerHTML = buildConstraintsOptions();
+			form.setAttribute("aria-busy", false);
+			code.setAttribute("aria-busy", false);
 		});
 }
 
@@ -31,11 +45,9 @@ function copyToClipboard() {
 }
 
 function updateOutputJson() {
-	let code = document.getElementById("output_json");
 	let jsonString = JSON.stringify(jsonConstraints, null, "\t");
 	code.innerHTML = jsonString;
 	hljs.highlightElement(code);
-	var downloadButton = document.getElementById('downloadCode');
 	downloadButton.setAttribute("href", "data:text/json;charset=utf-8," + encodeURIComponent(jsonString));
 	downloadButton.setAttribute("download", getSelectedMod() + "_constraints.json");
 }
