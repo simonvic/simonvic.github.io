@@ -63,16 +63,56 @@
 	</tutorial>
 
 	<tutorial id="5">
-		<title>How to create and use camera overlays</title>
+		<title>How to create and use camera Overlays</title>
 		<description>
 			This tutorial will teach you the basics of creating, animating and applying camera overlays
 		</description>
 		<prerequisites></prerequisites>
 		<difficulty>25</difficulty>
 		<tags>
-			<tag>sUDE</tag>
 			<tag>sFramework</tag>
 			<tag>sVisual</tag>
+		</tags>
+	</tutorial>
+
+	<tutorial id="6" href="wip.html">
+		<title>How to make a mod compatible with sVisual</title>
+		<description>
+			This tutorial will show you the steps to make a mod compatible with sVisual
+		</description>
+		<prerequisites></prerequisites>
+		<difficulty>25</difficulty>
+		<tags>
+			<tag>sFramework</tag>
+			<tag>sVisual</tag>
+		</tags>
+	</tutorial>
+
+	<tutorial id="7" href="wip.html">
+		<title>How to add Overlays to clothing</title>
+		<description>
+			sVisual is capable of automatically activating overlays when a clothing item is equipped.
+			This tutorial will show you how to configure this via the <code>config.cpp</code>
+		</description>
+		<prerequisites></prerequisites>
+		<difficulty>10</difficulty>
+		<tags>
+			<tag>sFramework</tag>
+			<tag>sVisual</tag>
+		</tags>
+	</tutorial>
+
+	<tutorial id="8" href="wip.html">
+		<title>How to create .edds files</title>
+		<description>
+			This tutorial will guide you through the process of creating an
+			<em data-tooltip="BohemiaInteractive proprietary format for images, similar to the dds format">.edds</em>
+			file (image) via the DayZ Tools Workbench
+		</description>
+		<prerequisites></prerequisites>
+		<difficulty>15</difficulty>
+		<tags>
+			<tag>Other</tag>
 		</tags>
 	</tutorial>
 
