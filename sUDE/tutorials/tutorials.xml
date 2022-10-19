@@ -116,5 +116,91 @@
 		</tags>
 	</tutorial>
 
+	<tutorial id="9" href="wip.html">
+		<title>How to define colors with sColor</title>
+		<description>
+			sFramework offers an easy way to define, modify and handle colors via the <code>sColor</code> class.
+			This tutorial will give you a brief insight of the class
+		</description>
+		<prerequisites></prerequisites>
+		<difficulty>5</difficulty>
+		<tags>
+			<tag>sFramework</tag>
+		</tags>
+	</tutorial>
+
+	<tutorial id="10" href="wip.html">
+		<title>How to create user configuration</title>
+		<description>
+			sFramework enables you to quickly create user (client) configuration.
+			This tutorial will show you the steps for creating and use configuration files.
+		</description>
+		<prerequisites></prerequisites>
+		<difficulty>40</difficulty>
+		<tags>
+			<tag>sFramework</tag>
+		</tags>
+	</tutorial>
+
+	<tutorial id="11" href="wip.html">
+		<title>UnitTesting with sTest</title>
+		<description>
+			This tutorial will give you the basic knowledge on how to test your
+			<em data-tooltip="Scripting language used in DayZ">Enforce</em> scripts with the powerful sTest unit
+			testing framework
+		</description>
+		<prerequisites></prerequisites>
+		<difficulty>70</difficulty>
+		<tags>
+			<tag>sFramework</tag>
+		</tags>
+	</tutorial>
+
+	<tutorial id="12" href="wip.html">
+		<title>How to improve logging with sLogger</title>
+		<description>
+			This tutorial will teach you the basic usage of the sLogger framework
+		</description>
+		<prerequisites></prerequisites>
+		<difficulty>40</difficulty>
+		<tags>
+			<tag>sFramework</tag>
+		</tags>
+	</tutorial>
+
+	<tutorial id="13" href="wip.html">
+		<title>How to create immediate GUI with sDebugUI</title>
+		<description>
+			This tutorial will give you the basic knowledge on how to debug your
+			<em data-tooltip="Scripting language used in DayZ">Enforce</em> code with the
+			<em data-tooltip="immediate mode graphic user interface"><a
+					href="https://en.wikipedia.org/wiki/Immediate_mode_GUI">IMGUI</a></em>
+			framework sDebugUI
+		</description>
+		<prerequisites></prerequisites>
+		<difficulty>60</difficulty>
+		<tags>
+			<tag>sFramework</tag>
+		</tags>
+	</tutorial>
+
+	<tutorial id="14" href="wip.html">
+		<title>How to use other sFramework APIs</title>
+		<description>
+			A brief overview on secondary sFramework APIs, such as:
+			<ul>
+				<li><em data-tooltip="Array with listeners to easily track changes">sObservableArray</em></li>
+				<li><em data-tooltip="Helper class to handle bitwise operations">sFlagOperator</em></li>
+				<li><em data-tooltip="Syntax sugar for launching raycasts">sRaycast</em></li>
+				<li><em data-tooltip="APIs for easily spawn items with many attachments">sSpawnable</em></li>
+			</ul>
+		</description>
+		<prerequisites></prerequisites>
+		<difficulty>65</difficulty>
+		<tags>
+			<tag>sFramework</tag>
+		</tags>
+	</tutorial>
+
 
 </tutorials>
