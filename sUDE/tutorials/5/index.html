@@ -300,8 +300,7 @@ override void onUpdate(float deltaTime) {
 							<pre><code>
 override void onInit() {
 	setImage("MyMODS/sFramework/GUI/textures/masks/misc.edds");
-	setSize(0.5, 0.5);
-	setPosition(0.0, 0.0);
+	setSize(0.5);
 	
 	setTargetCameras({
 		DayZPlayerCamera1stPerson,
@@ -310,6 +309,25 @@ override void onInit() {
 }
 							</code></pre>
 							<img src="https://imgur.com/c27yYT0.gif">
+						</div>
+					</li>
+					<li id="hides_with_hud">
+						<h4><a href="#hides_with_hud" class="contrast">Hides with HUD</a></h4>
+						<p>
+							A boolean value (true / false) that will determines if the overlay will hides along with the
+							in-game HUD
+						</p>
+						<pre><code class="language-csharp">setHidesWithIngameHUD(boolean);</code></pre>
+						<div class="grid">
+							<pre><code>
+override void onInit() {
+	setImage("MyMODS/sFramework/GUI/textures/masks/misc.edds");
+	setSize(0.5);
+	
+	setHidesWithIngameHUD(true);
+}
+							</code></pre>
+							<img src="https://imgur.com/5FLZ8U7.gif">
 						</div>
 					</li>
 					<li id="mask">
