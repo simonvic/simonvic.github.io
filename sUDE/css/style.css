@@ -25,6 +25,11 @@
 	--note-accent-bg: rgba(216, 228, 76, 0.05);
 	--info-accent: rgb(74, 215, 234);
 	--info-accent-bg: rgba(74, 215, 234, 0.05);
+
+	--range-border-color: #F0544C55;
+	--range-thumb-color: #F0544C;
+	--range-active-border-color: var(--primary-hover);
+	--range-thumb-hover-color: var(--primary-hover);
 }
 
 :root:not([data-theme="dark"]) {

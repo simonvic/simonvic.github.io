@@ -1,0 +1,47 @@
+{
+    "ddofIntensity": {
+        "constrain": false,
+        "message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+        "min": 0.0,
+        "max": 30.0
+    },
+    "ddofEnabledIn3PP": {
+        "constrain": false,
+        "message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+        "value": false
+    },
+    "ddofEnabledInVehicle": {
+        "constrain": false,
+        "message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+        "value": true
+    },
+    "headbobIntensity": {
+        "constrain": false,
+        "message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+        "min": 0.0,
+        "max": 5.0
+    },
+    "headbobEnabledIn3PP": {
+        "constrain": false,
+        "message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+        "value": true
+    },
+    "motionBlurIntensity": {
+        "constrain": false,
+        "message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+        "min": 0.0,
+        "max": 0.2
+    },
+    "bloomIntensity": {
+        "constrain": false,
+        "message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+        "min": 0.0,
+        "max": 5.0
+    },
+    "headLeanAngle": {
+        "constrain": false,
+        "message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+        "min": 0.0,
+        "max": 45.0
+    }
+}

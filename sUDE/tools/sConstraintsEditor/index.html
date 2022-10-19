@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>sUDE | sConstraintsEditor</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/sUDE/css/highlight.css">
+	<link rel="stylesheet" href="/sUDE/css/style.css">
+	<script src="/sUDE/js/highlight.js"></script>
+	<script src="editor.js"></script>
+</head>
+
+<body>
+	<main class="container">
+		<nav aria-label="breadcrumb">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/sUDE">sUDE</a></li>
+				<li><a href="/sUDE/tools">Tools</a></li>
+				<li><a href="/sUDE/tools/sConstraintsEditor">sConstraintsEditor</a></li>
+			</ul>
+		</nav>
+
+		<div class="grid">
+			<label for="mod">
+				<select id="mod" onchange="onModChange(`${this.options[this.selectedIndex].value}`)">
+					<option value="">Select a mod</option>
+					<option value="sGunplay">sGunplay</option>
+					<option value="sVisual">sVisual</option>
+				</select>
+			</label>
+			<div>
+				<a id="downloadCode" role="button">Download</a>
+				<a id="copyCode" role="button" class="outline" onclick="copyToClipboard()" href="#">Copy</a>
+			</div>
+		</div>
+
+		<div class="grid">
+			<form id="constraints_options" onchange="updateOutputJson()">
+
+			</form>
+			<div>
+				<pre><code id="output_json" class="language-json">
+
+				</code></pre>
+			</div>
+		</div>
+	</main>
+</body>
+
+</html>
