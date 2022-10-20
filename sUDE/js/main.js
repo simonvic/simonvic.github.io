@@ -68,10 +68,18 @@ function parseChangelog(xml) {
 	};
 }
 
+function onClickDetailAnchor(id) {
+	var tag = document.getElementById(id);
+	tag.setAttribute("open", true);
+	// history.replaceState(null, null, '#' + id);
+}
+
 function buildChangelog(changelog) {
 	var html = "";
-	html += `<details>`;
+	var changelogId = changelog.mod + "_" + changelog.tag;
+	html += `<details id="${changelogId}" ${document.location.href.endsWith("#" + changelogId) ? "open" : ""}>`;
 	html += "	<summary>";
+	html += `		<a href="#${changelogId}" onclick="onClickDetailAnchor('${changelogId}')">#</a>`;
 	html += `		${changelog.mod} | ${changelog.tag} | ${changelog.type} | <span>${relativeTimeDifference(new Date(changelog.date))}</span>`;
 	html += "	</summary>";
 	html += `<small>${changelog.date}</small>`;
@@ -116,9 +124,10 @@ function parseTutorialCard(xml) {
 
 function buildTutorialCard(tutorialCard) {
 	var html = "";
-	html += `<div id="${tutorialCard.id}"><details ${document.location.href.endsWith("#" + tutorialCard.id) ? "open" : ""}>`;
+	html += `<details id="${tutorialCard.id}" ${document.location.href.endsWith("#" + tutorialCard.id) ? "open" : ""}>`;
 	html += "	<summary>";
-	html += `		<a href="#${tutorialCard.id}" onclick="$('#${tutorialCard.id} details').attr('open', true);">#${tutorialCard.id}</a> | <b>${tutorialCard.title}</b>`;
+	html += `		<a href="#${tutorialCard.id}" onclick="onClickDetailAnchor('${tutorialCard.id}')">#</a>`
+	html += `		<b>${tutorialCard.title}</b>`;
 	html += "	</summary>";
 	html += `	<div class="grid">`;
 	html += `		<div class="container">`;

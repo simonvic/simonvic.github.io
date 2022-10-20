@@ -35,6 +35,7 @@
 				const container = document.getElementById("tutorialsCardsContainer");
 				const cards = Array.from(xml.getElementsByTagName("tutorial"));
 				cards.forEach(card => container.innerHTML += buildTutorialCard(parseTutorialCard(card)));
+				location.hash = location.hash; // lol... lazily go to current hash
 			});
 		</script>
 	</main>
