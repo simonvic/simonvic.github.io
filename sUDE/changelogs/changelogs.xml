@@ -35,7 +35,7 @@
 		<preamble></preamble>
 		<changes>
 			<added>New user settings (ddofEnabledIn3PP, ddofEnabledInVehicle, headbobEnabledIn3PP)</added>
-			<added>UserConfig validator:  UserConfig will be regenerated if invalid</added>
+			<added>UserConfig validator: UserConfig will be regenerated if invalid</added>
 			<changed>Better DDoF smoothing</changed>
 			<changed>Refactored config class</changed>
 			<changed>UserConfig improvements</changed>
@@ -86,10 +86,19 @@
 		<date>2021/05/16 00:00:00</date>
 		<preamble></preamble>
 		<changes>
-			<added>New Color class! You can now define color using the new shiny Color class, which allows various format like RGB, RGBA, ARGB, HSB (hue, saturation and brigthness) with also hex definition</added>
-			<added>Color class comes with plenty of predefined colors taken from https://www.w3schools.com/cssref/css_colors.asp</added>
-			<added>Added `PPEManager.toggle(   )`, to more easily enable/disable a PPE</added>
-			<changed>All color parameters are now compatible with new Color class (they remain retrocompatible with old color type)</changed>
+			<added>
+				New Color class! You can now define color using the new shiny Color class, which allows various
+				format like RGB, RGBA, ARGB, HSB (hue, saturation and brigthness) with also hex definition
+			</added>
+			<added>
+				Color class comes with plenty of predefined colors taken from
+				https://www.w3schools.com/cssref/css_colors.asp
+			</added>
+			<added>Added `PPEManager.toggle( )`, to more easily enable/disable a PPE</added>
+			<changed>
+				All color parameters are now compatible with new Color class (they remain retrocompatible with old
+				color type)
+			</changed>
 			<fixed>Night vision "brightness" wasn't set properly when optics/goggles weren't powered</fixed>
 		</changes>
 	</changelog>
@@ -141,9 +150,16 @@
 		<preamble></preamble>
 		<changes>
 			<added>Added methods for optic lenses and mask to PPEManager</added>
-			<changed>Tweaked Exhausted PPE animation behaviour. It will now activate only if the player is actually exhausted (i.e. the stamina bar becomes dark gray), and deactivate if the stamina regenerate over a threshold ( > 50% of available stamina)</changed>
+			<changed>
+				Tweaked Exhausted PPE animation behaviour. It will now activate only if the player is actually
+				exhausted (i.e. the stamina bar becomes dark gray), and deactivate if the stamina regenerate over a
+				threshold ( > 50% of available stamina)
+			</changed>
 			<changed>minor performance improvements</changed>
-			<fixed>The Exhausted PPE animation would activate upon the increase of the stamina cap (i.e. dropping objects from inventory)</fixed>
+			<fixed>
+				The Exhausted PPE animation would activate upon the increase of the stamina cap (i.e. dropping
+				objects from inventory)
+			</fixed>
 		</changes>
 	</changelog>
 
@@ -188,13 +204,20 @@
 				<br />
 				(This is useful to understand when you will touch the wall with the weapon)
 			</added>
-			<added>Added "Hide clothing" option, which will make invisible the upper body part while ADS in optics</added>
-			<added>The inertia is now also based on the weapon length: longer weapons will be harder to control, giving each weapon a different feel</added>
+			<added>
+				Added "Hide clothing" option, which will make invisible the upper body part while ADS in optics
+			</added>
+			<added>
+				The inertia is now also based on the weapon length: longer weapons will be harder to control, giving
+				each weapon a different feel
+			</added>
 			<added>Added a slight "misalignment" when doing rapid movements while in ADS</added>
 			<changed>
-				New lens (PiP) system. It's much more reliable, more performant and it's now compatible with all weapons and all scopes
+				New lens (PiP) system. It's much more reliable, more performant and it's now compatible with all weapons
+				and all scopes
 				<br />
-				(if you want to make your modded optics compatible, you may still need to modify the `PPEMaskProperties` in the config.cpp.
+				(if you want to make your modded optics compatible, you may still need to modify the `PPEMaskProperties`
+				in the config.cpp.
 				<br />
 				For the best result, set both X and Y position to "0.0" and adjust the radius accordingly)
 			</changed>
@@ -230,7 +253,9 @@
 		<date>2021/06/04 00:00:00</date>
 		<preamble></preamble>
 		<changes>
-			<added>sGunplay is now compatible with CommunityFramework and animation registering now works properly</added>
+			<added>
+				sGunplay is now compatible with CommunityFramework and animation registering now works properly
+			</added>
 		</changes>
 	</changelog>
 
@@ -256,25 +281,31 @@
 		<preamble></preamble>
 		<changes>
 			<added>Added custom Scout (pioneer) recoil</added>
-			<changed>  - 
-			</changed>
 			<changed>Focusing is now slightly faster</changed>
 			<changed>SMGs now are a bit more stable</changed>
 			<changed>
 				Completely reworked recoil control system
 				<br />
-				All modifiers are now additive, fixing many inconsistencies and making them more easily tweaked and extended
+				All modifiers are now additive, fixing many inconsistencies and making them more easily tweaked and
+				extended
 				<br />
-				Recoil is now slightly more reasonable while standing erect and still, easier when crouched, but still punishing while moving
+				Recoil is now slightly more reasonable while standing erect and still, easier when crouched, but still
+				punishing while moving
 				<br />
-				Inventory weight "confort weight range" is now at ~25kg (you'll start to see benefits below 25, and deficits if above)
+				Inventory weight "confort weight range" is now at ~25kg (you'll start to see benefits below 25, and
+				deficits if above)
 			</changed>
 			<changed>Less misalignment caused by movement</changed>
 			<changed>Slightly faster ADS timing</changed>
 			<changed>Updated stringtable</changed>
 			<changed>Very slight reduction of hipfire inertia and inventory weight impact</changed>
-			<fixed>Dynamic crosshair is now properly centered (There was a slight offset to the right from the center of the screen)</fixed>
-			<fixed>Clothing will now hide a bit sooner when entering optic (it previously could cause some clipping)</fixed>
+			<fixed>
+				Dynamic crosshair is now properly centered (There was a slight offset to the right from the center of
+				the screen)
+			</fixed>
+			<fixed>
+				Clothing will now hide a bit sooner when entering optic (it previously could cause some clipping)
+			</fixed>
 		</changes>
 	</changelog>
 
@@ -400,7 +431,10 @@
 		<date>2021/07/17 00:00:00</date>
 		<preamble></preamble>
 		<changes>
-			<added>Preprocessor defines are now available in scripts modules [ https://github.com/simonvic/sVisual/commit/cad6404f85c90ce99208722f93214adb7c564c90 ]</added>
+			<added>
+				Preprocessor defines are now available in scripts modules [
+				https://github.com/simonvic/sVisual/commit/cad6404f85c90ce99208722f93214adb7c564c90 ]
+			</added>
 			<changed>Reduced exhausted post processing effect</changed>
 		</changes>
 	</changelog>
@@ -413,7 +447,10 @@
 		<date>2021/07/17 00:00:00</date>
 		<preamble></preamble>
 		<changes>
-			<added> Preprocessor defines are now available in scripts modules [ https://github.com/simonvic/sGunplay/commit/4a1858bcae696230a6c215916a0331b6c78449a3 ]</added>
+			<added>
+				Preprocessor defines are now available in scripts modules [
+				https://github.com/simonvic/sGunplay/commit/4a1858bcae696230a6c215916a0331b6c78449a3 ]
+			</added>
 			<changed>Increased stamina drain exponent while holding breath</changed>
 			<changed>Stamina drains slightly less while holding breath</changed>
 			<changed>minor decrease to inventory weight impact on inertia</changed>
@@ -450,7 +487,10 @@
 			<added>Camera Overlays ! A new framework to work with overlays</added>
 			<added>Added `SCameraOverlay` (and their animated version)</added>
 			<added>Added `SCameraOverlaysManager`</added>
-			<added>Clothing overlays: overlays can be automatically activated based on the health level of an equipped clothing</added>
+			<added>
+				Clothing overlays: overlays can be automatically activated based on the health level of an equipped
+				clothing
+			</added>
 			<added>Added 10 new textures used for overlays</added>
 			<added>Added 20 new masks for animating overlays</added>
 			<added>
@@ -471,8 +511,10 @@
 			<changed>Bleeding animation won't have red vignette anymore (replaced by an overlay)</changed>
 			<changed>Improved `SGameConfig`</changed>
 			<changed>Refactored and improved `SFlagOperator` (formerly FlagOperation)</changed>
-			<changed>PPEparams variables in `PlayerBase` have been renamed [ 82170116bda2884aa94cc4281f15309b28f0457a ]</changed>
-			<changed>Renamed some PP effects related methods in `PlayerBase` [ 7d8163554b17ab79b4b5df99a3488393f296fa69 ]</changed>
+			<changed>PPEparams variables in `PlayerBase` have been renamed [ 82170116bda2884aa94cc4281f15309b28f0457a ]
+			</changed>
+			<changed>Renamed some PP effects related methods in `PlayerBase` [ 7d8163554b17ab79b4b5df99a3488393f296fa69
+				]</changed>
 			<changed>PP effects and overlays are now activated `OnPlayerLoaded` instead of `OnPlayerSelect`</changed>
 			<fixed>The screen won't become red when player is low on shock and bleeding (thanks overlays!)</fixed>
 			<fixed>Spawn ppe animation won't play when exiting from freecam</fixed>
@@ -488,11 +530,17 @@
 		<preamble></preamble>
 		<changes>
 			<added>Added ruined motohelmet overlay</added>
-			<added>Added `onPreBuild()` and  `onPostBuild()` widget method to allow correct change of widget flag [ 6d406401643988f058be976b9fdcca02d94b2d13 ]</added>
+			<added>
+				Added `onPreBuild()` and `onPostBuild()` widget method to allow correct change of widget flag [
+				6d406401643988f058be976b9fdcca02d94b2d13 ]
+			</added>
 			<added>Added sUDE log to ingame menu</added>
 			<changed>Reworked generic scratches overlays</changed>
 			<changed>Reworked motohelmet overlays</changed>
-			<changed>Moved overlay change on clothing health level change to different method [ 919fb127333900424ea3d98ff48ef8562ea71238 ]</changed>
+			<changed>
+				Moved overlay change on clothing health level change to different method [
+				919fb127333900424ea3d98ff48ef8562ea71238 ]
+			</changed>
 			<fixed>Removed unused debug variables</fixed>
 		</changes>
 	</changelog>
@@ -507,7 +555,10 @@
 		<changes>
 			<changed>Reworked bleeding overlay</changed>
 			<changed>Removed sample gasmasks overlay</changed>
-			<changed>Hit received PPE animation activation has been moved to `OnPlayerRecievedHit` to avoid possible future vanilla incompatibilities</changed>
+			<changed>
+				Hit received PPE animation activation has been moved to `OnPlayerRecievedHit` to avoid possible
+				future vanilla incompatibilities
+			</changed>
 			<changed>Removed unused logs</changed>
 		</changes>
 	</changelog>
@@ -552,7 +603,8 @@
 			<changed>
 				The sPPEManager is now more consistent:
 				<br />
-				- The merged PPE value will be correctly computed (previously it was also being merged with the default value)
+				- The merged PPE value will be correctly computed (previously it was also being merged with the default
+				value)
 				<br />
 				- Only non-requested PPE will now be interpolated to the default values
 				<br />
@@ -675,12 +727,16 @@
 				<br />
 				- Moved masks .edds
 			</changed>
-			<changed>Deleted ppe presets classes as they were unused and completely useless, since everything could be achieved with a simple sPPEffect (former PPEParams) [ f120276d9eb7d4579395e3258fc7ab1824dcb252 ] </changed>
+			<changed>
+				Deleted ppe presets classes as they were unused and completely useless, since everything could be
+				achieved with a simple sPPEffect (former PPEParams) [ f120276d9eb7d4579395e3258fc7ab1824dcb252 ]
+			</changed>
 			<changed>Some of these changes and more can also be found in sFramework</changed>
 			<changed>
 				The sPPEManager is now more consistent:
 				<br />
-				- The merged PPE value will be correctly computed (previously it was also being merged with the default value)
+				- The merged PPE value will be correctly computed (previously it was also being merged with the default
+				value)
 				<br />
 				- Only non-requested PPE will now be interpolated to the default values
 				<br />
@@ -803,7 +859,9 @@
 		<changes>
 			<added>AUG recoil</added>
 			<added>AUG optic</added>
-			<added>Sniper optics have been nerfed with a new overlay that emulates the misalignment of the optic.</added>
+			<added>
+				Sniper optics have been nerfed with a new overlay that emulates the misalignment of the optic.
+			</added>
 			<changed>Removed sound when changing firemode; it's now implemented in vanilla</changed>
 		</changes>
 	</changelog>
@@ -845,7 +903,9 @@
 		<date>2022/02/18 00:00:00</date>
 		<preamble></preamble>
 		<changes>
-			<fixed>Fixed server constraints not being sent to clients when joined while not having an alive character</fixed>
+			<fixed>
+				Fixed server constraints not being sent to clients when joined while not having an alive character
+			</fixed>
 		</changes>
 	</changelog>
 
@@ -858,7 +918,10 @@
 		<preamble></preamble>
 		<changes>
 			<added>Added sObservableArray API</added>
-			<added>Added sTest framework (UnitTesting). sTest related stuff is only compiled with `DIAG_DEVELOPER` directive</added>
+			<added>
+				Added sTest framework (UnitTesting). sTest related stuff is only compiled with `DIAG_DEVELOPER`
+				directive
+			</added>
 			<added>Added test unit for sMath</added>
 			<added>Added test unit for sConstraints</added>
 			<added>Added test unit for sUserConfigs</added>
@@ -918,6 +981,155 @@
 			<added>Added M79 recoil</added>
 			<changed>sGunplay keybinding section can be found under the sUDE tab in the options menu</changed>
 			<fixed>missing quote in stringtable (translation)</fixed>
+		</changes>
+	</changelog>
+
+	<changelog>
+		<mod>sFramework</mod>
+		<tag>v1.3.0</tag>
+		<type>Major</type>
+		<branch>main</branch>
+		<date>2022/10/20 17:00:00</date>
+		<preamble>
+			Because of some breaking changes to user config constraints, server owners are advised to delete the
+			current constraints.json file and let the server regenerate it.<br />
+			Alternatively you can use this tool to edit the constraints:
+			<a href="https://simonvic.github.io/sUDE/tools/sConstraintsEditor/">sConstraintsEditor</a>
+		</preamble>
+		<changes>
+			<added>New logo</added>
+			<added><code>sDebugUI</code> IMGUI framework</added>
+			<added>sMath: <code>normalize()</code> function</added>
+			<added>sMath: <code>normalizeClamp()</code> function</added>
+			<added>sMath: <code>map()</code> function</added>
+			<added>sMath: <code>mapClamp()</code> function</added>
+			<added>sMath: squared PI constant</added>
+			<added><code>sSpawnableBundle</code> API</added>
+			<added><code>ComboWidget</code> options can now be registered in the Options menu</added>
+			<added>sTreeNode: allow max depth in debug print</added>
+			<changed>sConstraints <code>enabled</code> field has been renamed to <code>constrain</code></changed>
+			<changed>sConstraints now can get preloaded at mission start</changed>
+			<changed>User config array options only worked with floats</changed>
+			<changed>Removed <code>sCameraManager</code></changed>
+			<changed>Code refactor and cleanup</changed>
+			<fixed><code>sCameraOverlay</code> not hiding along with the HUD</fixed>
+			<fixed>sLog: the header will now be printed at every boot</fixed>
+			<fixed>sLog: filename date format</fixed>
+			<fixed>sMath: Wrong arctan computation</fixed>
+			<fixed>sPPEManager: potenrially wrong DoF reset</fixed>
+			<fixed>sPPEManager: PiP not working without sVisual</fixed>
+			<fixed><code>sUserConfigConstraints</code> deserialization validation</fixed>
+		</changes>
+	</changelog>
+
+	<changelog>
+		<mod>sVisual</mod>
+		<tag>v1.7.0</tag>
+		<type>Major</type>
+		<branch>main</branch>
+		<date>2022/10/20 17:00:00</date>
+		<preamble></preamble>
+		<changes>
+			<added>New logo</added>
+			<added>Improved clothing overlays by doing a lazy initialization</added>
+			<added>Support for 1.19 NVG and underground effect</added>
+			<changed>The options menu have been remade from scratch, with improved performance and look</changed>
+			<fixed>The Dynamic DepthOfField wasn't resetting properly</fixed>
+			<fixed>Some helmets weren't taking damage due to improper config.cpp</fixed>
+			<fixed>Death darkening effect not working in some edge case scenarios</fixed>
+			<fixed>Removed sCameraManager; camera lean is now much smoother and doesn't reset when ADS</fixed>
+			<fixed>Improved server-side performance by removing some unnecessary logic</fixed>
+			<fixed>Errors in stringtable.csv translation file</fixed>
+			<modding>
+				A new config parameters has been added to tweak the NVG efficiency when there is no light at all (i.e.
+				underground) Default: 0.01
+			</modding>
+			<modding>Server side constraints now gets preloaded as soon as the server starts</modding>
+		</changes>
+	</changelog>
+
+	<changelog>
+		<mod>sGunplay</mod>
+		<tag>v2.0.0</tag>
+		<type>Major</type>
+		<branch>main</branch>
+		<date>2022/10/20 17:00:00</date>
+		<preamble>
+			<blockquote>WHY VERSION 2.0 ?</blockquote>
+			<p>
+				Because it has some radical changes to the overall feeling of the gunplay, with many possible breaking
+				changes.
+				But no worries, the core principles of sGunplay are still the foundations of the mod!
+			</p>
+
+			<blockquote>SUMMARY OF THE CHANGES</blockquote>
+			<p>
+				- Overall <u>more responsive</u> aiming model <br />
+				- Completely <u>new recoil</u> system <br />
+				- with <u>working attachments</u>! <br />
+				- Completely <u>new weapon inertia</u> system <br />
+				- New accessibility settings, like FoV while ADS <br />
+				- Improved dynamic crosshair <br />
+				- with 6 new style <br />
+				- Performances improvements and a ton of bug fixes
+			</p>
+		</preamble>
+		<changes>
+			<added>A completely new aiming model!</added>
+			<added>Weapon handling will now feel much more responsive and less "sluggish"</added>
+			<added>New recoil system</added>
+			<added>
+				Weapon attachments, such as buttstocks, handguards and compensators, will now contribute to the
+				recoil control
+			</added>
+			<added>
+				Recoil intensity will "accumulate" if you shoot faster than your ability to control the recoil and to
+				reset the weapon.<br />
+				While short burst are manegeable, being accurate with a long spray is not an easy task (especially at
+				long engagements), but it will become easier once you reach the "apex" of the recoil. At that point,
+				you'll be able to be more consistent in controlling it.
+			</added>
+			<added>Two new options to change FieldOfView while ADS</added>
+			<added>Added 6 new dynamic crosshair styles</added>
+			<added>You can now choose dynamic crosshair color via RGB format</added>
+			<added>
+				New stats meters are visible in the inventory UI; they will show an approximation of Inventory Weight
+				and Shooting Accuracy
+			</added>
+			<added>Weapon retraction (when you hit a wall) has been improved for weapons with shorter barrels</added>
+			<added>A very subtle vignette effect is being used when focusing</added>
+			<added>New animations when interacting with the weapon (changing firemode or zeroing)</added>
+			<added>New animation for the shake caused by Kuru illness</added>
+			<added>New animation for the shake caused by cold</added>
+			<added>New mod logo</added>
+			<added>Recoil definition for SSG82</added>
+			<added>PiP definition for SSG82 optic</added>
+			<added>Kazuar (AK night vision optic) now behaves correctly and has proper PiP</added>
+			<added>Starlight (M4 night vision optic) now behaves correctly and has proper PiP</added>
+			<changed>Reduced head bobbing while AimingDownSight</changed>
+			<changed>Faster and smoother misalignment overlay when using long range optics</changed>
+			<changed>Decoupled long range optic behaviour from the misalignment overlay</changed>
+			<changed>Improved PiP lens positioning; it will now sits better in the optic</changed>
+			<changed>Improved PiP visibility for some optics</changed>
+			<changed>The options menu have been remade from scratch, with improved performance and look</changed>
+			<changed>Removed the default WeaponInteraction keybinding</changed>
+			<changed>Deadzone is now marked as deprecated and planned for major changes or removal</changed>
+			<fixed>
+				Possibly definitive solution for the inventory weight desync, which caused the hand position being
+				desynced between clients
+			</fixed>
+			<fixed>Dynamic Crosshairs were not perfectly centered, new ad-hoc crosshairs are now pixel perfect</fixed>
+			<fixed>The correct NightVision type wasn't being used</fixed>
+			<fixed>Wrong sway animation, and made it slightly slower</fixed>
+			<fixed>Camera shake not being applied while AimingDownSight</fixed>
+			<fixed>Recoil control function was not being applied properly</fixed>
+			<fixed>Errors in stringtable.csv translation file</fixed>
+			<fixed>Improved server-side performance by removing some unnecessary logic</fixed>
+			<fixed>Missing preset definition for input actions</fixed>
+			<fixed>ItemOptics config class definition for DayZ 1.19</fixed>
+			<modding>New Ad-hoc config parameters for PiP</modding>
+			<modding>Cleaned up unused constants</modding>
+			<modding>Server side constraints now gets preloaded as soon as the server starts</modding>
 		</changes>
 	</changelog>
 
