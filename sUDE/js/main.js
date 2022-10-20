@@ -77,10 +77,12 @@ function onClickDetailAnchor(id) {
 function buildChangelog(changelog) {
 	var html = "";
 	var changelogId = changelog.mod + "_" + changelog.tag;
+	var differenceInDays = (new Date().getTime() - new Date(changelog.date).getTime()) / (1000 * 3600 * 24);
 	html += `<details id="${changelogId}" ${document.location.href.endsWith("#" + changelogId) ? "open" : ""}>`;
 	html += "	<summary>";
 	html += `		<a href="#${changelogId}" onclick="onClickDetailAnchor('${changelogId}')">#</a>`;
-	html += `		${changelog.mod} | ${changelog.tag} | ${changelog.type} | <span>${relativeTimeDifference(new Date(changelog.date))}</span>`;
+	html += `		${changelog.mod} | ${changelog.tag} | ${changelog.type} | `;
+	html += differenceInDays > 7 ? `<span>${relativeTimeDifference(new Date(changelog.date))}</span>` : `<mark>${relativeTimeDifference(new Date(changelog.date))}</mark>`;
 	html += "	</summary>";
 	html += `<small>${changelog.date}</small>`;
 	html += `<p>${changelog.preamble}</p>`
