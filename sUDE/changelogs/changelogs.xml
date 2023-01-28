@@ -1133,4 +1133,67 @@
 		</changes>
 	</changelog>
 
+	<changelog>
+		<mod>sFramework</mod>
+		<tag>v1.3.1.exp</tag>
+		<type>minor</type>
+		<branch>dev</branch>
+		<date>2023/01/27 23:00:00</date>
+		<preamble></preamble>
+		<changes>
+			<added>New camera transition timing from 3rd person vehicle to 3rd person (DayZ 1.20)</added>
+			<modding>Removed debug plugin</modding>
+		</changes>
+	</changelog>
+
+	<changelog>
+		<mod>sVisual</mod>
+		<tag>v1.7.1.exp</tag>
+		<type>minor</type>
+		<branch>dev</branch>
+		<date>2023/01/27 23:00:00</date>
+		<preamble>
+			This update brings a different headbob animation, you may want to tweak the headbob intensity;
+			you can do it in the options menu.
+		</preamble>
+		<changes>
+			<changed>Improved headbob animation</changed>
+			<changed>
+				Headbob is now properly synchronized with the player speed; it will smoothly transition from jogging to
+				running
+			</changed>
+		</changes>
+	</changelog>
+
+	<changelog>
+		<mod>sGunplay</mod>
+		<tag>v2.1.0.exp</tag>
+		<type>Major</type>
+		<branch>dev</branch>
+		<date>2023/01/27 23:00:00</date>
+		<preamble>
+			Thanks to the fixes done in DayZ 1.20, sGunplay is now capable of properly implementing player
+			movement inertia based on the inventory weight.
+			Another blocking issue was the weight desync, which has also been fixed in DayZ 1.20.
+			For this reason, the movement inertia will only work with DayZ 1.20, but this version
+			of sGunplay remains usable with current DayZ version
+		</preamble>
+		<changes>
+			<added>Player movement inertia based on inventory weight</added>
+			<changed>
+				Inventory weight is not netsynced manually anymore. DayZ 1.20 should have fixed weight desync issues
+			</changed>
+			<fixed>
+				Camera clipping with clothing when using ACOG6x with <code>HideClothing</code> option disabled
+			</fixed>
+			<fixed>Missing recoil for lzh18 recoil</fixed>
+			<fixed>Lens values for NightVision optics (Kazuar, Starlight)</fixed>
+			<modding>New constants related to the inventory/weapon weight are used instead of hardcoded values</modding>
+			<modding>
+				Removed unnecessary bool constants where it's possible to disable a
+				feature via the other constants
+			</modding>
+		</changes>
+	</changelog>
+
 </changelogs>
