@@ -35,8 +35,8 @@ function relativeTimeDifference(previous) {
 	return timeDifference(previous, new Date());
 }
 
-function fetchXML(url, onSuccess) {
-	return fetch(url)
+function fetchXML(url, onSuccess, options = {}) {
+	return fetch(url, options)
 		.then(response => response.text())
 		.then(str => new window.DOMParser().parseFromString(str, "text/xml"))
 		.then(xml => onSuccess(xml));
