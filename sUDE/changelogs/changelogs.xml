@@ -1196,4 +1196,39 @@
 		</changes>
 	</changelog>
 
+	<changelog>
+		<mod>sFramework</mod>
+		<tag>v1.3.1.exp.1</tag>
+		<type>minor</type>
+		<branch>dev</branch>
+		<date>2023/02/15 19:00:00</date>
+		<preamble></preamble>
+		<changes>
+			<added>sDebugUI widgets now use consumable options instead of parameters</added>
+			<added>sColor method to build color from string</added>
+		</changes>
+	</changelog>
+
+	<changelog>
+		<mod>sGunplay</mod>
+		<tag>v2.1.0.exp.1</tag>
+		<type>Major</type>
+		<branch>dev</branch>
+		<date>2023/02/15 19:00:00</date>
+		<changes>
+			<changed>The "zoom boost" when focusing (holding breath) has been reduced</changed>
+			<changed>Tweaked VSS and ASVAl recoil</changed>
+			<changed>Increased time between shivers casued by cold</changed>
+			<fixed>SSG optic would clip with camera</fixed>
+			<fixed>SSG optic PiP may not work sometime</fixed>
+			<fixed>The focusing vignette could remain active under certain conditions</fixed>
+			<fixed>The focusing vignette is now better synchronized with FoV when focusing</fixed>
+			<modding>
+				Three new constants have been added to respectively change the focus effectiveness (zoom boost) with
+				ironsights, non-magnifying optics and magnifying optics
+			</modding>
+			<modding>Added constant to toggle player movement inertia</modding>
+		</changes>
+	</changelog>
+
 </changelogs>
