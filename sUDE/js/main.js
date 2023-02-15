@@ -8,27 +8,22 @@ function timeDifference(previous, current) {
 
 	var elapsed = current - previous;
 
-	if (elapsed < msPerMinute) {
-		return Math.round(elapsed / 1000) + ' seconds ago';
+	if (elapsed < 0) {
+		elapsed *= -1;
+		if (elapsed < msPerMinute) return "in " + Math.round(elapsed / 1000) + " seconds";
+		if (elapsed < msPerHour)   return "in " + Math.round(elapsed / msPerMinute) + " minutes";
+		if (elapsed < msPerDay)    return "in " + Math.round(elapsed / msPerHour) + " hours";
+		if (elapsed < msPerMonth)  return "in " + Math.round(elapsed / msPerDay) + " days";
+		if (elapsed < msPerYear)   return "in " + Math.round(elapsed / msPerMonth) + " months";
+		return "in " + Math.round(elapsed / msPerYear) + " years";
 	}
 
-	if (elapsed < msPerHour) {
-		return Math.round(elapsed / msPerMinute) + ' minutes ago';
-	}
-
-	if (elapsed < msPerDay) {
-		return Math.round(elapsed / msPerHour) + ' hours ago';
-	}
-
-	if (elapsed < msPerMonth) {
-		return Math.round(elapsed / msPerDay) + ' days ago';
-	}
-
-	if (elapsed < msPerYear) {
-		return Math.round(elapsed / msPerMonth) + ' months ago';
-	}
-
-	return Math.round(elapsed / msPerYear) + ' years ago';
+	if (elapsed < msPerMinute) return Math.round(elapsed / 1000) + " seconds ago";
+	if (elapsed < msPerHour)   return Math.round(elapsed / msPerMinute) + " minutes ago";
+	if (elapsed < msPerDay)    return Math.round(elapsed / msPerHour) + " hours ago";
+	if (elapsed < msPerMonth)  return Math.round(elapsed / msPerDay) + " days ago";
+	if (elapsed < msPerYear)   return Math.round(elapsed / msPerMonth) + " months ago";
+	return Math.round(elapsed / msPerYear) + " years ago";
 }
 
 function relativeTimeDifference(previous) {
