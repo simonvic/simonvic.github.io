@@ -63,6 +63,7 @@ function parseChangelog(xml) {
 		tag: xml.getElementsByTagName("tag")[0].innerHTML,
 		type: xml.getElementsByTagName("type")[0].innerHTML,
 		date: xml.getElementsByTagName("date")[0].innerHTML,
+		branch: xml.getElementsByTagName("branch")[0].innerHTML,
 		preamble: preamble,
 		changes: changes
 	};
@@ -84,6 +85,7 @@ function buildChangelog(changelog) {
 	html += `		${changelog.mod} | ${changelog.tag} | ${changelog.type} | `;
 	html += differenceInDays > 7 ? `<span>${relativeTimeDifference(new Date(changelog.date))}</span>` : `<mark>${relativeTimeDifference(new Date(changelog.date))}</mark>`;
 	html += "	</summary>";
+	html += `	<p hidden data="${changelog.branch}"/>`;
 	html += `<small>${changelog.date}</small>`;
 	html += `<p>${changelog.preamble}</p>`
 	changelog.changes.forEach((changes, category) => {

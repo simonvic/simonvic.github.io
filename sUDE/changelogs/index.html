@@ -17,6 +17,16 @@
 			</ul>
 		</nav>
 
+		<fieldset>
+			<label for="show_experimental">
+				<input id="show_experimental" type="checkbox" role="switch" checked onchange='
+				document.querySelectorAll("details > p[data=\"dev\"]")
+					.forEach(expNode => expNode.parentNode.hidden = !this.checked)
+				'>
+				Show experimental changelogs
+			</label>
+		</fieldset>
+
 		<div id="changelogContainer">
 			<script>
 				fetchXML("changelogs.xml", xml => {
