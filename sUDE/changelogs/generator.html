@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>sUDE | Changelogs</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/sUDE/css/style.css">
+	<script src="/sUDE/js/highlight.js"></script>
+	<script src="/sUDE/js/main.js"></script>
+	<script src="js/generator.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/he/1.2.0/he.min.js"
+		integrity="sha512-PEsccDx9jqX6Dh4wZDCnWMaIO3gAaU0j46W//sSqQhUQxky6/eHZyeB3NrXD2xsyugAKd4KPiDANkcuoEa2JuA=="
+		crossorigin="anonymous"
+		referrerpolicy="no-referrer">
+	</script>
+<body>
+	<main class="container">
+		<nav aria-label="breadcrumb">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/sUDE">sUDE</a></li>
+				<li><a href="/sUDE/changelogs">Changelogs</a></li>
+				<li><a href="/sUDE/changelogs/Generator">Generator</a></li>
+			</ul>
+		</nav>
+
+		<script>
+			fetchXML("changelogs.xml", xml => {
+				const output = document.getElementById("output");
+				const xmlChangelogs = Array.from(xml.getElementsByTagName("changelog"));
+				var html = "";
+				var previousChangelog = new Map();
+				xmlChangelogs.forEach(xmlChangelog => {
+					var changelog = parseChangelog(xmlChangelog);
+					var steam = he.encode(generateSteam(changelog, previousChangelog.get(changelog.mod)));
+					var discord = he.encode(generateDiscord(changelog, previousChangelog.get(changelog.mod)));
+					var github = he.encode(generateGithub(changelog, previousChangelog.get(changelog.mod)));
+					var changelogNode = "";
+					changelogNode += `<details><summary>${changelog.mod} | ${changelog.tag} | ${changelog.type}</summary>`;
+					changelogNode += `<details open><summary><small>steam</small></summary><pre><code>${steam}</pre></code></details>`;
+					changelogNode += `<details open><summary><small>discord</small></summary><pre><code>${discord}</pre></code></details>`;
+					changelogNode += `<details open><summary><small>github</small></summary><pre><code>${github}</pre></code></details>`;
+					changelogNode += "</details>";
+					html = changelogNode + html;
+					previousChangelog.set(changelog.mod, changelog);
+				});
+				output.innerHTML += html;
+			});
+		</script>
+		<div id="output"></div>
+	</main>
+</body>
+
+</html>
