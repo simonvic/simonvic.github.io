@@ -1,3 +1,17 @@
+function generate(changelog, previousChangelog) {
+	var steam = he.encode(generateSteam(changelog, previousChangelog));
+	var discord = he.encode(generateDiscord(changelog, previousChangelog));
+	var github = he.encode(generateGithub(changelog, previousChangelog));
+	var html = "";
+	html += `<details><summary>${changelog.mod} | ${changelog.tag} | ${changelog.type}</summary>`;
+	html += `<details open><summary><small>steam</small></summary><pre><code>${steam}</pre></code></details>`;
+	html += `<details open><summary><small>discord</small></summary><pre><code>${discord}</pre></code></details>`;
+	html += `<details open><summary><small>github</small></summary><pre><code>${github}</pre></code></details>`;
+	html += "</details>";
+	return html;
+}
+
+
 function buildTagCompareURL(changelog, previousChangelog) {
 	return `https://github.com/simonvic/${changelog.mod}/compare/${previousChangelog.tag}...${changelog.tag}`;
 }
@@ -14,7 +28,6 @@ function generateSteam(changelog, previousChangelog = null) {
 function generateGithub(changelog, previousChangelog = null) {
 	var md = "";
 	md += toMarkdown(changelog.preamble);
-	md += "\n";
 	md += githubFormatChanges(changelog.changes);
 	md += "\n"
 	if (previousChangelog != null) {
@@ -45,7 +58,7 @@ function generateDiscord(changelog, previousChangelog = null) {
 	md += `${preamble}\n`;
 	md += `${changes}\n`;
 	if (previousChangelog != null) {
-		md += `__full changelog: ${buildTagCompareURL(changelog, previousChangelog)}__`;
+		md += `*full changelog: ${buildTagCompareURL(changelog, previousChangelog)}*`;
 	}
 	return md;
 }
@@ -88,11 +101,12 @@ function discordFormatChanges(changes) {
 function toMarkdown(text) {
 	return text
 		.replace(/\n\t*/g, "")
-		.replace(/<i>(.*)<\/i>/, "*$1*")
-		.replace(/<b>(.*)<\/b>/, "**$1**")
-		.replace(/<u>(.*)<\/u>/, "__$1__")
-		.replace(/<blockquote>(.*)<\/blockquote>/, "\n> $1\n")
-		.replace(/<code>(.*)<\/code>/, "`$1`")
-		.replace(/<a href="(.*)">(.*)<\/a>/, "[$2]($1)")
+		.replace(/<i>(.*?)<\/i>/g, "*$1*")
+		.replace(/<b>(.*?)<\/b>/g, "**$1**")
+		.replace(/<u>(.*?)<\/u>/g, "__$1__")
+		.replace(/<blockquote>(.*?)<\/blockquote>/g, "\n> $1\n")
+		.replace(/<code>(.*?)<\/code>/g, "`$1`")
+		.replace(/<p>(.*?)<\/p>/g, "\n$1\n")
+		.replace(/<a href="(.*?)">(.*?)<\/a>/g, "[$2]($1)")
 		.replace(/<br *\/>/g, "\n");
 }

@@ -30,20 +30,11 @@
 				const output = document.getElementById("output");
 				const xmlChangelogs = Array.from(xml.getElementsByTagName("changelog"));
 				var html = "";
-				var previousChangelog = new Map();
+				var previousChangelogs = new Map();
 				xmlChangelogs.forEach(xmlChangelog => {
 					var changelog = parseChangelog(xmlChangelog);
-					var steam = he.encode(generateSteam(changelog, previousChangelog.get(changelog.mod)));
-					var discord = he.encode(generateDiscord(changelog, previousChangelog.get(changelog.mod)));
-					var github = he.encode(generateGithub(changelog, previousChangelog.get(changelog.mod)));
-					var changelogNode = "";
-					changelogNode += `<details><summary>${changelog.mod} | ${changelog.tag} | ${changelog.type}</summary>`;
-					changelogNode += `<details open><summary><small>steam</small></summary><pre><code>${steam}</pre></code></details>`;
-					changelogNode += `<details open><summary><small>discord</small></summary><pre><code>${discord}</pre></code></details>`;
-					changelogNode += `<details open><summary><small>github</small></summary><pre><code>${github}</pre></code></details>`;
-					changelogNode += "</details>";
-					html = changelogNode + html;
-					previousChangelog.set(changelog.mod, changelog);
+					html = generate(changelog, previousChangelogs.get(changelog.mod)) + html;
+					previousChangelogs.set(changelog.mod, changelog);
 				});
 				output.innerHTML += html;
 			});
