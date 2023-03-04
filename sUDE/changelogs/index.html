@@ -19,34 +19,40 @@
 		</nav>
 		<section>
 			<fieldset class="grid" onchange="applyFiltersChangelogs()">
+				<label for="filter_mods">
+					Filter by mods
+					<details id="filter_mods" role="list">
+						<summary aria-haspopup="listbox">Mods</summary>
+						<ul role="listbox">
+							<li>
+								<label>
+									<input type="checkbox" value="sFramework" checked>
+									sFramework
+								</label>
+							</li>
+							<li>
+								<label>
+									<input type="checkbox" value="sVisual" checked>
+									sVisual
+								</label>
+							</li>
+							<li>
+								<label>
+									<input type="checkbox" value="sGunplay" checked>
+									sGunplay
+								</label>
+							</li>
+						</ul>
+					</details>
+				</label>
+				<label for="filter_date">
+					Show after
+					<input id="filter_date" type="date">
+				</label>
 				<label for="filter_show_experimental">
 					<input id="filter_show_experimental" type="checkbox" role="switch" checked>
 					Show experimental changelogs
 				</label>
-				<details id="filter_mods" role="list">
-					<summary aria-haspopup="listbox">Mods</summary>
-					<ul role="listbox">
-						<li>
-							<label>
-								<input type="checkbox" value="sFramework" checked>
-								sFramework
-							</label>
-						</li>
-						<li>
-							<label>
-								<input type="checkbox" value="sVisual" checked>
-								sVisual
-							</label>
-						</li>
-						<li>
-							<label>
-								<input type="checkbox" value="sGunplay" checked>
-								sGunplay
-							</label>
-						</li>
-					</ul>
-				</details>
-				<input id="filter_date" type="date">
 			</fieldset>
 		</section>
 		<div id="changelogContainer">
