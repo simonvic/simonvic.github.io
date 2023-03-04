@@ -54,11 +54,11 @@ function parseChangelog(xml) {
 	});
 
 	return {
-		mod: xml.getElementsByTagName("mod")[0].innerHTML,
-		tag: xml.getElementsByTagName("tag")[0].innerHTML,
-		type: xml.getElementsByTagName("type")[0].innerHTML,
-		date: xml.getElementsByTagName("date")[0].innerHTML,
-		branch: xml.getElementsByTagName("branch")[0].innerHTML,
+		mod: xml.getAttribute("mod"),
+		tag: xml.getAttribute("tag"),
+		type: xml.getAttribute("type"),
+		date: xml.getAttribute("date"),
+		branch: xml.getAttribute("branch"),
 		preamble: preamble,
 		changes: changes
 	};
