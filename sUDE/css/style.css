@@ -21,6 +21,10 @@
 	--modal-overlay-background-color: #222222aa;
 	--code-background-color: #303030;
 
+	--dropdown-background-color: #444444;
+	--dropdown-border-color: #444444;
+	--dropdown-hover-background-color: #F0544C55;
+
 	--note-accent: rgb(216, 228, 76);
 	--note-accent-bg: rgba(216, 228, 76, 0.05);
 	--info-accent: rgb(74, 215, 234);

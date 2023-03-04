@@ -1,3 +1,18 @@
+
+function applyFiltersChangelogs() {
+	var showExperimental = document.getElementById("filter_show_experimental").checked;
+	var modsFilter = new Map();
+	document.querySelectorAll("#filter_mods input[type='checkbox']")
+		.forEach(node => modsFilter.set(node.value, node.checked));
+	var date = new Date(document.getElementById("filter_date").value);
+	document.querySelectorAll("#changelogContainer details")
+		.forEach(node => node.hidden =
+				(node.getAttribute("branch") == "dev" && !showExperimental)
+				|| !modsFilter.get(node.getAttribute("mod"))
+				|| new Date(node.getAttribute("date")) <= date
+		);
+}
+
 function timeDifference(previous, current) {
 
 	var msPerMinute = 60 * 1000;
@@ -11,18 +26,18 @@ function timeDifference(previous, current) {
 	if (elapsed < 0) {
 		elapsed *= -1;
 		if (elapsed < msPerMinute) return "in " + Math.round(elapsed / 1000) + " seconds";
-		if (elapsed < msPerHour)   return "in " + Math.round(elapsed / msPerMinute) + " minutes";
-		if (elapsed < msPerDay)    return "in " + Math.round(elapsed / msPerHour) + " hours";
-		if (elapsed < msPerMonth)  return "in " + Math.round(elapsed / msPerDay) + " days";
-		if (elapsed < msPerYear)   return "in " + Math.round(elapsed / msPerMonth) + " months";
+		if (elapsed < msPerHour) return "in " + Math.round(elapsed / msPerMinute) + " minutes";
+		if (elapsed < msPerDay) return "in " + Math.round(elapsed / msPerHour) + " hours";
+		if (elapsed < msPerMonth) return "in " + Math.round(elapsed / msPerDay) + " days";
+		if (elapsed < msPerYear) return "in " + Math.round(elapsed / msPerMonth) + " months";
 		return "in " + Math.round(elapsed / msPerYear) + " years";
 	}
 
 	if (elapsed < msPerMinute) return Math.round(elapsed / 1000) + " seconds ago";
-	if (elapsed < msPerHour)   return Math.round(elapsed / msPerMinute) + " minutes ago";
-	if (elapsed < msPerDay)    return Math.round(elapsed / msPerHour) + " hours ago";
-	if (elapsed < msPerMonth)  return Math.round(elapsed / msPerDay) + " days ago";
-	if (elapsed < msPerYear)   return Math.round(elapsed / msPerMonth) + " months ago";
+	if (elapsed < msPerHour) return Math.round(elapsed / msPerMinute) + " minutes ago";
+	if (elapsed < msPerDay) return Math.round(elapsed / msPerHour) + " hours ago";
+	if (elapsed < msPerMonth) return Math.round(elapsed / msPerDay) + " days ago";
+	if (elapsed < msPerYear) return Math.round(elapsed / msPerMonth) + " months ago";
 	return Math.round(elapsed / msPerYear) + " years ago";
 }
 
@@ -74,16 +89,23 @@ function buildChangelog(changelog) {
 	var html = "";
 	var changelogId = changelog.mod + "_" + changelog.tag;
 	var differenceInDays = (new Date().getTime() - new Date(changelog.date).getTime()) / (1000 * 3600 * 24);
-	var timeDiff=relativeTimeDifference(new Date(changelog.date));
+	var timeDiff = relativeTimeDifference(new Date(changelog.date));
 	var relativeTimeTag = differenceInDays > 7 ? timeDiff : `<mark>${timeDiff}</mark>`;
-	html += `<details id="${changelogId}" ${document.location.href.endsWith("#" + changelogId) ? "open" : ""}>`;
+	html += `<details id="${changelogId}"`;
+	html += ` mod="${changelog.mod}"`;
+	html += ` tag="${changelog.tag}"`;
+	html += ` type="${changelog.type}"`;
+	html += ` date="${changelog.date}"`;
+	html += ` branch="${changelog.branch}"`;
+	html += ` ${document.location.href.endsWith("#" + changelogId) ? "open" : ""}`;
+	html += ">";
 	html += "	<summary class='grid'>";
 	html += `			<p><a href="#${changelogId}" onclick="onClickDetailAnchor('${changelogId}')">#</a> ${changelog.mod}</p>`;
 	html += `			<p>${changelog.tag}</p>`;
 	html += `			<p>${changelog.type}</p>`;
 	html += `			<p>${relativeTimeTag}</p>`;
+	html += `			<p hidden>${changelog.branch}</p>`;
 	html += "	</summary>";
-	html += `	<p hidden data="${changelog.branch}"/>`;
 	html += `<small>${changelog.date}</small>`;
 	html += `<p>${changelog.preamble}</p>`
 	changelog.changes.forEach((changes, category) => {
