@@ -74,11 +74,14 @@ function buildChangelog(changelog) {
 	var html = "";
 	var changelogId = changelog.mod + "_" + changelog.tag;
 	var differenceInDays = (new Date().getTime() - new Date(changelog.date).getTime()) / (1000 * 3600 * 24);
+	var timeDiff=relativeTimeDifference(new Date(changelog.date));
+	var relativeTimeTag = differenceInDays > 7 ? timeDiff : `<mark>${timeDiff}</mark>`;
 	html += `<details id="${changelogId}" ${document.location.href.endsWith("#" + changelogId) ? "open" : ""}>`;
-	html += "	<summary>";
-	html += `		<a href="#${changelogId}" onclick="onClickDetailAnchor('${changelogId}')">#</a>`;
-	html += `		${changelog.mod} | ${changelog.tag} | ${changelog.type} | `;
-	html += differenceInDays > 7 ? `<span>${relativeTimeDifference(new Date(changelog.date))}</span>` : `<mark>${relativeTimeDifference(new Date(changelog.date))}</mark>`;
+	html += "	<summary class='grid'>";
+	html += `			<p><a href="#${changelogId}" onclick="onClickDetailAnchor('${changelogId}')">#</a> ${changelog.mod}</p>`;
+	html += `			<p>${changelog.tag}</p>`;
+	html += `			<p>${changelog.type}</p>`;
+	html += `			<p>${relativeTimeTag}</p>`;
 	html += "	</summary>";
 	html += `	<p hidden data="${changelog.branch}"/>`;
 	html += `<small>${changelog.date}</small>`;
