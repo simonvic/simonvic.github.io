@@ -202,5 +202,36 @@
 		</tags>
 	</tutorial>
 
+	<tutorial id="14" href="wip.html">
+		<title>How to use other sFramework APIs</title>
+		<description>
+			A brief overview on secondary sFramework APIs, such as:
+			<ul>
+				<li><em data-tooltip="Array with listeners to easily track changes">sObservableArray</em></li>
+				<li><em data-tooltip="Helper class to handle bitwise operations">sFlagOperator</em></li>
+				<li><em data-tooltip="Syntax sugar for launching raycasts">sRaycast</em></li>
+				<li><em data-tooltip="APIs for easily spawn items with many attachments">sSpawnable</em></li>
+			</ul>
+		</description>
+		<prerequisites></prerequisites>
+		<difficulty>65</difficulty>
+		<tags>
+			<tag>sFramework</tag>
+		</tags>
+	</tutorial>
+
+
+	<tutorial id="15">
+		<title>How to setup and launch a local server for developement</title>
+		<description>
+			A guide on how to setup a local server for modding developement
+		</description>
+		<prerequisites></prerequisites>
+		<difficulty>55</difficulty>
+		<tags>
+			<tag>sUDE</tag>
+			<tag>Other</tag>
+		</tags>
+	</tutorial>
 
 </tutorials>
