@@ -3,7 +3,7 @@
 
 <head>
 	<title>sUDE | Tutorials</title>
-	<meta charset="UTF-8">--
+	<meta charset="UTF-8">
 	<link rel="stylesheet" href="/sUDE/css/style.css">
 	<link rel="stylesheet" href="/sUDE/css/highlight.css">
 	<script src="/sUDE/js/main.js"></script>
@@ -130,10 +130,12 @@ class Missions {
 					but for ease of use, you'll create a script that can be executed by clicking on it.
 				</p>
 				<p>
-					In your DayZ client folder create a file called <code>startServerDiag.bat</code> and paste the
+					In your <b
+						data-tooltip="yes, the client folder, which is where the diagnostic executable is located">DayZ
+						client</b> folder create a file called <code>startServerDiag.bat</code> and paste the
 					following
 					in it:
-				<pre><code class="language-bat">
+				<pre><code>
 START DayZDiag_x64.exe ^
 	-server ^
 	-doLogs ^
@@ -155,7 +157,7 @@ START DayZDiag_x64.exe ^
 				<p>
 					Always in your DayZ client folder, create a file called <code>startClientDiag.bat</code>
 					and paste the following in it:
-				<pre><code class="language-bat">
+				<pre><code>
 START DayZDiag_x64.exe ^
 	-doLogs ^
 	-scriptDebug=true ^
@@ -191,7 +193,7 @@ START DayZDiag_x64.exe ^
 					which can be found in the DayZServer installation folder
 				</p>
 			</li>
-			<li id="#Launching_server_and_client">
+			<li id="Launching_server_and_client">
 				<h3>Launching server and client</h3>
 				<p>
 					You can now double click on <code>startServerDiag.bat</code>, which will launch the server.<br />
