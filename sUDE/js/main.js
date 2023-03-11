@@ -7,9 +7,9 @@ function applyFiltersChangelogs() {
 	var date = new Date(document.getElementById("filter_date").value);
 	document.querySelectorAll("#changelogContainer details")
 		.forEach(node => node.hidden =
-				(node.getAttribute("branch") == "dev" && !showExperimental)
-				|| !modsFilter.get(node.getAttribute("mod"))
-				|| new Date(node.getAttribute("date")) <= date
+			(node.getAttribute("branch") == "dev" && !showExperimental)
+			|| !modsFilter.get(node.getAttribute("mod"))
+			|| new Date(node.getAttribute("date")) <= date
 		);
 }
 
@@ -148,7 +148,13 @@ function parseTutorialCard(xml) {
 
 function buildTutorialCard(tutorialCard) {
 	var html = "";
-	html += `<details id="${tutorialCard.id}" ${document.location.href.endsWith("#" + tutorialCard.id) ? "open" : ""}>`;
+	html += `<details id="${tutorialCard.id}"`;
+	html += `	title="${tutorialCard.title}"`;
+	html += `	difficulty=${tutorialCard.difficulty}`;
+	html += `	tags=${tutorialCard.tags}`;
+	html += `	wip=${tutorialCard.href == "wip.html"}`;
+	html += `	${document.location.href.endsWith("#" + tutorialCard.id) ? "open" : ""}`;
+	html += ">";
 	html += "	<summary>";
 	html += `		<a href="#${tutorialCard.id}" onclick="onClickDetailAnchor('${tutorialCard.id}')">#</a>`
 	html += `		<b>${tutorialCard.title}</b>`;
@@ -164,4 +170,23 @@ function buildTutorialCard(tutorialCard) {
 	html += `	</div>`;
 	html += `</details></div>`;
 	return html;
+}
+
+
+function applyFiltersTutorials() {
+	var searchFilter = document.getElementById("filter_search").value;
+	var showWIP = document.getElementById("filter_showWIP").checked;
+	var difficultyFilter = document.getElementById("filter_difficulty").value;
+	var tagsFilter = new Array();
+	document.querySelectorAll("#filter_tags input[type='checkbox']")
+		.forEach(node => {
+			if (node.checked) tagsFilter.push(node.value);
+		});
+	document.querySelectorAll("#tutorialsCardsContainer details")
+		.forEach(node => node.hidden =
+			!node.getAttribute("title").toLowerCase().includes(searchFilter.toLowerCase())
+			|| (!showWIP && node.getAttribute("wip") == "true")
+			|| !node.getAttribute("tags").split(",").some(tag => tagsFilter.includes(tag))
+			|| Number(node.getAttribute("difficulty")) >= difficultyFilter
+		);
 }
