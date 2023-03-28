@@ -28,10 +28,11 @@ function generateSteam(changelog, previousChangelog = null) {
 function generateGithub(changelog, previousChangelog = null) {
 	var md = "";
 	md += toMarkdown(changelog.preamble);
+	md += "\n"
 	md += githubFormatChanges(changelog.changes);
 	md += "\n"
 	if (previousChangelog != null) {
-		md += "## FULL CHANGELOG"
+		md += "## FULL CHANGELOG\n"
 		md += buildTagCompareURL(changelog, previousChangelog);
 	}
 	return md;
