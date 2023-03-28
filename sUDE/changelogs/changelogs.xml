@@ -917,4 +917,15 @@
 			<modding>Added constant to toggle player movement inertia</modding>
 		</changes>
 	</changelog>
+	<changelog mod="sGunplay" tag="v2.1.0.exp.2" type="Major" branch="dev" date="2023/03/28 19:00:00">
+		<preamble>
+			<b>Changes are relative to previous experimental revision</b>
+		</preamble>
+		<changes>
+			<changed>The hipfire deadzone has been reduced and will reset when raising the weapon</changed>
+			<fixed>Camera clipping when using the PSO optic</fixed>
+			<fixed>Incorrect sounds being played when interacting with the weapon</fixed>
+			<fixed>Focus vignette effect deactivation with sniper optics</fixed>
+		</changes>
+	</changelog>
 </changelogs>
