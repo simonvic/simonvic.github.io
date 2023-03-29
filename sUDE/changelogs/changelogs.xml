@@ -616,7 +616,7 @@
 			<fixed>Wrong default visual user config creation</fixed>
 		</changes>
 	</changelog>
-	<changelog mod="sVisual" tag="v1.6.0" type="major" branch="main" date="2021/10/25 00:00:00">
+	<changelog mod="sGunplay" tag="v1.6.0" type="major" branch="main" date="2021/10/25 00:00:00">
 		<preamble></preamble>
 		<changes>
 			<added>Server side config constraints</added>
