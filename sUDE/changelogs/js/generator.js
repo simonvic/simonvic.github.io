@@ -1,6 +1,6 @@
 function generate(changelog, previousChangelog) {
 	var steam = he.encode(generateSteam(changelog, previousChangelog));
-	var discord = he.encode(generateDiscord(changelog, previousChangelog));
+	var discord = he.encode(generateDiscordForum(changelog, previousChangelog));
 	var github = he.encode(generateGithub(changelog, previousChangelog));
 	var html = "";
 	html += `<details><summary>${changelog.mod} | ${changelog.tag} | ${changelog.type}</summary>`;
@@ -48,6 +48,43 @@ function githubFormatChanges(changes) {
 	return md;
 }
 
+function generateDiscordForum(changelog, previousChangelog = null) {
+	var md = "";
+	var mod = changelog.mod;
+	var type = discordForumFormatType(changelog.type);
+	var date = discordFormatDate(changelog.date);
+	var preamble = toMarkdown(changelog.preamble);
+	var changes = discordForumFormatChanges(changelog.changes);
+	md += `${mod} | ${changelog.tag} | ${type}\n`;
+	md += `released: ${date}\n`;
+	md += `${preamble}\n`;
+	md += `${changes}\n`;
+	if (previousChangelog != null) {
+		md += "# FULL CHANGELOG\n"
+		md += buildTagCompareURL(changelog, previousChangelog);
+	}
+	return md;
+}
+
+function discordForumFormatType(type) {
+	switch (type.toLowerCase()) {
+		case "major": return "Major";
+		case "minor": return "minor";
+		case "hotfix": return "hotfix";
+		default: return type;
+	}
+}
+
+function discordForumFormatChanges(changes) {
+	var md = "";
+	changes.forEach((changes, category) => {
+		md += `# ${category.toUpperCase()}\n`;
+		changes.forEach(change => md += `- ${toMarkdown(change)}\n`);
+		md += "\n";
+	});
+	return md;
+}
+
 function generateDiscord(changelog, previousChangelog = null) {
 	var md = "";
 	var mod = discordFormatMod(changelog.mod);
@@ -66,9 +103,9 @@ function generateDiscord(changelog, previousChangelog = null) {
 
 function discordFormatMod(mod) {
 	switch (mod) {
-		case "sFramework": return "#s_framework";
-		case "sVisual": return "#s_visual";
-		case "sGunplay": return "#s_gunplay";
+		case "sFramework": return "#sframework";
+		case "sVisual": return "#svisual";
+		case "sGunplay": return "#sgunplay";
 		default: return changelog.mod;
 	}
 }
