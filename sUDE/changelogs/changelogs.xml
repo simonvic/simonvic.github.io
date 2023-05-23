@@ -977,4 +977,13 @@
 			<modding>Preprocessor defines are now declared according to DayZ 1.21 changes</modding>
 		</changes>
 	</changelog>
+	<changelog mod="sGunplay" tag="v2.1.0.exp.4" type="Major" branch="dev" date="2023/05/23 15:00:00">
+		<preamble>
+			<b>Changes are relative to previous experimental revision</b>
+		</preamble>
+		<changes>
+			<changed>Tweaked player movement inertia</changed>
+			<modding>Renamed constant to enable movement inertia affected by player inventory weight</modding>
+		</changes>
+	</changelog>
 </changelogs>
