@@ -994,4 +994,101 @@
 			<modding>Preprocessor defines are now declared according to DayZ 1.21 changes</modding>
 		</changes>
 	</changelog>
+	<changelog mod="sFramework" tag="v1.4.0" type="Major" branch="main" date="2023/05/23 17:30:00">
+		<preamble></preamble>
+		<changes>
+			<added>New camera transition timing from 3rd person vehicle to 3rd person (DayZ 1.20)</added>
+			<added>sDebugUI widgets now use consumable options instead of parameters</added>
+			<added>sColor method to build color from string</added>
+			<added>sDebugUI: option helper function with map argument</added>
+			<added>
+				sDebugUI: window body color can now be changed with <code>body.bg</code> option
+			</added>
+			<added>
+				sDebugUI: new options for table cells flags (<code>table.cell.flags.set</code>,
+				<code>table.cell.flags.set</code>)
+			</added>
+			<added>Helper function to convert array to csv row</added>
+			<added>sColor: getter for normalized array in RGBA format</added>
+			<added>sColor: allow hashtag (#) in color string representation</added>
+			<changed>sDebugUI: Enabling/disabling a DUI won't show/hide it</changed>
+			<fixed>sColor: memory leak</fixed>
+			<fixed>sDebugUI: vertical scale option not working for plot widget</fixed>
+			<fixed>sDebugUI: null pointer exception on server</fixed>
+			<fixed>sDebugUI: possible lost refs when instatiating a DUI early during game init</fixed>
+			<fixed>sSpawnableBundle: missin argument in constructor</fixed>
+			<modding>Preprocessor defines are now declared according to DayZ 1.21 changes</modding>
+			<modding>Removed debug plugin</modding>
+		</changes>
+	</changelog>
+	<changelog mod="sVisual" tag="v1.7.1" type="minor" branch="main" date="2023/05/23 17:30:00">
+		<preamble>
+			This update brings a different headbob animation, you may want to tweak the headbob intensity;
+			you can do it in the options menu.
+		</preamble>
+		<changes>
+			<changed>Improved headbob animation</changed>
+			<changed>
+				Headbob is now properly synchronized with the player speed; it will smoothly transition from jogging to
+				running
+			</changed>
+			<modding>Preprocessor defines are now declared according to DayZ 1.21 changes</modding>
+		</changes>
+	</changelog>
+	<changelog mod="sGunplay" tag="v2.1.0" type="Major" branch="main" date="2023/05/23 17:30:00">
+		<preamble>
+			Thanks to the fixes done in DayZ 1.20, sGunplay is now capable of properly implementing player
+			movement inertia based on the inventory weight.
+			Another blocking issue was the weight desync, which has also been fixed in DayZ 1.20.
+
+			If you're a server owner and you wish to tweak the movement inertia, you can do it via
+			the cfgGameplay.json file https://community.bistudio.com/wiki?title=DayZ:Gameplay_Settings
+			by editing the values in the Movement section.
+		</preamble>
+		<changes>
+			<added>Player movement inertia based on inventory weight</added>
+			<added>New icons for recoil control meter in the inventory GUI</added>
+			<added>Crossbow recoil</added>
+			<added>Recoil for lzh18 recoil</added>
+			<changed>The hipfire deadzone has been reduced and will reset when raising the weapon</changed>
+			<changed>
+				Inventory weight is not netsynced manually anymore. DayZ 1.20 should have fixed weight desync issues
+			</changed>
+			<changed>The "zoom boost" when focusing (holding breath) has been reduced</changed>
+			<changed>Tweaked VSS and ASVAl recoil</changed>
+			<changed>Increased time between shivers casued by cold</changed>
+			<changed>Improved visibility for PSO optics (DayZ 1.21)</changed>
+			<fixed>
+				Most logic for weapon handling and camera is now frame-indipendent and everything
+				should feel more consistent.
+			</fixed>
+			<fixed>
+				Camera clipping with clothing when using ACOG6x with <code>HideClothing</code> option disabled
+			</fixed>
+			<fixed>Lens values for NightVision optics (Kazuar, Starlight)</fixed>
+			<fixed>Camera clipping when using the PSO optic</fixed>
+			<fixed>SSG optic would clip with camera</fixed>
+			<fixed>SSG optic PiP may not work sometime</fixed>
+			<fixed>Incorrect sounds being played when interacting with the weapon</fixed>
+			<fixed>The focusing vignette could remain active under certain conditions</fixed>
+			<fixed>The focusing vignette is now better synchronized with FoV when focusing</fixed>
+			<fixed>Minor improvements</fixed>
+			<modding>Preprocessor defines are now declared according to DayZ 1.21 changes</modding>
+			<modding>New constants related to the inventory/weapon weight are used instead of hardcoded values</modding>
+			<modding>
+				Removed unnecessary bool constants where it's possible to disable a
+				feature via the other constants
+			</modding>
+			<modding>
+				Three new constants have been added to respectively change the focus effectiveness (zoom boost) with
+				ironsights, non-magnifying optics and magnifying optics
+			</modding>
+			<modding>
+				Added constant to toggle player movement inertia being affected by player inventory weight
+			</modding>
+			<modding>Added constant for player inertia timing for sprint direction change</modding>
+			<modding>Added constant for toggling hipfire deadzone reset upon weapon raise</modding>
+			<modding>Renamed recoil control stats root widget</modding>
+		</changes>
+	</changelog>
 </changelogs>
