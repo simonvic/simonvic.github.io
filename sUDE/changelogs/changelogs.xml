@@ -986,4 +986,12 @@
 			<modding>Renamed constant to enable movement inertia affected by player inventory weight</modding>
 		</changes>
 	</changelog>
+	<changelog mod="sVisual" tag="v1.7.1.exp.1" type="minor" branch="dev" date="2023/05/23 15:00:00">
+		<preamble>
+			<b>Changes are relative to previous experimental revision</b>
+		</preamble>
+		<changes>
+			<modding>Preprocessor defines are now declared according to DayZ 1.21 changes</modding>
+		</changes>
+	</changelog>
 </changelogs>
