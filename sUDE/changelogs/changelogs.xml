@@ -350,9 +350,12 @@
 			<changed>Bleeding animation won't have red vignette anymore (replaced by an overlay)</changed>
 			<changed>Improved `SGameConfig`</changed>
 			<changed>Refactored and improved `SFlagOperator` (formerly FlagOperation)</changed>
-			<changed>PPEparams variables in `PlayerBase` have been renamed [ 82170116bda2884aa94cc4281f15309b28f0457a ]
+			<changed>
+				PPEparams variables in `PlayerBase` have been renamed [ 82170116bda2884aa94cc4281f15309b28f0457a ]
 			</changed>
-			<changed>Renamed some PP effects related methods in `PlayerBase` [ 7d8163554b17ab79b4b5df99a3488393f296fa69 ] </changed>
+			<changed>
+				Renamed some PP effects related methods in `PlayerBase` [ 7d8163554b17ab79b4b5df99a3488393f296fa69 ]
+			</changed>
 			<changed>PP effects and overlays are now activated `OnPlayerLoaded` instead of `OnPlayerSelect`</changed>
 			<fixed>The screen won't become red when player is low on shock and bleeding (thanks overlays!)</fixed>
 			<fixed>Spawn ppe animation won't play when exiting from freecam</fixed>
@@ -941,7 +944,7 @@
 			<fixed>
 				Most logic for weapon handling and camera is now frame-indipendent and everything
 				should feel more consistent. <b>(This only applies if you're playing with DayZ 1.21
-				build)</b>
+					build)</b>
 			</fixed>
 			<fixed>PSO optics near plane clipping (DayZ 1.21)</fixed>
 			<fixed>Minor improvements</fixed>
@@ -962,7 +965,7 @@
 				sDebugUI: window body color can now be changed with <code>body.bg</code> option
 			</added>
 			<added>
-				sDebugUI: new options for table cells flags (<code>table.cell.flags.set</code>, 
+				sDebugUI: new options for table cells flags (<code>table.cell.flags.set</code>,
 				<code>table.cell.flags.set</code>)
 			</added>
 			<added>Helper function to convert array to csv row</added>
@@ -1089,6 +1092,80 @@
 			<modding>Added constant for player inertia timing for sprint direction change</modding>
 			<modding>Added constant for toggling hipfire deadzone reset upon weapon raise</modding>
 			<modding>Renamed recoil control stats root widget</modding>
+		</changes>
+	</changelog>
+	<changelog mod="sFramework" tag="v2.0.0.exp" type="Major" branch="dev" date="2023/05/25 21:00:00">
+		<preamble></preamble>
+		<changes>
+			<added>Builder classes for camera overlays</added>
+			<added>
+				Added <code>isActive</code>, <code>activate</code>, <code>deactivate</code> and
+				<code>toggle</code> methods to <code>sCameraOverlay</code>
+			</added>
+			<changed>
+				<code>sPPEffect</code> (and all child classes) now inherit from the vanilla
+				<code>PPERequesterBase</code>
+			</changed>
+			<changed>Removed <code>sPPEManager</code></changed>
+			<changed>Removed <code>DoFPreset</code></changed>
+			<changed>Removed <code>PPEDefaultPreset</code></changed>
+			<changed>Removed <code>PPEMergeFlags</code></changed>
+			<changed>Removed <code>PPEMaterialsNames</code></changed>
+			<changed>Removed <code>PPEParamNames</code></changed>
+			<changed>Removed <code>SPPEConstants</code></changed>
+			<changed>
+				<code>Duration</code> for <code>SPPEffectTimed</code> doesn't have a default value anymore.
+				Be sure to set it in the constructor or the <code>onInit</code> method
+			</changed>
+			<changed>
+				<code>DeactivationOnStop</code> for <code>SPPEffectTimed</code> doesn't have a default value anymore.
+				Be sure to set it in the constructor or the <code>onInit</code> method
+			</changed>
+			<changed>Camera overlays constructors don't have arguments anymore. Use builders or setters</changed>
+			<changed>Removed unnecessary typedefs for overlays and ppeffects</changed>
+			<changed>Changed camera overlay priorities ranges</changed>
+			<fixed>Decreased camera overlay UI priority from 200 to 100</fixed>
+			<fixed>Camera overlay manager <code>getAnimating</code> returning set of overlay weak ref</fixed>
+			<fixed>Removed unused widget in camera overlays root layout</fixed>
+		</changes>
+	</changelog>
+	<changelog mod="sVisual" tag="v2.0.0.exp" type="Major" branch="dev" date="2023/05/25 21:00:00">
+		<preamble></preamble>
+		<changes>
+			<added>New overall effects intensity option</added>
+			<added>
+				Completely new HighQuality overlays for motohelmet, sun glasses and gasmasks for all health
+				states (pristine, worn, damaged, badly damaged, ruined)
+			</added>
+			<added>New HighQuality overlay for burlap sack</added>
+			<added>Special overlay for yellowking helmet</added>
+			<added>Vanilla glasses pperequesters will now reduce the bloom (if active) by 90%</added>
+			<changed>
+				All ppeffects and overlays will now scale along the overall effects intensity user option
+			</changed>
+			<changed>Completely reworked all effects (bleeding, exhausted, damage etc.)</changed>
+			<changed>Some user options (ddof, headbob, motion blur, bloom) have been normalized</changed>
+			<changed>Updated options stringtable</changed>
+			<changed>Minor performance improvements</changed>
+			<fixed>Fixed possibly all mods compatibility issues</fixed>
+			<fixed>Fixed possibly all compatibility issues with night vision related effects</fixed>
+			<fixed>Bloom effect will no longer cause flickering</fixed>
+			<fixed>Increased unconscious overlay priority</fixed>
+			<fixed>Fixed some instances of DDoF not properly disabling</fixed>
+			<fixed>Warning about possible 'stamina' name conflict</fixed>
+			<modding>
+				<code>getEffectsIntensity</code> method has been added to <code>sPPEffect</code>
+				and <code>sCameraOverlay</code>
+			</modding>
+			<modding>sVisual won't disable vanilla ppemanager anymore</modding>
+		</changes>
+	</changelog>
+	<changelog mod="sGunplay" tag="v2.2.0.exp" type="Major" branch="dev" date="2023/05/25 21:00:00">
+		<preamble></preamble>
+		<changes>
+			<changed>Update to support sFramework and sVisual 2.0 update</changed>
+			<fixed>Depth of Field not resetting when exiting ADS while inspecting a weapon</fixed>
+			<fixed>Optic misalignment overlay duration and priority</fixed>
 		</changes>
 	</changelog>
 </changelogs>
