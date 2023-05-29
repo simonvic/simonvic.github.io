@@ -1168,4 +1168,15 @@
 			<fixed>Optic misalignment overlay duration and priority</fixed>
 		</changes>
 	</changelog>
+	<changelog mod="sVisual" tag="v2.0.0.exp.1" type="Major" branch="dev" date="2023/05/29 17:00:00">
+		<preamble></preamble>
+		<changes>
+			<changed>Tweaked minimum and maximum duration of the hit received ppeffect</changed>
+			<fixed>
+				Hit received ppeffect overlay factor was not scaling with the effects intensity user option
+			</fixed>
+			<fixed>Bloom not working anymore after it was being deactivated</fixed>
+			<modding>Renamed ppeffects classes</modding>
+		</changes>
+	</changelog>
 </changelogs>
