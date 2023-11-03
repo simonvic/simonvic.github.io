@@ -11,7 +11,7 @@ window.onload = function() {
 	code = document.getElementById("output_json");
 	downloadButton = document.getElementById('downloadCode');
 	onModChange(getSelectedMod());
-}
+};
 
 function getSelectedMod() {
 	return modSelect.options[modSelect.selectedIndex].value;
@@ -82,7 +82,7 @@ function buildMinMaxConstraint(optionName, constraint) {
 					oninput="updateMinMaxConstraint('${optionName}', 'max', this.parentNode)"/>
 			</fieldset>
 		</label>
-		`
+		`;
 }
 
 function buildNumericConstraint(optionName, constraint) {
@@ -93,14 +93,14 @@ function buildNumericConstraint(optionName, constraint) {
 }
 
 function buildCrosshairTypeOption(optionName, constraint) {
-	let html = ""
-	html += `<label>Constrain to</label>`
-	html += `<select onchange="updateConstraints('${optionName}', 'value', Number(this.options[this.selectedIndex].value))">`
+	let html = "";
+	html += `<label>Constrain to</label>`;
+	html += `<select onchange="updateConstraints('${optionName}', 'value', Number(this.options[this.selectedIndex].value))">`;
 	let types = ["Default", "Curve", "Chevron", "Double curve", "Dot", "Cross", "T cross", "Angles"];
 	types.forEach((type, index) => {
-		html += `<option name="${type}" value="${index}" ${constraint.value == index ? "" : "checked"}>${type}</option>`
-	})
-	html += `</select>`
+		html += `<option name="${type}" value="${index}" ${constraint.value == index ? "" : "checked"}>${type}</option>`;
+	});
+	html += `</select>`;
 	return html;
 }
 
@@ -112,7 +112,7 @@ function buildBooleanConstraint(optionName, constraint) {
 			<label><input name="${optionName}" type="radio" value="disabled" ${constraint.value ? "" : "checked"}>Always disabled</label>
 			<label><input name="${optionName}" type="radio" value="enabled" ${constraint.value ? "checked" : ""}>Always enabled</label>
 		</fieldset>
-		`
+		`;
 }
 
 function buildConstraint(optionName, constraint) {
@@ -143,7 +143,7 @@ function buildConstraints() {
 						onchange="updateConstraints('${optionName}', 'message', this.value)">
 				</label>
 			</details>
-			`
+			`;
 	}
 	return html;
 }
