@@ -1,83 +1,83 @@
 {
-    "adsFOVMultiplier": {
-        "constrain": false,
-        "message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
-        "min": 0.0,
-        "max": 1.0
-    },
-    "adsFOVMagnOpticsMultiplier": {
-        "constrain": false,
-        "message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
-        "min": 0.0,
-        "max": 1.0
-    },
-    "adsDOFIntensity": {
-        "constrain": false,
-        "message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
-        "min": 0.0,
-        "max": 1.0
-    },
-    "hideWeaponBarrelInOptic": {
-        "constrain": false,
-        "message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
-        "value": true
-    },
-    "hideClothingInOptic": {
-        "constrain": false,
-        "message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
-        "value": true
-    },
-    "lensZoomStrength": {
-        "constrain": false,
-        "message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
-        "min": 0.0,
-        "max": 1.0
-    },
-    "deadzoneLimits": {
-        "constrain": false,
-        "message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
-        "min": [
-            0.0,
-            0.0,
-            0.0,
-            0.0
-        ],
-        "max": [
-            1.0,
-            1.0,
-            1.0,
-            1.0
-        ]
-    },
-    "resetDeadzoneOnFocus": {
-        "constrain": false,
-        "message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
-        "value": true
-    },
-    "showDynamicCrosshair": {
-        "constrain": false,
-        "message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
-        "value": false
-    },
-    "dynamicCrosshairType": {
-        "constrain": false,
-        "message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
-        "value": 0
-    },
-    "dynamicCrosshairRGBA": {
-        "constrain": false,
-        "message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
-        "min": [
-            0.0,
-            0.0,
-            0.0,
-            0.0
-        ],
-        "max": [
-            255.0,
-            255.0,
-            255.0,
-            255.0
-        ]
-    }
+	"adsFOVMultiplier": {
+		"constrain": false,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"min": 0.0,
+		"max": 1.0
+	},
+	"adsFOVMagnOpticsMultiplier": {
+		"constrain": false,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"min": 0.0,
+		"max": 1.0
+	},
+	"adsDOFIntensity": {
+		"constrain": false,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"min": 0.0,
+		"max": 1.0
+	},
+	"hideWeaponBarrelInOptic": {
+		"constrain": false,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"value": true
+	},
+	"hideClothingInOptic": {
+		"constrain": false,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"value": true
+	},
+	"lensZoomStrength": {
+		"constrain": false,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"min": 0.0,
+		"max": 1.0
+	},
+	"deadzoneLimits": {
+		"constrain": false,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"min": [
+			0.0,
+			0.0,
+			0.0,
+			0.0
+		],
+		"max": [
+			1.0,
+			1.0,
+			1.0,
+			1.0
+		]
+	},
+	"resetDeadzoneOnFocus": {
+		"constrain": false,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"value": true
+	},
+	"showDynamicCrosshair": {
+		"constrain": false,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"value": false
+	},
+	"dynamicCrosshairType": {
+		"constrain": false,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"value": 0
+	},
+	"dynamicCrosshairRGBA": {
+		"constrain": false,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"min": [
+			0.0,
+			0.0,
+			0.0,
+			0.0
+		],
+		"max": [
+			255.0,
+			255.0,
+			255.0,
+			255.0
+		]
+	}
 }
