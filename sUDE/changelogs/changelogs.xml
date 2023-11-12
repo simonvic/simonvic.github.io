@@ -1179,4 +1179,56 @@
 			<modding>Renamed ppeffects classes</modding>
 		</changes>
 	</changelog>
+	<changelog mod="sFramework" tag="v2.0.0.exp.1" type="Major" branch="dev" date="2023/11/12 19:00:00">
+		<preamble>
+			<b>Changes are relative to previous experimental revision</b>
+		</preamble>
+		<changes>
+			<added>Modded diag menu available with diagnostic executable</added>
+			<added>DUIs constructor method with default visibility state</added>
+		</changes>
+	</changelog>
+	<changelog mod="sVisual" tag="v2.0.0.exp.2" type="Major" branch="dev" date="2023/11/12 19:00:00">
+		<preamble>
+			<b>Changes are relative to previous experimental revision</b>
+		</preamble>
+		<changes>
+			<fixed>
+				Dynamic Depth of Field near focus length was not adjusting
+				properly
+			</fixed>
+		</changes>
+	</changelog>
+	<changelog mod="sGunplay" tag="v2.2.0.exp.1" type="Major" branch="dev" date="2023/11/12 19:00:00">
+		<preamble>
+			<b>Changes are relative to previous experimental revision</b>
+		</preamble>
+		<changes>
+			<added>Recoil for M14 DMR (DayZ 1.23)</added>
+			<added>
+				It's now possible to see weapons and attachments recoil control
+				statistics when hovering them in the inventory
+			</added>
+			<added>
+				It's now possible to see attachments recoil control statistics
+				in the inspection menu
+			</added>
+			<added>
+				DepthOfField blur now correctly works like in vanilla with
+				magnifying optics and its intensity can be changed with the
+				<code>ADS DoF intensity</code> option
+			</added>
+			<changed>
+				Reduced lens magnification intensity for the HuntingOptic,
+				which caused strong distortions at high zoom levels
+			</changed>
+			<fixed>Wrong base classes for certain items in the config.cpp</fixed>
+			<fixed>
+				The FoV (zoom) was not updating when changing zoom level on
+				certain modded optics
+			</fixed>
+			<fixed>PiP is now being correctly applied with handheld optics</fixed>
+			<fixed>PiP was "popping" when entering magnifying optics</fixed>
+		</changes>
+	</changelog>
 </changelogs>
