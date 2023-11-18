@@ -1231,4 +1231,25 @@
 			<fixed>PiP was "popping" when entering magnifying optics</fixed>
 		</changes>
 	</changelog>
+	<changelog mod="sGunplay" tag="v2.2.0.exp.2" type="Major" branch="dev" date="2023/11/18 17:45:00">
+		<preamble>
+			<b>Changes are relative to previous experimental revision</b><br />
+			Given the major changes to recoils and attachment stats, some
+			compatibility mods may not be balanced. Updates for them are on the
+			way.
+		</preamble>
+		<changes>
+			<changed>
+				Revisited recoils for most ARs, SMGs and rifles to have less
+				vertical misalignment and slightly more horizontal misalignment,
+				resulting in aiming being a bit easier during long sprays.
+			</changed>
+			<modding>
+				All recoils, attachment stats and weapon integrated attachment stats
+				have been "normalized", meaning that it will be easier to compare
+				and balance them in the future.
+			</modding>
+			<modding>Improved UI for recoil control stats to be easier to mod</modding>
+		</changes>
+	</changelog>
 </changelogs>
