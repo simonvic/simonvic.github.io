@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+	<title>dotfiles</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="/sUDE/css/style.css">
+		<script src="/sUDE/js/highlight.js"></script>
+	</head>
+
+	<body>
+		<main class="container">
+			<nav aria-label="breadcrumb" id="breadcrumbs">
+			<ul> </ul>
+			</nav>
+			<p align="center">
+				<img width="200px" src="https://i.imgur.com/TU66AEL.png">
+			</p>
+
+			<p align="center">
+				<img src="https://img.shields.io/badge/version-v3.0.0-F0544C?style=for-the-badge">
+				<img src="https://img.shields.io/github/v/tag/simonvic/dotfiles?color=F0544C&label=latest%20stable%20release&style=for-the-badge">
+				<br>
+				<img src="https://img.shields.io/github/last-commit/simonvic/dotfiles/dev?color=F0544C&logoColor=F0544C&style=flat-square">
+				<img src="https://img.shields.io/github/commits-since/simonvic/dotfiles/latest/dev?color=F0544C&logoColor=F0544C&style=flat-square">
+				<br>
+				<img src="https://img.shields.io/github/repo-size/simonvic/dotfiles?color=F0544C&logoColor=F0544C&style=flat-square">
+				<img src="https://img.shields.io/github/license/simonvic/dotfiles?color=F0544C&style=flat-square">
+				<br>
+				<img src="https://img.shields.io/github/watchers/simonvic/dotfiles?color=F0544C&style=flat-square">
+				<img src="https://img.shields.io/github/forks/simonvic/dotfiles?color=F0544C&style=flat-square">
+			</p>
+
+			<h1>dotfiles</h1>
+
+			<h3>Lockscreen</h3>
+			<img src="https://imgur.com/X4KEcVR.gif" width="100%">
+			<details>
+ 				<summary> Other themes preview </summary>
+				<img src="https://imgur.com/AD6SStG.gif" width="50%">
+				<img src="https://imgur.com/t9re5NI.gif" width="50%">
+			</details>
+
+			<h3>Application launcher, window switcher and calculator (Rofi)</h3>
+			<img src="https://imgur.com/U2OKJvx.gif" width="100%">
+
+			<h3>Polybar</h3>
+			<img src="https://imgur.com/BbjNiOo.gif" width="100%">
+
+			<h3>Music control (sPlayerctl) + notification icon art</h3>
+			<img src="https://imgur.com/0XehgiR.gif" width="100%">
+			<img src="https://i.imgur.com/ir8RoHf.png" width="100%">
+
+			<h3>Speaker and microphone control</h3>
+			<img src="https://imgur.com/NAcWdqa.gif" width="100%">
+
+			<h3>Brightness and Redshift control</h3>
+			<img src="https://imgur.com/9UBUZQg.gif" width="100%">
+
+			<h3>App notifications</h3>
+			<img src="https://imgur.com/dgIq5dr.gif" width="100%">
+
+			<h3>ToDo popup with context action</h3>
+			<p align="center">
+    			<img src="https://imgur.com/8OWFgx8.gif" width="50%">
+    			<img src="https://imgur.com/aYN9Ees.gif" width="100%">
+			</p>
+
+			<h2>Quick start</h2>
+			<ol>
+				<li>Clone the dotfiles
+					<pre><code>git clone --bare https://github.com/simonvic/dotfiles.git "${XDG_DATA_HOME:-$HOME/.local/share}/.dotfiles"</code></pre>
+				</li>
+				<li>Checkout the content
+					<pre><code>git --git-dir="${XDG_DATA_HOME:-$HOME/.local/share}/.dotfiles/" --work-tree="$HOME" checkout</code></pre>
+				</li>
+				<li>Hide untracked files
+					<pre><code>git --git-dir="${XDG_DATA_HOME:-$HOME/.local/share}/.dotfiles/" --work-tree="$HOME" config --local status.showUntrackedFiles no</code></pre>
+				</li>
+				<li>Add <code>.local/bin</code> to <code>path</code>
+					<p>
+						Follow your system instruction on how to edit the <code>PATH</code> and make the changes
+						persistent.
+					</p>
+				</li>
+				<li>Make the scripts executable
+					<pre><code>chmod +x ~/.local/bin/name_of_script</code></pre>
+				</li>
+				<li>Relog or reboot your system to make sure the changes have taken effect</li>
+			</ol>
+			<p>
+				Assuming you already have zsh as your shell (if not check how to change your default shell), you should now
+				see the custom prompt.
+			</p>
+			<p>
+				You can use the dotfiles alias to manage the dotfiles. With the power of git you can easily fetch updates
+				for the dotfiles or see what has changed.
+			</p>
+			<ul>
+				<li>List changes
+					<pre><code>dotfiles log --oneline</code></pre>
+				</li>
+
+				<li>Check for new updates
+					<pre><code>dotfiles fetch --tags</code></pre>
+				</li>
+
+				<li>Change to developement branch to get latest changes
+					<pre><code>dotfiles checkout dev</code></pre>
+				</li>
+				<li>Update the dotfiles
+					<pre><code>dotfiles pull</code></pre>
+				</li>
+			</ul>
+			<h2>Installation guide</h2>
+			<p>
+				For a more in-depth guide, refer to the
+				<a href="https://github.com/simonvic/dotfiles/wiki/Installation">wiki</a>
+			</p>
+
+		</main>
+	</body>
+
+</html>
