@@ -142,11 +142,13 @@ function parseTutorialCard(xml) {
 		difficulty: xml.getElementsByTagName("difficulty")[0].innerHTML,
 		prerequisiteIDs: prerequisiteIDs,
 		href: href != null ? href : xml.id,
-		tags: tags
+		tags: tags,
+		hidden: xml.getAttribute("hidden")
 	};
 }
 
 function buildTutorialCard(tutorialCard) {
+	if (tutorialCard.hidden) return "";
 	var html = "";
 	html += `<details id="${tutorialCard.id}"`;
 	html += `	title="${tutorialCard.title}"`;
