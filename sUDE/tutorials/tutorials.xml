@@ -8,10 +8,7 @@
 			using sFramework's
 			<em data-tooltip="Post processing effect Manager">PPEManager</em>
 		</description>
-		<prerequisites>
-			<id>1</id>
-			<id>2</id>
-		</prerequisites>
+		<prerequisites></prerequisites>
 		<difficulty>25</difficulty>
 		<tags>
 			<tag>sFramework</tag>
@@ -48,13 +45,14 @@
 		</tags>
 	</tutorial>
 
-	<tutorial id="4">
-		<title>How to personalize default PostProcessing values</title>
+	<tutorial id="4" href="wip.html">
+		<title>PostProcessing effects explanation</title>
 		<description>
-			This tutorial will show how you can easily change the default <em
-				data-tooltip="PostProcessing Effect">PPE</em> values via the <code>config.cpp</code>
+			This tutorial will explain all available post processing effects that you can use with sVisual
 		</description>
-		<prerequisites></prerequisites>
+		<prerequisites>
+			<id>1</id>
+		</prerequisites>
 		<difficulty>10</difficulty>
 		<tags>
 			<tag>sFramework</tag>
@@ -75,7 +73,7 @@
 		</tags>
 	</tutorial>
 
-	<tutorial id="6" href="wip.html">
+	<tutorial id="6" href="wip.html" hidden="true">
 		<title>How to make a mod compatible with sVisual</title>
 		<description>
 			This tutorial will show you the steps to make a mod compatible with sVisual
@@ -88,7 +86,7 @@
 		</tags>
 	</tutorial>
 
-	<tutorial id="7" href="wip.html">
+	<tutorial id="7">
 		<title>How to add Overlays to clothing</title>
 		<description>
 			sVisual is capable of automatically activating overlays when a clothing item is equipped.
