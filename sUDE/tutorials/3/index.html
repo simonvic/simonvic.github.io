@@ -38,7 +38,8 @@
 				<h3>First server launch</h3>
 				<p>
 					Make sure you launch the server at least once with the mod of which you wish to constrain the user
-					settings; this will ensure the needed files will be automatically generated.
+					settings, and that at least player has joined once; this will ensure the needed files will be
+					automatically generated.
 				</p>
 
 				<p>
@@ -68,6 +69,10 @@
 				<h3>Edit the constraints</h3>
 				<p>
 					Open the file with your favorite text editor and edit the constraints as needed
+				</p>
+				<p>
+					If you're unfamiliar with editing JSON files, you can use the
+					<a href="https://simonvic.github.io/sUDE/tools/sConstraintsEditor">sConstraint editor tool</a>
 				</p>
 				<blockquote class="note">
 					Make sure that the syntax of the file is correct, or the server will refuse to load the file and
@@ -148,11 +153,17 @@
 					<summary>sVisual constraints file</summary>
 					<pre><code>
 {
-	"ddofIntensity": {
+	"effectsIntensity": {
 		"constrain": true,
 		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
-		"min": 5.0,
-		"max": 25.0
+		"min": 0.5,
+		"max": 2
+	},
+	"ddofIntensity": {
+		"constrain": false,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"min": 0,
+		"max": 1
 	},
 	"ddofEnabledIn3PP": {
 		"constrain": true,
@@ -160,41 +171,41 @@
 		"value": false
 	},
 	"ddofEnabledInVehicle": {
-		"constrain": false,
+		"constrain": true,
 		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
-		"value": false
+		"value": true
 	},
 	"headbobIntensity": {
-		"constrain": true,
-		"message": "Hello! <p>I've decided to block this settings</p> <i>Why?</i><br/> I don't know <b>LOL</b> <br/><font>This is a very cool font</font><br/><font>-----------------------</font>",
-		"min": 2.5,
-		"max": 5.0
+		"constrain": false,
+		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
+		"min": 0,
+		"max": 1
 	},
 	"headbobEnabledIn3PP": {
-		"constrain": true,
+		"constrain": false,
 		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
 		"value": true
 	},
 	"motionBlurIntensity": {
 		"constrain": false,
 		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
-		"min": 0.0,
-		"max": 0.20000000298023225
+		"min": 0,
+		"max": 1
 	},
 	"bloomIntensity": {
 		"constrain": false,
 		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
-		"min": 0.0,
-		"max": 5.0
+		"min": 0,
+		"max": 1
 	},
 	"headLeanAngle": {
 		"constrain": true,
-		"message": "#STR_SUDE_LAYOUT_OPTIONS_CONSTRAINED",
-		"min": 10.0,
-		"max": 10.0
+		"message": "Hello! &lt;p&gt;I&#39;ve decided to block this settings&lt;/p&gt; &lt;i&gt;Why?&lt;/i&gt;&lt;br/&gt; I don&#39;t know &lt;b&gt;LOL&lt;/b&gt; &lt;br/&gt;&lt;font&gt;This is a very cool font&lt;/font&gt;&lt;br/&gt;&lt;font&gt;-----------------------&lt;/font&gt;",
+		"min": 0,
+		"max": 15.83
 	}
-}						
-					</code></pre>
+}					
+				</code></pre>
 				</details>
 				<details>
 					<summary>sGunplay constraints file</summary>
