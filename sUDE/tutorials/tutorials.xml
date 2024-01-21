@@ -114,7 +114,7 @@
 		</tags>
 	</tutorial>
 
-	<tutorial id="9" href="wip.html">
+	<tutorial id="9">
 		<title>How to define colors with sColor</title>
 		<description>
 			sFramework offers an easy way to define, modify and handle colors via the <code>sColor</code> class.

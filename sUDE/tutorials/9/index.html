@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>sUDE | Tutorials</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/sUDE/css/style.css">
+	<link rel="stylesheet" href="/sUDE/css/highlight.css">
+	<script src="/sUDE/js/main.js"></script>
+	<script src="/sUDE/tutorials/js/tutorials.js"></script>
+	<script src="/sUDE/js/highlight.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body>
+	<main class="container" aria-busy="true">
+		<nav aria-label="breadcrumb">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/sUDE">sUDE</a></li>
+				<li><a href="/sUDE/tutorials">Tutorials</a></li>
+				<li id="breadcrumb_current">...</li>
+			</ul>
+		</nav>
+
+		<ol id="steps" class="steps">
+			<li><a href="#Setup">Setup</a></li>
+			<li><a href="#Definition">Definition of a color</a></li>
+		</ol>
+		<ol>
+			<li>
+				<h3 id="Setup">Setup</h3>
+				<p>
+					Add sFramework as a dependency by adding it to the <code>requiredAddons</code>
+					inside your <code>config.cpp</code>
+				</p>
+				<pre><code>
+class CfgPatches {
+	class NAME_OF_YOUR_MOD {
+		requiredAddons[] = {
+			"sFramework"
+		};
+	};
+};
+				</code></pre>
+			</li>
+			<li>
+				<h3 id="Definition">Definition of a color</h3>
+				<p>sColor is just a wrapper for an integer value, so it has a minimal memory footprint.</p>
+				<p>It enables you to define a color in various way.</p>
+				<ul>
+					<li>Hexadecimal value, like in CSS
+						<pre><code class="language-csharp">
+SColor.rgb(0xFF0000);    //red
+SColor.rgba(0xFF000055); //red slightly transparent
+SColor.argb(0x55FF0000); //red slightly transparent
+					</code></pre>
+					</li>
+					<li>Separated red, green, blue (and alpha) channels; from 0 to 255
+						<pre><code class="language-csharp">
+SColor.rgb(60, 97, 178);      //blueish
+SColor.rgba(60, 97, 178, 0);  //blueish
+SColor.argb(0, 60, 97, 178);  //blueish
+					</code></pre>
+					</li>
+					<li>HSB format (hue, saturation, brightness)
+						<pre><code class="language-csharp">
+SColor.hsb(0.60, 0.65, 0.87); //yellowish
+					</code></pre>
+					</li>
+					<li>Via presets
+						<pre><code class="language-csharp">
+SColor.rgb(RGBColors.RED);
+SColor.rgb(RGBColors.AQUAMARINE);
+SColor.rgb(RGBColors.YELLOW_GREEN);
+					</code></pre>
+					</li>
+				</ul>
+			</li>
+		</ol>
+	</main>
+</body>
+
+</html>
