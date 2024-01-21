@@ -162,7 +162,7 @@
 				<h3>Recoils</h3>
 				<blockquote class="info">
 					If you have custom weapons which doesn't use custom recoil, but they instead use the recoils of some
-					existing vanilla weapons, you can skip to <a>this step</a>
+					existing vanilla weapons, you can skip to <a href="#Attachments_stats">this step</a>
 				</blockquote>
 				<p>
 					Before doing anything, it's important to understand how recoil works in sGunplay.
@@ -231,19 +231,18 @@
 				<pre><code>
 modded class AUGRecoil {
 	override void initRecoilParameters() {
-
-		mouseRanges        = { 0.175, 0.250,  1.250,  1.750};
-		mouseTime          = 0.150;
-
-		handsRanges        = {-0.250, 0.550,  2.750,  3.985};
-		handsAccumSpeed    = 0.920;
-		handsResetSpeed    = 0.700;
+		handsRanges        = {-1.750,  1.750,  2.750,  3.985};	
+		handsAccumSpeed    = 0.975;
+		handsResetSpeed    = 0.725;
 		
-		misalignIntensity  = {0.250, 0.250};
+		misalignIntensity  = { 1.550,  0.550};
 		misalignAccumSpeed = 0.925;
-		misalignResetSpeed = 0.750;
+		misalignResetSpeed = 0.850;
 	
-		kick               = 0.015;
+		mouseRanges        = {-0.215,  0.215,  1.250,  1.750};
+		mouseTime          = 0.150;
+	
+		kick               = 0.045;
 		kickResetTime      = 2.250;
 	}
 }					
@@ -364,31 +363,31 @@ class cfgWeapons {
 class cfgVehicles {
 	class Inventory_Base;
 	class MyModdedButtstock : Inventory_Base {
-		s_recoilControlStabilityX = 0.50;
-		s_recoilControlStabilityY = 0.50;
-		s_recoilControlMisalignmentX = 0.00;
-		s_recoilControlMisalignmentY = 0.25;
-		s_recoilControlKick = 0.75;
+		s_recoilControlStabilityX = 0.40;
+		s_recoilControlStabilityY = 0.40;
+		s_recoilControlMisalignmentX = 0.05;
+		s_recoilControlMisalignmentY = 0.15;
+		s_recoilControlKick = 0.60;
 	};
 	class MyModdedHandguard : Inventory_Base {
 		s_recoilControlStabilityX = 0.20;
 		s_recoilControlStabilityY = 0.20;
-		s_recoilControlMisalignmentX = 0.30;
-		s_recoilControlMisalignmentY = 0.30;
+		s_recoilControlMisalignmentX = 0.55;
+		s_recoilControlMisalignmentY = 0.45;
 	};
 	class MyModdedCompensator : Inventory_Base {
-		s_recoilControlMisalignmentX = 0.45;
+		s_recoilControlMisalignmentX = 0.10;
 		s_recoilControlMisalignmentY = 0.05;
 	};
 };
 class cfgWeapons {
 	class Rifle_Base;
 	class MyModdedWeapon : Rifle_Base {
-		s_recoilControlStabilityX = 0.10;
-		s_recoilControlStabilityY = 0.10;
-		s_recoilControlMisalignmentX = 0.10;
-		s_recoilControlMisalignmentY = 0.10;
-		s_recoilControlKick = 0.10;
+		s_recoilControlStabilityX = 0.05;
+		s_recoilControlStabilityY = 0.05;
+		s_recoilControlMisalignmentX = 0.05;
+		s_recoilControlMisalignmentY = 0.05;
+		s_recoilControlKick = 0.05;
 	};			
 };							
 						</code></pre>
@@ -400,6 +399,7 @@ class cfgWeapons {
 						<table>
 							<thead>
 								<tr>
+									<th></th>
 									<th scope="col">stability control horizontal</th>
 									<th scope="col">stability control vertical</th>
 									<th scope="col">misalignment control horizontal</th>
@@ -409,12 +409,45 @@ class cfgWeapons {
 							</thead>
 							<tbody>
 								<tr>
-									<td>0.80 (80%)</td>
-									<td>0.80 (80%)</td>
-									<td>0.85 (85%)</td>
-									<td>0.70 (70%)</td>
-									<td>0.85 (85%)</td>
+									<td>MyModdedButtstock</td>
+									<td>0.40</td>
+									<td>0.40</td>
+									<td>0.05</td>
+									<td>0.15</td>
+									<td>0.60</td>
 								</tr>
+								<tr>
+									<td>MyModdedHandguard</td>
+									<td>0.20</td>
+									<td>0.20</td>
+									<td>0.55</td>
+									<td>0.45</td>
+									<td>0.00</td>
+								</tr>
+								<tr>
+									<td>MyModdedCompensator</td>
+									<td>0.00</td>
+									<td>0.00</td>
+									<td>0.10</td>
+									<td>0.05</td>
+									<td>0.00</td>
+								</tr>
+								<tr>
+									<td>MyModdedWeapon (integrated attachment stats)</td>
+									<td>0.05</td>
+									<td>0.05</td>
+									<td>0.05</td>
+									<td>0.05</td>
+									<td>0.05</td>
+								</tr>
+								<tfoot>
+									<td>final result</td>
+									<td>0.65</td>
+									<td>0.65</td>
+									<td>0.75</td>
+									<td>0.70</td>
+									<td>0.65</td>
+								</tfoot>
 							</tbody>
 						</table>
 					</li>
