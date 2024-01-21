@@ -36,6 +36,7 @@
 							<li><a href="#Operator_types">Operator types</a>
 						</ol>
 					<li><a href="#Multiple_parameters">Multiple parameters</a>
+					<li><a href="#Effects_intensity_option">Effects intensity option</a>
 					</li>
 				</ol>
 			</li>
@@ -689,6 +690,39 @@ class Effect_B : SPPEffect {
 						</tr>
 					</tbody>
 				</table>
+				<h4 id="Effects_intensity_option">Effects intensity option</h4>
+				<p>
+					Some players may enjoy more intense effects for immersion, while some other may find them too
+					distracting.<br>
+					With sVisual, the players can change an option to specify their preferred "effects intensity".<br>
+				</p>
+				<p>
+					You can get the player preference by invoking the <code>getEffectsIntensity()</code> method, which
+					will return a value between 0 and 2 (inclusive)
+				</p>
+				<p>How this value will affect your effects it's up to you; you may want a specific effect to scale differently based on the player preference.</p>
+				<p>As a rule of thumb: 
+					<ul>
+						<li>An effect intensity value of 0, means that the player want the least possible effects on the screen</li>
+						<li>Effect intensity of 1 is the default</li>
+						<li>An effect intensity of 2, means the player like very strong effects</li>
+					</ul>
+				</p>
+				<blockquote class="note">
+					This method is only available if you're using sVisual; so make sure to have specified sVisual
+					in the <code>requiredAddons</code>
+				</blockquote>
+				<p>Let's see an example</p>
+				<pre><code class="language-csharp">
+class PainEffect : SPPEffect {
+	override void onInit() {
+		normalized(true);
+		priority(1);
+		op(PPOperator.ADD);
+		setVignetteIntensity(0.20 * getEffectsIntensity());
+	}
+}
+				</code></pre>
 			</li>
 		</ol>
 	</main>
