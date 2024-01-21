@@ -26,7 +26,14 @@
 		<ol id="steps" class="steps">
 			<li><a href="#Setup">Setup</a></li>
 			<li><a href="#Defining_an_effect">Defining an effect</a></li>
-			<li><a href="#Applying_the_effect">Applying the effect</a></li>
+			<li><a href="#Registering_the_effect">Registering the effect</a></li>
+			<li><a href="#Using_the_effect">Using the effect</a></li>
+			<li><a href="#Advanced_definition">Advanced definition</a>
+				<ol>
+					<li><a href="#Normalization">Normalization</a></li>
+					<li><a href="#Priority_and_operator">Priority and Operator</a></li>
+				</ol>
+			</li>
 		</ol>
 
 		<ol>
@@ -36,20 +43,21 @@
 					Add sVisual as a dependency by adding it to the <code>requiredAddons</code>
 					inside your <code>config.cpp</code>
 				</p>
+				<blockquote class="info">
+					If you don't plan to use sVisual, you could just specify sFramework as <code>requiredAddons</code>.
+				</blockquote>
 				<pre><code>
-// more stuff here...
 class CfgPatches {
-	class YourMod {
-		// more stuff here...
+	class NAME_OF_YOUR_MOD {
 		requiredAddons[] = {
 			"sVisual"
 		};
-		// more stuff here...
 	};
 };
-// more stuff here...
 				</code></pre>
-
+				<blockquote class="info">
+					Please refer to the official wiki about <em>config.cpp</em> documentation
+				</blockquote>
 			</li>
 			<li>
 				<h3 id="Defining_an_effect">Defining an effect</h3>
@@ -60,10 +68,11 @@ class CfgPatches {
 					<li><code>SPPEffectTimed</code></li>
 				</ul>
 				<p>Use a <code>SPPEffect</code> if you want to define a normal effect</p>
-				<pre><code>
+				<pre><code class="language-csharp">
 class MyStaticEffect : SPPEffect {
 	override void onInit() {
-		setVignette(0.69, Color.rgb(0xFF0000)); //intensity = 0.69 | color = red -> https://www.w3schools.com/cssref/css_colors.asp
+		setVignetteIntensity(0.69)
+		setVignetteColor(SColor.rgb(0x000000)); // SColor: https://simonvic.github.io/sUDE/tutorials/9
 		//...
 	}  
 }
@@ -71,62 +80,579 @@ class MyStaticEffect : SPPEffect {
 
 				<p>
 					Use a <code>SPPEffectAnimated</code> if you want to define an animated effect which will be animated
-					until deactivated
+					until explicitly deactivated
 				</p>
-				<pre><code>
-class MyLoopedEffect : SPPEffectAnimated {
-	//onInit() gets called only once
-	override void onInit(){
-		setVignetteColor(Color.rgb(0xFF0000));
-		//...
+				<pre><code class="language-csharp">
+class MyAnimatedEffect : SPPEffectAnimated {
+
+	override void onInit() {
+		// set vignette color to red
+		setVignetteColor(SColor.rgb(RGBColors.RED));
 	}
 
-	//onAnimate() gets called every frame!
-	override void onAnimate(float deltaTime){
-		setVignetteIntensity(Math.Sin(getTime())); // the intensity will follow a Sine function as the time passes
+	override void onAnimate(float deltaTime) {
+		// we set the vignette intensity to follow a Sine function as the time passes
+		setVignetteIntensity(Math.Sin(getTime()));
 	}
-}						
+
+}
 				</code></pre>
+				<blockquote class="note">
+					The <code>onInit</code> method gets called only once when the effect gets initialized, while the
+					<code>onAnimate</code> method gets called every frame.
+					Choose wisely what to put inside <code>onAnimate</code>
+				</blockquote>
 				<p>
-					Use a SPPEffectTimed if you want to define an animated effect which will be animated but must
-					terminate
-					after a certain amount of time
-					(the definition is the same as above)
+					Use a <code>SPPEffectTimed</code> if you want to define an animated effect which will be animated
+					but must
+					terminate after a certain amount of time
 				</p>
+				<pre><code class="language-csharp">
+class MyTimedEffect : SPPEffectTimed {
+	
+	override void onInit() {
+		setDuration(5.0); // 5 seconds
+		setOverlayColor(SColor.rgb(RGBColors.GREEN));
+	}
+
+	override void onAnimate(float deltaTime) {
+		setOverlayFactor(Math.Sin(getTime()));
+	}
+
+}
+				</code></pre>
 			</li>
 			<li>
-				<h3 id="Applying_the_effect">Applying the effect</h3>
-				<p>Let's say we want to make our effect visible when the player jumps</p>
-				<pre><code>
-modded class PlayerBase{
-	//Declare a variable of our effect
-	ref MyStaticEffect myStaticEffect; 
-	ref MyLoopedEffect myLoopedEffect;
-	ref MyTimedEffect myTimedEffect;
-	
-	void PlayerBase() {
-		myStaticEffect = new MyStaticEffect(); 
-		myLoopedEffect = new MyLoopedEffect();
-		//A PPETimedParams requires you to specify the time (seconds).
-		// myTimedEffect once activated will be animated for 10 seconds and then deactivated
-		myTimedEffect = new MyTimedEffect(10);
+				<h3 id="Registering_the_effect">Register the effect</h3>
+				<p>
+					You've defined your effect. Before being able to use and activate it, you need to <em>register</em>
+					its classname into the <code>PPERequesterBank</code>, which holds the definitions of all PPEffects.
+				</p>
+				<pre><code class="language-csharp">
+modded class PPERequesterRegistrations {
+	void PPERequesterRegistrations() {
+		PPERequesterBank.RegisterRequester(MyStaticEffect);
+		PPERequesterBank.RegisterRequester(MyAnimatedEffect);
+		PPERequesterBank.RegisterRequester(MyTimedEffect);		
 	}
-
-	override void OnJumpStart(){
-		super.OnJumpStart();
-		//Make sure we apply the effect only client side 
-		if( GetInstanceType() == DayZPlayerInstanceType.INSTANCETYPE_CLIENT ){
-			//Activating the effects
-			SPPEManager.activate(myStaticEffect);
-			SPPEManager.activate(myLoopedEffect);
-			SPPEManager.activate(myTimedEffect);
-		}
-	}
-}					
+}
 				</code></pre>
 			</li>
-		</ol>
+			<li>
+				<h3 id="Using_the_effect">Using the effect</h3>
+				<p>We can now retrieve the effect from the bank and use it.</p>
+				<p>Let's say we want to activate our effects visible when the player jumps.</p>
+				<pre><code class="language-csharp">
+modded class PlayerBase {
 
+	MyStaticEffect myStaticEffect;
+	MyAnimatedEffect myAnimatedEffect;
+	MyTimedEffect myTimedEffect;
+
+	void PlayerBase() {
+		Class.CastTo(myStaticEffect,   PPERequesterBank.GetRequester(MyStaticEffect));
+		Class.CastTo(myAnimatedEffect, PPERequesterBank.GetRequester(MyAnimatedEffect));
+		Class.CastTo(myTimedEffect,    PPERequesterBank.GetRequester(MyTimedEffect));
+	}
+	
+	override void OnJumpStart(){
+		super.OnJumpStart();
+		myStaticEffect.activate();
+		myAnimatedEffect.activate();
+		myTimedEffect.activate();
+	}
+}
+				</code></pre>
+				<p>You have access to some other methods, such as</p>
+				<pre><code class="language-csharp">
+myStaticEffect.isActive(); // returns true if active, false otherwise
+myStaticEffect.deactivate(); // deactivates the effect
+myStaticEffect.toggle(); // toggle between activated and deactivated
+				</code></pre>
+				<p>Animated (and timed) effects have some more methods:</p>
+				<pre><code class="language-csharp">
+myAnimatedEffect.start(); // start the animation from the beginning
+myAnimatedEffect.pause(); // pause the animation
+myAnimatedEffect.resume(); // resume the animation from the paused state
+myAnimatedEffect.stop();
+myAnimatedEffect.getTime(); // returns the time (seconds) that the animation has been playing for
+myAnimatedEffect.isPlaying();
+myAnimatedEffect.isPaused();
+myAnimatedEffect.hasStopped();
+				</code></pre>
+				<p>Timed effects have some more methods related to timing:</p>
+				<pre><code class="language-csharp">
+myAnimatedEffect.getDuration(); // returns duration in seconds
+myAnimatedEffect.getRemaining(); // returns how many seconds left to deactivation
+				</code></pre>
+			</li>
+
+			<li>
+				<h3 id="Advanced_definition">Advanced definition</h3>
+				<h4 id="Normalization">Normalization</h4>
+				<p>
+					Some effect could accept values in the -1,1 range, some other in the -2,2 range, while some other in
+					the 0,1000 range.<br>
+					To avoid having to deal with these ranges, you can specify to use a <em>normalized</em> value in the
+					range of 0.00,1.00, where 0.00 is the minimum (0%) and 1.00 is the maximum (100%)
+				</p>
+				<pre><code class="language-csharp">
+class SomeEffect : SPPEffect {
+	override void onInit() {
+		normalized(true);
+		setOverlayFactor(0.50); // 50%
+	}
+}
+</code></pre>
+				<blockquote class="info">
+					By default, normalization is set to <b>false</b> in order to be backward compatible with past
+					version of sVisual.<br>
+					I highly recommend using normalization.<br>
+					If you're interested in the actual value ranges, you can find them in game scripts.
+				</blockquote>
+
+				<h4 id="Priority_and_operator">Priority and Operator</h4>
+				<p>
+					You may be wondering what would happen when two different PPEffects are active at the same time, and
+					they both set the same effect parameter (e.g. vignette intensity, chromatic aberration, radial blur
+					etc.) to different values.<br>
+				</p>
+				<p>
+					Each parameter you set in your PPEffect can be seen as a layer (like on Photoshop).<br>
+					These "layers" (parameters) are put on top of each other, and they will interact with the underlying
+					(active) layer.<br>
+					Which PPEffect takes precendence and how it interacts with other PPEffects is up to you to
+					define via two parameters:
+				<ul>
+					<li><b>Priority</b>: defines the order of the layer.
+						<p>Higher priority, means it will be on top of those with lower priority</p>
+					</li>
+					<li><b>Operator</b>: defines the way it will interact with the underlying layer</li>
+				</ul>
+				</p>
+				<p>
+					The "first layer", the one at the bottom of the stack, is the <em>default one</em> defined by DayZ
+					itself.
+				</p>
+				<table>
+					<thead>
+						<tr>
+							<th></th>
+							<th>Priority</th>
+							<th>Parameter</th>
+							<th>Operator</th>
+							<th>Value</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>default</td>
+							<td>0</td>
+							<td>vignette</td>
+							<td>SET</td>
+							<td>0</td>
+						</tr>
+					</tbody>
+				</table>
+				<p>Let's see a practical example with code</p>
+				<ul>
+					<li>
+						<p>
+							Let's pretend the player got hurt and we activated a <code>PainEffect</code><br>
+							The <code>PainEffect</code> will <code>ADD</code> <code>0.70</code> to the current vignette
+							intensity.
+						</p>
+						<pre><code class="language-csharp">
+class PainEffect : SPPEffect {
+	override void onInit() {
+		normalized(true);
+		priority(1);
+		op(PPOperator.ADD);
+		setVignetteIntensity(0.70);
+	}
+}
+				</code></pre>
+						<table>
+							<thead>
+								<tr>
+									<th></th>
+									<th>Priority</th>
+									<th>Parameter</th>
+									<th>Operator</th>
+									<th>Value</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>final result</td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td>0.70</td>
+								</tr>
+								<tr>
+									<td>PainEffect</td>
+									<td>1</td>
+									<td>vignette</td>
+									<td>ADD</td>
+									<td>0.70</td>
+								</tr>
+								<tr>
+									<td>default</td>
+									<td>0</td>
+									<td>vignette</td>
+									<td>SET</td>
+									<td>0</td>
+								</tr>
+							</tbody>
+						</table>
+					</li>
+					<li>
+						<p>
+							Now the player assumed a pain killer and we activate a <code>PainKillerEffect</code>.<br>
+							The <code>PainKillerEffect</code> will <code>SUBTRACT</code><code>0.30</code> from the
+							vignette
+							intensity.
+						</p>
+						<pre><code class="language-csharp">
+class PainKillerEffect : SPPEffect {
+	override void onInit() {
+		normalized(true);
+		priority(2);
+		op(PPOperator.SUBSTRACT);
+		setVignetteIntensity(0.30);
+	}
+}
+				</code></pre>
+						<table>
+							<thead>
+								<tr>
+									<th></th>
+									<th>Priority</th>
+									<th>Parameter</th>
+									<th>Operator</th>
+									<th>Value</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>final result</td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td>0.40</td>
+								</tr>
+								<tr>
+									<td>PainKillerEffect</td>
+									<td>2</td>
+									<td>vignette</td>
+									<td>SUBTRACT</td>
+									<td>0.30</td>
+								</tr>
+								<tr>
+									<td>PainEffect</td>
+									<td>1</td>
+									<td>vignette</td>
+									<td>ADD</td>
+									<td>0.70</td>
+								</tr>
+								<tr>
+									<td>default</td>
+									<td>0</td>
+									<td>vignette</td>
+									<td>SET</td>
+									<td>0</td>
+								</tr>
+							</tbody>
+						</table>
+					</li>
+					<li>
+						<p>
+							Now the player got inside a bunker and it's dark; we activate a
+							<code>DarknessEffect</code>.<br>
+							The <code>DarknessEffect</code> will <code>MULTIPLY</code> by <code>2.0</code><br>
+						</p>
+
+						<pre><code class="language-csharp">
+class DarknessEffect : SPPEffect {
+	override void onInit() {
+		normalized(true);
+		priority(3);
+		op(PPOperator.MULTIPLICATION);
+		setVignetteIntensity(2);
+	}
+}
+				</code></pre>
+						<table>
+							<thead>
+								<tr>
+									<th></th>
+									<th>Priority</th>
+									<th>Parameter</th>
+									<th>Operator</th>
+									<th>Value</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>final result</td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td>0.80</td>
+								</tr>
+								<tr>
+									<td>DarknessEffect</td>
+									<td>3</td>
+									<td>vignette</td>
+									<td>MULTIPLICATIVE</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>PainKillerEffect</td>
+									<td>2</td>
+									<td>vignette</td>
+									<td>SUBTRACT</td>
+									<td>0.30</td>
+								</tr>
+								<tr>
+									<td>PainEffect</td>
+									<td>1</td>
+									<td>vignette</td>
+									<td>ADD</td>
+									<td>0.70</td>
+								</tr>
+								<tr>
+									<td>default</td>
+									<td>0</td>
+									<td>vignette</td>
+									<td>SET</td>
+									<td>0</td>
+								</tr>
+							</tbody>
+						</table>
+					</li>
+					<li>
+						<p>
+							Now pain killer effectiveness has vanished (but the player is still in pain and in the
+							bunker).<br>
+							So we deactivate the <code>PainKillerEffect</code>
+						</p>
+						<table>
+							<thead>
+								<tr>
+									<th></th>
+									<th>Priority</th>
+									<th>Parameter</th>
+									<th>Operator</th>
+									<th>Value</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>final result</td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td>1.40</td>
+								</tr>
+								<tr>
+									<td>DarknessEffect</td>
+									<td>3</td>
+									<td>vignette</td>
+									<td>MULTIPLICATIVE</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>PainEffect</td>
+									<td>1</td>
+									<td>vignette</td>
+									<td>ADD</td>
+									<td>0.70</td>
+								</tr>
+								<tr>
+									<td>default</td>
+									<td>0</td>
+									<td>vignette</td>
+									<td>SET</td>
+									<td>0</td>
+								</tr>
+							</tbody>
+						</table>
+					</li>
+					<li>
+						<p>
+							The player is no longer in pain.<br>
+							We deactivate the <code>PainEffect</code>
+						</p>
+						<table>
+							<thead>
+								<tr>
+									<th></th>
+									<th>Priority</th>
+									<th>Parameter</th>
+									<th>Operator</th>
+									<th>Value</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>final result</td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td>0.00</td>
+								</tr>
+								<tr>
+									<td>DarknessEffect</td>
+									<td>3</td>
+									<td>vignette</td>
+									<td>MULTIPLICATIVE</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>default</td>
+									<td>0</td>
+									<td>vignette</td>
+									<td>SET</td>
+									<td>0</td>
+								</tr>
+							</tbody>
+						</table>
+						<p>
+							Currently the <code>DarknessEffect</code> is not affecting the vignette intensity at all;
+							that's
+							because of its operator (2 * 0 = 0).<br>
+							As you can see, the priority and the operator play a major role in definining how the final
+							resul
+							will be.<br>
+							Be mindful when choosing them, as they could affect other mods too.
+						</p>
+					</li>
+				</ul>
+				<blockquote class="info">
+					For the tutorial sake, I chose simple priorities; it's advised to choose higher priorities value
+					(e.g. 100,
+					200, 500) so that it will be easier to interoperate with other mods.
+				</blockquote>
+				<blockquote class="note">
+					For backward compatibility reasons, the default priority is <b>1000</b> and the default operator is
+					<b>SET</b> if they're not specified.<br>
+					If you're upgrading your mod, it's highly recommended to choose the appropriate priority and
+					operator for your PPEffects.
+				</blockquote>
+				<h5>Multiple parameters in the same PPEffect</h5>
+				<p>A PPEffect can "request" multiple parameters at the same time</p>
+				<p>
+					You're free to set a different priority and a different operator for each parameter, since each
+					parameter will "affect its own stack of layers".<br>
+					Altough most of the time it's recommended to use the same for the sake of simplicity.
+				</p>
+				<pre><code class="language-csharp">
+class Effect_A : SPPEffect {
+	override void onInit() {
+		normalized(true);
+		
+		priority(1);
+		op(PPOperator.ADD);
+		setVignetteIntensity(0.50);
+		
+		priority(420);
+		op(PPOperator.MULTIPLICATIVE);
+		setOverlayFactor(2.0);
+
+	}
+}
+
+class Effect_B : SPPEffect {
+	override void onInit() {
+		normalized(true);
+		
+		priority(69);
+		op(PPOperator.SUBTRACT);
+		setVignetteIntensity(0.20);
+		
+		priority(1);
+		op(PPOperator.ADD);
+		setOverlayFactor(0.40);
+
+	}
+}
+				</code></pre>
+				<table>
+					<thead>
+						<tr>
+							<th>(vignette)</th>
+							<th>Priority</th>
+							<th>Operator</th>
+							<th>Value</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>final result</td>
+							<td></td>
+							<td></td>
+							<td>0.30</td>
+						</tr>
+						<tr>
+							<td>Effect_B</td>
+							<td>69</td>
+							<td>SUBTRACT</td>
+							<td>0.20</td>
+						</tr>
+						<tr>
+							<td>Effect_A</td>
+							<td>1</td>
+							<td>ADD</td>
+							<td>0.50</td>
+						</tr>
+						<tr>
+							<td>default</td>
+							<td>0</td>
+							<td>SET</td>
+							<td>0</td>
+						</tr>
+					</tbody>
+				</table>
+				<table>
+					<thead>
+						<tr>
+							<th>(overlay)</th>
+							<th>Priority</th>
+							<th>Operator</th>
+							<th>Value</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>final result</td>
+							<td></td>
+							<td></td>
+							<td>0.80</td>
+						</tr>
+						<tr>
+							<td>Effect_A</td>
+							<td>420</td>
+							<td>MULTIPLICATIVE</td>
+							<td>2.00</td>
+						</tr>
+						<tr>
+							<td>Effect_B</td>
+							<td>1</td>
+							<td>ADD</td>
+							<td>0.40</td>
+						</tr>
+						<tr>
+							<td>default</td>
+							<td>0</td>
+							<td>SET</td>
+							<td>0</td>
+						</tr>
+					</tbody>
+				</table>
+			</li>
+		</ol>
 	</main>
 </body>
 
