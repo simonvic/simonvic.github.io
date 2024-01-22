@@ -1,6 +1,28 @@
+@import url(style.css);
+
 :root {
 	counter-reset: tutorial_step1;
 }
+
+main aside nav {
+	border-left: .25rem solid var(--blockquote-border-color);
+}
+
+main aside nav a {
+	padding: .125rem 0;
+}
+
+main aside nav ol:first-of-type {
+	counter-reset: toc_step;
+	margin-left: calc(var(--nav-element-spacing-horizontal) * 4);
+}
+
+main aside nav li::before {
+	counter-increment: toc_step;
+	content: counters(toc_step, ".") ". ";
+	font-size: calc(var(--font-size) * 0.75);
+}
+
 
 section>h3::before {
 	counter-increment: tutorial_step1;

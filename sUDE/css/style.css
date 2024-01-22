@@ -64,25 +64,6 @@ ol.steps {
 	border-inline-end: none;
 }
 
-nav.toc {
-	border-left: .25rem solid var(--blockquote-border-color);
-}
-
-nav.toc a {
-	padding: .125rem 0;
-}
-
-nav.toc ol {
-	counter-reset: toc_step;
-	margin-left: calc(var(--nav-element-spacing-horizontal) * 4);
-}
-
-nav.toc li::before {
-	counter-increment: toc_step;
-	content: counters(toc_step, ".") ". ";
-	font-size: calc(var(--font-size) * 0.75);
-}
-
 blockquote.info:before {
 	content: "INFO\a";
 	white-space: pre;
