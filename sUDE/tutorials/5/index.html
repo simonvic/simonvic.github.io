@@ -4,7 +4,7 @@
 <head>
 	<title>sUDE | Tutorials</title>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="/sUDE/css/style.css">
+	<link rel="stylesheet" href="/sUDE/css/tutorial.css">
 	<link rel="stylesheet" href="/sUDE/css/highlight.css">
 	<script src="/sUDE/js/main.js"></script>
 	<script src="/sUDE/tutorials/js/tutorials.js"></script>
@@ -23,20 +23,37 @@
 			</ul>
 		</nav>
 
-		<ol id="steps" class="steps">
-			<li><a href="#Setup">Setup</a></li>
-			<li><a href="#Create_overlay">Create an overlay</a></li>
-			<li><a href="#Activate_overlay">Activate the overlay</a></li>
-			<li><a href="#Advanced_usage">Advanced usage</a></li>
-		</ol>
-		<ol>
-			<li id="Setup">
-				<h3>Setup</h3>
-				<p>
-					Add sVisual as a dependency by adding it to the <code>requiredAddons</code>
-					inside your <code>config.cpp</code>
-				</p>
-				<pre><code>
+		<aside>
+			<nav>
+				<ol>
+					<li><a href="#Setup">Setup</a></li>
+					<li><a href="#Create_overlay">Create an overlay</a></li>
+					<li><a href="#Activate_overlay">Activate the overlay</a></li>
+					<li><a href="#Advanced_usage">Advanced usage</a>
+						<ol>
+							<li><a href="#image">Image</a>
+							<li><a href="#alpha">Alpha</a>
+							<li><a href="#position">Position</a>
+							<li><a href="#size">Size</a>
+							<li><a href="#rotation">Rotation</a>
+							<li><a href="#priority">Priority</a>
+							<li><a href="#target_cameras">Target cameras</a>
+							<li><a href="#hides_with_hud">Hide with HUD</a>
+							<li><a href="#mask">Mask</a>
+							<li><a href="#mask_progress">Mask progress</a>
+							<li><a href="#mask_transition_width">Mask transition width</a>
+						</ol>
+					</li>
+				</ol>
+			</nav>
+		</aside>
+		<section id="Setup">
+			<h3>Setup</h3>
+			<p>
+				Add sVisual as a dependency by adding it to the <code>requiredAddons</code>
+				inside your <code>config.cpp</code>
+			</p>
+			<pre><code>
 // more stuff here...
 class CfgPatches {
 	class YourMod {
@@ -50,18 +67,18 @@ class CfgPatches {
 // more stuff here...
 				</code></pre>
 
-			</li>
+		</section>
 
-			<li id="Create_overlay">
-				<h3>Create an overlay</h3>
-				<p><code>sVisual</code> currently supports 3 types of overlay:</p>
-				<ul>
-					<li><code>SCameraOverlay</code></li>
-					<li><code>SCameraOverlayAnimated</code></li>
-					<li><code>SCameraOverlayTimed</code></li>
-				</ul>
-				<p>Use a <code>SCameraOverlay</code> if you want to define a normal overlay</p>
-				<pre><code class="language-csharp">
+		<section id="Create_overlay">
+			<h3>Create an overlay</h3>
+			<p><code>sVisual</code> currently supports 3 types of overlay:</p>
+			<ul>
+				<li><code>SCameraOverlay</code></li>
+				<li><code>SCameraOverlayAnimated</code></li>
+				<li><code>SCameraOverlayTimed</code></li>
+			</ul>
+			<p>Use a <code>SCameraOverlay</code> if you want to define a normal overlay</p>
+			<pre><code class="language-csharp">
 class MyOverlay : SCameraOverlay {
 	override void onInit() {
 		setImage("MyMODS/sVisual/GUI/icons/logo/sVisual.edds");
@@ -69,11 +86,11 @@ class MyOverlay : SCameraOverlay {
 	}  
 }					
 				</code></pre>
-				<p>
-					Use a <code>SCameraOverlayAnimated</code> if you want to define an animated overlay which will be
-					animated until deactivated
-				</p>
-				<pre><code class="language-csharp">
+			<p>
+				Use a <code>SCameraOverlayAnimated</code> if you want to define an animated overlay which will be
+				animated until deactivated
+			</p>
+			<pre><code class="language-csharp">
 class MyAnimatedOverlay : SCameraOverlayAnimated {
 	//onInit() gets called only once
 	override void onInit() {
@@ -89,11 +106,11 @@ class MyAnimatedOverlay : SCameraOverlayAnimated {
 	}
 }					
 				</code></pre>
-				<p>
-					Use a <code>SCameraOverlayTimed</code> if you want to define an animated overlay which will be
-					animated until deactivated
-				</p>
-				<pre><code class="language-csharp">
+			<p>
+				Use a <code>SCameraOverlayTimed</code> if you want to define an animated overlay which will be
+				animated until deactivated
+			</p>
+			<pre><code class="language-csharp">
 class MyTimedOverlay : SCameraOverlayTimed {
 	//onInit() gets called only once
 	override void onInit() {
@@ -110,12 +127,12 @@ class MyTimedOverlay : SCameraOverlayTimed {
 	}
 }
 				</code></pre>
-			</li>
+		</section>
 
-			<li id="Activate_overlay">
-				<h3>Activate the overlay</h3>
-				<p>Let's say that we want to activate our overlay when the player jumps</p>
-				<pre><code class="language-csharp">
+		<section id="Activate_overlay">
+			<h3>Activate the overlay</h3>
+			<p>Let's say that we want to activate our overlay when the player jumps</p>
+			<pre><code class="language-csharp">
 modded class PlayerBase{
 	
 	ref MyOverlay           myOverlay;
@@ -146,158 +163,157 @@ modded class PlayerBase{
 	}
 }										
 				</code></pre>
-			</li>
+		</section>
 
-			<li id="Advanced_usage">
-				<h3>Advanced usage</h3>
-				<p>
-					Overlays have many attributes that you can play with. All these values can be set in both
-					<code>onInit</code> or <code>onAnimate</code> methods via the appropriate setters.
-				</p>
+		<section id="Advanced_usage">
+			<h3>Advanced usage</h3>
+			<p>
+				Overlays have many attributes that you can play with. All these values can be set in both
+				<code>onInit</code> or <code>onAnimate</code> methods via the appropriate setters.
+			</p>
+			<section id="image">
+				<h4><a href="#image" class="contrast">Image</a></h4>
+				<p>Resource image path; can be whatever an ImageWidget accepts as texture</p>
+				<pre><code class="language-csharp">setImage("image here");</code></pre>
+				<p>Currently working formats</p>
 				<ul>
-					<li id="image">
-						<h4><a href="#image" class="contrast">Image</a></h4>
-						<p>Resource image path; can be whatever an ImageWidget accepts as texture</p>
-						<pre><code class="language-csharp">setImage("image here");</code></pre>
-						<p>Currently working formats</p>
-						<ul>
-							<li><em>.edds</em>: <code>"prefixOfYourMod/yourMod/path/to/texture.edds"</code></li>
-							<li><em>.paa</em>: <code>"prefixOfYourMod/yourMod/path/to/texture.paa"</code></li>
-							<li><em>imagesets</em>: <code>"set:your_image_set image:name_of_image"</code></li>
-						</ul>
-					</li>
-					<li id="alpha">
-						<h4><a href="#alpha" class="contrast">Alpha</a></h4>
-						<p>
-							A float value that ranges from 0.0 to 1.0 that represents the alpha channel
-							(trasparency) of the overlay
-						</p>
-						<pre><code class="language-csharp">setAlpha(alpha);</code></pre>
-						<p>Where the value can be:</p>
-						<ul>
-							<li>1.0 = fully visible (opaque)</li>
-							<li>0.5 = half transparent</li>
-							<li>0.0 = fully transparent</li>
-						</ul>
-						<div class="grid">
-							<pre><code>
+					<li><em>.edds</em>: <code>"prefixOfYourMod/yourMod/path/to/texture.edds"</code></li>
+					<li><em>.paa</em>: <code>"prefixOfYourMod/yourMod/path/to/texture.paa"</code></li>
+					<li><em>imagesets</em>: <code>"set:your_image_set image:name_of_image"</code></li>
+				</ul>
+			</section>
+			<section id="alpha">
+				<h4><a href="#alpha" class="contrast">Alpha</a></h4>
+				<p>
+					A float value that ranges from 0.0 to 1.0 that represents the alpha channel
+					(trasparency) of the overlay
+				</p>
+				<pre><code class="language-csharp">setAlpha(alpha);</code></pre>
+				<p>Where the value can be:</p>
+				<ul>
+					<li>1.0 = fully visible (opaque)</li>
+					<li>0.5 = half transparent</li>
+					<li>0.0 = fully transparent</li>
+				</ul>
+				<div class="grid">
+					<pre><code>
 override void onUpdate(float deltaTime) {
 	setAlpha(Math.Sin(getTime()));
 }
 						</code></pre>
-							<img src="https://imgur.com/m0Bx1dC.gif">
-						</div>
-					</li>
-					<li id="position">
-						<h4><a href="#position" class="contrast">Position</a></h4>
-						<p>A couple of X and Y coordinates in screenspace</p>
-						<pre><code class="language-csharp">setPosition(x, y);</code></pre>
-						<p>Where the X value can be:</p>
-						<ul>
-							<li>0.0 = left of the screen</li>
-							<li>0.5 = horizontal center of the screen</li>
-							<li>1.0 = right of the screen</li>
-						</ul>
-						<p>Where the Y value can be:</p>
-						<ul>
-							<li>0.0 = top of the screen</li>
-							<li>0.5 = vertical center of the screen</li>
-							<li>1.0 = bottom of the screen</li>
-						</ul>
-						<blockquote class="info">
-							Values lower than 0.0 and higher than 1.0 are accepted
-						</blockquote>
-						<div class="grid">
-							<pre><code>
+					<img src="https://imgur.com/m0Bx1dC.gif">
+				</div>
+			</section>
+			<section id="position">
+				<h4><a href="#position" class="contrast">Position</a></h4>
+				<p>A couple of X and Y coordinates in screenspace</p>
+				<pre><code class="language-csharp">setPosition(x, y);</code></pre>
+				<p>Where the X value can be:</p>
+				<ul>
+					<li>0.0 = left of the screen</li>
+					<li>0.5 = horizontal center of the screen</li>
+					<li>1.0 = right of the screen</li>
+				</ul>
+				<p>Where the Y value can be:</p>
+				<ul>
+					<li>0.0 = top of the screen</li>
+					<li>0.5 = vertical center of the screen</li>
+					<li>1.0 = bottom of the screen</li>
+				</ul>
+				<blockquote class="info">
+					Values lower than 0.0 and higher than 1.0 are accepted
+				</blockquote>
+				<div class="grid">
+					<pre><code>
 override void onUpdate(float deltaTime) {
 	float x = Math.Sin(getTime()) * 0.25;
 	float y = Math.Cos(getTime()) * 0.25;
 	setPosition(x, y);
 }
 							</code></pre>
-							<img src="https://imgur.com/Q24tTWF.gif">
-						</div>
-					</li>
-					<li id="size">
-						<h4><a href="#size" class="contrast">Size</a></h4>
-						<p>A couple of X and Y values which determine the size of the image in screenspace</p>
-						<pre><code class="language-csharp">setSize(x, y);</code></pre>
-						<p>Where the X value can be:</p>
-						<ul>
-							<li>1.0 = width of the screen</li>
-							<li>0.5 = half the width of the screen</li>
-							<li>2.5 = double the width of the screen</li>
-						</ul>
-						<p>Where the Y value can be:</p>
-						<ul>
-							<li>1.0 = height of the screen</li>
-							<li>0.5 = half the height of the screen</li>
-							<li>2.5 = double the height of the screen</li>
-						</ul>
-						<blockquote class="info">
-							Values lower than 0.0 and higher than 1.0 are accepted, where negative values will mean the
-							overlay will be flipped
-						</blockquote>
-						<div class="grid">
-							<pre><code>
+					<img src="https://imgur.com/Q24tTWF.gif">
+				</div>
+			</section>
+			<section id="size">
+				<h4><a href="#size" class="contrast">Size</a></h4>
+				<p>A couple of X and Y values which determine the size of the image in screenspace</p>
+				<pre><code class="language-csharp">setSize(x, y);</code></pre>
+				<p>Where the X value can be:</p>
+				<ul>
+					<li>1.0 = width of the screen</li>
+					<li>0.5 = half the width of the screen</li>
+					<li>2.5 = double the width of the screen</li>
+				</ul>
+				<p>Where the Y value can be:</p>
+				<ul>
+					<li>1.0 = height of the screen</li>
+					<li>0.5 = half the height of the screen</li>
+					<li>2.5 = double the height of the screen</li>
+				</ul>
+				<blockquote class="info">
+					Values lower than 0.0 and higher than 1.0 are accepted, where negative values will mean the
+					overlay will be flipped
+				</blockquote>
+				<div class="grid">
+					<pre><code>
 override void onUpdate(float deltaTime) {
 	// seth both x and y to the same size
 	setSize(Math.Sin(getTime()));
 }
 							</code></pre>
-							<img src="https://imgur.com/Upq6uVO.gif">
-						</div>
-					</li>
-					<li id="rotation">
-						<h4><a href="#rotation" class="contrast">Rotation</a></h4>
-						<p>Yaw, Pitch and Roll angles of the overlay, defined in degrees [0° - 360°]</p>
-						<pre><code class="language-csharp">setRotation(yaw, pitch, roll);</code></pre>
-						<blockquote class="note">
-							Setting an angle to 90° will make the overlay to be perpendicular to the camera, making it
-							not visible
-						</blockquote>
-						<div class="grid">
-							<pre><code>
+					<img src="https://imgur.com/Upq6uVO.gif">
+				</div>
+			</section>
+			<section id="rotation">
+				<h4><a href="#rotation" class="contrast">Rotation</a></h4>
+				<p>Yaw, Pitch and Roll angles of the overlay, defined in degrees [0° - 360°]</p>
+				<pre><code class="language-csharp">setRotation(yaw, pitch, roll);</code></pre>
+				<blockquote class="note">
+					Setting an angle to 90° will make the overlay to be perpendicular to the camera, making it
+					not visible
+				</blockquote>
+				<div class="grid">
+					<pre><code>
 override void onUpdate(float deltaTime) {
 	float sine = Math.Sin(getTime()) * 360;
 	setRotation(sine, sine, sine);
 }
 							</code></pre>
-							<img src="https://imgur.com/kBlWILC.gif">
-						</div>
-					</li>
-					<li id="priority">
-						<h4><a href="#priority" class="contrast">Priority</a></h4>
-						<p>
-							An integer value which ranges from 0 - 1000 that represents how close to the camera the
-							overlay will be (also known as z-depth).
-							An overlay with higher priority will be placed on top of other overlays with lower priority,
-							potentially making them not visible
-						</p>
-						<pre><code class="language-csharp">setPriority(priority);</code></pre>
-						<blockquote class="info">
-							Vanilla in game HUD has a priority of ~200
-						</blockquote>
-						<div class="grid">
-							<p>
-								The red overlay once has a priority of '2', while the other overlay has priority of '1',
-								making the red overlay stay on top of the other. <br />
-								They then swap priority (red overlay lesser priority than the other), making the red
-								overlay being occluded by the other overlay.
-							</p>
-							<img src="https://imgur.com/fmOiHDm.gif">
-						</div>
-					</li>
-					<li id="target_cameras">
-						<h4><a href="#target_camera" class="contrast">Target cameras</a></h4>
-						<p>
-							An array of typenames of cameras, which is used to hide/show the overlay based on the
-							currently used camera.
-							Super types can be used to allow the overlay on multiple cameras
-						</p>
-						<pre><code class="language-csharp">setTargetCameras(arrayOfCamerasTypes);</code></pre>
-						<div class="grid">
-							<pre><code>
+					<img src="https://imgur.com/kBlWILC.gif">
+				</div>
+			</section>
+			<section id="priority">
+				<h4><a href="#priority" class="contrast">Priority</a></h4>
+				<p>
+					An integer value which ranges from 0 - 1000 that represents how close to the camera the
+					overlay will be (also known as z-depth).
+					An overlay with higher priority will be placed on top of other overlays with lower priority,
+					potentially making them not visible
+				</p>
+				<pre><code class="language-csharp">setPriority(priority);</code></pre>
+				<blockquote class="info">
+					Vanilla in game HUD has a priority of ~200
+				</blockquote>
+				<div class="grid">
+					<p>
+						The red overlay once has a priority of '2', while the other overlay has priority of '1',
+						making the red overlay stay on top of the other. <br />
+						They then swap priority (red overlay lesser priority than the other), making the red
+						overlay being occluded by the other overlay.
+					</p>
+					<img src="https://imgur.com/fmOiHDm.gif">
+				</div>
+			</section>
+			<section id="target_cameras">
+				<h4><a href="#target_camera" class="contrast">Target cameras</a></h4>
+				<p>
+					An array of typenames of cameras, which is used to hide/show the overlay based on the
+					currently used camera.
+					Super types can be used to allow the overlay on multiple cameras
+				</p>
+				<pre><code class="language-csharp">setTargetCameras(arrayOfCamerasTypes);</code></pre>
+				<div class="grid">
+					<pre><code>
 override void onInit() {
 	setImage("MyMODS/sFramework/GUI/textures/masks/misc.edds");
 	setSize(0.5);
@@ -308,18 +324,18 @@ override void onInit() {
 	});
 }
 							</code></pre>
-							<img src="https://imgur.com/c27yYT0.gif">
-						</div>
-					</li>
-					<li id="hides_with_hud">
-						<h4><a href="#hides_with_hud" class="contrast">Hides with HUD</a></h4>
-						<p>
-							A boolean value (true / false) that will determines if the overlay will hides along with the
-							in-game HUD
-						</p>
-						<pre><code class="language-csharp">setHidesWithIngameHUD(boolean);</code></pre>
-						<div class="grid">
-							<pre><code>
+					<img src="https://imgur.com/c27yYT0.gif">
+				</div>
+			</section>
+			<section id="hides_with_hud">
+				<h4><a href="#hides_with_hud" class="contrast">Hides with HUD</a></h4>
+				<p>
+					A boolean value (true / false) that will determines if the overlay will hides along with the
+					in-game HUD
+				</p>
+				<pre><code class="language-csharp">setHidesWithIngameHUD(boolean);</code></pre>
+				<div class="grid">
+					<pre><code>
 override void onInit() {
 	setImage("MyMODS/sFramework/GUI/textures/masks/misc.edds");
 	setSize(0.5);
@@ -327,47 +343,45 @@ override void onInit() {
 	setHidesWithIngameHUD(true);
 }
 							</code></pre>
-							<img src="https://imgur.com/5FLZ8U7.gif">
-						</div>
-					</li>
-					<li id="mask">
-						<h4><a href="#mask" class="contrast">Mask</a></h4>
-						<blockquote class="info">
-							Using mask and other mask related values might seem intimidating, but they're very easy to
-							use.<br />
-							Refer to the <a href="https://simonvic.github.io/sUDE/tutorials/#69">dedicated tutorial</a>
-							for a better insight.
-						</blockquote>
-						<p>
-							A greyscale image used to make transparent the image only in determined parts (defined by
-							the mask itself)
-						</p>
-						<pre><code class="language-csharp">setMask("path/to/your/image.edds");</code></pre>
-					</li>
-					<li id="mask_progress">
-						<h4><a href="#mask_progress" class="contrast">Mask progress</a></h4>
-						<p>
-							A float value that ranges from 0.0 to 1.0 which determines which alpha values are opaque
-							using the <code>mask</code>.
-							For progress x, pixels with alpha in <code>mask < x</code> will be opaque and alpha in
-							<code>mask > x</code> will be
-							transparent.<br />
-						</p>
-						<pre><code class="language-csharp">setMaskProgress(0.69);</code></pre>
-					</li>
-					<li id="mask_transition_width">
-						<h4><a href="#mask_transition_width" class="contrast">Mask transition width</a></h4>
-						<p>A float value that determines the "width" of the alpha values that must be smoothed.</p>
-						<p>
-							Alpha values will be fully opaque at <code>maskProgress</code>. Values between
-							<code>maskProgress</code> and
-							<code>maskProgress + maskTransitionWidth</code> will be smoothly transparent
-						</p>
-						<pre><code class="language-csharp">setMaskTransitionWidth(0.69);</code></pre>
-					</li>
-				</ul>
-			</li>
-		</ol>
+					<img src="https://imgur.com/5FLZ8U7.gif">
+				</div>
+			</section>
+			<section id="mask">
+				<h4><a href="#mask" class="contrast">Mask</a></h4>
+				<blockquote class="info">
+					Using mask and other mask related values might seem intimidating, but they're very easy to
+					use.<br />
+					Refer to the <a href="https://simonvic.github.io/sUDE/tutorials/#69">dedicated tutorial</a>
+					for a better insight.
+				</blockquote>
+				<p>
+					A greyscale image used to make transparent the image only in determined parts (defined by
+					the mask itself)
+				</p>
+				<pre><code class="language-csharp">setMask("path/to/your/image.edds");</code></pre>
+			</section>
+			<section id="mask_progress">
+				<h4><a href="#mask_progress" class="contrast">Mask progress</a></h4>
+				<p>
+					A float value that ranges from 0.0 to 1.0 which determines which alpha values are opaque
+					using the <code>mask</code>.
+					For progress x, pixels with alpha in <code>mask < x</code> will be opaque and alpha in
+					<code>mask > x</code> will be
+					transparent.<br />
+				</p>
+				<pre><code class="language-csharp">setMaskProgress(0.69);</code></pre>
+			</section>
+			<section id="mask_transition_width">
+				<h4><a href="#mask_transition_width" class="contrast">Mask transition width</a></h4>
+				<p>A float value that determines the "width" of the alpha values that must be smoothed.</p>
+				<p>
+					Alpha values will be fully opaque at <code>maskProgress</code>. Values between
+					<code>maskProgress</code> and
+					<code>maskProgress + maskTransitionWidth</code> will be smoothly transparent
+				</p>
+				<pre><code class="language-csharp">setMaskTransitionWidth(0.69);</code></pre>
+			</section>
+		</section>
 	</main>
 </body>
 
