@@ -73,15 +73,13 @@ nav.toc a {
 }
 
 nav.toc ol {
+	counter-reset: toc_step;
 	margin-left: calc(var(--nav-element-spacing-horizontal) * 4);
-	list-style: decimal;
 }
 
-nav.toc li {
-	display: list-item;
-}
-
-nav.toc li::marker {
+nav.toc li::before {
+	counter-increment: toc_step;
+	content: counters(toc_step, ".") ". ";
 	font-size: calc(var(--font-size) * 0.75);
 }
 

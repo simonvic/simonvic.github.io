@@ -1,0 +1,35 @@
+:root {
+	counter-reset: tutorial_step1;
+}
+
+section>h3::before {
+	counter-increment: tutorial_step1;
+	content: counter(tutorial_step1) ". ";
+}
+
+section>h3 {
+	counter-reset: tutorial_step2;
+}
+
+section>h4::before {
+	counter-increment: tutorial_step2;
+	content: counter(tutorial_step1) "." counter(tutorial_step2) ". ";
+}
+
+section>h4 {
+	counter-reset: tutorial_step3;
+}
+
+section>h5::before {
+	counter-increment: tutorial_step3;
+	content: counter(tutorial_step1) "." counter(tutorial_step2) "." counter(tutorial_step3) ". ";
+}
+
+section>h5 {
+	counter-reset: tutorial_step4;
+}
+
+section>h6::before {
+	counter-increment: tutorial_step4;
+	content: counter(tutorial_step1) "." counter(tutorial_step2) "." counter(tutorial_step3) "." counter(tutorial_step4) ". ";
+}
