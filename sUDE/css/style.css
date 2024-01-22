@@ -56,6 +56,7 @@ mark {
 	border-radius: 5px;
 }
 
+/* TODO: use nav.toc instead */
 ol.steps {
 	border-left: .25rem solid var(--blockquote-border-color);
 	padding: 1rem 0 1rem 2rem;
@@ -63,7 +64,26 @@ ol.steps {
 	border-inline-end: none;
 }
 
+nav.toc {
+	border-left: .25rem solid var(--blockquote-border-color);
+}
 
+nav.toc a {
+	padding: .125rem 0;
+}
+
+nav.toc ol {
+	margin-left: calc(var(--nav-element-spacing-horizontal) * 4);
+	list-style: decimal;
+}
+
+nav.toc li {
+	display: list-item;
+}
+
+nav.toc li::marker {
+	font-size: calc(var(--font-size) * 0.75);
+}
 
 blockquote.info:before {
 	content: "INFO\a";
@@ -118,4 +138,3 @@ blockquote.note {
 .input_minmax > input[type="range"][name="min"] {
 	z-index: 1;
 }
-
