@@ -5,6 +5,7 @@
 		<title>sUDE | Tutorials</title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="/sUDE/css/style.css">
+		<link rel="stylesheet" href="/sUDE/css/tutorial.css">
 		<link rel="stylesheet" href="/sUDE/css/highlight.css">
 		<script src="/sUDE/js/main.js"></script>
 		<script src="/sUDE/tutorials/js/tutorials.js"></script>
@@ -45,15 +46,13 @@
 				</nav>
 			</aside>
 
-			<ol>
-				<li>
-					<section id="Setup">
-						<h3>Setup</h3>
-						<p>
-							Add sVisual as a dependency by adding it to the <code>requiredAddons</code> inside your
-							<code>config.cpp</code>
-						</p>
-						<pre><code>
+			<section id="Setup">
+				<h3>Setup</h3>
+				<p>
+					Add sVisual as a dependency by adding it to the <code>requiredAddons</code> inside your
+					<code>config.cpp</code>
+				</p>
+				<pre><code>
 class CfgPatches {
 	class NAME_OF_YOUR_MOD {
 		requiredAddons[] = {
@@ -62,23 +61,21 @@ class CfgPatches {
 	};
 };
 						</code></pre>
-						<blockquote class="info">
-							If you don't plan to use sVisual, you could just specify sFramework as
-							<code>requiredAddons</code>.
-						</blockquote>
-					</section>
-				</li>
-				<li>
-					<section id="Defining_an_effect">
-						<h3>Defining an effect</h3>
-						<p><code>sVisual</code> currently supports 3 types of effect:</p>
-						<ul>
-							<li><code>SPPEffect</code></li>
-							<li><code>SPPEffectAnimated</code></li>
-							<li><code>SPPEffectTimed</code></li>
-						</ul>
-						<p>Use a <code>SPPEffect</code> if you want to define a normal effect</p>
-						<pre><code class="language-csharp">
+				<blockquote class="info">
+					If you don't plan to use sVisual, you could just specify sFramework as
+					<code>requiredAddons</code>.
+				</blockquote>
+			</section>
+			<section id="Defining_an_effect">
+				<h3>Defining an effect</h3>
+				<p><code>sVisual</code> currently supports 3 types of effect:</p>
+				<ul>
+					<li><code>SPPEffect</code></li>
+					<li><code>SPPEffectAnimated</code></li>
+					<li><code>SPPEffectTimed</code></li>
+				</ul>
+				<p>Use a <code>SPPEffect</code> if you want to define a normal effect</p>
+				<pre><code class="language-csharp">
 class MyStaticEffect : SPPEffect {
 	override void onInit() {
 		setVignetteIntensity(0.69)
@@ -87,11 +84,11 @@ class MyStaticEffect : SPPEffect {
 	}  
 }
 						</code></pre>
-						<p>
-							Use a <code>SPPEffectAnimated</code> if you want to define an animated effect which will be
-							animated until explicitly deactivated
-						</p>
-						<pre><code class="language-csharp">
+				<p>
+					Use a <code>SPPEffectAnimated</code> if you want to define an animated effect which will be
+					animated until explicitly deactivated
+				</p>
+				<pre><code class="language-csharp">
 class MyAnimatedEffect : SPPEffectAnimated {
 
 	override void onInit() {
@@ -106,16 +103,16 @@ class MyAnimatedEffect : SPPEffectAnimated {
 
 }
 						</code></pre>
-						<blockquote class="note">
-							The <code>onInit</code> method gets called only once when the effect gets initialized, while
-							the <code>onAnimate</code> method gets called every frame. Choose wisely what to put inside
-							<code>onAnimate</code>
-						</blockquote>
-						<p>
-							Use a <code>SPPEffectTimed</code> if you want to define an animated effect which will be
-							animated but must terminate after a certain amount of time
-						</p>
-						<pre><code class="language-csharp">
+				<blockquote class="note">
+					The <code>onInit</code> method gets called only once when the effect gets initialized, while
+					the <code>onAnimate</code> method gets called every frame. Choose wisely what to put inside
+					<code>onAnimate</code>
+				</blockquote>
+				<p>
+					Use a <code>SPPEffectTimed</code> if you want to define an animated effect which will be
+					animated but must terminate after a certain amount of time
+				</p>
+				<pre><code class="language-csharp">
 class MyTimedEffect : SPPEffectTimed {
 	
 	override void onInit() {
@@ -129,17 +126,15 @@ class MyTimedEffect : SPPEffectTimed {
 
 }
 						</code></pre>
-					</section>
-				</li>
-				<li>
-					<section id="Registering_the_effect">
-						<h3>Register the effect</h3>
-						<p>
-							You've defined your effect. Before being able to use and activate it, you need to
-							<em>register</em> its classname into the <code>PPERequesterBank</code>, which holds the
-							definitions of all PPEffects.
-						</p>
-						<pre><code class="language-csharp">
+			</section>
+			<section id="Registering_the_effect">
+				<h3>Register the effect</h3>
+				<p>
+					You've defined your effect. Before being able to use and activate it, you need to
+					<em>register</em> its classname into the <code>PPERequesterBank</code>, which holds the
+					definitions of all PPEffects.
+				</p>
+				<pre><code class="language-csharp">
 modded class PPERequesterRegistrations {
 	void PPERequesterRegistrations() {
 		PPERequesterBank.RegisterRequester(MyStaticEffect);
@@ -148,14 +143,12 @@ modded class PPERequesterRegistrations {
 	}
 }
 						</code></pre>
-					</section>
-				</li>
-				<li>
-					<section id="Using_the_effect">
-						<h3>Using the effect</h3>
-						<p>We can now retrieve the effect from the bank and use it.</p>
-						<p>Let's say we want to activate our effects visible when the player jumps.</p>
-						<pre><code class="language-csharp">
+			</section>
+			<section id="Using_the_effect">
+				<h3>Using the effect</h3>
+				<p>We can now retrieve the effect from the bank and use it.</p>
+				<p>Let's say we want to activate our effects visible when the player jumps.</p>
+				<pre><code class="language-csharp">
 modded class PlayerBase {
 
 	MyStaticEffect myStaticEffect;
@@ -176,14 +169,14 @@ modded class PlayerBase {
 	}
 }
 						</code></pre>
-						<p>You have access to some other methods, such as</p>
-						<pre><code class="language-csharp">
+				<p>You have access to some other methods, such as</p>
+				<pre><code class="language-csharp">
 myStaticEffect.isActive(); // returns true if active, false otherwise
 myStaticEffect.deactivate(); // deactivates the effect
 myStaticEffect.toggle(); // toggle between activated and deactivated
 						</code></pre>
-						<p>Animated (and timed) effects have some more methods:</p>
-						<pre><code class="language-csharp">
+				<p>Animated (and timed) effects have some more methods:</p>
+				<pre><code class="language-csharp">
 myAnimatedEffect.start(); // start the animation from the beginning
 myAnimatedEffect.pause(); // pause the animation
 myAnimatedEffect.resume(); // resume the animation from the paused state
@@ -193,27 +186,24 @@ myAnimatedEffect.isPlaying();
 myAnimatedEffect.isPaused();
 myAnimatedEffect.hasStopped();
 						</code></pre>
-						<p>Timed effects have some more methods related to timing:</p>
-						<pre><code class="language-csharp">
+				<p>Timed effects have some more methods related to timing:</p>
+				<pre><code class="language-csharp">
 myAnimatedEffect.getDuration(); // returns duration in seconds
 myAnimatedEffect.getRemaining(); // returns how many seconds left to deactivation
 						</code></pre>
-					</section>
-				</li>
-
-				<li>
-					<section id="Advanced_definition">
-						<h3>Advanced definition</h3>
-						<section id="Normalization">
-							<h4>Normalization</h4>
-							<p>
-								Some effect could accept values in the -1,1 range, some other in the -2,2 range, while
-								some other in the 0,1000 range.<br>
-								To avoid having to deal with these ranges, you can specify to use a <em>normalized</em>
-								value in the range of 0.00,1.00, where 0.00 is the minimum (0%) and 1.00 is the maximum
-								(100%)
-							</p>
-							<pre><code class="language-csharp">
+			</section>
+			<section id="Advanced_definition">
+				<h3>Advanced definition</h3>
+				<section id="Normalization">
+					<h4>Normalization</h4>
+					<p>
+						Some effect could accept values in the -1,1 range, some other in the -2,2 range, while
+						some other in the 0,1000 range.<br>
+						To avoid having to deal with these ranges, you can specify to use a <em>normalized</em>
+						value in the range of 0.00,1.00, where 0.00 is the minimum (0%) and 1.00 is the maximum
+						(100%)
+					</p>
+					<pre><code class="language-csharp">
 class SomeEffect : SPPEffect {
 	override void onInit() {
 		normalized(true);
@@ -221,35 +211,228 @@ class SomeEffect : SPPEffect {
 	}
 }
 							</code></pre>
-							<blockquote class="info">
-								By default, normalization is set to <b>false</b> for backward compatibility reasons.<br>
-								I highly recommend using normalization.<br>
-								If you're interested in the actual value ranges, you can find them in game scripts.
-							</blockquote>
-						</section>
-						<section id="Priority_and_operator">
-							<h4>Priority and Operator</h4>
+					<blockquote class="info">
+						By default, normalization is set to <b>false</b> for backward compatibility reasons.<br>
+						I highly recommend using normalization.<br>
+						If you're interested in the actual value ranges, you can find them in game scripts.
+					</blockquote>
+				</section>
+				<section id="Priority_and_operator">
+					<h4>Priority and Operator</h4>
+					<p>
+						You may be wondering what would happen when two different PPEffects are active at the
+						same time, and they both set the same effect parameter (e.g. vignette intensity,
+						chromatic aberration, radial blur etc.) to different values.<br>
+					</p>
+					<p>
+						Each parameter you set in your PPEffect can be seen as a layer (like on Photoshop).<br>
+						These "layers" (parameters) are put on top of each other, and they will interact with
+						the underlying (active) layer.<br>
+						Which PPEffect takes precendence and how it interacts with other PPEffects is up to you
+						to define via two parameters:
+					</p>
+					<ul>
+						<li><b>Priority</b>: defines the order of the layer.
+							<p>Higher priority, means it will be on top of those with lower priority</p>
+						</li>
+						<li><b>Operator</b>: defines the way it will interact with the underlying layer</li>
+					</ul>
+					<p>
+						The "first layer", the one at the bottom of the stack, is the <em>default one</em>
+						defined by DayZ itself.
+					</p>
+					<table>
+						<thead>
+							<tr>
+								<th></th>
+								<th>Priority</th>
+								<th>Operator</th>
+								<th>Value</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>default</td>
+								<td>0</td>
+								<td>SET</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+					</table>
+					<p>Let's see a practical example with code</p>
+					<blockquote class="info">
+						For the tutorial sake, I chose low priorities; it's advised to choose higher
+						priorities value (e.g. 100, 200, 500) so that it will be easier to interoperate with
+						other mods.
+					</blockquote>
+					<ul>
+						<li>
 							<p>
-								You may be wondering what would happen when two different PPEffects are active at the
-								same time, and they both set the same effect parameter (e.g. vignette intensity,
-								chromatic aberration, radial blur etc.) to different values.<br>
+								Let's pretend the player got hurt; we activate a <code>PainEffect</code><br> The
+								<code>PainEffect</code> will <code>ADD</code> <code>0.70</code> to the current
+								vignette intensity.
 							</p>
+							<pre><code class="language-csharp">
+class PainEffect : SPPEffect {
+	override void onInit() {
+		normalized(true);
+		priority(1);
+		op(PPOperator.ADD);
+		setVignetteIntensity(0.70);
+	}
+}
+									</code></pre>
+							<table>
+								<thead>
+									<tr>
+										<th></th>
+										<th>Priority</th>
+										<th>Operator</th>
+										<th>Value</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>final result</td>
+										<td></td>
+										<td></td>
+										<td>0.70</td>
+									</tr>
+									<tr>
+										<td>PainEffect</td>
+										<td>1</td>
+										<td>ADD</td>
+										<td>0.70</td>
+									</tr>
+									<tr>
+										<td>default</td>
+										<td>0</td>
+										<td>SET</td>
+										<td>0</td>
+									</tr>
+								</tbody>
+							</table>
+						</li>
+						<li>
 							<p>
-								Each parameter you set in your PPEffect can be seen as a layer (like on Photoshop).<br>
-								These "layers" (parameters) are put on top of each other, and they will interact with
-								the underlying (active) layer.<br>
-								Which PPEffect takes precendence and how it interacts with other PPEffects is up to you
-								to define via two parameters:
+								Now the player assumed a pain killer and we activate a
+								<code>PainKillerEffect</code>.<br>
+								The <code>PainKillerEffect</code> will <code>SUBTRACT</code><code>0.30</code>
+								from the vignette intensity.
 							</p>
-							<ul>
-								<li><b>Priority</b>: defines the order of the layer.
-									<p>Higher priority, means it will be on top of those with lower priority</p>
-								</li>
-								<li><b>Operator</b>: defines the way it will interact with the underlying layer</li>
-							</ul>
+							<pre><code class="language-csharp">
+class PainKillerEffect : SPPEffect {
+	override void onInit() {
+		normalized(true);
+		priority(2);
+		op(PPOperator.SUBSTRACT);
+		setVignetteIntensity(0.30);
+	}
+}
+									</code></pre>
+							<table>
+								<thead>
+									<tr>
+										<th></th>
+										<th>Priority</th>
+										<th>Operator</th>
+										<th>Value</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>final result</td>
+										<td></td>
+										<td></td>
+										<td>0.40</td>
+									</tr>
+									<tr>
+										<td>PainKillerEffect</td>
+										<td>2</td>
+										<td>SUBTRACT</td>
+										<td>0.30</td>
+									</tr>
+									<tr>
+										<td>PainEffect</td>
+										<td>1</td>
+										<td>ADD</td>
+										<td>0.70</td>
+									</tr>
+									<tr>
+										<td>default</td>
+										<td>0</td>
+										<td>SET</td>
+										<td>0</td>
+									</tr>
+								</tbody>
+							</table>
+						</li>
+						<li>
 							<p>
-								The "first layer", the one at the bottom of the stack, is the <em>default one</em>
-								defined by DayZ itself.
+								Now the player got inside a bunker and it's dark; we activate a
+								<code>DarknessEffect</code>.<br>
+								The <code>DarknessEffect</code> will <code>MULTIPLY</code> by
+								<code>2.0</code><br>
+							</p>
+
+							<pre><code class="language-csharp">
+class DarknessEffect : SPPEffect {
+	override void onInit() {
+		normalized(true);
+		priority(3);
+		op(PPOperator.MULTIPLICATION);
+		setVignetteIntensity(2);
+	}
+}
+									</code></pre>
+							<table>
+								<thead>
+									<tr>
+										<th></th>
+										<th>Priority</th>
+										<th>Operator</th>
+										<th>Value</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>final result</td>
+										<td></td>
+										<td></td>
+										<td>0.80</td>
+									</tr>
+									<tr>
+										<td>DarknessEffect</td>
+										<td>3</td>
+										<td>MULTIPLICATIVE</td>
+										<td>2</td>
+									</tr>
+									<tr>
+										<td>PainKillerEffect</td>
+										<td>2</td>
+										<td>SUBTRACT</td>
+										<td>0.30</td>
+									</tr>
+									<tr>
+										<td>PainEffect</td>
+										<td>1</td>
+										<td>ADD</td>
+										<td>0.70</td>
+									</tr>
+									<tr>
+										<td>default</td>
+										<td>0</td>
+										<td>SET</td>
+										<td>0</td>
+									</tr>
+								</tbody>
+							</table>
+						</li>
+						<li>
+							<p>
+								Now pain killer effectiveness has vanished (but the player is still in pain and
+								in the bunker).<br>
+								So we deactivate the <code>PainKillerEffect</code>
 							</p>
 							<table>
 								<thead>
@@ -262,6 +445,24 @@ class SomeEffect : SPPEffect {
 								</thead>
 								<tbody>
 									<tr>
+										<td>final result</td>
+										<td></td>
+										<td></td>
+										<td>1.40</td>
+									</tr>
+									<tr>
+										<td>DarknessEffect</td>
+										<td>3</td>
+										<td>MULTIPLICATIVE</td>
+										<td>2</td>
+									</tr>
+									<tr>
+										<td>PainEffect</td>
+										<td>1</td>
+										<td>ADD</td>
+										<td>0.70</td>
+									</tr>
+									<tr>
 										<td>default</td>
 										<td>0</td>
 										<td>SET</td>
@@ -269,343 +470,132 @@ class SomeEffect : SPPEffect {
 									</tr>
 								</tbody>
 							</table>
-							<p>Let's see a practical example with code</p>
-							<blockquote class="info">
-								For the tutorial sake, I chose low priorities; it's advised to choose higher
-								priorities value (e.g. 100, 200, 500) so that it will be easier to interoperate with
-								other mods.
-							</blockquote>
-							<ul>
-								<li>
-									<p>
-										Let's pretend the player got hurt; we activate a <code>PainEffect</code><br> The
-										<code>PainEffect</code> will <code>ADD</code> <code>0.70</code> to the current
-										vignette intensity.
-									</p>
-									<pre><code class="language-csharp">
-class PainEffect : SPPEffect {
-	override void onInit() {
-		normalized(true);
-		priority(1);
-		op(PPOperator.ADD);
-		setVignetteIntensity(0.70);
-	}
-}
-									</code></pre>
-									<table>
-										<thead>
-											<tr>
-												<th></th>
-												<th>Priority</th>
-												<th>Operator</th>
-												<th>Value</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>final result</td>
-												<td></td>
-												<td></td>
-												<td>0.70</td>
-											</tr>
-											<tr>
-												<td>PainEffect</td>
-												<td>1</td>
-												<td>ADD</td>
-												<td>0.70</td>
-											</tr>
-											<tr>
-												<td>default</td>
-												<td>0</td>
-												<td>SET</td>
-												<td>0</td>
-											</tr>
-										</tbody>
-									</table>
-								</li>
-								<li>
-									<p>
-										Now the player assumed a pain killer and we activate a
-										<code>PainKillerEffect</code>.<br>
-										The <code>PainKillerEffect</code> will <code>SUBTRACT</code><code>0.30</code>
-										from the vignette intensity.
-									</p>
-									<pre><code class="language-csharp">
-class PainKillerEffect : SPPEffect {
-	override void onInit() {
-		normalized(true);
-		priority(2);
-		op(PPOperator.SUBSTRACT);
-		setVignetteIntensity(0.30);
-	}
-}
-									</code></pre>
-									<table>
-										<thead>
-											<tr>
-												<th></th>
-												<th>Priority</th>
-												<th>Operator</th>
-												<th>Value</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>final result</td>
-												<td></td>
-												<td></td>
-												<td>0.40</td>
-											</tr>
-											<tr>
-												<td>PainKillerEffect</td>
-												<td>2</td>
-												<td>SUBTRACT</td>
-												<td>0.30</td>
-											</tr>
-											<tr>
-												<td>PainEffect</td>
-												<td>1</td>
-												<td>ADD</td>
-												<td>0.70</td>
-											</tr>
-											<tr>
-												<td>default</td>
-												<td>0</td>
-												<td>SET</td>
-												<td>0</td>
-											</tr>
-										</tbody>
-									</table>
-								</li>
-								<li>
-									<p>
-										Now the player got inside a bunker and it's dark; we activate a
-										<code>DarknessEffect</code>.<br>
-										The <code>DarknessEffect</code> will <code>MULTIPLY</code> by
-										<code>2.0</code><br>
-									</p>
-
-									<pre><code class="language-csharp">
-class DarknessEffect : SPPEffect {
-	override void onInit() {
-		normalized(true);
-		priority(3);
-		op(PPOperator.MULTIPLICATION);
-		setVignetteIntensity(2);
-	}
-}
-									</code></pre>
-									<table>
-										<thead>
-											<tr>
-												<th></th>
-												<th>Priority</th>
-												<th>Operator</th>
-												<th>Value</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>final result</td>
-												<td></td>
-												<td></td>
-												<td>0.80</td>
-											</tr>
-											<tr>
-												<td>DarknessEffect</td>
-												<td>3</td>
-												<td>MULTIPLICATIVE</td>
-												<td>2</td>
-											</tr>
-											<tr>
-												<td>PainKillerEffect</td>
-												<td>2</td>
-												<td>SUBTRACT</td>
-												<td>0.30</td>
-											</tr>
-											<tr>
-												<td>PainEffect</td>
-												<td>1</td>
-												<td>ADD</td>
-												<td>0.70</td>
-											</tr>
-											<tr>
-												<td>default</td>
-												<td>0</td>
-												<td>SET</td>
-												<td>0</td>
-											</tr>
-										</tbody>
-									</table>
-								</li>
-								<li>
-									<p>
-										Now pain killer effectiveness has vanished (but the player is still in pain and
-										in the bunker).<br>
-										So we deactivate the <code>PainKillerEffect</code>
-									</p>
-									<table>
-										<thead>
-											<tr>
-												<th></th>
-												<th>Priority</th>
-												<th>Operator</th>
-												<th>Value</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>final result</td>
-												<td></td>
-												<td></td>
-												<td>1.40</td>
-											</tr>
-											<tr>
-												<td>DarknessEffect</td>
-												<td>3</td>
-												<td>MULTIPLICATIVE</td>
-												<td>2</td>
-											</tr>
-											<tr>
-												<td>PainEffect</td>
-												<td>1</td>
-												<td>ADD</td>
-												<td>0.70</td>
-											</tr>
-											<tr>
-												<td>default</td>
-												<td>0</td>
-												<td>SET</td>
-												<td>0</td>
-											</tr>
-										</tbody>
-									</table>
-								</li>
-								<li>
-									<p>
-										The player is no longer in pain.<br>
-										We deactivate the <code>PainEffect</code>
-									</p>
-									<table>
-										<thead>
-											<tr>
-												<th></th>
-												<th>Priority</th>
-												<th>Operator</th>
-												<th>Value</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>final result</td>
-												<td></td>
-												<td></td>
-												<td>0.00</td>
-											</tr>
-											<tr>
-												<td>DarknessEffect</td>
-												<td>3</td>
-												<td>MULTIPLICATIVE</td>
-												<td>2</td>
-											</tr>
-											<tr>
-												<td>default</td>
-												<td>0</td>
-												<td>SET</td>
-												<td>0</td>
-											</tr>
-										</tbody>
-									</table>
-									<p>
-										Currently the <code>DarknessEffect</code> is not affecting the vignette
-										intensity at all; that's because of its operator (2 * 0 = 0).<br>
-										As you can see, the priority and the operator play a major role in definining
-										how the final resul will be.<br>
-										Be mindful when choosing them, as they could affect other mods too.
-									</p>
-								</li>
-							</ul>
-							<blockquote class="note">
-								For backward compatibility reasons, the default priority is <b>1000</b> and the default
-								operator is <b>SET</b> if they're not specified.<br>
-								If you're upgrading your mod, it's highly recommended to choose the appropriate priority
-								and operator for your PPEffects.
-							</blockquote>
-
-							<section id="Operator_types">
-								<h5>Operator types</h5>
-								<blockquote class="note">
-									Not every operator is applicable to all parameters type.<br>
-									Some may work only for color parameters or for float parameters etc.
-								</blockquote>
-								<ul>
-									<li><code>ADD</code>
-										<p>Linear addition between the current value and the value you set.</p>
-									</li>
-									<li><code>ADD_RELATIVE</code>
-										<p>
-											Linear addition between the current value and the value you set, but it's
-											relative to difference between current and the max, where applicable.
-											Otherwise it will be a normal addition
-										</p>
-									</li>
-									<li><code>SUBTRACT</code>
-										<p>Linear subtraction. Subtract the value you set from the current value.
-										</p>
-									</li>
-									<li><code>SUBTRACT_RELATIVE</code>
-										<p>
-											Linear subtraction. Subtract the value you set from the current value, but
-											it's relative to difference between current and the min, where applicable.
-											Otherwise it will be a normal subtraction
-										</p>
-									</li>
-									<li><code>SUBTRACT_REVERSE</code>
-										<p>Linear subtraction. Subtract the current value from the value you set</p>
-									</li>
-									<li><code>SUBTRACT_REVERSE_RELATIVE</code>
-										<p>
-											Linear subtraction. Subtract the current value from the value you set, but
-											it's relative to difference between current and the min, where applicable.
-											Otherwise it will be a normal subtraction
-										</p>
-									</li>
-									<li><code>MULTIPLICATIVE</code>
-										<p>
-											Linear multiplication between the current value the the value you set
-										</p>
-									</li>
-									<li><code>HIGHEST</code>
-										<p>Only the highest betweem the current value and the value you set</p>
-									</li>
-									<li><code>LOWEST</code>
-										<p>Only the lowest betweem the current value and the value you set</p>
-									</li>
-									<li><code>SET</code>
-										<p>It ignores underlying layers and will set the value you specified</p>
-										<blockquote class="info">
-											Unless strictly required, other operators are recommended, since this could
-											possibly "hide" other effects
-										</blockquote>
-									</li>
-									<li><code>OVERRIDE</code>
-										<p>It ignores <b>all</b> other layers and set the value you specified</p>
-										<blockquote class="note">
-											Highly discouraged; use less destructive operators.
-										</blockquote>
-									</li>
-								</ul>
-							</section>
-						</section>
-						<section id="Multiple_parameters">
-							<h4>Multiple parameters in the same PPEffect</h4>
-							<p>A PPEffect can "request" multiple parameters at the same time</p>
+						</li>
+						<li>
 							<p>
-								You're free to set a different priority and a different operator for each parameter,
-								since each parameter will "affect its own stack of layers".<br>
-								Altough most of the time it's recommended to use the same for the sake of simplicity.
+								The player is no longer in pain.<br>
+								We deactivate the <code>PainEffect</code>
 							</p>
-							<pre><code class="language-csharp">
+							<table>
+								<thead>
+									<tr>
+										<th></th>
+										<th>Priority</th>
+										<th>Operator</th>
+										<th>Value</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>final result</td>
+										<td></td>
+										<td></td>
+										<td>0.00</td>
+									</tr>
+									<tr>
+										<td>DarknessEffect</td>
+										<td>3</td>
+										<td>MULTIPLICATIVE</td>
+										<td>2</td>
+									</tr>
+									<tr>
+										<td>default</td>
+										<td>0</td>
+										<td>SET</td>
+										<td>0</td>
+									</tr>
+								</tbody>
+							</table>
+							<p>
+								Currently the <code>DarknessEffect</code> is not affecting the vignette
+								intensity at all; that's because of its operator (2 * 0 = 0).<br>
+								As you can see, the priority and the operator play a major role in definining
+								how the final resul will be.<br>
+								Be mindful when choosing them, as they could affect other mods too.
+							</p>
+						</li>
+					</ul>
+					<blockquote class="note">
+						For backward compatibility reasons, the default priority is <b>1000</b> and the default
+						operator is <b>SET</b> if they're not specified.<br>
+						If you're upgrading your mod, it's highly recommended to choose the appropriate priority
+						and operator for your PPEffects.
+					</blockquote>
+
+					<section id="Operator_types">
+						<h5>Operator types</h5>
+						<blockquote class="note">
+							Not every operator is applicable to all parameters type.<br>
+							Some may work only for color parameters or for float parameters etc.
+						</blockquote>
+						<ul>
+							<li><code>ADD</code>
+								<p>Linear addition between the current value and the value you set.</p>
+							</li>
+							<li><code>ADD_RELATIVE</code>
+								<p>
+									Linear addition between the current value and the value you set, but it's
+									relative to difference between current and the max, where applicable.
+									Otherwise it will be a normal addition
+								</p>
+							</li>
+							<li><code>SUBTRACT</code>
+								<p>Linear subtraction. Subtract the value you set from the current value.
+								</p>
+							</li>
+							<li><code>SUBTRACT_RELATIVE</code>
+								<p>
+									Linear subtraction. Subtract the value you set from the current value, but
+									it's relative to difference between current and the min, where applicable.
+									Otherwise it will be a normal subtraction
+								</p>
+							</li>
+							<li><code>SUBTRACT_REVERSE</code>
+								<p>Linear subtraction. Subtract the current value from the value you set</p>
+							</li>
+							<li><code>SUBTRACT_REVERSE_RELATIVE</code>
+								<p>
+									Linear subtraction. Subtract the current value from the value you set, but
+									it's relative to difference between current and the min, where applicable.
+									Otherwise it will be a normal subtraction
+								</p>
+							</li>
+							<li><code>MULTIPLICATIVE</code>
+								<p>
+									Linear multiplication between the current value the the value you set
+								</p>
+							</li>
+							<li><code>HIGHEST</code>
+								<p>Only the highest betweem the current value and the value you set</p>
+							</li>
+							<li><code>LOWEST</code>
+								<p>Only the lowest betweem the current value and the value you set</p>
+							</li>
+							<li><code>SET</code>
+								<p>It ignores underlying layers and will set the value you specified</p>
+								<blockquote class="info">
+									Unless strictly required, other operators are recommended, since this could
+									possibly "hide" other effects
+								</blockquote>
+							</li>
+							<li><code>OVERRIDE</code>
+								<p>It ignores <b>all</b> other layers and set the value you specified</p>
+								<blockquote class="note">
+									Highly discouraged; use less destructive operators.
+								</blockquote>
+							</li>
+						</ul>
+					</section>
+				</section>
+				<section id="Multiple_parameters">
+					<h4>Multiple parameters in the same PPEffect</h4>
+					<p>A PPEffect can "request" multiple parameters at the same time</p>
+					<p>
+						You're free to set a different priority and a different operator for each parameter,
+						since each parameter will "affect its own stack of layers".<br>
+						Altough most of the time it's recommended to use the same for the sake of simplicity.
+					</p>
+					<pre><code class="language-csharp">
 class Effect_A : SPPEffect {
 	override void onInit() {
 		normalized(true);
@@ -636,110 +626,110 @@ class Effect_B : SPPEffect {
 	}
 }
 							</code></pre>
-							<table>
-								<thead>
-									<tr>
-										<th>(vignette)</th>
-										<th>Priority</th>
-										<th>Operator</th>
-										<th>Value</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>final result</td>
-										<td></td>
-										<td></td>
-										<td>0.30</td>
-									</tr>
-									<tr>
-										<td>Effect_B</td>
-										<td>69</td>
-										<td>SUBTRACT</td>
-										<td>0.20</td>
-									</tr>
-									<tr>
-										<td>Effect_A</td>
-										<td>1</td>
-										<td>ADD</td>
-										<td>0.50</td>
-									</tr>
-									<tr>
-										<td>default</td>
-										<td>0</td>
-										<td>SET</td>
-										<td>0</td>
-									</tr>
-								</tbody>
-							</table>
-							<table>
-								<thead>
-									<tr>
-										<th>(overlay)</th>
-										<th>Priority</th>
-										<th>Operator</th>
-										<th>Value</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>final result</td>
-										<td></td>
-										<td></td>
-										<td>0.80</td>
-									</tr>
-									<tr>
-										<td>Effect_A</td>
-										<td>420</td>
-										<td>MULTIPLICATIVE</td>
-										<td>2.00</td>
-									</tr>
-									<tr>
-										<td>Effect_B</td>
-										<td>1</td>
-										<td>ADD</td>
-										<td>0.40</td>
-									</tr>
-									<tr>
-										<td>default</td>
-										<td>0</td>
-										<td>SET</td>
-										<td>0</td>
-									</tr>
-								</tbody>
-							</table>
-						</section>
-						<section id="Effects_intensity_option">
-							<h4>Effects intensity option</h4>
-							<p>
-								Some players may enjoy more intense effects for immersion, while some other may find
-								them too distracting.<br>
-								With sVisual, the players can change an option to specify their preferred "effects
-								intensity".<br>
-							</p>
-							<p>
-								You can get the player preference by invoking the <code>getEffectsIntensity()</code>
-								method, which will return a value between 0 and 2 (inclusive)
-							</p>
-							<p>
-								How this value will affect your effects it's up to you; you may want a specific effect
-								to scale differently based on the player preference.
-							</p>
-							<p>As a rule of thumb:</p>
-							<ul>
-								<li>
-									An effect intensity value of 0, means that the player want the least possible
-									effects on the screen
-								</li>
-								<li>Effect intensity of 1 is the default</li>
-								<li>An effect intensity of 2, means the player like very strong effects</li>
-							</ul>
-							<blockquote class="note">
-								This method is only available if you're using sVisual; so make sure to have specified
-								sVisual in the <code>requiredAddons</code>
-							</blockquote>
-							<p>Let's see an example</p>
-							<pre><code class="language-csharp">
+					<table>
+						<thead>
+							<tr>
+								<th>(vignette)</th>
+								<th>Priority</th>
+								<th>Operator</th>
+								<th>Value</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>final result</td>
+								<td></td>
+								<td></td>
+								<td>0.30</td>
+							</tr>
+							<tr>
+								<td>Effect_B</td>
+								<td>69</td>
+								<td>SUBTRACT</td>
+								<td>0.20</td>
+							</tr>
+							<tr>
+								<td>Effect_A</td>
+								<td>1</td>
+								<td>ADD</td>
+								<td>0.50</td>
+							</tr>
+							<tr>
+								<td>default</td>
+								<td>0</td>
+								<td>SET</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+					</table>
+					<table>
+						<thead>
+							<tr>
+								<th>(overlay)</th>
+								<th>Priority</th>
+								<th>Operator</th>
+								<th>Value</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>final result</td>
+								<td></td>
+								<td></td>
+								<td>0.80</td>
+							</tr>
+							<tr>
+								<td>Effect_A</td>
+								<td>420</td>
+								<td>MULTIPLICATIVE</td>
+								<td>2.00</td>
+							</tr>
+							<tr>
+								<td>Effect_B</td>
+								<td>1</td>
+								<td>ADD</td>
+								<td>0.40</td>
+							</tr>
+							<tr>
+								<td>default</td>
+								<td>0</td>
+								<td>SET</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section id="Effects_intensity_option">
+					<h4>Effects intensity option</h4>
+					<p>
+						Some players may enjoy more intense effects for immersion, while some other may find
+						them too distracting.<br>
+						With sVisual, the players can change an option to specify their preferred "effects
+						intensity".<br>
+					</p>
+					<p>
+						You can get the player preference by invoking the <code>getEffectsIntensity()</code>
+						method, which will return a value between 0 and 2 (inclusive)
+					</p>
+					<p>
+						How this value will affect your effects it's up to you; you may want a specific effect
+						to scale differently based on the player preference.
+					</p>
+					<p>As a rule of thumb:</p>
+					<ul>
+						<li>
+							An effect intensity value of 0, means that the player want the least possible
+							effects on the screen
+						</li>
+						<li>Effect intensity of 1 is the default</li>
+						<li>An effect intensity of 2, means the player like very strong effects</li>
+					</ul>
+					<blockquote class="note">
+						This method is only available if you're using sVisual; so make sure to have specified
+						sVisual in the <code>requiredAddons</code>
+					</blockquote>
+					<p>Let's see an example</p>
+					<pre><code class="language-csharp">
 class PainEffect : SPPEffect {
 	override void onInit() {
 		normalized(true);
@@ -749,10 +739,8 @@ class PainEffect : SPPEffect {
 	}
 }
 							</code></pre>
-						</section>
-					</section>
-				</li>
-			</ol>
+				</section>
+			</section>
 		</main>
 	</body>
 
