@@ -4,7 +4,7 @@
 <head>
 	<title>sUDE | Tutorials</title>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="/sUDE/css/style.css">
+	<link rel="stylesheet" href="/sUDE/css/tutorial.css">
 	<link rel="stylesheet" href="/sUDE/css/highlight.css">
 	<script src="/sUDE/js/main.js"></script>
 	<script src="/sUDE/tutorials/js/tutorials.js"></script>
@@ -22,50 +22,51 @@
 				<li id="breadcrumb_current">...</li>
 			</ul>
 		</nav>
-
-		<ol id="steps" class="steps">
-			<li><a href="#First_server_launch">First server launch</a></li>
-			<li><a href="#Edit_the_constraints">Edit the constraints</a></li>
-			<li><a href="#Save_and_restart">Save and restart</a></li>
-			<li><a href="#Additional_info">Additional info</a></li>
-		</ol>
-
+		<aside>
+			<nav>
+				<ol>
+					<li><a href="#First_server_launch">First server launch</a></li>
+					<li><a href="#Edit_the_constraints">Edit the constraints</a></li>
+					<li><a href="#Save_and_restart">Save and restart</a></li>
+					<li><a href="#Additional_info">Additional info</a></li>
+				</ol>
+			</nav>
+		</aside>
 		<blockquote class="info">
 			The following tutorial applies to all sUDE mods, namely sVisual and sGunplay at the moment.
 		</blockquote>
-		<ol>
-			<li id="First_server_launch">
-				<h3>First server launch</h3>
-				<p>
-					Make sure you launch the server at least once with the mod of which you wish to constrain the user
-					settings, and that at least player has joined once; this will ensure the needed files will be
-					automatically generated.
-				</p>
+		<section id="First_server_launch">
+			<h3>First server launch</h3>
+			<p>
+				Make sure you launch the server at least once with the mod of which you wish to constrain the user
+				settings, and that at least player has joined once; this will ensure the needed files will be
+				automatically generated.
+			</p>
 
-				<p>
-					Now you have to locate your
-					<em data-tooltip="This is the folder where you server stores logs and configuration files">
-						server profile folder
-					</em>
-					which by default can be found in your
-					<em data-tooltip="C:\Program Files (x86)\Steam\steamapps\common\DayZServer\YOUR_PROFILE_FOLDER)">
-						server installation directory.
-					</em>
-					If you're using a dayz server provider, refer to its documentation.
-				</p>
+			<p>
+				Now you have to locate your
+				<em data-tooltip="This is the folder where you server stores logs and configuration files">
+					server profile folder
+				</em>
+				which by default can be found in your
+				<em data-tooltip="C:\Program Files (x86)\Steam\steamapps\common\DayZServer\YOUR_PROFILE_FOLDER)">
+					server installation directory.
+				</em>
+				If you're using a dayz server provider, refer to its documentation.
+			</p>
 
-				<p>
-					Navigate to the folder <code>sUDE/config</code>, in which you'll find the constraints file.
-					They should be of the format <code>[NAME OF THE MOD]_constraints.json</code>;
-					it's a <a data-tooltip="JavaScript Object Notation"
-						href="https://en.wikipedia.org/wiki/JSON">json</a> file.
-				</p>
+			<p>
+				Navigate to the folder <code>sUDE/config</code>, in which you'll find the constraints file.
+				They should be of the format <code>[NAME OF THE MOD]_constraints.json</code>;
+				it's a <a data-tooltip="JavaScript Object Notation" href="https://en.wikipedia.org/wiki/JSON">json</a>
+				file.
+			</p>
 
-				<blockquote class="note">
-					By default the constraints are disabled. Proceed to the next step to enable them.
-				</blockquote>
+			<blockquote class="note">
+				By default the constraints are disabled. Proceed to the next step to enable them.
+			</blockquote>
 
-			<li id="Edit_the_constraints">
+			<section id="Edit_the_constraints">
 				<h3>Edit the constraints</h3>
 				<p>
 					Open the file with your favorite text editor and edit the constraints as needed
@@ -95,8 +96,8 @@
 						<code>message</code>: A string containing a message that will be shown to the players when
 						trying to edit a constrained option.
 						<blockquote class="info">
-							A message also supports some basic <em
-								data-tooltip="subset of Pango markup <b>bold</b>, <i>italic</i> etc">markup</em> and
+							A message also supports some basic
+							<em data-tooltip="subset of Pango markup <b>bold</b>, <i>italic</i> etc">markup</em> and
 							strings of different localizations from <code>stringtables.csv</code> (e.g.
 							"#MY_LOCALIZED_STRING")
 						</blockquote>
@@ -125,16 +126,16 @@
 					</li>
 				</ol>
 
-			</li>
+			</section>
 
-			<li id="Save_and_restart">
+			<section id="Save_and_restart">
 				<h3>Save and restart</h3>
 				<p>
 					Once you finished editing the file, save it and restart the server to make sure the changes take
 					effect
 				</p>
-			</li>
-			<li id="Additional_info">
+			</section>
+			<section id="Additional_info">
 				<h3>Additional info</h3>
 				<ul>
 					<li>Make sure your .json syntax is correct, otherwise the file will be regenerated with the default
@@ -295,8 +296,7 @@
 }					
 					</code></pre>
 				</details>
-			</li>
-		</ol>
+			</section>
 
 	</main>
 </body>

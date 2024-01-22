@@ -4,7 +4,7 @@
 <head>
 	<title>sUDE | Tutorials</title>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="/sUDE/css/style.css">
+	<link rel="stylesheet" href="/sUDE/css/tutorial.css">
 	<link rel="stylesheet" href="/sUDE/css/highlight.css">
 	<script src="/sUDE/js/main.js"></script>
 	<script src="/sUDE/tutorials/js/tutorials.js"></script>
@@ -23,36 +23,40 @@
 			</ul>
 		</nav>
 
-		<ol id="steps" class="steps">
-			<li><a href="#Setup">Setup</a></li>
-			<li><a href="#Optics">Optics</a>
+		<aside>
+			<nav>
 				<ol>
-					<li><a href="#Optics_PiP">PiP</a></li>
-					<li><a href="#Optics_Other">Other parameters</a></li>
+					<li><a href="#Setup">Setup</a></li>
+					<li><a href="#Optics">Optics</a>
+						<ol>
+							<li><a href="#Optics_PiP">PiP</a></li>
+							<li><a href="#Optics_Other">Other parameters</a></li>
+						</ol>
+					</li>
+					<li><a href="#Recoils">Recoils</a>
+						<ol>
+							<li><a href="#Attachments_stats">Attachments stats</a>
+							<li><a href="#Integrated_attachments">Integrated attachments</a>
+							<li><a href="#Complete_example">Complete example</a>
+						</ol>
+					</li>
 				</ol>
-			</li>
-			<li><a href="#Recoils">Recoils</a>
-				<ol>
-					<li><a href="#Attachments_stats">Attachments stats</a>
-					<li><a href="#Integrated_attachments">Integrated attachments</a>
-				</ol>
-			</li>
-		</ol>
+			</nav>
+		</aside>
 
-		<ol>
-			<li>
-				<h3 id="Setup">Setup</h3>
-				<blockquote class="note">
-					Unless you need to mod sGunplay scripts, you may want to skip this step.
-					By not specifying sGunplay as a required addon, you can make your mod compatible
-					without a strong dependency to sGunplay, while keeping your modded items still compatible.
-				</blockquote>
-				<p>
-					Add sGunplay as a dependency by adding it to the <code>requiredAddons</code>
-					inside your <code>config.cpp</code>
-				</p>
+		<section id="Setup">
+			<h3>Setup</h3>
+			<blockquote class="note">
+				Unless you need to mod sGunplay scripts, you may want to skip this step.
+				By not specifying sGunplay as a required addon, you can make your mod compatible
+				without a strong dependency to sGunplay, while keeping your modded items still compatible.
+			</blockquote>
+			<p>
+				Add sGunplay as a dependency by adding it to the <code>requiredAddons</code>
+				inside your <code>config.cpp</code>
+			</p>
 
-				<pre><code>
+			<pre><code>
 	class CfgPatches {
 		class YourMod {
 			requiredAddons[] = {
@@ -61,78 +65,75 @@
 		};
 	};
 				</code></pre>
-			</li>
+		</section>
+		<section id="Optics">
+			<h3>Optics</h3>
 
-			<li id="Optics">
-				<h3>Optics</h3>
-
-				<ol>
-					<li id="Optics_PiP">
-						<h4><em data-tooltip="Picture In Picture, aka lens magnification">PiP</em></h4>
-						<p>
-							If your optic has magnification (e.g. 2x, 4x, 6x etc), you should define some additional
-							attributes
-							to enable the <em data-tooltip="Picture In Picture, aka lens magnification">PiP</em>. These
-							attributes will have to be added in the <code>config.cpp</code> class definition of your
-							optic.
-						</p>
-						<p>The configurable attributes are:</p>
-						<ul>
-							<li><code>s_pipRadius</code>: radius of the lens<br />
-								<small>0.1 = very small | 0.9 = almost full screen</small><br />
-								<img src="https://imgur.com/AWIRSGt.gif" width="25%">
-							</li>
-							<li><code>s_pipMagnification</code>: intensity of the magnification<br />
-								<small>0.1 = low magnification | 0.5 = strong magnification</small><br />
-								<img src="https://imgur.com/PgpWOA5.gif" width="25%">
-								<blockquote class="note">
-									The final lens magnification also depends on the user option of the lens
-									magnification.
-									See <a>user options</a> for more info
-								</blockquote>
-							</li>
-							<li><code>s_pipBlur</code>: blur of the PiP circumference<br />
-								<small>0.01 = sharp | 0.3 = very blurred</small><br />
-								<img src="https://imgur.com/Tq9GTlT.gif" width="25%">
-								<blockquote class="note">
-									The <code>s_pipBlur</code> <b>MUST</b> be a non-zero value or the PiP won't work.
-									If you don't want blur, use small values instead (e.g. 0.001)
-								</blockquote>
-							</li>
-							<li><code>s_pipChromAber</code>: chromatic aberration intensity<br />
-								<small>0.01 = sharp | 0.3 = very blurred</small><br />
-								<img src="https://imgur.com/KET237w.gif" width="25%">
-							</li>
-							<li><code>s_pipOffset</code>: horizontal and vertical offset of the PiP on the screen.<br />
-								<small>Acceptable values are between -1.0 and 1.0;</small><br />
-								<small>You shouldn't need to change these.</small><br />
-								<img src="https://imgur.com/YIDoj9b.gif" width="25%">
-							</li>
-							<li><code>s_pipLensOffset</code>: horizontal and vertical offset of magnification<br />
-								<small>Acceptable values are between -1.0 and 1.0;</small><br />
-								<small>You shouldn't need to change these.</small><br />
-								<img src="https://imgur.com/74xNWlE.gif" width="25%">
-							</li>
-						</ul>
-						<br />
+			<section id="Optics_PiP">
+				<h4><em data-tooltip="Picture In Picture, aka lens magnification">PiP</em></h4>
+				<p>
+					If your optic has magnification (e.g. 2x, 4x, 6x etc), you should define some additional
+					attributes
+					to enable the <em data-tooltip="Picture In Picture, aka lens magnification">PiP</em>. These
+					attributes will have to be added in the <code>config.cpp</code> class definition of your
+					optic.
+				</p>
+				<p>The configurable attributes are:</p>
+				<ul>
+					<li><code>s_pipRadius</code>: radius of the lens<br>
+						<small>0.1 = very small | 0.9 = almost full screen</small><br>
+						<img src="https://imgur.com/AWIRSGt.gif" width="25%">
 					</li>
-					<li id="Optics_Other">
-						<h4>Other parameters</h4>
-						<p>
-							If your optic has a "fullscreen reticle", like the vanilla <i>HuntingOptic</i>, you should
-							enable the <code>s_isFullscreen</code> to make the optic behave correctly, and
-							optionally the <code>s_showEnterMisalignment</code> to enable a slight misalignment effect
-							upon entering the optic.
-						</p>
-						<p>Both are boolean options: they accept <code>true</code>(1) or <code>false</code>(0)</p>
-						<pre><code>
+					<li><code>s_pipMagnification</code>: intensity of the magnification<br>
+						<small>0.1 = low magnification | 0.5 = strong magnification</small><br>
+						<img src="https://imgur.com/PgpWOA5.gif" width="25%">
+						<blockquote class="note">
+							The final lens magnification also depends on the user option of the lens
+							magnification.
+							See <a>user options</a> for more info
+						</blockquote>
+					</li>
+					<li><code>s_pipBlur</code>: blur of the PiP circumference<br>
+						<small>0.01 = sharp | 0.3 = very blurred</small><br>
+						<img src="https://imgur.com/Tq9GTlT.gif" width="25%">
+						<blockquote class="note">
+							The <code>s_pipBlur</code> <b>MUST</b> be a non-zero value or the PiP won't work.
+							If you don't want blur, use small values instead (e.g. 0.001)
+						</blockquote>
+					</li>
+					<li><code>s_pipChromAber</code>: chromatic aberration intensity<br>
+						<small>0.01 = sharp | 0.3 = very blurred</small><br>
+						<img src="https://imgur.com/KET237w.gif" width="25%">
+					</li>
+					<li><code>s_pipOffset</code>: horizontal and vertical offset of the PiP on the screen.<br>
+						<small>Acceptable values are between -1.0 and 1.0;</small><br>
+						<small>You shouldn't need to change these.</small><br>
+						<img src="https://imgur.com/YIDoj9b.gif" width="25%">
+					</li>
+					<li><code>s_pipLensOffset</code>: horizontal and vertical offset of magnification<br>
+						<small>Acceptable values are between -1.0 and 1.0;</small><br>
+						<small>You shouldn't need to change these.</small><br>
+						<img src="https://imgur.com/74xNWlE.gif" width="25%">
+					</li>
+				</ul>
+				<br>
+			</section>
+			<section id="Optics_Other">
+				<h4>Other parameters</h4>
+				<p>
+					If your optic has a "fullscreen reticle", like the vanilla <i>HuntingOptic</i>, you should
+					enable the <code>s_isFullscreen</code> to make the optic behave correctly, and
+					optionally the <code>s_showEnterMisalignment</code> to enable a slight misalignment effect
+					upon entering the optic.
+				</p>
+				<p>Both are boolean options: they accept <code>true</code>(1) or <code>false</code>(0)</p>
+				<pre><code>
 	s_isFullscreen = 1;
 	s_showEnterMisalignment = 1;
 						</code></pre>
-					</li>
-				</ol>
-				<p>This is an example configuration of two optics</p>
-				<pre><code>
+			</section>
+			<p>This is an example configuration of two optics</p>
+			<pre><code>
 	class cfgVehicles {
 
 		class ItemOptics;
@@ -156,79 +157,78 @@
 	};
 				</code></pre>
 
-			</li>
+		</section>
 
-			<li id="Recoils">
-				<h3>Recoils</h3>
-				<blockquote class="info">
-					If you have custom weapons which doesn't use custom recoil, but they instead use the recoils of some
-					existing vanilla weapons, you can skip to <a href="#Attachments_stats">this step</a>
-				</blockquote>
+		<section id="Recoils">
+			<h3>Recoils</h3>
+			<blockquote class="info">
+				If you have custom weapons which doesn't use custom recoil, but they instead use the recoils of some
+				existing vanilla weapons, you can skip to <a href="#Attachments_stats">this step</a>
+			</blockquote>
+			<p>
+				Before doing anything, it's important to understand how recoil works in sGunplay.
+				Unlike DayZ vanilla, they do not follow predetermined pattern, but they're
+				procedurally generated on many variables:
+			<ul>
+				<li>Weapon attachments</li>
+				<li>Player inventory weight</li>
+				<li>Weapon weight</li>
+				<li>Player stance (erect, crouched, prone)</li>
+				<li>Player movement (standing, walking, jogging)</li>
+				<li>Strength soft skill</li>
+			</ul>
+			<p>
+				Also it's important to know that the recoil definition is radically different from vanilla, since
+				they also behave radically different.<br>
+				Recoil intensity will "accumulate" if you shoot faster than your ability to control the recoil and
+				to reset the weapon.<br>
+				While short burst are manegeable, being accurate with a long spray is not an easy task (especially
+				at long engagements), but it will become easier once you reach the "apex" of the recoil. At that
+				point, you'll be able to be more consistent in controlling it.
+			</p>
+			<p>Let's first understand what recoil really is made of:</p>
+			<blockquote class="note">
+				The following recoil has been "amplified" for showcasing purposes
+			</blockquote>
+			<div class="grid">
+				<p>Mouse offset</p>
 				<p>
-					Before doing anything, it's important to understand how recoil works in sGunplay.
-					Unlike DayZ vanilla, they do not follow predetermined pattern, but they're
-					procedurally generated on many variables:
-				<ul>
-					<li>Weapon attachments</li>
-					<li>Player inventory weight</li>
-					<li>Weapon weight</li>
-					<li>Player stance (erect, crouched, prone)</li>
-					<li>Player movement (standing, walking, jogging)</li>
-					<li>Strength soft skill</li>
-				</ul>
+					Here we see only the recoil being applied to the mouse, that the player should eventually
+					counter with mouse movements.
 				</p>
+				<img src="https://imgur.com/0QXdTjD.gif" width="320px">
+			</div>
+			<div class="grid">
+				<p id="handsOffset">Hands offset</p>
 				<p>
-					Also it's important to know that the recoil definition is radically different from vanilla, since
-					they also behave radically different.<br />
-					Recoil intensity will "accumulate" if you shoot faster than your ability to control the recoil and
-					to reset the weapon.<br />
-					While short burst are manegeable, being accurate with a long spray is not an easy task (especially
-					at long engagements), but it will become easier once you reach the "apex" of the recoil. At that
-					point, you'll be able to be more consistent in controlling it.
+					Here we see only the "stability", which is the recoil being applied to the hands. More stability
+					means that the gun will stay closer to the center.
 				</p>
-				<p>Let's first understand what recoil really is made of:</p>
+				<img src="https://imgur.com/1hlcj8L.gif" width="320px">
+			</div>
+			<div class="grid">
+				<p>Misalignment</p>
+				<p>
+					Here we see only the misalignment: the recoil causes the front and rear sight to misalign.
+				</p>
+				<img src="https://imgur.com/3DjtCnY.gif" width="320px">
+			</div>
+			<div class="grid">
+				<p>Kick</p>
+				<p>
+					Here we see only the "kick", which is the recoil pushing the weapon into the shoulder.
+				</p>
+				<img src="https://imgur.com/OW09bwN.gif" width="320px">
+			</div>
+			<div class="grid">
+				<p>The final result will be</p>
 				<blockquote class="note">
-					The following recoil has been "amplified" for showcasing purposes
+					The recoil has been "amplified" for showcasing purposes.
 				</blockquote>
-				<div class="grid">
-					<p>Mouse offset</p>
-					<p>
-						Here we see only the recoil being applied to the mouse, that the player should eventually
-						counter with mouse movements.
-					</p>
-					<img src="https://imgur.com/0QXdTjD.gif" width="320px">
-				</div>
-				<div class="grid">
-					<p id="handsOffset">Hands offset</p>
-					<p>
-						Here we see only the "stability", which is the recoil being applied to the hands. More stability
-						means that the gun will stay closer to the center.
-					</p>
-					<img src="https://imgur.com/1hlcj8L.gif" width="320px">
-				</div>
-				<div class="grid">
-					<p>Misalignment</p>
-					<p>
-						Here we see only the misalignment: the recoil causes the front and rear sight to misalign.
-					</p>
-					<img src="https://imgur.com/3DjtCnY.gif" width="320px">
-				</div>
-				<div class="grid">
-					<p>Kick</p>
-					<p>
-						Here we see only the "kick", which is the recoil pushing the weapon into the shoulder.
-					</p>
-					<img src="https://imgur.com/OW09bwN.gif" width="320px">
-				</div>
-				<div class="grid">
-					<p>The final result will be</p>
-					<blockquote class="note">
-						The recoil has been "amplified" for showcasing purposes.
-					</blockquote>
-					<img src="https://imgur.com/k5nrAl9.gif" width="320px">
-				</div>
-				<p>Let's see how a recoil is defined in sGunplay, using the <code>AUGRecoil</code> as example</p>
-				<pre><code>
+				<img src="https://imgur.com/k5nrAl9.gif" width="320px">
+			</div>
+			<p>Let's see how a recoil is defined in sGunplay, using the <code>AUGRecoil</code> as example</p>
+			<pre><code>
 modded class AUGRecoil {
 	override void initRecoilParameters() {
 		handsRanges        = {-1.750,  1.750,  2.750,  3.985};	
@@ -247,75 +247,73 @@ modded class AUGRecoil {
 	}
 }					
 				</code></pre>
-				<p>
-					<code>handsRanges</code> and <code>mouseRanges</code> define the the ranges of the horizontal and
-					vertical of the value that will be generated.
-					<code>{minimum_horizontal, maximum_horizontal, minimum_vertical, maximum_vertical}</code>
-				</p>
-				<p>
-					Similarily <code>misalignIntensity</code> defines the misalign intensity, which is based on the
-					<code>handsRanges</code>
-					<code>{horizontal_intensity, vertical_intensity}</code>
-				</p>
-				<p>
-					<code>kick</code> describes in metres how much the weapon should "kick" into the shoulder, while
-					<code>kickResetTime</code> will define how "fast" the kick will be reset.
-				</p>
-				<blockquote class="note">
-					Remember that the final recoil will depends on many variables, most importantly on
-					<b>attachments</b>.
-					Many weapons use the same recoil definition, but some of them allow attachments (i.e. buttstocks,
-					handguards, etc.), while some other do not.<br />
-					The recoil definition <b>SHOULD be made as if your weapon doesn't have any attachments currently
-						attached</b>.
-					For example an M4A1 without buttstock and handguard.<br />
-					Doing this, will allow other weapons to use the same recoil but with different attachments stats.
-					See
-					the next section for more info.
-				</blockquote>
+			<p>
+				<code>handsRanges</code> and <code>mouseRanges</code> define the the ranges of the horizontal and
+				vertical of the value that will be generated.
+				<code>{minimum_horizontal, maximum_horizontal, minimum_vertical, maximum_vertical}</code>
+			</p>
+			<p>
+				Similarily <code>misalignIntensity</code> defines the misalign intensity, which is based on the
+				<code>handsRanges</code>
+				<code>{horizontal_intensity, vertical_intensity}</code>
+			</p>
+			<p>
+				<code>kick</code> describes in metres how much the weapon should "kick" into the shoulder, while
+				<code>kickResetTime</code> will define how "fast" the kick will be reset.
+			</p>
+			<blockquote class="note">
+				Remember that the final recoil will depends on many variables, most importantly on
+				<b>attachments</b>.
+				Many weapons use the same recoil definition, but some of them allow attachments (i.e. buttstocks,
+				handguards, etc.), while some other do not.<br>
+				The recoil definition <b>SHOULD be made as if your weapon doesn't have any attachments currently
+					attached</b>.
+				For example an M4A1 without buttstock and handguard.<br>
+				Doing this, will allow other weapons to use the same recoil but with different attachments stats.
+				See
+				the next section for more info.
+			</blockquote>
 
-				<ol>
-					<li id="Attachments_stats">
-						<h4>Attachments stats</h4>
-						<p>
-							Attachments play a major role in the final recoil computation as they could heavily modify
-							the before mentioned values of the recoils (i.e. mouse, stability, misalignment, kick),
-							hence improving (or also worsen) the recoil.
-						</p>
+			<section id="Attachments_stats">
+				<h4>Attachments stats</h4>
+				<p>
+					Attachments play a major role in the final recoil computation as they could heavily modify
+					the before mentioned values of the recoils (i.e. mouse, stability, misalignment, kick),
+					hence improving (or also worsen) the recoil.
+				</p>
 
-						<h5>How attachments stats work</h5>
-						<p>
-							All the stats are defined in percentage (0.0 = 0%, 0.69 = 69%, 1.0 = 100%, -0.42 = -42%) and
-							they're <b>additive</b>, which means that if two attachments are being used, and they reduce
-							the "kick" respecitevly by 40% and 29%, the final kick reduction will be of 69% (40 + 29 =
-							69). <br />
-							So be mindful when choosing the stats.
-						</p>
+				<h5>How attachments stats work</h5>
+				<p>
+					All the stats are defined in percentage (0.0 = 0%, 0.69 = 69%, 1.0 = 100%, -0.42 = -42%) and
+					they're <b>additive</b>, which means that if two attachments are being used, and they reduce
+					the "kick" respecitevly by 40% and 29%, the final kick reduction will be of 69% (40 + 29 = 69).<br>
+					So be mindful when choosing the stats.
+				</p>
 
-						<h5>Define attachments stats</h5>
-						<p>
-							The definition is done through the <code>config.cpp</code>. The configurable attributes are:
-						</p>
-						<ul>
-							<li><code>s_recoilControlMouseX</code>: control of <b>horizontal</b> mouse offset</li>
-							<li><code>s_recoilControlMouseY</code>: control of <b>vertical</b> mouse offset</li>
-							<blocquote class="note">
-								I highly suggest not to modify the recoil control of the mouse offset, for a mere design
-								reason.
-							</blocquote>
-							<li><code>s_recoilControlStabilityX</code>: control of <b>horizontal</b>
-								<em data-tooltip="hands offset">stability</em>
-							</li>
-							<li><code>s_recoilControlStabilityY</code>: control of <b>vertical</b>
-								<em data-tooltip="hands offset">stability</em>
-							</li>
-							<li><code>s_recoilControlMisalignmentX</code>: control of <b>horizontal</b> misalignment
-							</li>
-							<li><code>s_recoilControlMisalignmentY</code>: control of <b>vertical</b> misalignment</li>
-							<li><code>s_recoilControlKick</code>: control of the kick</li>
-						</ul>
-						<p>This is an example of stats for Mp5 attachments:</p>
-						<pre><code>
+				<h5>Define attachments stats</h5>
+				<p>
+					The definition is done through the <code>config.cpp</code>. The configurable attributes are:
+				</p>
+				<ul>
+					<li><code>s_recoilControlMouseX</code>: control of <b>horizontal</b> mouse offset</li>
+					<li><code>s_recoilControlMouseY</code>: control of <b>vertical</b> mouse offset</li>
+					<blockquote class="note">
+						I highly suggest not to modify the recoil control of the mouse offset, for a mere design
+						reason.
+					</blockquote>
+					<li><code>s_recoilControlStabilityX</code>: control of <b>horizontal</b>
+						<em data-tooltip="hands offset">stability</em>
+					</li>
+					<li><code>s_recoilControlStabilityY</code>: control of <b>vertical</b>
+						<em data-tooltip="hands offset">stability</em>
+					</li>
+					<li><code>s_recoilControlMisalignmentX</code>: control of <b>horizontal</b> misalignment
+					</li>
+					<li><code>s_recoilControlMisalignmentY</code>: control of <b>vertical</b> misalignment</li>
+					<li><code>s_recoilControlKick</code>: control of the kick</li>
+				</ul>
+				<p>This is an example of stats for Mp5 attachments:</p>
+				<pre><code>
 class cfgVehicles {
 	class Inventory_Base;
 	class MP5k_StockBttstck : Inventory_Base {
@@ -336,15 +334,15 @@ class cfgVehicles {
 		s_recoilControlMisalignmentY = 0.05;
 	};
 };							
-						</code></pre>
-					</li>
+					</code></pre>
+			</section>
 
-					<li id="Integrated_attachments">
-						<h4>Integrated attachments</h4>
-						<p>Some weapons may not have removable attachments (e.g. M16A1 rifle)</p>
-						<p>In this case it's possible to add stats for "integrated attachment" directly in your weapon
-							class</p>
-						<pre><code>
+			<section id="Integrated_attachments">
+				<h4>Integrated attachments</h4>
+				<p>Some weapons may not have removable attachments (e.g. M16A1 rifle)</p>
+				<p>In this case it's possible to add stats for "integrated attachment" directly in your weapon
+					class</p>
+				<pre><code>
 class cfgWeapons {
 	class Rifle_Base;
 	class M16A2_Base : Rifle_Base {
@@ -356,10 +354,11 @@ class cfgWeapons {
 	};			
 };
 						</code></pre>
-						<p>So in this example, the M16A1 rifle will have those stats without attachments</p>
+				<p>So in this example, the M16A1 rifle will have those stats without attachments</p>
 
-						<h5>A final example</h5>
-						<pre><code>
+				<section id="Complete_example">
+					<h4>A complete example</h4>
+					<pre><code>
 class cfgVehicles {
 	class Inventory_Base;
 	class MyModdedButtstock : Inventory_Base {
@@ -391,72 +390,70 @@ class cfgWeapons {
 	};			
 };							
 						</code></pre>
-						<p>
-							So using a <code>MyModdedWeapon</code> with <code>MyModdedButtstock</code>,
-							<code>MyModdedHandguard</code> and <code>MyModdedCompensator</code> as attachments, will
-							result in a final recoil control of:
-						</p>
-						<table>
-							<thead>
-								<tr>
-									<th></th>
-									<th scope="col">stability control horizontal</th>
-									<th scope="col">stability control vertical</th>
-									<th scope="col">misalignment control horizontal</th>
-									<th scope="col">misalignment control vertical</th>
-									<th scope="col">kick control</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>MyModdedButtstock</td>
-									<td>0.40</td>
-									<td>0.40</td>
-									<td>0.05</td>
-									<td>0.15</td>
-									<td>0.60</td>
-								</tr>
-								<tr>
-									<td>MyModdedHandguard</td>
-									<td>0.20</td>
-									<td>0.20</td>
-									<td>0.55</td>
-									<td>0.45</td>
-									<td>0.00</td>
-								</tr>
-								<tr>
-									<td>MyModdedCompensator</td>
-									<td>0.00</td>
-									<td>0.00</td>
-									<td>0.10</td>
-									<td>0.05</td>
-									<td>0.00</td>
-								</tr>
-								<tr>
-									<td>MyModdedWeapon (integrated attachment stats)</td>
-									<td>0.05</td>
-									<td>0.05</td>
-									<td>0.05</td>
-									<td>0.05</td>
-									<td>0.05</td>
-								</tr>
-								<tfoot>
-									<td>final result</td>
-									<td>0.65</td>
-									<td>0.65</td>
-									<td>0.75</td>
-									<td>0.70</td>
-									<td>0.65</td>
-								</tfoot>
-							</tbody>
-						</table>
-					</li>
-
-				</ol>
-
-			</li>
-		</ol>
-
+					<p>
+						So using a <code>MyModdedWeapon</code> with <code>MyModdedButtstock</code>,
+						<code>MyModdedHandguard</code> and <code>MyModdedCompensator</code> as attachments, will
+						result in a final recoil control of:
+					</p>
+					<table>
+						<thead>
+							<tr>
+								<th></th>
+								<th scope="col">stability control horizontal</th>
+								<th scope="col">stability control vertical</th>
+								<th scope="col">misalignment control horizontal</th>
+								<th scope="col">misalignment control vertical</th>
+								<th scope="col">kick control</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>MyModdedButtstock</td>
+								<td>0.40</td>
+								<td>0.40</td>
+								<td>0.05</td>
+								<td>0.15</td>
+								<td>0.60</td>
+							</tr>
+							<tr>
+								<td>MyModdedHandguard</td>
+								<td>0.20</td>
+								<td>0.20</td>
+								<td>0.55</td>
+								<td>0.45</td>
+								<td>0.00</td>
+							</tr>
+							<tr>
+								<td>MyModdedCompensator</td>
+								<td>0.00</td>
+								<td>0.00</td>
+								<td>0.10</td>
+								<td>0.05</td>
+								<td>0.00</td>
+							</tr>
+							<tr>
+								<td>MyModdedWeapon (integrated attachment stats)</td>
+								<td>0.05</td>
+								<td>0.05</td>
+								<td>0.05</td>
+								<td>0.05</td>
+								<td>0.05</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td>final result</td>
+								<td>0.65</td>
+								<td>0.65</td>
+								<td>0.75</td>
+								<td>0.70</td>
+								<td>0.65</td>
+							</tr>
+						</tfoot>
+					</table>
+				</section>
+			</section>
+		</section>
 	</main>
 </body>
 

@@ -4,7 +4,7 @@
 <head>
 	<title>sUDE | Tutorials</title>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="/sUDE/css/style.css">
+	<link rel="stylesheet" href="/sUDE/css/tutorial.css">
 	<link rel="stylesheet" href="/sUDE/css/highlight.css">
 	<script src="/sUDE/js/main.js"></script>
 	<script src="/sUDE/tutorials/js/tutorials.js"></script>
@@ -23,71 +23,73 @@
 			</ul>
 		</nav>
 
-		<ol id="steps" class="steps">
-			<li><a href="#Setup">Setup</a></li>
-			<li><a href="#Import">Import the resource</a></li>
-			<li><a href="#Optimize">Optimize image</a></li>
-			<li><a href="#Cleanup">Cleanup</a></li>
-		</ol>
-		<ol>
-			<li>
-				<h3 id="Setup">Setup</h3>
-				<p>Copy the image you want to make into an .edds file inside your mod directory</p>
-			</li>
-			<li>
-				<h3 id="Import">Import the resource</h3>
-				<p>
-					With the workbench, from the resource browser (left), right click on your image and select
-					<em>Register resource and Import</em>
-				</p>
-			</li>
-			<li>
-				<h3 id="Optimize">Optimize image</h3>
+		<aside>
+			<nav>
 				<ol>
-					<li>Open <em>yourImage.edds</em> with the Workbench</li>
-					<li>
-						Select the <em>Import Settings</em> tab on the bottom right of the Workbench
-						<blockquote class="note">
-							If the .meta file is not correct (e.g. doesn't have the same name of .edds) you won't be
-							able to see the Import Settings
-						</blockquote>
-					</li>
-					<li>
-						Set the <em>SourceFile</em> to the image you want to use.
-						<blockquote class="note">
-							If you can't select your image, be sure to have it placed in the same directory of the .edds
-						</blockquote>
-					</li>
-					<li>
-						Change the settings as you need.<br>
-						Smaller files are always better. Set <em>FormatCompress</em> to <em>Fastest</em> for smaller
-						file size, and change it if you need more quality.
-						<p>
-							If the image is in greyscale, set <em>Conversion</em> to <em>DXTCompression</em> to have
-							the smallest file size.
-						</p>
-						<blockquote class="note">
-							The image size has to be power of 2 (128x128, 256x256, 512x512, 1024x1024 etc.) for
-							this to work
-						</blockquote>
-					</li>
-					<li>Click on <em>Reimport resource(PC)</em>
-						<blockquote class="info">
-							The image may not be visible immediately; with the Worbench click on another file from the
-							<em>ResourceBrowser</em> and reclick on <em>yourImage.edds</em>; you should now be able to
-							see your image
-						</blockquote>
-					</li>
+					<li><a href="#Setup">Setup</a></li>
+					<li><a href="#Import">Import the resource</a></li>
+					<li><a href="#Optimize">Optimize image</a></li>
+					<li><a href="#Cleanup">Cleanup</a></li>
 				</ol>
-			</li>
-			<li>
-				<h3 id="Cleanup">Cleanup</h3>
-				<p>
-					If the .eeds has been created correctly, you can now remove your original image (.png, .targa) from
-					your mod directory to avoid accidentally packing it when building the mod.
-				</p>
-			</li>
-		</ol>
+			</nav>
+		</aside>
+		<section id="Setup">
+			<h3>Setup</h3>
+			<p>Copy the image you want to make into an .edds file inside your mod directory</p>
+		</section>
+		<section id="Import">
+			<h3>Import the resource</h3>
+			<p>
+				With the workbench, from the resource browser (left), right click on your image and select
+				<em>Register resource and Import</em>
+			</p>
+		</section>
+		<section id="Optimize">
+			<h3>Optimize image</h3>
+			<ol>
+				<li>Open <em>yourImage.edds</em> with the Workbench</li>
+				<li>
+					Select the <em>Import Settings</em> tab on the bottom right of the Workbench
+					<blockquote class="note">
+						If the .meta file is not correct (e.g. doesn't have the same name of .edds) you won't be
+						able to see the Import Settings
+					</blockquote>
+				</li>
+				<li>
+					Set the <em>SourceFile</em> to the image you want to use.
+					<blockquote class="note">
+						If you can't select your image, be sure to have it placed in the same directory of the .edds
+					</blockquote>
+				</li>
+				<li>
+					Change the settings as you need.<br>
+					Smaller files are always better. Set <em>FormatCompress</em> to <em>Fastest</em> for smaller
+					file size, and change it if you need more quality.
+					<p>
+						If the image is in greyscale, set <em>Conversion</em> to <em>DXTCompression</em> to have
+						the smallest file size.
+					</p>
+					<blockquote class="note">
+						The image size has to be power of 2 (128x128, 256x256, 512x512, 1024x1024 etc.) for
+						this to work
+					</blockquote>
+				</li>
+				<li>Click on <em>Reimport resource(PC)</em>
+					<blockquote class="info">
+						The image may not be visible immediately; with the Worbench click on another file from the
+						<em>ResourceBrowser</em> and reclick on <em>yourImage.edds</em>; you should now be able to
+						see your image
+					</blockquote>
+				</li>
+			</ol>
+		</section>
+		<section id="Cleanup">
+			<h3>Cleanup</h3>
+			<p>
+				If the .eeds has been created correctly, you can now remove your original image (.png, .targa) from
+				your mod directory to avoid accidentally packing it when building the mod.
+			</p>
+		</section>
 	</main>
 </body>
 

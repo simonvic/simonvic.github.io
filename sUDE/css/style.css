@@ -56,14 +56,6 @@ mark {
 	border-radius: 5px;
 }
 
-/* TODO: use nav.toc instead */
-ol.steps {
-	border-left: .25rem solid var(--blockquote-border-color);
-	padding: 1rem 0 1rem 2rem;
-	border-inline-start: 0.25rem solid var(--blockquote-border-color);
-	border-inline-end: none;
-}
-
 blockquote.info:before {
 	content: "INFO\a";
 	white-space: pre;

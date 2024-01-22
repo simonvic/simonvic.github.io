@@ -4,7 +4,7 @@
 <head>
 	<title>sUDE | Tutorials</title>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="/sUDE/css/style.css">
+	<link rel="stylesheet" href="/sUDE/css/tutorial.css">
 	<link rel="stylesheet" href="/sUDE/css/highlight.css">
 	<script src="/sUDE/js/main.js"></script>
 	<script src="/sUDE/tutorials/js/tutorials.js"></script>
@@ -23,57 +23,60 @@
 			</ul>
 		</nav>
 
-		<ol id="steps" class="steps">
-			<li><a href="#Download">Download</a></li>
-			<li><a href="#Verify_files">File verification</a></li>
-			<li><a href="#serverDZcfg">serverDZ.cfg</a></li>
-			<li><a href="#Launch_scripts">Creating launch scripts</a></li>
-			<li><a href="#Loading_mod_keys">Loading mod keys</a></li>
-			<li><a href="#Launching_server_and_client">Launching server and client</a></li>
-		</ol>
-		<ol>
-			<li id="Download">
-				<h3>Download</h3>
-				<p>
-					Download both <a href="https://store.steampowered.com/app/221100/DayZ/">DayZ client</a> and DayZ
-					Server from Steam.
-				</p>
-				<blockquote class="note">
-					if you can't find DayZ Server in your Steam Library, make sure to enable <em>Tools</em> and
-					<em>Software</em> like shown in the picture
-					<img src="https://imgur.com/ILIzOLU.png" width="25%">
-				</blockquote>
-			</li>
-			<li id="Verify_files">
-				<h3>File verification</h3>
-				<p>
-					To ensure we won't run into problems later, verify files of both DayZ and DayZServer via
-					Steam.<br />
-					In your Steam library, right click on <em>DayZ</em>, click <em>Properties</em>, then <em>Local
-						files</em> and finally <em>Verify integrity of game files</em>.<br />
-					Do the same for <em>DayZServer</em>.
-				</p>
-				<p>
-					Once you verified both, launch the DayZ client and join in a random official server to ensure
-					everything is working fine.
-				</p>
-				<p>
-					Now try to launch the DayZServer, you'll see a white window open, but the server won't work yet.
-				</p>
-			</li>
-			<li id="serverDZcfg">
-				<h3>serverDZ.cfg</h3>
-				<p>
-					First thing to do is to locate where are <em
-						data-tooltip="By default: C:\Program Files (x86)\Steam\steamapps\common\DayZServer">DayZServer
-						files</em>.<br>
-					In your Steam library, right click on <em>DayZServer</em>, click <em>Manage</em> and finally
-					<em>Browse local files</em>.<br />
-				</p>
-				<p>
-					In that directory, you should have a file called <code>serverDZ.cfg</code>; if not, create it.<br />
-					Now open it with your favorite text editor and paste the following:
-				<pre><code>
+		<aside>
+			<nav>
+				<ol>
+					<li><a href="#Download">Download</a></li>
+					<li><a href="#Verify_files">File verification</a></li>
+					<li><a href="#serverDZcfg">serverDZ.cfg</a></li>
+					<li><a href="#Launch_scripts">Creating launch scripts</a></li>
+					<li><a href="#Loading_mod_keys">Loading mod keys</a></li>
+					<li><a href="#Launching_server_and_client">Launching server and client</a></li>
+				</ol>
+			</nav>
+		</aside>
+		<section id="Download">
+			<h3>Download</h3>
+			<p>
+				Download both <a href="https://store.steampowered.com/app/221100/DayZ/">DayZ client</a> and DayZ
+				Server from Steam.
+			</p>
+			<blockquote class="note">
+				if you can't find DayZ Server in your Steam Library, make sure to enable <em>Tools</em> and
+				<em>Software</em> like shown in the picture
+				<img src="https://imgur.com/ILIzOLU.png" width="25%">
+			</blockquote>
+		</section>
+		<section id="Verify_files">
+			<h3>File verification</h3>
+			<p>
+				To ensure we won't run into problems later, verify files of both DayZ and DayZServer via
+				Steam.<br>
+				In your Steam library, right click on <em>DayZ</em>, click <em>Properties</em>, then <em>Local
+					files</em> and finally <em>Verify integrity of game files</em>.<br>
+				Do the same for <em>DayZServer</em>.
+			</p>
+			<p>
+				Once you verified both, launch the DayZ client and join in a random official server to ensure
+				everything is working fine.
+			</p>
+			<p>
+				Now try to launch the DayZServer, you'll see a white window open, but the server won't work yet.
+			</p>
+		</section>
+		<section id="serverDZcfg">
+			<h3>serverDZ.cfg</h3>
+			<p>
+				First thing to do is to locate where are <em
+					data-tooltip="By default: C:\Program Files (x86)\Steam\steamapps\common\DayZServer">DayZServer
+					files</em>.<br>
+				In your Steam library, right click on <em>DayZServer</em>, click <em>Manage</em> and finally
+				<em>Browse local files</em>.<br>
+			</p>
+			<p>
+				In that directory, you should have a file called <code>serverDZ.cfg</code>; if not, create it.<br>
+				Now open it with your favorite text editor and paste the following:
+			<pre><code>
 hostname = "name of your fancy server";
 password = "";
 passwordAdmin = "";
@@ -105,37 +108,37 @@ class Missions {
 		template="dayzOffline.chernarusplus";
 	};
 };
-					</code></pre>
-				</p>
-				<blockquote class="info">
-					The serverDZ.cfg values may change anytime; for documentation and an updated list of valid values,
-					refer to the
-					<a href="https://community.bistudio.com/wiki/DayZ:Server_Configuration#Main_Parameters">wiki</a>
-				</blockquote>
-			</li>
-			<li id="Launch_scripts">
-				<h3>Creating launch scripts</h3>
-				<p>
-					For developement, purposes you'll have to start the client and server via the
-					<em>DayZDiag_x64.exe</em>, which
-					will allows you to use the
-					<a href="https://community.bistudio.com/wiki/DayZ:Diag_Menu">diagnostic menu</a> and, for modders to
-					use <a href="https://community.bistudio.com/wiki/DayZ:Workbench_Script_Debugging">file patching</a>.
-				</p>
-				<p>
-					You can't launch the DayZServer by clicking on the <em>.exe</em>; you'll need to specify some
-					additional parameters.<br />
-					To do so, you can use a
-					<em data-tooltip="(command prompt, powershell, windows terminal or any command line)">terminal</em>,
-					but for ease of use, you'll create a script that can be executed by clicking on it.
-				</p>
-				<p>
-					In your <b
-						data-tooltip="yes, the client folder, which is where the diagnostic executable is located">DayZ
-						client</b> folder create a file called <code>startServerDiag.bat</code> and paste the
-					following
-					in it:
-				<pre><code>
+				</code></pre>
+			<blockquote class="info">
+				The serverDZ.cfg values may change anytime; for documentation and an updated list of valid values,
+				refer to the
+				<a href="https://community.bistudio.com/wiki/DayZ:Server_Configuration#Main_Parameters">wiki</a>
+			</blockquote>
+		</section>
+		<section id="Launch_scripts">
+			<h3>Creating launch scripts</h3>
+			<p>
+				For developement, purposes you'll have to start the client and server via the
+				<em>DayZDiag_x64.exe</em>, which
+				will allows you to use the
+				<a href="https://community.bistudio.com/wiki/DayZ:Diag_Menu">diagnostic menu</a> and, for modders to
+				use <a href="https://community.bistudio.com/wiki/DayZ:Workbench_Script_Debugging">file patching</a>.
+			</p>
+			<p>
+				You can't launch the DayZServer by clicking on the <em>.exe</em>; you'll need to specify some
+				additional parameters.<br>
+				To do so, you can use a
+				<em data-tooltip="(command prompt, powershell, windows terminal or any command line)">terminal</em>,
+				but for ease of use, you'll create a script that can be executed by clicking on it.
+			</p>
+			<p>
+				In your <b
+					data-tooltip="yes, the client folder, which is where the diagnostic executable is located">DayZ
+					client</b> folder create a file called <code>startServerDiag.bat</code> and paste the
+				following
+				in it
+			</p>
+			<pre><code>
 START DayZDiag_x64.exe ^
 	-server ^
 	-doLogs ^
@@ -148,16 +151,16 @@ START DayZDiag_x64.exe ^
 	"-profiles=C:\Program Files (x86)\Steam\steamapps\common\DayZServer\profile_folder" ^
 	"-mod=C:\Program Files (x86)\Steam\steamapps\common\DayZ\!Workshop\@sFramework;C:\Program Files (x86)\Steam\steamapps\common\DayZ\!Workshop\@sGunplay;C:\Program Files (x86)\Steam\steamapps\common\DayZ\!Workshop\@sVisual"
 				</code></pre>
-				</p>
-				<blockquote class="info">
-					The launch parameters may change anytime; for documentation and an updated list of valid values,
-					refer to the
-					<a href="https://community.bistudio.com/wiki/DayZ:Server_Configuration#Launch_Parameters">wiki</a>
-				</blockquote>
-				<p>
-					Always in your DayZ client folder, create a file called <code>startClientDiag.bat</code>
-					and paste the following in it:
-				<pre><code>
+			<blockquote class="info">
+				The launch parameters may change anytime; for documentation and an updated list of valid values,
+				refer to the
+				<a href="https://community.bistudio.com/wiki/DayZ:Server_Configuration#Launch_Parameters">wiki</a>
+			</blockquote>
+			<p>
+				Always in your DayZ client folder, create a file called <code>startClientDiag.bat</code>
+				and paste the following in it:
+			</p>
+			<pre><code>
 START DayZDiag_x64.exe ^
 	-doLogs ^
 	-scriptDebug=true ^
@@ -167,41 +170,42 @@ START DayZDiag_x64.exe ^
 	"-name=your_name" ^
 	"-mod=C:\Program Files (x86)\Steam\steamapps\common\DayZ\!Workshop\@sFramework;C:\Program Files (x86)\Steam\steamapps\common\DayZ\!Workshop\@sGunplay;C:\Program Files (x86)\Steam\steamapps\common\DayZ\!Workshop\@sVisual"
 				</code></pre>
-				</p>
-				<blockquote class="note">
-					The <code>mod</code> parameter is a semicolon separated list of full path of mods
-					(<code>"-mod=someMod;someOtherMod;anotherMod"</code>)<br />
-					It's enclosed in double quotes to prevent word splitting if a mod path contains spaces.<br />
-					<b>Make sure the mods are the same for both <em>startServerDiag.bat</em> and
-						<em>startClientDiag.bat</em></b>
-				</blockquote>
-				<p>
-					You may try to start the server, but it will fail to load the mods. Proceed to the next step.
-				</p>
-			</li>
-			<li id="Loading_mod_keys">
-				<h3>Loading mod keys</h3>
-				<p>
-					In order for the server to be able to load signed mods, you'll have to load their respective
-					key.<br />
-					Each mod will likely have its key in its folder, if you can't find it, please ask the author of the
-					mod.
-				</p>
-				<p>Once you've found the key, copy it in inside the
-					<em data-tooltip="by default: C:\Program Files (x86)\Steam\steamapps\common\DayZServer\keys">keys
-						directory</em>,
-					which can be found in the DayZServer installation folder
-				</p>
-			</li>
-			<li id="Launching_server_and_client">
-				<h3>Launching server and client</h3>
-				<p>
-					You can now double click on <code>startServerDiag.bat</code>, which will launch the server.<br />
-					Now double click on <code>startClientDiag.bat</code>, which will launch the client and automatically
-					connect to the server.<br />
-				</p>
-			</li>
-		</ol>
+			<blockquote class="note">
+				The <code>mod</code> parameter is a semicolon separated list of full path of mods
+				(<code>"-mod=someMod;someOtherMod;anotherMod"</code>)<br>
+				It's enclosed in double quotes to prevent word splitting if a mod path contains spaces.<br>
+				<b>Make sure the mods are the same for both <em>startServerDiag.bat</em> and
+					<em>startClientDiag.bat</em></b>
+			</blockquote>
+			<p>
+				You may try to start the server, but it will fail to load the mods. Proceed to the next step.
+			</p>
+		</section>
+		<section id="Loading_mod_keys">
+			<h3>Loading mod keys</h3>
+			<p>
+				In order for the server to be able to load signed mods, you'll have to load their respective
+				key.<br>
+				Each mod will likely have its key in its folder, if you can't find it, please ask the author of
+				the
+				mod.
+			</p>
+			<p>Once you've found the key, copy it in inside the
+				<em data-tooltip="by default: C:\Program Files (x86)\Steam\steamapps\common\DayZServer\keys">keys
+					directory</em>,
+				which can be found in the DayZServer installation folder
+			</p>
+		</section>
+		<section id="Launching_server_and_client">
+			<h3>Launching server and client</h3>
+			<p>
+				You can now double click on <code>startServerDiag.bat</code>, which will launch the
+				server.<br>
+				Now double click on <code>startClientDiag.bat</code>, which will launch the client and
+				automatically
+				connect to the server.<br>
+			</p>
+		</section>
 	</main>
 </body>
 

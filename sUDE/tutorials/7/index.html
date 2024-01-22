@@ -4,7 +4,7 @@
 <head>
 	<title>sUDE | Tutorials</title>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="/sUDE/css/style.css">
+	<link rel="stylesheet" href="/sUDE/css/tutorial.css">
 	<link rel="stylesheet" href="/sUDE/css/highlight.css">
 	<script src="/sUDE/js/main.js"></script>
 	<script src="/sUDE/tutorials/js/tutorials.js"></script>
@@ -22,20 +22,23 @@
 				<li id="breadcrumb_current">...</li>
 			</ul>
 		</nav>
+		<aside>
+			<nav>
+				<ol>
+					<li><a href="#Setup">Setup</a></li>
+					<li><a href="#Adding_overlays">Adding overlays</a></li>
+					<li><a href="#Tips">Tips</a></li>
+				</ol>
+			</nav>
+		</aside>
 
-		<ol id="steps" class="steps">
-			<li><a href="#Setup">Setup</a></li>
-			<li><a href="#Adding_overlays">Adding overlays</a></li>
-			<li><a href="#Tips">Tips</a></li>
-		</ol>
-		<ol>
-			<li>
-				<h3 id="Setup">Setup</h3>
-				<p>
-					Add sVisual as a dependency by adding it to the <code>requiredAddons</code>
-					inside your <code>config.cpp</code>
-				</p>
-				<pre><code>
+		<section id="Setup">
+			<h3>Setup</h3>
+			<p>
+				Add sVisual as a dependency by adding it to the <code>requiredAddons</code>
+				inside your <code>config.cpp</code>
+			</p>
+			<pre><code>
 class CfgPatches {
 	class NAME_OF_YOUR_MOD {
 		requiredAddons[] = {
@@ -43,19 +46,19 @@ class CfgPatches {
 		};
 	};
 };
-				</code></pre>
-			</li>
-			<li>
-				<h3 id="Adding_overlays">Adding overlays</h3>
-				<p>
-					sVisual is capable of automatically activating overlays when a clothing item is equipped; making use
-					of this feature is super easy, since it doesn't require any scripting.
-				</p>
-				<p>
-					Inside your config.cpp, in the <code>cfgVehicles</code> class specify the clothing and the overlays
-					as follows:
-				</p>
-				<pre><code class="language-cpp">
+			</code></pre>
+		</section>
+		<section id="Adding_overlays">
+			<h3>Adding overlays</h3>
+			<p>
+				sVisual is capable of automatically activating overlays when a clothing item is equipped; making use
+				of this feature is super easy, since it doesn't require any scripting.
+			</p>
+			<p>
+				Inside your config.cpp, in the <code>cfgVehicles</code> class specify the clothing and the overlays
+				as follows:
+			</p>
+			<pre><code class="language-cpp">
 class CfgVehicles {
 	class YOUR_CLOTHING_ITEM_CLASSNAME {
 		class sUDE {
@@ -84,30 +87,30 @@ class CfgVehicles {
 		};
 	};
 };	
-				</code></pre>
-				<blockquote class="note">
-					<code>overlay_0</code> to <code>overlay_4</code> are used for health levels (pristine, worn,
-					damaged, badly damaged, ruined respectively) but you can add as many as you want for a different use
-					(numbers must be incremental)
-				</blockquote>
-			</li>
-			<li>
-				<h3 id="Tips">Tips</h3>
-				<p>To make all overlays properly visible, make sure to set the correct priority (aka z-index)</p>
-				<p>
-					To avoid repeating the same thing multiple times you can use the already defined super classes, for
-					example:
-				</p>
-				<pre><code class="language-cpp">
+			</code></pre>
+			<blockquote class="note">
+				<code>overlay_0</code> to <code>overlay_4</code> are used for health levels (pristine, worn,
+				damaged, badly damaged, ruined respectively) but you can add as many as you want for a different use
+				(numbers must be incremental)
+			</blockquote>
+		</section>
+		<section id="Tips">
+			<h3>Tips</h3>
+			<p>To make all overlays properly visible, make sure to set the correct priority (aka z-index)</p>
+			<p>
+				To avoid repeating the same thing multiple times you can use the already defined super classes, for
+				example:
+			</p>
+			<pre><code class="language-cpp">
 class overlay_0 : SCameraOverlay_Headgear {
 	//...
 };
 class overlay_0 : SCameraOverlay_Eyewear {
 	//...
 };
-				</code></pre>
-				<p>or you could define yours</p>
-				<pre><code class="language-cpp">
+			</code></pre>
+			<p>or you could define yours</p>
+			<pre><code class="language-cpp">
 class CfgVehicles {
 	class SCameraOverlays_Flipped : SCameraOverlay {
 		rotation = {0.0, 0.0, 180.0};
@@ -125,10 +128,8 @@ class CfgVehicles {
 		};
 	};
 };
-</code></pre>
-
-			</li>
-		</ol>
+			</code></pre>
+		</section>
 	</main>
 </body>
 
