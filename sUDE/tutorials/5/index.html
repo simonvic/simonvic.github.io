@@ -65,8 +65,11 @@ class CfgPatches {
 	};
 };
 // more stuff here...
-				</code></pre>
-
+			</code></pre>
+			<blockquote class="info">
+				If you don't plan to use sVisual, you could just specify sFramework as
+				<code>requiredAddons</code>.
+			</blockquote>
 		</section>
 
 		<section id="Create_overlay">
@@ -133,36 +136,48 @@ class MyTimedOverlay : SCameraOverlayTimed {
 			<h3>Activate the overlay</h3>
 			<p>Let's say that we want to activate our overlay when the player jumps</p>
 			<pre><code class="language-csharp">
-modded class PlayerBase{
+modded class PlayerBase {
 	
 	ref MyOverlay           myOverlay;
 	ref MyAnimatedOverlay   myAnimatedOverlay;
 	ref MyTimedOverlay      myTimedOverlay;
 	
 	void PlayerBase() {
-		//Make sure we instantiate the overlays only client side 
-		if (GetInstanceType() == DayZPlayerInstanceType.INSTANCETYPE_CLIENT) {
-			myOverlay         = new MyOverlay(); 
-			myAnimatedOverlay = new MyAnimatedOverlay();
-			myTimedOverlay    = new MyTimedOverlay(10);
-				// NOTE: A SCameraOverlayTimed requires you to specify the time (seconds).
-				//       myTimedOverlay once activated will be animated for 10 seconds and then deactivated
-				//       The time can also be defined in the 'onInit' method which will override this value
-		}
+		myOverlay         = new MyOverlay(); 
+		myAnimatedOverlay = new MyAnimatedOverlay();
+		myTimedOverlay    = new MyTimedOverlay();
 	}
 
 	override void OnJumpStart() {
 		super.OnJumpStart();
-		//Make sure we apply the overlays only client side 
-		if (GetInstanceType() == DayZPlayerInstanceType.INSTANCETYPE_CLIENT) {
-			//Activating the overlays
-			SCameraOverlaysManager.getInstance().activate( myOverlay );
-			SCameraOverlaysManager.getInstance().activate( myAnimatedOverlay );
-			SCameraOverlaysManager.getInstance().activate( myTimedOverlay );
-		}
+		myOverlay.activate();
+		myAnimatedOverlay.activate();
+		myTimedOverlay.activate();
 	}
 }										
-				</code></pre>
+			</code></pre>
+			<p>You have access to some other methods, such as</p>
+			<pre><code class="language-csharp">
+myOverlay.isActive(); // returns true if active, false otherwise
+myOverlay.deactivate(); // deactivates the overlay
+myOverlay.toggle(); // toggle between activated and deactivated
+						</code></pre>
+			<p>Animated (and timed) overlays have some more methods:</p>
+			<pre><code class="language-csharp">
+myAnimatedOverlay.start(); // start the animation from the beginning
+myAnimatedOverlay.pause(); // pause the animation
+myAnimatedOverlay.resume(); // resume the animation from the paused state
+myAnimatedOverlay.stop();
+myAnimatedOverlay.getTime(); // returns the time (seconds) that the animation has been playing for
+myAnimatedOverlay.isPlaying();
+myAnimatedOverlay.isPaused();
+myAnimatedOverlay.hasStopped();
+						</code></pre>
+			<p>Timed overlays have some more methods related to timing:</p>
+			<pre><code class="language-csharp">
+myTimedOverlay.getDuration(); // returns duration in seconds
+myTimedOverlay.getRemaining(); // returns how many seconds left to deactivation
+			</code></pre>
 		</section>
 
 		<section id="Advanced_usage">
