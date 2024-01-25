@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>sUDE | Tutorials</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="/sUDE/css/tutorial.css">
+		<link rel="stylesheet" href="/sUDE/css/highlight.css">
+		<script src="/sUDE/js/main.js"></script>
+		<script src="/sUDE/tutorials/js/tutorials.js"></script>
+		<script src="/sUDE/js/highlight.js"></script>
+		<script>hljs.highlightAll();</script>
+	</head>
+
+	<body>
+		<main class="container" aria-busy="true">
+			<nav aria-label="breadcrumb">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/sUDE">sUDE</a></li>
+					<li><a href="/sUDE/tutorials">Tutorials</a></li>
+					<li id="breadcrumb_current">...</li>
+				</ul>
+			</nav>
+			<aside>
+				<nav>
+					<ol>
+						<li><a href="#Setup">Setup</a></li>
+						<li><a href="#Implement">Implement</a></li>
+						<li><a href="#Use">Use</a></li>
+						<li><a href="#Creating_UI">Creating User Interface</a></li>
+					</ol>
+				</nav>
+			</aside>
+
+			<section id="Setup">
+				<h3>Setup</h3>
+				<p>
+					Add sFramework as a dependency by adding it to the <code>requiredAddons</code> inside your
+					<code>config.cpp</code>
+				</p>
+				<pre><code>
+class CfgPatches {
+	class NAME_OF_YOUR_MOD {
+		requiredAddons[] = {
+			"sFramework"
+		};
+	};
+};
+				</code></pre>
+			</section>
+			<section id="Implement">
+				<h3>Setup</h3>
+				<p>Implement the <code>SUserConfigBase</code> class as follows</p>
+				<pre><code>
+class MySUserConfig : SUserConfigBase {
+
+    /**
+    *   Where the config will be saved
+    */
+    override string getPath(){
+        return "$saves:\\path\\to\\my\\config.json";
+    }
+    
+    /**
+    *   Where the config with default values will be saved
+    */
+    override string getDefaultPath(){
+        return "$profile:\\path\\to\\my\\config_default.json";
+    }
+
+    /**
+    *   Implement the deserialization
+    */
+    override void deserialize(string data, out string error){
+        auto cfg = this;
+        m_serializer.ReadFromString(cfg, data, error);
+    }
+    
+    /**
+    *   Implement the serialization
+    */
+    override string serialize() {
+        string result;
+        auto cfg = this;
+        getSerializer().WriteToString(cfg, true, result);
+        return result;
+    }
+    
+    override string serializeDefault() {
+        string result;
+        auto cfg = new MySUserConfig();
+        getSerializer().WriteToString(cfg, true, result);
+        return result;
+    }
+
+    // Configuration options (and their default values) you want to store
+    float myFloatOption = 0.69;
+    //bool myBoolOption = true;
+    //int myIntOption = 69;
+    //ref array<float> myarrayOption = {0.69, 42.0, 420.69, 0.42069};
+    //any other options 
+
+    override void registerOptions() {
+        super.registerOptions();
+        registerOption("myFloatOption",     new SUserConfigOption<float>(myFloatOption));
+        // registerOption("myBoolOption",   new SUserConfigOption<bool>(myBoolOption));
+        // registerOption("myIntOption",    new SUserConfigOption<int>(myIntOption));
+        // registerOption("myarrayOption",  new SUserConfigOptionArray<float>(myarrayOption));
+        // any other option
+    }
+}
+				</code></pre>
+			</section>
+			<section id="Use">
+				<h3>Use</h3>
+				<p>You can now instantiate the config, save it, load it and more</p>
+				<pre><code>
+MySUserConfig myCfg = new MySUserConfig();
+myCfg.save();
+myCfg.load();
+				</code></pre>
+			</section>
+			<section id="Creating_UI">
+				<h3>Creation User Interface</h3>
+				<p>You likely want to create a graphical user interface to edit the options</p>
+				<pre><code>
+class MyOptionsMenu : SOptionsMenuBase {
+    
+    override string getName() {
+        return "MyOptionsName";
+    }
+    
+    override string getLayout() {
+        return "path/to/interface.layout";    
+    }
+        
+    SliderWidget    myFloatOptionSlider;
+    CheckBoxWidget  myBoolOptionCheckbox;
+    
+    override void onInit() {
+        super.onInit();
+        setUserConfig(instanceOfYourConfig);
+    }
+    
+    override void onBuild() {
+        super.onBuild();
+        //               Widget to link          name of widget in your layout      option to link
+        initOptionWidget(myFloatOptionSlider,    "myFloatOption",                    getUserConfig().getOptionFloat("myFloatOption"));
+        initOptionWidget(myBoolOptionCheckbox,   "myBoolOption",                     getUserConfig().getOptionBool("myBoolOption"));
+    }
+    
+}
+				</code></pre>
+			</section>
+		</main>
+	</body>
+
+</html>

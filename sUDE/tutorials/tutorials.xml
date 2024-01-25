@@ -127,7 +127,7 @@
 		</tags>
 	</tutorial>
 
-	<tutorial id="10" href="wip.html">
+	<tutorial id="10">
 		<title>How to create user configuration</title>
 		<description>
 			sFramework enables you to quickly create user (client) configuration.
@@ -140,7 +140,7 @@
 		</tags>
 	</tutorial>
 
-	<tutorial id="11" href="wip.html">
+	<tutorial id="11">
 		<title>UnitTesting with sTest</title>
 		<description>
 			This tutorial will give you the basic knowledge on how to test your
@@ -166,7 +166,7 @@
 		</tags>
 	</tutorial>
 
-	<tutorial id="13" href="wip.html">
+	<tutorial id="13">
 		<title>How to create immediate GUI with sDebugUI</title>
 		<description>
 			This tutorial will give you the basic knowledge on how to debug your
@@ -182,7 +182,7 @@
 		</tags>
 	</tutorial>
 
-	<tutorial id="14" href="wip.html">
+	<tutorial id="14">
 		<title>How to use other sFramework APIs</title>
 		<description>
 			A brief overview on secondary sFramework APIs, such as:
