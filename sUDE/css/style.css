@@ -25,10 +25,16 @@
 	--dropdown-border-color: #444444;
 	--dropdown-hover-background-color: #F0544C55;
 
-	--note-accent: rgb(216, 228, 76);
-	--note-accent-bg: rgba(216, 228, 76, 0.05);
 	--info-accent: rgb(74, 215, 234);
 	--info-accent-bg: rgba(74, 215, 234, 0.05);
+	--tip-accent: rgb(50, 215, 50);
+	--tip-accent-bg: rgba(50, 215, 50, 0.05);
+	--important-accent: rgb(140, 95, 185);
+	--important-accent-bg: rgba(140, 95, 185, 0.05);
+	--note-accent: #D8E44C;
+	--note-accent-bg: rgba(216, 228, 76, 0.05);
+	--caution-accent: rgb(255, 10, 50);
+	--caution-accent-bg: rgba(255, 10, 50, 0.05);
 
 	--range-border-color: #F0544C55;
 	--range-thumb-color: #F0544C;
@@ -56,13 +62,8 @@ mark {
 	border-radius: 5px;
 }
 
-blockquote.info:before {
-	content: "INFO\a";
-	white-space: pre;
-}
-
-blockquote.note:before {
-	content: "NOTE\a";
+blockquote.info::before {
+	content: "Info\a";
 	white-space: pre;
 }
 
@@ -73,11 +74,52 @@ blockquote.info {
 	background-color: var(--info-accent-bg);
 }
 
+blockquote.tip::before {
+	content: "Tip\a";
+	white-space: pre;
+}
+
+blockquote.tip {
+	border-left: .25rem solid var(--tip-accent);
+	-webkit-border-start: 0.25rem solid var(--tip-accent);
+	border-inline-start: 0.25rem solid var(--tip-accent);
+	background-color: var(--tip-accent-bg);
+}
+
+blockquote.important::before {
+	content: "Important\a";
+	white-space: pre;
+}
+
+blockquote.important {
+	border-left: .25rem solid var(--important-accent);
+	-webkit-border-start: 0.25rem solid var(--important-accent);
+	border-inline-start: 0.25rem solid var(--important-accent);
+	background-color: var(--important-accent-bg);
+}
+
+blockquote.note::before {
+	content: "Note\a";
+	white-space: pre;
+}
+
 blockquote.note {
 	border-left: .25rem solid var(--note-accent);
 	-webkit-border-start: 0.25rem solid var(--note-accent);
 	border-inline-start: 0.25rem solid var(--note-accent);
 	background-color: var(--note-accent-bg);
+}
+
+blockquote.caution::before {
+	content: "Caution\a";
+	white-space: pre;
+}
+
+blockquote.caution {
+	border-left: .25rem solid var(--caution-accent);
+	-webkit-border-start: 0.25rem solid var(--caution-accent);
+	border-inline-start: 0.25rem solid var(--caution-accent);
+	background-color: var(--caution-accent-bg);
 }
 
 .hljs {
