@@ -1252,4 +1252,41 @@
 			<modding>Improved UI for recoil control stats to be easier to mod</modding>
 		</changes>
 	</changelog>
+	<changelog mod="sFramework" tag="v2.0.0.exp.2" type="Major" branch="dev" date="2024/02/15 19:30:00">
+		<preamble>
+			<b>Changes are relative to previous experimental revision</b>
+		</preamble>
+		<changes>
+			<fixed>Registered new camera transitions from DayZ 1.24 update</fixed>
+			<modding>Removed debug code</modding>
+		</changes>
+	</changelog>
+	<changelog mod="sVisual" tag="v2.0.0.exp.3" type="Major" branch="dev" date="2024/02/15 19:30:00">
+		<preamble>
+			<b>Changes are relative to previous experimental revision</b>
+		</preamble>
+		<changes>
+			<added>Overlays for GP5 and Airborn gas masks</added>
+			<fixed>
+				Wearing burlap sack head cover would permanently disable
+				actions menu in the HUD
+			</fixed>
+			<changed>Decreased glass overlays opacity</changed>
+			<modding>Removed dead code in config.cpp</modding>
+		</changes>
+	</changelog>
+	<changelog mod="sGunplay" tag="v2.2.0.exp.3" type="Major" branch="dev" date="2024/02/15 19:30:00">
+		<preamble>
+			<b>Changes are relative to previous experimental revision</b>
+		</preamble>
+		<changes>
+			<changed>
+				Temporarily disabled the deadzone when aiming in low ready
+				stance (hipfire).<br />
+				See <a href="https://feedback.bistudio.com/T178620">T178620</a>
+			</changed>
+			<fixed>Stamina depletion when holding breath (DayZ 1.24 update)</fixed>
+			<modding>Removed debug code</modding>
+		</changes>
+	</changelog>
 </changelogs>
