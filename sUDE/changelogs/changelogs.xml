@@ -1289,4 +1289,141 @@
 			<modding>Removed debug code</modding>
 		</changes>
 	</changelog>
+	<changelog mod="sFramework" tag="v2.0.0" type="Major" branch="main" date="2024/02/20 18:00:00">
+		<preamble>
+			<p>
+				And here we are with the <b>2.0</b> update, which brings some breaking changes about PostProcessing
+				effects, but for a greater good. For this reason (and lack of free time on my side), the <b>2.0</b>
+				update has been sitting in the experimental version of sFramework for quite a while; apologies for the
+				delay.
+			</p>
+			<p>
+				With this update, sFramework removes its implementation of the <code>sPPEManager</code>, since vanilla
+				DayZ added its own implementation (<code>PPEManager</code>).<br />
+				That leads to the <code>sPPEffect</code> now extending the vanilla <code>PPERequester</code> class.
+			</p>
+			<b>But why all these breaking changes?</b>
+			<p>
+				Compatibility!<br />
+				Previously, sFramework's PPEffect system was necessary since vanilla DayZ lacked one, and
+				if two mods wanted to use ppeffects at the same time without sFramework, all bets were off!<br />
+				With the <s>new</s> vanilla system (which all mods can and should use) it's much easier for mods to
+				cooperate.<br />
+				For this reason, sFramework now relies on it too to provide you the API for defining PPEffects, with the
+				benefit of compatibility with any other mod, without the need to make <i>compatibility mods</i>.
+			</p>
+			<p>
+				Although the <s>new</s> vanilla system is pretty similar to my previous implementation, it comes with
+				some differences, which means you may need to make some changes to your effects.
+				To learn more about it, I highly suggest giving a read to the
+				<a href="https://simonvic.github.io/sUDE/tutorials/1/">new sPPEffect tutorial</a>
+			</p>
+		</preamble>
+		<changes>
+			<added>
+				<code>isActive()</code>, <code>activate()</code>, <code>deactivate()</code> and <code>toggle()</code>
+				functions have been added to <code>sCameraOverlay</code>
+			</added>
+			<added>
+				<code>isActive()</code>, <code>activate()</code>, <code>deactivate()</code> and <code>toggle()</code>
+				functions have been added to <code>sPPEffect</code>
+			</added>
+			<added>Builders for CameraOverlays</added>
+			<added>Modded diagnostic menu (only available with diagnostic executable)</added>
+			<added><code>sDebugUI</code> builder function with default visibility state</added>
+			<changed><code>sPPEffect</code> now extends the vanilla <code>PPERequester</code></changed>
+			<changed>Removed <code>sPPEManager</code></changed>
+			<changed>Removed <code>PPEPreset</code> and <code>PPEDefaultPreset</code></changed>
+			<changed>Removed <code>DoFPreset</code></changed>
+			<changed>The <code>sColor</code> class is now the preferred way to define and use colors</changed>
+			<changed>
+				Removed arguments in CameraOverlays constructors; <code>onInit</code> is now the preferred way to
+				override default settings of an overlay
+			</changed>
+			<changed>
+				The overlays default priorities have been changed to allow finer control between types of overlays
+			</changed>
+			<changed>Cleaned up overlay root layout</changed>
+			<changed>Removed unnecessary typedefs</changed>
+			<fixed><code>CameraOverlayManager::getAnimating</code> would return a set of overlays weak ref</fixed>
+		</changes>
+	</changelog>
+	<changelog mod="sVisual" tag="v2.0.0" type="Major" branch="main" date="2024/02/20 18:00:00">
+		<preamble>
+			<i>
+				sVisual 2.0 now relies on <em>sFramework 2.0</em> to implement its effects. For more technical
+				details, read the <a href="#sFramework_v2.0.0">sFramework 2.0 changelog</a>
+			</i>
+			<p>
+				With this update, sVisual has a <b>new effects intensity option</b> which allows you to choose your
+				preference on how "intense" effects will be.<br />
+				You can find and change this setting in the in-game options menu.
+			</p>
+			<p>
+				Along that, the update also brings new HQ overlays for motorbike helments, glasses, gasmask and burlap
+				sack, and completely reworked ppeffects for bleeding, exhaustion and more.
+			</p>
+		</preamble>
+		<changes>
+			<added>New HQ overlay for burlap sack cover</added>
+			<added>New HQ overlay for motohelmets (all health levels)</added>
+			<added>New HQ overlay for <i>REDACTED</i></added>
+			<added>New HQ overlay for all eye glasses (all health levels)</added>
+			<added>New "exhausted" ppeffect animation for when you're out of stamina</added>
+			<added>New "hit recieved" ppeffect animation for when you get hit</added>
+			<added>New "bleeding" ppeffect animation for when you're bleeding</added>
+			<changed>Reworked bleeding overlay</changed>
+			<changed>Glasswear and helmets with visors will now reduce bloom by 90% when worn</changed>
+			<fixed>Unconscious overlay now has the right priority</fixed>
+			<fixed>The bloom effect would cause flickering when aiming down sight</fixed>
+			<fixed>Harmless warning about stamina variable</fixed>
+			<modding>sPPEffects are now defined with 2.0 specs</modding>
+			<modding>Reworked ppeffects and overlay handling</modding>
+			<modding>Removed debug overlays and ppeffects</modding>
+		</changes>
+	</changelog>
+	<changelog mod="sGunplay" tag="v2.2.0" type="Major" branch="main" date="2024/02/20 18:00:00">
+		<preamble>
+			<p>With this update most weapon recoils and attachment stats have been rebalanced.</p>
+			<p>
+				<b>Because of these changes, modded weapons may be subject to change too. Make sure to update
+					the appropriate compatibility mods (if available) too to the latest version</b>
+			</p>
+		</preamble>
+		<changes>
+			<added>
+				Now every item that has "attachment stats" defined will show them in the popup when hovering the item
+				with the mouse. This should make it easier to choose the right attachment :)
+			</added>
+			<added>M14 recoil</added>
+			<added>
+				DepthOfField blur is now applied to magnifying optics too to emulate focusing inside the optic.<br />
+				Its intensity depends on the magnification intensity of the optic itself, and can optionally be
+				tweaked in the settings.
+			</added>
+			<added>The PiP is now working for handheld optics too</added>
+			<changed>
+				Reduced lens magnification intensity for HuntingOptic, resulting in less distortion and a clearer sight
+			</changed>
+			<changed>
+				Rebalanced and normalized recoils for all pistols, SMGs, rifles and shotguns<br />
+			</changed>
+			<changed>
+				Temporarily disabled low ready stance (hipfire) deadzone.
+				<a href="https://feedback.bistudio.com/T178620">T178620</a>
+			</changed>
+			<changed>Completely refactored and rebalanced attachment </changed>
+			<changed>Updated stamina depletion logic for DayZ 1.24 update</changed>
+			<fixed>The PiP would sometimes "pop" and flicker when entering the optic</fixed>
+			<fixed>The FoV would not update correctly upon changing the optic zoom level</fixed>
+			<fixed>The "focusing" overlay should now behave correctly with handheld optics</fixed>
+			<modding>Fixed wrong base classes in config.cpp for certain items</modding>
+			<modding>Refactored the recoil control stats UI</modding>
+			<modding>Removed debug code</modding>
+		</changes>
+	</changelog>
 </changelogs>
+
+<!--
+vim: cc=120 tw=120 ft=html
+-->
