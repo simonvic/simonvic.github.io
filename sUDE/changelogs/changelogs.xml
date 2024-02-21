@@ -1405,9 +1405,7 @@
 			<changed>
 				Reduced lens magnification intensity for HuntingOptic, resulting in less distortion and a clearer sight
 			</changed>
-			<changed>
-				Rebalanced and normalized recoils for all pistols, SMGs, rifles and shotguns<br />
-			</changed>
+			<changed>Rebalanced and normalized recoils for all pistols, SMGs, rifles and shotguns</changed>
 			<changed>
 				Temporarily disabled low ready stance (hipfire) deadzone.
 				<a href="https://feedback.bistudio.com/T178620">T178620</a>
@@ -1420,6 +1418,15 @@
 			<modding>Fixed wrong base classes in config.cpp for certain items</modding>
 			<modding>Refactored the recoil control stats UI</modding>
 			<modding>Removed debug code</modding>
+		</changes>
+	</changelog>
+	<changelog mod="sVisual" tag="v2.0.0a" type="hotfix" branch="main" date="2024/02/21 16:00:00">
+		<preamble></preamble>
+		<changes>
+			<changed>
+				The overlays for sunglasses, helmets and gasmasks have been tweaked to improve visibility and to be more
+				similar to the actual item texture at the specific health level
+			</changed>
 		</changes>
 	</changelog>
 </changelogs>
