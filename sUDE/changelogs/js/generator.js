@@ -138,7 +138,9 @@ function discordFormatChanges(changes) {
 
 function toMarkdown(text) {
 	return text
-		.replace(/\n\t*/g, "")
+		.replace(/\t*/g, "")
+		.trim()
+		.replace(/\n/g, " ")
 		.replace(/<i>(.*?)<\/i>/g, "*$1*")
 		.replace(/<b>(.*?)<\/b>/g, "**$1**")
 		.replace(/<u>(.*?)<\/u>/g, "__$1__")
