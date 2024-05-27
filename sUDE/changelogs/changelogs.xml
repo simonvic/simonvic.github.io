@@ -1429,6 +1429,17 @@
 			</changed>
 		</changes>
 	</changelog>
+	<changelog mod="sGunplay" tag="v2.2.1" type="minor" branch="main" date="2024/05/27 16:00:00">
+		<preamble></preamble>
+		<changes>
+			<added>SV98 recoil</added>
+			<added>SV98 integrated attachment attributes</added>
+			<fixed>
+				Aim change delta is now frame-indipendent (it was accidentally only working on DayZ 1.21 specifically)
+			</fixed>
+			<fixed>Removed old preprocessor defines</fixed>
+		</changes>
+	</changelog>
 </changelogs>
 
 <!--
