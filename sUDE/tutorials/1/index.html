@@ -276,7 +276,7 @@ class PainEffect : SPPEffect {
 	override void onInit() {
 		normalized(true);
 		priority(1);
-		op(PPOperator.ADD);
+		op(PPOperators.ADD);
 		setVignetteIntensity(0.70);
 	}
 }
@@ -324,7 +324,7 @@ class PainKillerEffect : SPPEffect {
 	override void onInit() {
 		normalized(true);
 		priority(2);
-		op(PPOperator.SUBSTRACT);
+		op(PPOperators.SUBSTRACT);
 		setVignetteIntensity(0.30);
 	}
 }
@@ -379,7 +379,7 @@ class DarknessEffect : SPPEffect {
 	override void onInit() {
 		normalized(true);
 		priority(3);
-		op(PPOperator.MULTIPLICATION);
+		op(PPOperators.MULTIPLICATION);
 		setVignetteIntensity(2);
 	}
 }
@@ -600,11 +600,11 @@ class Effect_A : SPPEffect {
 		normalized(true);
 		
 		priority(1);
-		op(PPOperator.ADD);
+		op(PPOperators.ADD);
 		setVignetteIntensity(0.50);
 		
 		priority(420);
-		op(PPOperator.MULTIPLICATIVE);
+		op(PPOperators.MULTIPLICATIVE);
 		setOverlayFactor(2.0);
 
 	}
@@ -615,11 +615,11 @@ class Effect_B : SPPEffect {
 		normalized(true);
 		
 		priority(69);
-		op(PPOperator.SUBTRACT);
+		op(PPOperators.SUBTRACT);
 		setVignetteIntensity(0.20);
 		
 		priority(1);
-		op(PPOperator.ADD);
+		op(PPOperators.ADD);
 		setOverlayFactor(0.40);
 
 	}
@@ -733,7 +733,7 @@ class PainEffect : SPPEffect {
 	override void onInit() {
 		normalized(true);
 		priority(1);
-		op(PPOperator.ADD);
+		op(PPOperators.ADD);
 		setVignetteIntensity(0.20 * getEffectsIntensity());
 	}
 }
