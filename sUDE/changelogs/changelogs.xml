@@ -1453,10 +1453,10 @@
 			<fixed>Minor performance improvements</fixed>
 			<modding>
 				The logic for resetting PostProcessingEffect Mask has been moved to the appropriate
-				`PPERequester_CameraADS`
+				<code>PPERequester_CameraADS</code>
 			</modding>
-			<modding>Deprecated `PPERequester_CameraADS::resetMask`</modding>
-			<modding>Deprecated `PPERequester_CameraADS::resetLens`</modding>
+			<modding>Deprecated <code>PPERequester_CameraADS::resetMask</code></modding>
+			<modding>Deprecated <code>PPERequester_CameraADS::resetLens</code></modding>
 		</changes>
 	</changelog>
 </changelogs>
