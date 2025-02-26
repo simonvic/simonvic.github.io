@@ -1440,6 +1440,25 @@
 			<fixed>Removed old preprocessor defines</fixed>
 		</changes>
 	</changelog>
+	<changelog mod="sGunplay" tag="v2.2.2" type="minor" branch="main" date="2025/02/26 15:00:00">
+		<preamble></preamble>
+		<changes>
+			<changed>
+				The "specialization" soft-skill has been removed in DayZ, hence it won't affect recoil control anymore
+			</changed>
+			<fixed>
+				The weapon stats UI in the hands area would not scale well at certain screen resolutions, causing the
+				text to be clipped
+			</fixed>
+			<fixed>Minor performance improvements</fixed>
+			<modding>
+				The logic for resetting PostProcessingEffect Mask has been moved to the appropriate
+				`PPERequester_CameraADS`
+			</modding>
+			<modding>Deprecated `PPERequester_CameraADS::resetMask`</modding>
+			<modding>Deprecated `PPERequester_CameraADS::resetLens`</modding>
+		</changes>
+	</changelog>
 </changelogs>
 
 <!--
