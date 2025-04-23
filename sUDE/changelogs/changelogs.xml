@@ -1459,6 +1459,52 @@
 			<modding>Deprecated <code>PPERequester_CameraADS::resetLens</code></modding>
 		</changes>
 	</changelog>
+	<changelog mod="sFramework" tag="v2.0.1.exp" type="minor" branch="dev" date="2025/04/23 16:30:00"> 
+		<preamble></preamble>
+		<changes>
+			<fixed>Various syntax errors</fixed>
+			<modding>The <code>begin()</code> function for DebugUI now returns the enabled status</modding>
+			<modding>
+				The <code>onValueChange()</code> user config callback would not get called for array based options
+			</modding>
+		</changes>
+	</changelog>
+	<changelog mod="sVisual" tag="v2.0.1.exp" type="minor" branch="dev" date="2025/04/23 16:30:00"> 
+		<preamble></preamble>
+		<changes>
+			<fixed>The hit effect would be shown even when succesfully blocking a zombie attack</fixed>
+			<fixed>Various syntax errors</fixed>
+		</changes>
+	</changelog>
+	<changelog mod="sGunplay" tag="v2.3.0.exp" type="major" branch="dev" date="2025/04/23 16:30:00"> 
+		<preamble></preamble>
+		<changes>
+			<added>
+				Static dot crosshair: can be toggled indipendently from the dynamic crosshair and it's shown when the
+				weapon is not raised
+			</added>
+			<added>PiP now works with hand held optics</added>
+			<added>PiP configured for MK4 optic</added>
+			<added>PiP configured for Sporting optic</added>
+			<added>PiP configured for PSO6 optic</added>
+			<added>Integrated attachment stats for PM73Rak</added>
+			<added>Integrated attachment stats for R12</added>
+			<added>Recoil definition for PM73Rak</added>
+			<added>Recoil definition for R12</added>
+			<changed>Slightly decreased SKS vertical recoil and misalignment</changed>
+			<fixed>Attachment stats would not scale properly with chinese game language</fixed>
+			<fixed>Use non-deprecated stamina depletion functions in DayZ 1.28</fixed>
+			<fixed>Recoil control gauges overlapping with inventory UI</fixed>
+			<fixed>The dynamic crosshair would sometimes be visible when raising hands with no weapon</fixed>
+			<fixed>
+				Non-hardcoded values are now used for optics near plane values. This also fixes camera clipping with
+				range finder in 1.28
+			</fixed>
+			<fixed>Minor performance improvements to the dynamic crosshair</fixed>
+			<modding>Refactored stamina depletion logic in <code>DayZPlayerImplementAiming</code></modding>
+			<modding>Refactored attachments stats code in <code>PropertyModifiers</code> to be easier to mod</modding>
+		</changes>
+	</changelog>
 </changelogs>
 
 <!--
