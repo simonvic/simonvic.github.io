@@ -1,3 +1,17 @@
+function findPreviousChangelog(head, headIndex, xmlChangelogs) {
+	for (let i = headIndex - 1; i >= 0; i--) {
+		let xmlChangelog = xmlChangelogs[i];
+		let previousChangelog = parseChangelog(xmlChangelog)
+		if (
+			previousChangelog.mod == head.mod
+			&& previousChangelog.branch == head.branch
+		) {
+			return previousChangelog;
+		}
+	}
+	return null;
+}
+
 function generate(changelog, previousChangelog) {
 	var steam = he.encode(generateSteam(changelog, previousChangelog));
 	var discord = he.encode(generateDiscordForum(changelog, previousChangelog));

@@ -30,12 +30,12 @@
 				const output = document.getElementById("output");
 				const xmlChangelogs = Array.from(xml.getElementsByTagName("changelog"));
 				var html = "";
-				var previousChangelogs = new Map();
-				xmlChangelogs.forEach(xmlChangelog => {
-					var changelog = parseChangelog(xmlChangelog);
-					html = generate(changelog, previousChangelogs.get(changelog.mod)) + html;
-					previousChangelogs.set(changelog.mod, changelog);
-				});
+				for (let i = 0; i < xmlChangelogs.length; i++) {
+					let xmlChangelog = xmlChangelogs[i]
+					let changelog = parseChangelog(xmlChangelog);
+					let prevChangelog = findPreviousChangelog(changelog, i, xmlChangelogs)
+					html = generate(changelog, prevChangelog) + html;
+				}
 				output.innerHTML += html;
 			});
 		</script>
