@@ -143,6 +143,7 @@ function buildConstraints() {
 						onchange="updateConstraints('${optionName}', 'message', this.value)">
 				</label>
 			</details>
+			<hr/>
 			`;
 	}
 	return html;

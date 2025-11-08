@@ -123,6 +123,7 @@ function buildChangelog(changelog) {
 	// 	html += "</ul>";
 	// }
 	html += "</details>";
+	html += "<hr/>";
 	return html;
 }
 
@@ -170,7 +171,8 @@ function buildTutorialCard(tutorialCard) {
 	html += `			<a href="${tutorialCard.href}" role="button" ${tutorialCard.href == "wip.html" ? "data-tooltip='WORK IN PROGRESS'" : ""}>Open</a>`;
 	html += `		</div>`;
 	html += `	</div>`;
-	html += `</details></div>`;
+	html += `</details>`;
+	html += `<hr/>`;
 	return html;
 }
 

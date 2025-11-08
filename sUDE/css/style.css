@@ -108,6 +108,9 @@ mark {
 	border-radius: 5px;
 }
 
+details[hidden] + hr {
+	display: none;
+}
 
 blockquote.info::before,
 blockquote.tip::before,
