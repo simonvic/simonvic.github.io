@@ -4,17 +4,35 @@
 	counter-reset: tutorial_step1;
 }
 
-main aside nav {
-	border-left: .25rem solid var(--pico-blockquote-border-color);
+@media (min-width: 1600px) {
+	main aside {
+		position: sticky;
+		top: 0;
+		height: 0;
+	}
+
+	main aside nav {
+		position: relative;
+		height: 0;
+		width: 360px;
+		left: -360px;
+		top: var(--pico-typography-spacing-vertical);
+		display: inline-block;
+	}
 }
 
 main aside nav a {
-	padding: .125rem 0;
+	padding-left: .125rem;
 }
 
 main aside nav ol:first-of-type {
 	counter-reset: toc_step;
-	padding-left: calc(var(--pico-nav-element-spacing-horizontal) * 4);
+	border-left: .125rem solid var(--pico-blockquote-border-color);
+}
+
+main aside nav ol {
+	padding-left: .5rem !important;
+	margin-left: .5rem !important;
 }
 
 main aside nav li::before {
