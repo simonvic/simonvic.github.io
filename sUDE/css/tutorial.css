@@ -5,7 +5,7 @@
 }
 
 main aside nav {
-	border-left: .25rem solid var(--blockquote-border-color);
+	border-left: .25rem solid var(--pico-blockquote-border-color);
 }
 
 main aside nav a {
@@ -14,13 +14,13 @@ main aside nav a {
 
 main aside nav ol:first-of-type {
 	counter-reset: toc_step;
-	margin-left: calc(var(--nav-element-spacing-horizontal) * 4);
+	padding-left: calc(var(--pico-nav-element-spacing-horizontal) * 4);
 }
 
 main aside nav li::before {
 	counter-increment: toc_step;
 	content: counters(toc_step, ".") ". ";
-	font-size: calc(var(--font-size) * 0.75);
+	font-size: var(--pico-font-size);
 }
 
 
