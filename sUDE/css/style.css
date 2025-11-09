@@ -108,8 +108,15 @@ mark {
 	border-radius: 5px;
 }
 
-details[hidden] + hr {
+details[hidden]+hr {
 	display: none;
+}
+
+section:target,
+details:target {
+	border: 5px solid #f0544c15;
+	border-radius: 15px;
+	padding: 1em;
 }
 
 blockquote.info::before,
