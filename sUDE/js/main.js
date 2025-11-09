@@ -100,11 +100,11 @@ function buildChangelog(changelog) {
 	html += ` ${document.location.href.endsWith("#" + changelogId) ? "open" : ""}`;
 	html += ">";
 	html += "	<summary class='grid'>";
-	html += `			<p><a href="#${changelogId}" onclick="onClickDetailAnchor('${changelogId}')">#</a> ${changelog.mod}</p>`;
-	html += `			<p>${changelog.tag}</p>`;
-	html += `			<p>${changelog.type}</p>`;
-	html += `			<p>${relativeTimeTag}</p>`;
-	html += `			<p hidden>${changelog.branch}</p>`;
+	html += `			<span><a href="#${changelogId}" onclick="onClickDetailAnchor('${changelogId}')">#</a> ${changelog.mod}</span>`;
+	html += `			<span>${changelog.tag}</span>`;
+	html += `			<span>${changelog.type}</span>`;
+	html += `			<span>${relativeTimeTag}</span>`;
+	html += `			<span hidden>${changelog.branch}</span>`;
 	html += "	</summary>";
 	html += `<small>${changelog.date}</small>`;
 	html += `<p>${changelog.preamble}</p>`
@@ -160,7 +160,7 @@ function buildTutorialCard(tutorialCard) {
 	html += ">";
 	html += "	<summary>";
 	html += `		<a href="#${tutorialCard.id}" onclick="onClickDetailAnchor('${tutorialCard.id}')">#</a>`
-	html += `		<b>${tutorialCard.title}</b>`;
+	html += `		<span>${tutorialCard.title}</span>`;
 	html += "	</summary>";
 	html += `	<div class="grid">`;
 	html += `		<div class="container">`;
