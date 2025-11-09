@@ -4,7 +4,7 @@
 	counter-reset: tutorial_step1;
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 1700px) {
 	main aside {
 		position: sticky;
 		top: 0;
@@ -15,19 +15,24 @@
 		position: relative;
 		height: 0;
 		width: 360px;
-		left: -360px;
+		left: -400px;
 		top: var(--pico-typography-spacing-vertical);
 		display: inline-block;
 	}
 }
 
-main aside nav a {
-	padding-left: .125rem;
+main aside nav ol {
+	counter-reset: toc_step;
 }
 
-main aside nav ol:first-of-type {
-	counter-reset: toc_step;
+main aside nav ol li {
 	border-left: .125rem solid var(--pico-blockquote-border-color);
+	margin: 0.25rem 0;
+}
+
+main aside nav ol li:has(a.active) {
+	border-left: .125rem solid var(--pico-blockquote-border-color);
+	border-left-color: var(--pico-primary);
 }
 
 main aside nav ol {
@@ -35,7 +40,7 @@ main aside nav ol {
 	margin-left: .5rem !important;
 }
 
-main aside nav li::before {
+main aside nav li a::before {
 	counter-increment: toc_step;
 	content: counters(toc_step, ".") ". ";
 	font-size: var(--pico-font-size);
