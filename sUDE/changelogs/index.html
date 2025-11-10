@@ -64,7 +64,7 @@
 					const changelogs = Array.from(xml.getElementsByTagName("changelog")).reverse();
 					changelogs.forEach(changelog => container.innerHTML += buildChangelog(parseChangelog(changelog)));
 					location.hash = location.hash; // lol... lazily go to current hash
-				}, { cache: "no-store" });
+				}, {cache: "no-store"});
 			</script>
 		</div>
 	</main>

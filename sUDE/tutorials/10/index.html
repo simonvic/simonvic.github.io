@@ -1,47 +1,47 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<title>sUDE | Tutorials</title>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="/sUDE/css/tutorial.css">
-		<link rel="stylesheet" href="/sUDE/css/highlight.css">
-		<script src="/sUDE/js/main.js"></script>
-		<script src="/sUDE/tutorials/js/tutorials.js"></script>
-		<script src="/sUDE/js/highlight.js"></script>
-		<script>hljs.highlightAll();</script>
-	</head>
+<head>
+	<title>sUDE | Tutorials</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/sUDE/css/tutorial.css">
+	<link rel="stylesheet" href="/sUDE/css/highlight.css">
+	<script src="/sUDE/js/main.js"></script>
+	<script src="/sUDE/tutorials/js/tutorials.js"></script>
+	<script src="/sUDE/js/highlight.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
 
-	<body>
-		<header class="container">
-			<nav aria-label="breadcrumb">
-				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="/sUDE">sUDE</a></li>
-					<li><a href="/sUDE/tutorials">Tutorials</a></li>
-					<li id="breadcrumb_current">...</li>
-				</ul>
+<body>
+	<header class="container">
+		<nav aria-label="breadcrumb">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/sUDE">sUDE</a></li>
+				<li><a href="/sUDE/tutorials">Tutorials</a></li>
+				<li id="breadcrumb_current">...</li>
+			</ul>
+		</nav>
+	</header>
+	<main class="container">
+		<aside>
+			<nav>
+				<ol>
+					<li><a href="#Setup">Setup</a></li>
+					<li><a href="#Implement">Implement</a></li>
+					<li><a href="#Use">Use</a></li>
+					<li><a href="#Creating_UI">Creating User Interface</a></li>
+				</ol>
 			</nav>
-		</header>
-		<main class="container">
-			<aside>
-				<nav>
-					<ol>
-						<li><a href="#Setup">Setup</a></li>
-						<li><a href="#Implement">Implement</a></li>
-						<li><a href="#Use">Use</a></li>
-						<li><a href="#Creating_UI">Creating User Interface</a></li>
-					</ol>
-				</nav>
-			</aside>
+		</aside>
 
-			<section id="Setup">
-				<h3>Setup</h3>
-				<p>
-					Add sFramework as a dependency by adding it to the <code>requiredAddons</code> inside your
-					<code>config.cpp</code>
-				</p>
-				<pre><code>
+		<section id="Setup">
+			<h3>Setup</h3>
+			<p>
+				Add sFramework as a dependency by adding it to the <code>requiredAddons</code> inside your
+				<code>config.cpp</code>
+			</p>
+			<pre><code>
 class CfgPatches {
 	class NAME_OF_YOUR_MOD {
 		requiredAddons[] = {
@@ -50,11 +50,11 @@ class CfgPatches {
 	};
 };
 				</code></pre>
-			</section>
-			<section id="Implement">
-				<h3>Setup</h3>
-				<p>Implement the <code>SUserConfigBase</code> class as follows</p>
-				<pre><code>
+		</section>
+		<section id="Implement">
+			<h3>Setup</h3>
+			<p>Implement the <code>SUserConfigBase</code> class as follows</p>
+			<pre><code>
 class MySUserConfig : SUserConfigBase {
 
     /**
@@ -113,20 +113,20 @@ class MySUserConfig : SUserConfigBase {
     }
 }
 				</code></pre>
-			</section>
-			<section id="Use">
-				<h3>Use</h3>
-				<p>You can now instantiate the config, save it, load it and more</p>
-				<pre><code>
+		</section>
+		<section id="Use">
+			<h3>Use</h3>
+			<p>You can now instantiate the config, save it, load it and more</p>
+			<pre><code>
 MySUserConfig myCfg = new MySUserConfig();
 myCfg.save();
 myCfg.load();
 				</code></pre>
-			</section>
-			<section id="Creating_UI">
-				<h3>Creation User Interface</h3>
-				<p>You likely want to create a graphical user interface to edit the options</p>
-				<pre><code>
+		</section>
+		<section id="Creating_UI">
+			<h3>Creation User Interface</h3>
+			<p>You likely want to create a graphical user interface to edit the options</p>
+			<pre><code>
 class MyOptionsMenu : SOptionsMenuBase {
     
     override string getName() {
@@ -154,8 +154,8 @@ class MyOptionsMenu : SOptionsMenuBase {
     
 }
 				</code></pre>
-			</section>
-		</main>
-	</body>
+		</section>
+	</main>
+</body>
 
 </html>

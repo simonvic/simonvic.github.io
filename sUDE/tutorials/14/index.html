@@ -1,48 +1,48 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<title>sUDE | Tutorials</title>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="/sUDE/css/tutorial.css">
-		<link rel="stylesheet" href="/sUDE/css/highlight.css">
-		<script src="/sUDE/js/main.js"></script>
-		<script src="/sUDE/tutorials/js/tutorials.js"></script>
-		<script src="/sUDE/js/highlight.js"></script>
-		<script>hljs.highlightAll();</script>
-	</head>
+<head>
+	<title>sUDE | Tutorials</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/sUDE/css/tutorial.css">
+	<link rel="stylesheet" href="/sUDE/css/highlight.css">
+	<script src="/sUDE/js/main.js"></script>
+	<script src="/sUDE/tutorials/js/tutorials.js"></script>
+	<script src="/sUDE/js/highlight.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
 
-	<body>
-		<header class="container">
-			<nav aria-label="breadcrumb">
-				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="/sUDE">sUDE</a></li>
-					<li><a href="/sUDE/tutorials">Tutorials</a></li>
-					<li id="breadcrumb_current">...</li>
-				</ul>
+<body>
+	<header class="container">
+		<nav aria-label="breadcrumb">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/sUDE">sUDE</a></li>
+				<li><a href="/sUDE/tutorials">Tutorials</a></li>
+				<li id="breadcrumb_current">...</li>
+			</ul>
+		</nav>
+	</header>
+	<main class="container">
+		<aside>
+			<nav>
+				<ol>
+					<li><a href="#Setup">Setup</a></li>
+					<li><a href="#sObservableArray">sObservableArray</a></li>
+					<li><a href="#sFlagOperator">sFlagOperator</a></li>
+					<li><a href="#sRaycast">sRaycast</a></li>
+					<li><a href="#sSpawnable">sSpawnable</a></li>
+				</ol>
 			</nav>
-		</header>
-		<main class="container">
-			<aside>
-				<nav>
-					<ol>
-						<li><a href="#Setup">Setup</a></li>
-						<li><a href="#sObservableArray">sObservableArray</a></li>
-						<li><a href="#sFlagOperator">sFlagOperator</a></li>
-						<li><a href="#sRaycast">sRaycast</a></li>
-						<li><a href="#sSpawnable">sSpawnable</a></li>
-					</ol>
-				</nav>
-			</aside>
+		</aside>
 
-			<section id="Setup">
-				<h3>Setup</h3>
-				<p>
-					Add sFramework as a dependency by adding it to the <code>requiredAddons</code> inside your
-					<code>config.cpp</code>
-				</p>
-				<pre><code>
+		<section id="Setup">
+			<h3>Setup</h3>
+			<p>
+				Add sFramework as a dependency by adding it to the <code>requiredAddons</code> inside your
+				<code>config.cpp</code>
+			</p>
+			<pre><code>
 class CfgPatches {
 	class NAME_OF_YOUR_MOD {
 		requiredAddons[] = {
@@ -51,11 +51,11 @@ class CfgPatches {
 	};
 };
 				</code></pre>
-			</section>
-			<section id="sObservableArray">
-				<h3>sObservableArray</h3>
-				<p>An array that allows listeners to track changes when they occur</p>
-				<pre><code>
+		</section>
+		<section id="sObservableArray">
+			<h3>sObservableArray</h3>
+			<p>An array that allows listeners to track changes when they occur</p>
+			<pre><code>
 class MyClass {
     
     ref SObservableArray<int> observableArray = new SObservableArray<int>();
@@ -93,15 +93,15 @@ class MyClass {
 
 }
 				</code></pre>
-			</section>
-			<section id="sFlagOperator">
-				<h3>sFlagOperator</h3>
-				<p>
-					<code>SFlagOperator</code> helps you in bitwise operations, especially when working with flags,
-					hence
-					the name
-				</p>
-				<pre><code>
+		</section>
+		<section id="sFlagOperator">
+			<h3>sFlagOperator</h3>
+			<p>
+				<code>SFlagOperator</code> helps you in bitwise operations, especially when working with flags,
+				hence
+				the name
+			</p>
+			<pre><code>
 enum MyFlags {
     A = 1,
     B = 2,
@@ -125,11 +125,11 @@ SLog.d("A is set : " + fop.check(MyFlags.A));
 SLog.d("B is set : " + fop.check(MyFlags.B));
 //B is set : true
 				</code></pre>
-			</section>
-			<section id="sRaycast">
-				<h3>sRaycast</h3>
-				<p><code>SRaycast</code> helps you launching raycasts with more flexibility</p>
-				<pre><code>
+		</section>
+		<section id="sRaycast">
+			<h3>sRaycast</h3>
+			<p><code>SRaycast</code> helps you launching raycasts with more flexibility</p>
+			<pre><code>
 SRaycast ray = new SRaycast(/**...*/);
 vector contactPositon = ray
     .from(thisPosition)
@@ -143,11 +143,11 @@ if (ray.hasHit()){
 }
 				</code></pre>
 
-			</section>
-			<section id="sSpawnable">
-				<h3>sSpawnable</h3>
-				<p><code>SSpawnable</code> helps you in spawning items in a quick and fluent way</p>
-				<pre><code>
+		</section>
+		<section id="sSpawnable">
+			<h3>sSpawnable</h3>
+			<p><code>SSpawnable</code> helps you in spawning items in a quick and fluent way</p>
+			<pre><code>
 // Build an M4A1 with multiple attachments
 SSpawnable m4 = SSpawnable.build("M4A1").withAttachments({
     "M4_Suppressor",
@@ -172,8 +172,8 @@ m4.spawn(position);
 m16.spawn(position);
 ak.spawn(position);
 				</code></pre>
-			</section>
-		</main>
-	</body>
+		</section>
+	</main>
+</body>
 
 </html>

@@ -1,67 +1,67 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<title>sUDE | Tutorials</title>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="/sUDE/css/tutorial.css">
-		<link rel="stylesheet" href="/sUDE/css/highlight.css">
-		<script src="/sUDE/js/main.js"></script>
-		<script src="/sUDE/tutorials/js/tutorials.js"></script>
-		<script src="/sUDE/js/highlight.js"></script>
-		<script>hljs.highlightAll();</script>
-	</head>
+<head>
+	<title>sUDE | Tutorials</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/sUDE/css/tutorial.css">
+	<link rel="stylesheet" href="/sUDE/css/highlight.css">
+	<script src="/sUDE/js/main.js"></script>
+	<script src="/sUDE/tutorials/js/tutorials.js"></script>
+	<script src="/sUDE/js/highlight.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
 
-	<body>
-		<header class="container">
-			<nav aria-label="breadcrumb">
-				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="/sUDE">sUDE</a></li>
-					<li><a href="/sUDE/tutorials">Tutorials</a></li>
-					<li id="breadcrumb_current">...</li>
-				</ul>
+<body>
+	<header class="container">
+		<nav aria-label="breadcrumb">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/sUDE">sUDE</a></li>
+				<li><a href="/sUDE/tutorials">Tutorials</a></li>
+				<li id="breadcrumb_current">...</li>
+			</ul>
+		</nav>
+	</header>
+	<main class="container">
+		<aside>
+			<nav>
+				<ol>
+					<li><a href="#Setup">Setup</a></li>
+					<li><a href="#Quick_example">Quick example</a></li>
+					<li><a href="#Options">Options</a>
+						<ol>
+							<li><a href="#Color">Color</a></li>
+							<li><a href="#Dimension">Dimension</a></li>
+						</ol>
+					</li>
+					<li><a href="#Widgets">Widgets</a>
+						<ol>
+							<li><a href="#Window">Window</a></li>
+							<li><a href="#Text">Text</a></li>
+							<li><a href="#Richtext">Rich Text</a></li>
+							<li><a href="#Checkbox">Checkbox</a></li>
+							<li><a href="#Button">Button</a></li>
+							<li><a href="#Slider">Slider</a></li>
+							<li><a href="#Table">Table</a></li>
+							<li><a href="#Canvas">Canvas</a></li>
+							<li><a href="#Plot">Plot</a></li>
+							<li><a href="#Plot_live">Live Plot</a></li>
+							<li><a href="#Spacer">Spacer</a></li>
+							<li><a href="#Newline">Newline</a></li>
+						</ol>
+					</li>
+				</ol>
 			</nav>
-		</header>
-		<main class="container">
-			<aside>
-				<nav>
-					<ol>
-						<li><a href="#Setup">Setup</a></li>
-						<li><a href="#Quick_example">Quick example</a></li>
-						<li><a href="#Options">Options</a>
-							<ol>
-								<li><a href="#Color">Color</a></li>
-								<li><a href="#Dimension">Dimension</a></li>
-							</ol>
-						</li>
-						<li><a href="#Widgets">Widgets</a>
-							<ol>
-								<li><a href="#Window">Window</a></li>
-								<li><a href="#Text">Text</a></li>
-								<li><a href="#Richtext">Rich Text</a></li>
-								<li><a href="#Checkbox">Checkbox</a></li>
-								<li><a href="#Button">Button</a></li>
-								<li><a href="#Slider">Slider</a></li>
-								<li><a href="#Table">Table</a></li>
-								<li><a href="#Canvas">Canvas</a></li>
-								<li><a href="#Plot">Plot</a></li>
-								<li><a href="#Plot_live">Live Plot</a></li>
-								<li><a href="#Spacer">Spacer</a></li>
-								<li><a href="#Newline">Newline</a></li>
-							</ol>
-						</li>
-					</ol>
-				</nav>
-			</aside>
+		</aside>
 
-			<section id="Setup">
-				<h3>Setup</h3>
-				<p>
-					Add sFramework as a dependency by adding it to the <code>requiredAddons</code> inside your
-					<code>config.cpp</code>
-				</p>
-				<pre><code>
+		<section id="Setup">
+			<h3>Setup</h3>
+			<p>
+				Add sFramework as a dependency by adding it to the <code>requiredAddons</code> inside your
+				<code>config.cpp</code>
+			</p>
+			<pre><code>
 class CfgPatches {
 	class NAME_OF_YOUR_MOD {
 		requiredAddons[] = {
@@ -70,10 +70,10 @@ class CfgPatches {
 	};
 };
 				</code></pre>
-			</section>
-			<section id="Quick_example">
-				<h3>Quick example</h3>
-				<pre><code>
+		</section>
+		<section id="Quick_example">
+			<h3>Quick example</h3>
+			<pre><code>
 class SomeClass {					
 	void OnUpdate(float timeslice) {
 		auto dui = SDebugUI.of("TestDebugUI");
@@ -110,23 +110,23 @@ class SomeClass {
 	}
 }
 				</code></pre>
-			</section>
-			<section id="Options">
-				<h3>Options</h3>
-				<p>When creating a widget, you can specify multiple options of the form <code>key = value</code></p>
-				<blockquote class="info">
-					White spaces before and after the equal symbol will be ignored, but they're recommended for
-					redeability
-				</blockquote>
-				<p>Each widget has its own options, but my inherit some from another</p>
-				<p>
-					You can set options via the <code>withOpt()</code> method, which accepts a single option or an array
-					of options.<br>
-					The <code>withOpt()</code> method must be called before the widget you wish to apply the options
-					to.<br>
-					It returns the DUI instance, making it possible to chain with other calls
-				</p>
-				<pre><code>
+		</section>
+		<section id="Options">
+			<h3>Options</h3>
+			<p>When creating a widget, you can specify multiple options of the form <code>key = value</code></p>
+			<blockquote class="info">
+				White spaces before and after the equal symbol will be ignored, but they're recommended for
+				redeability
+			</blockquote>
+			<p>Each widget has its own options, but my inherit some from another</p>
+			<p>
+				You can set options via the <code>withOpt()</code> method, which accepts a single option or an array
+				of options.<br>
+				The <code>withOpt()</code> method must be called before the widget you wish to apply the options
+				to.<br>
+				It returns the DUI instance, making it possible to chain with other calls
+			</p>
+			<pre><code>
 auto dui = SDebugUI.of("Test");
 dui.begin();
 dui.with({
@@ -136,39 +136,120 @@ dui.with({
 dui.with("bg = #FF0000").text("Hello world");
 dui.end();
 				</code></pre>
-				<blockquote class="tip">
-					Since options are just string, you are free to use concatenation or string formatting to create
-					dynamic options
-					<pre><code>
+			<blockquote class="tip">
+				Since options are just string, you are free to use concatenation or string formatting to create
+				dynamic options
+				<pre><code>
 dui.with({
 	"pos = " + string.Format("0.5 %spx", Math.RandomFloat(0, 1))
 }).window();
 					</code></pre>
-				</blockquote>
-				<section id="Color">
-					<h4>Color</h4>
-					<p>Some options like <code>bg</code> (background) accept color value in hex format</p>
-					<p>They can be in <code>RRGGBB</code> or <code>RRGGBBAA</code> format</p>
-				</section>
-				<section id="Dimension">
-					<h4>Dimension</h4>
-					<p>
-						Some options like <code>pos</code> (position) or <code>size</code> accept can accept one or more
-						space separated value of type <em>dimension</em>
-					</p>
-					<p>
-						<em>Dimension</em> values can be in percentage (<code>0.69</code>) or exact pixels
-						(<code>420px</code>)
-					</p>
-				</section>
+			</blockquote>
+			<section id="Color">
+				<h4>Color</h4>
+				<p>Some options like <code>bg</code> (background) accept color value in hex format</p>
+				<p>They can be in <code>RRGGBB</code> or <code>RRGGBBAA</code> format</p>
 			</section>
-			<section id="Widgets">
-				<h3>Widgets</h3>
+			<section id="Dimension">
+				<h4>Dimension</h4>
 				<p>
-					You can create widgets by invoking the <code>widget(layout)</code>, where <code>layout</code> is the
-					path of a .layout file
+					Some options like <code>pos</code> (position) or <code>size</code> accept can accept one or more
+					space separated value of type <em>dimension</em>
 				</p>
-				<p>Alternatively, use the already provided widget prefab</p>
+				<p>
+					<em>Dimension</em> values can be in percentage (<code>0.69</code>) or exact pixels
+					(<code>420px</code>)
+				</p>
+			</section>
+		</section>
+		<section id="Widgets">
+			<h3>Widgets</h3>
+			<p>
+				You can create widgets by invoking the <code>widget(layout)</code>, where <code>layout</code> is the
+				path of a .layout file
+			</p>
+			<p>Alternatively, use the already provided widget prefab</p>
+			<p>Supported options</p>
+			<table>
+				<thead>
+					<tr>
+						<td>Name</td>
+						<td>Type</td>
+						<td>Default</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>name</td>
+						<td>string</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>bg</td>
+						<td>color</td>
+						<td>#F0544CFF</td>
+					</tr>
+					<tr>
+						<td>size</td>
+						<td>dimension dimension</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>pos</td>
+						<td>dimension dimension</td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+			<section id="Window">
+				<h4>Window</h4>
+				<p>Used to create a window, which will contain all of your other widget</p>
+				<pre><code>
+dui.window();
+					</code></pre>
+				<p>It's possible to create multiple window for each DUI</p>
+				<p>Supported options</p>
+				<table>
+					<thead>
+						<tr>
+							<td>Name</td>
+							<td>Type</td>
+							<td>Default</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>name</td>
+							<td>string</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>bg</td>
+							<td>color</td>
+							<td>#F0544CFF</td>
+						</tr>
+						<tr>
+							<td>size</td>
+							<td>dimension dimension</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>pos</td>
+							<td>dimension dimension</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>body.bg</td>
+							<td>color</td>
+							<td>#00000088</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section id="Text">
+				<h4>Text</h4>
+				<p>Simple text widget</p>
+				<pre><code>dui.text("hello world");</code></pre>
 				<p>Supported options</p>
 				<table>
 					<thead>
@@ -201,178 +282,97 @@ dui.with({
 						</tr>
 					</tbody>
 				</table>
-				<section id="Window">
-					<h4>Window</h4>
-					<p>Used to create a window, which will contain all of your other widget</p>
-					<pre><code>
-dui.window();
-					</code></pre>
-					<p>It's possible to create multiple window for each DUI</p>
-					<p>Supported options</p>
-					<table>
-						<thead>
-							<tr>
-								<td>Name</td>
-								<td>Type</td>
-								<td>Default</td>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>name</td>
-								<td>string</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>bg</td>
-								<td>color</td>
-								<td>#F0544CFF</td>
-							</tr>
-							<tr>
-								<td>size</td>
-								<td>dimension dimension</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>pos</td>
-								<td>dimension dimension</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>body.bg</td>
-								<td>color</td>
-								<td>#00000088</td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-				<section id="Text">
-					<h4>Text</h4>
-					<p>Simple text widget</p>
-					<pre><code>dui.text("hello world");</code></pre>
-					<p>Supported options</p>
-					<table>
-						<thead>
-							<tr>
-								<td>Name</td>
-								<td>Type</td>
-								<td>Default</td>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>name</td>
-								<td>string</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>bg</td>
-								<td>color</td>
-								<td>#F0544CFF</td>
-							</tr>
-							<tr>
-								<td>size</td>
-								<td>dimension dimension</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>pos</td>
-								<td>dimension dimension</td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-				<section id="Richtext">
-					<h4>Richtext</h4>
-					<p>Richtext widget, like <code>text</code> but supports pango markup</p>
-					<pre><code class="language-csharp">dui.textrich("hello &lt;b&gt;world&lt;/&gt;");</code></pre>
-					<blockquote class="tip">
-						Pango markup supports images! You can also use images from an imageset; try this:
-						<pre><code class="language-csharp">
+			</section>
+			<section id="Richtext">
+				<h4>Richtext</h4>
+				<p>Richtext widget, like <code>text</code> but supports pango markup</p>
+				<pre><code class="language-csharp">dui.textrich("hello &lt;b&gt;world&lt;/&gt;");</code></pre>
+				<blockquote class="tip">
+					Pango markup supports images! You can also use images from an imageset; try this:
+					<pre><code class="language-csharp">
 dui.textrich("This is an icon &lt;image set='dayz_gui' name='icon_pin' /&gt; ");
 						</code></pre>
-					</blockquote>
-					<p>Supported options</p>
-					<table>
-						<thead>
-							<tr>
-								<td>Name</td>
-								<td>Type</td>
-								<td>Default</td>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>name</td>
-								<td>string</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>bg</td>
-								<td>color</td>
-								<td>#F0544CFF</td>
-							</tr>
-							<tr>
-								<td>size</td>
-								<td>dimension dimension</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>pos</td>
-								<td>dimension dimension</td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-				<section id="Checkbox">
-					<h4>Checkbox</h4>
-					<p>A checkbox, usually used to change a boolean value</p>
-					<pre><code>
+				</blockquote>
+				<p>Supported options</p>
+				<table>
+					<thead>
+						<tr>
+							<td>Name</td>
+							<td>Type</td>
+							<td>Default</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>name</td>
+							<td>string</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>bg</td>
+							<td>color</td>
+							<td>#F0544CFF</td>
+						</tr>
+						<tr>
+							<td>size</td>
+							<td>dimension dimension</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>pos</td>
+							<td>dimension dimension</td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section id="Checkbox">
+				<h4>Checkbox</h4>
+				<p>A checkbox, usually used to change a boolean value</p>
+				<pre><code>
 bool myBoolVariable;
 dui.check("unique checkbox name", myBoolVariable);
 					</code></pre>
-					<p>
-						The value of <code>myBoolVariable</code> will change based on if you check the checkbox or not
-					</p>
-					<p>Supported options</p>
-					<table>
-						<thead>
-							<tr>
-								<td>Name</td>
-								<td>Type</td>
-								<td>Default</td>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>name</td>
-								<td>string</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>bg</td>
-								<td>color</td>
-								<td>#F0544CFF</td>
-							</tr>
-							<tr>
-								<td>size</td>
-								<td>dimension dimension</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>pos</td>
-								<td>dimension dimension</td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-				<section id="Button">
-					<h4>Button</h4>
-					<p>A simple button which, upon pressing it, will invoke a function you define</p>
-					<pre><code>
+				<p>
+					The value of <code>myBoolVariable</code> will change based on if you check the checkbox or not
+				</p>
+				<p>Supported options</p>
+				<table>
+					<thead>
+						<tr>
+							<td>Name</td>
+							<td>Type</td>
+							<td>Default</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>name</td>
+							<td>string</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>bg</td>
+							<td>color</td>
+							<td>#F0544CFF</td>
+						</tr>
+						<tr>
+							<td>size</td>
+							<td>dimension dimension</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>pos</td>
+							<td>dimension dimension</td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section id="Button">
+				<h4>Button</h4>
+				<p>A simple button which, upon pressing it, will invoke a function you define</p>
+				<pre><code>
 dui.button("my unique button", this, myFunction, new Param2&lt;string, int&gt;("hello world", 69));
 dui.button("my other button", this, myOtherFunction));
 
@@ -387,107 +387,107 @@ void myOtherFunction() {
 	Print("hello world");
 }
 					</code></pre>
-					<p>Supported options</p>
-					<table>
-						<thead>
-							<tr>
-								<td>Name</td>
-								<td>Type</td>
-								<td>Default</td>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>name</td>
-								<td>string</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>bg</td>
-								<td>color</td>
-								<td>#F0544CFF</td>
-							</tr>
-							<tr>
-								<td>size</td>
-								<td>dimension dimension</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>pos</td>
-								<td>dimension dimension</td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-				<section id="Slider">
-					<h4>Slider</h4>
-					<p>A slider to control a float value</p>
-					<pre><code>
+				<p>Supported options</p>
+				<table>
+					<thead>
+						<tr>
+							<td>Name</td>
+							<td>Type</td>
+							<td>Default</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>name</td>
+							<td>string</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>bg</td>
+							<td>color</td>
+							<td>#F0544CFF</td>
+						</tr>
+						<tr>
+							<td>size</td>
+							<td>dimension dimension</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>pos</td>
+							<td>dimension dimension</td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section id="Slider">
+				<h4>Slider</h4>
+				<p>A slider to control a float value</p>
+				<pre><code>
 float myFloatValue;
 dui.slider("my unique slider name", myFloatValue);
 					</code></pre>
-					<p>The value of <code>myFloatValue</code> will change based on the slider value</p>
-					<blockquote class="important">
-						Given the "immediate mode" approach of the IMGUI framework, the slider won't be able to capture
-						mouse input.<br>
-						To control the slider you can hover it with the mouse, and use mouse wheel to change the
-						value, which will increase/decrease the slider by its defined <code>step</code><br>
-						Holding <kb>Shift</kb> will increase/decrease the slider faster
-					</blockquote>
-					<p>Supported options</p>
-					<table>
-						<thead>
-							<tr>
-								<td>Name</td>
-								<td>Type</td>
-								<td>Default</td>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>name</td>
-								<td>string</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>bg</td>
-								<td>color</td>
-								<td>#F0544CFF</td>
-							</tr>
-							<tr>
-								<td>size</td>
-								<td>dimension dimension</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>pos</td>
-								<td>dimension dimension</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>slider.step</td>
-								<td>float</td>
-								<td>0.01</td>
-							</tr>
-							<tr>
-								<td>slider.min</td>
-								<td>float</td>
-								<td>0.00</td>
-							</tr>
-							<tr>
-								<td>slider.max</td>
-								<td>float</td>
-								<td>1.00</td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-				<section id="Table">
-					<h4>Table</h4>
-					<p>A super powerful and quick way of display data in a organized manner</p>
-					<p>It accepts a list of row; each row is a list of cell (strings)</p>
-					<pre><code>
+				<p>The value of <code>myFloatValue</code> will change based on the slider value</p>
+				<blockquote class="important">
+					Given the "immediate mode" approach of the IMGUI framework, the slider won't be able to capture
+					mouse input.<br>
+					To control the slider you can hover it with the mouse, and use mouse wheel to change the
+					value, which will increase/decrease the slider by its defined <code>step</code><br>
+					Holding <kb>Shift</kb> will increase/decrease the slider faster
+				</blockquote>
+				<p>Supported options</p>
+				<table>
+					<thead>
+						<tr>
+							<td>Name</td>
+							<td>Type</td>
+							<td>Default</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>name</td>
+							<td>string</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>bg</td>
+							<td>color</td>
+							<td>#F0544CFF</td>
+						</tr>
+						<tr>
+							<td>size</td>
+							<td>dimension dimension</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>pos</td>
+							<td>dimension dimension</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>slider.step</td>
+							<td>float</td>
+							<td>0.01</td>
+						</tr>
+						<tr>
+							<td>slider.min</td>
+							<td>float</td>
+							<td>0.00</td>
+						</tr>
+						<tr>
+							<td>slider.max</td>
+							<td>float</td>
+							<td>1.00</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section id="Table">
+				<h4>Table</h4>
+				<p>A super powerful and quick way of display data in a organized manner</p>
+				<p>It accepts a list of row; each row is a list of cell (strings)</p>
+				<pre><code>
 dui.table({
 	{"Attribute",    "Value"},
 	{"Time",         ""+GetGame().GetTickTime()},
@@ -496,98 +496,98 @@ dui.table({
 	{"VoIP level",   ""+GetGame().GetSoundScene().GetAudioLevel()}
 });
 					</code></pre>
-					<p>Supported options</p>
-					<table>
-						<thead>
-							<tr>
-								<td>Name</td>
-								<td>Type</td>
-								<td>Default</td>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>name</td>
-								<td>string</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>bg</td>
-								<td>color</td>
-								<td>#F0544CFF</td>
-							</tr>
-							<tr>
-								<td>size</td>
-								<td>dimension dimension</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>pos</td>
-								<td>dimension dimension</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>table.cell.flags.set</td>
-								<td>WidgetFlags</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>table.cell.flags.unset</td>
-								<td>WidgetFlags</td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-				<section id="Canvas">
-					<h4>Canvas</h4>
-					<p>A canvas where you can paint anything</p>
-					<pre><code>
+				<p>Supported options</p>
+				<table>
+					<thead>
+						<tr>
+							<td>Name</td>
+							<td>Type</td>
+							<td>Default</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>name</td>
+							<td>string</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>bg</td>
+							<td>color</td>
+							<td>#F0544CFF</td>
+						</tr>
+						<tr>
+							<td>size</td>
+							<td>dimension dimension</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>pos</td>
+							<td>dimension dimension</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>table.cell.flags.set</td>
+							<td>WidgetFlags</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>table.cell.flags.unset</td>
+							<td>WidgetFlags</td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section id="Canvas">
+				<h4>Canvas</h4>
+				<p>A canvas where you can paint anything</p>
+				<pre><code>
 dui.canvas();
 					</code></pre>
-					<p>Supported options</p>
-					<table>
-						<thead>
-							<tr>
-								<td>Name</td>
-								<td>Type</td>
-								<td>Default</td>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>name</td>
-								<td>string</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>bg</td>
-								<td>color</td>
-								<td>#F0544CFF</td>
-							</tr>
-							<tr>
-								<td>size</td>
-								<td>dimension dimension</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>pos</td>
-								<td>dimension dimension</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>canvas.title</td>
-								<td>string</td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-				<section id="Plot">
-					<h4>Plot</h4>
-					<p>Supported options</p>
-					<p>It takes a list of lines (x,y coordinate pairs)</p>
-					<pre><code>
+				<p>Supported options</p>
+				<table>
+					<thead>
+						<tr>
+							<td>Name</td>
+							<td>Type</td>
+							<td>Default</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>name</td>
+							<td>string</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>bg</td>
+							<td>color</td>
+							<td>#F0544CFF</td>
+						</tr>
+						<tr>
+							<td>size</td>
+							<td>dimension dimension</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>pos</td>
+							<td>dimension dimension</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>canvas.title</td>
+							<td>string</td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section id="Plot">
+				<h4>Plot</h4>
+				<p>Supported options</p>
+				<p>It takes a list of lines (x,y coordinate pairs)</p>
+				<pre><code>
 array&lt;array&lt;float&gt;&gt; points = {
 	{0, 0}
 	{0, 1}
@@ -596,254 +596,254 @@ array&lt;array&lt;float&gt;&gt; points = {
 };
 dui.plot({points});
 					</code></pre>
-					<table>
-						<thead>
-							<tr>
-								<td>Name</td>
-								<td>Type</td>
-								<td>Default</td>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>name</td>
-								<td>string</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>bg</td>
-								<td>color</td>
-								<td>#F0544CFF</td>
-							</tr>
-							<tr>
-								<td>size</td>
-								<td>dimension dimension</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>pos</td>
-								<td>dimension dimension</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>canvas.title</td>
-								<td>string</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>plot.min</td>
-								<td>float</td>
-								<td>0.0</td>
-							</tr>
-							<tr>
-								<td>plot.max</td>
-								<td>float</td>
-								<td>1.0</td>
-							</tr>
-							<tr>
-								<td>plot.offset.x</td>
-								<td>int (pixels)</td>
-								<td>0</td>
-							</tr>
-							<tr>
-								<td>plot.offset.y</td>
-								<td>int (pixels)</td>
-								<td>0</td>
-							</tr>
-							<tr>
-								<td>plot.scale.x</td>
-								<td>int (pixels)</td>
-								<td>1</td>
-							</tr>
-							<tr>
-								<td>plot.scale.y</td>
-								<td>int (pixels)</td>
-								<td>1</td>
-							</tr>
-							<tr>
-								<td>plot.pen.width</td>
-								<td>int (pixels)</td>
-								<td>3</td>
-							</tr>
-							<tr>
-								<td>plot.pen.color</td>
-								<td>color</td>
-								<td>#F0544Cff</td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-				<section id="Plot_live">
-					<h4>Live plot</h4>
-					<p>A plot meant to track changes of a float value</p>
-					<pre><code>
+				<table>
+					<thead>
+						<tr>
+							<td>Name</td>
+							<td>Type</td>
+							<td>Default</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>name</td>
+							<td>string</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>bg</td>
+							<td>color</td>
+							<td>#F0544CFF</td>
+						</tr>
+						<tr>
+							<td>size</td>
+							<td>dimension dimension</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>pos</td>
+							<td>dimension dimension</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>canvas.title</td>
+							<td>string</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>plot.min</td>
+							<td>float</td>
+							<td>0.0</td>
+						</tr>
+						<tr>
+							<td>plot.max</td>
+							<td>float</td>
+							<td>1.0</td>
+						</tr>
+						<tr>
+							<td>plot.offset.x</td>
+							<td>int (pixels)</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>plot.offset.y</td>
+							<td>int (pixels)</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>plot.scale.x</td>
+							<td>int (pixels)</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>plot.scale.y</td>
+							<td>int (pixels)</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>plot.pen.width</td>
+							<td>int (pixels)</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>plot.pen.color</td>
+							<td>color</td>
+							<td>#F0544Cff</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section id="Plot_live">
+				<h4>Live plot</h4>
+				<p>A plot meant to track changes of a float value</p>
+				<pre><code>
 dui.plotlive("my unique plotlive name", GetGame().GetPlayer().GetStamina());
 					</code></pre>
-					<p>Supported options</p>
-					<table>
-						<thead>
-							<tr>
-								<td>Name</td>
-								<td>Type</td>
-								<td>Default</td>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>name</td>
-								<td>string</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>bg</td>
-								<td>color</td>
-								<td>#F0544CFF</td>
-							</tr>
-							<tr>
-								<td>size</td>
-								<td>dimension dimension</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>pos</td>
-								<td>dimension dimension</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>canvas.title</td>
-								<td>string</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>plot.min</td>
-								<td>float</td>
-								<td>0.0</td>
-							</tr>
-							<tr>
-								<td>plot.max</td>
-								<td>float</td>
-								<td>1.0</td>
-							</tr>
-							<tr>
-								<td>plot.offset.x</td>
-								<td>int (pixels)</td>
-								<td>0</td>
-							</tr>
-							<tr>
-								<td>plot.offset.y</td>
-								<td>int (pixels)</td>
-								<td>0</td>
-							</tr>
-							<tr>
-								<td>plot.scale.x</td>
-								<td>int (pixels)</td>
-								<td>1</td>
-							</tr>
-							<tr>
-								<td>plot.scale.y</td>
-								<td>int (pixels)</td>
-								<td>1</td>
-							</tr>
-							<tr>
-								<td>plot.pen.width</td>
-								<td>int (pixels)</td>
-								<td>3</td>
-							</tr>
-							<tr>
-								<td>plot.pen.color</td>
-								<td>color</td>
-								<td>#F0544Cff</td>
-							</tr>
-							<tr>
-								<td>plot.history.size</td>
-								<td>int</td>
-								<td>50</td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-				<section id="Spacer">
-					<h4>Spacer</h4>
-					<p>A simple "empty" widget meant to create spacing between other widgets</p>
-					<pre><code>
+				<p>Supported options</p>
+				<table>
+					<thead>
+						<tr>
+							<td>Name</td>
+							<td>Type</td>
+							<td>Default</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>name</td>
+							<td>string</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>bg</td>
+							<td>color</td>
+							<td>#F0544CFF</td>
+						</tr>
+						<tr>
+							<td>size</td>
+							<td>dimension dimension</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>pos</td>
+							<td>dimension dimension</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>canvas.title</td>
+							<td>string</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>plot.min</td>
+							<td>float</td>
+							<td>0.0</td>
+						</tr>
+						<tr>
+							<td>plot.max</td>
+							<td>float</td>
+							<td>1.0</td>
+						</tr>
+						<tr>
+							<td>plot.offset.x</td>
+							<td>int (pixels)</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>plot.offset.y</td>
+							<td>int (pixels)</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>plot.scale.x</td>
+							<td>int (pixels)</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>plot.scale.y</td>
+							<td>int (pixels)</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>plot.pen.width</td>
+							<td>int (pixels)</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>plot.pen.color</td>
+							<td>color</td>
+							<td>#F0544Cff</td>
+						</tr>
+						<tr>
+							<td>plot.history.size</td>
+							<td>int</td>
+							<td>50</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section id="Spacer">
+				<h4>Spacer</h4>
+				<p>A simple "empty" widget meant to create spacing between other widgets</p>
+				<pre><code>
 dui.spacer();
 					</code></pre>
-					<p>Supported options</p>
-					<table>
-						<thead>
-							<tr>
-								<td>Name</td>
-								<td>Type</td>
-								<td>Default</td>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>name</td>
-								<td>string</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>bg</td>
-								<td>color</td>
-								<td>#F0544CFF</td>
-							</tr>
-							<tr>
-								<td>size</td>
-								<td>dimension dimension</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>pos</td>
-								<td>dimension dimension</td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-				<section id="Newline">
-					<h4>Newline</h4>
-					<p>A simple "empty" widget to force new widgets to be on a new line</p>
-					<pre><code>
+				<p>Supported options</p>
+				<table>
+					<thead>
+						<tr>
+							<td>Name</td>
+							<td>Type</td>
+							<td>Default</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>name</td>
+							<td>string</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>bg</td>
+							<td>color</td>
+							<td>#F0544CFF</td>
+						</tr>
+						<tr>
+							<td>size</td>
+							<td>dimension dimension</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>pos</td>
+							<td>dimension dimension</td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section id="Newline">
+				<h4>Newline</h4>
+				<p>A simple "empty" widget to force new widgets to be on a new line</p>
+				<pre><code>
 dui.newline();
 dui.newline("69px");
 					</code></pre>
-					<p>It takes an optional string argument of type dimension to set the height of the newline</p>
-					<p>Supported options</p>
-					<table>
-						<thead>
-							<tr>
-								<td>Name</td>
-								<td>Type</td>
-								<td>Default</td>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>name</td>
-								<td>string</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>bg</td>
-								<td>color</td>
-								<td>#F0544CFF</td>
-							</tr>
-							<tr>
-								<td>size</td>
-								<td>dimension dimension</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>pos</td>
-								<td>dimension dimension</td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
+				<p>It takes an optional string argument of type dimension to set the height of the newline</p>
+				<p>Supported options</p>
+				<table>
+					<thead>
+						<tr>
+							<td>Name</td>
+							<td>Type</td>
+							<td>Default</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>name</td>
+							<td>string</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>bg</td>
+							<td>color</td>
+							<td>#F0544CFF</td>
+						</tr>
+						<tr>
+							<td>size</td>
+							<td>dimension dimension</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>pos</td>
+							<td>dimension dimension</td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
 			</section>
-		</main>
-	</body>
+		</section>
+	</main>
+</body>
 
 </html>

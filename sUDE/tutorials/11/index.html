@@ -1,61 +1,61 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<title>sUDE | Tutorials</title>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="/sUDE/css/tutorial.css">
-		<link rel="stylesheet" href="/sUDE/css/highlight.css">
-		<script src="/sUDE/js/main.js"></script>
-		<script src="/sUDE/tutorials/js/tutorials.js"></script>
-		<script src="/sUDE/js/highlight.js"></script>
-		<script>hljs.highlightAll();</script>
-	</head>
+<head>
+	<title>sUDE | Tutorials</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/sUDE/css/tutorial.css">
+	<link rel="stylesheet" href="/sUDE/css/highlight.css">
+	<script src="/sUDE/js/main.js"></script>
+	<script src="/sUDE/tutorials/js/tutorials.js"></script>
+	<script src="/sUDE/js/highlight.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
 
-	<body>
-		<header class="container">
-			<nav aria-label="breadcrumb">
-				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="/sUDE">sUDE</a></li>
-					<li><a href="/sUDE/tutorials">Tutorials</a></li>
-					<li id="breadcrumb_current">...</li>
-				</ul>
+<body>
+	<header class="container">
+		<nav aria-label="breadcrumb">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/sUDE">sUDE</a></li>
+				<li><a href="/sUDE/tutorials">Tutorials</a></li>
+				<li id="breadcrumb_current">...</li>
+			</ul>
+		</nav>
+	</header>
+	<main class="container">
+		<aside>
+			<nav>
+				<ol>
+					<li><a href="#Setup">Setup</a></li>
+					<li><a href="#Create_test_unit">Create Test Unit</a>
+						<ol>
+							<li><a href="#Assertions">Assertions</a>
+						</ol>
+					</li>
+					<li><a href="#Run_tests">Run the tests</a>
+						<ol>
+							<li><a href="#Configuration">Configuration</a></li>
+							<li><a href="#Using_debug_menu">Using debug menu</a></li>
+						</ol>
+					</li>
+					<li><a href="#Advanced_usage">Advanced usage</a>
+						<ol>
+							<li><a href="#Callbacks">Callbacks</a>
+							<li><a href="#Manual">Manually failing, passing, skipping</a>
+						</ol>
+					</li>
+				</ol>
 			</nav>
-		</header>
-		<main class="container">
-			<aside>
-				<nav>
-					<ol>
-						<li><a href="#Setup">Setup</a></li>
-						<li><a href="#Create_test_unit">Create Test Unit</a>
-							<ol>
-								<li><a href="#Assertions">Assertions</a>
-							</ol>
-						</li>
-						<li><a href="#Run_tests">Run the tests</a>
-							<ol>
-								<li><a href="#Configuration">Configuration</a></li>
-								<li><a href="#Using_debug_menu">Using debug menu</a></li>
-							</ol>
-						</li>
-						<li><a href="#Advanced_usage">Advanced usage</a>
-							<ol>
-								<li><a href="#Callbacks">Callbacks</a>
-								<li><a href="#Manual">Manually failing, passing, skipping</a>
-							</ol>
-						</li>
-					</ol>
-				</nav>
-			</aside>
+		</aside>
 
-			<section id="Setup">
-				<h3>Setup</h3>
-				<p>
-					Add sFramework as a dependency by adding it to the <code>requiredAddons</code> inside your
-					<code>config.cpp</code>
-				</p>
-				<pre><code>
+		<section id="Setup">
+			<h3>Setup</h3>
+			<p>
+				Add sFramework as a dependency by adding it to the <code>requiredAddons</code> inside your
+				<code>config.cpp</code>
+			</p>
+			<pre><code>
 class CfgPatches {
 	class NAME_OF_YOUR_MOD {
 		requiredAddons[] = {
@@ -64,18 +64,18 @@ class CfgPatches {
 	};
 };
 				</code></pre>
-			</section>
+		</section>
 
-			<section id="Create_test_unit">
-				<h3>Create Test Unit</h3>
-				<p>To create a test unit, simply implement the <code>STestUnit</code> class</p>
-				<pre><code>
+		<section id="Create_test_unit">
+			<h3>Create Test Unit</h3>
+			<p>To create a test unit, simply implement the <code>STestUnit</code> class</p>
+			<pre><code>
 class MyTestUnit : STestUnit { }
 				</code></pre>
-				<p>
-					To create test cases, simply define a function and register it with <code>registerTestCases()</code>
-				</p>
-				<pre><code>
+			<p>
+				To create test cases, simply define a function and register it with <code>registerTestCases()</code>
+			</p>
+			<pre><code>
 class MyTestUnit : STestUnit {
     
     override void init() {
@@ -104,35 +104,35 @@ class MyTestUnit : STestUnit {
         assertNotNull(someClass);
     }
 }					</code></pre>
-				<sectiond id="Assertions">
-					<p>By default, sTest APIs will provide basic assertions method</p>
-					<ul>
-						<li><code>assertEqual(x, y)</code> where <code>x</code> and <code>y</code> can be:
-							<ul>
-								<li><code>float</code></li>
-								<li><code>int</code></li>
-								<li><code>string</code></li>
-								<li><code>bool</code></li>
-								<li><code>array&lt;float&gt;</code></li>
-							</ul>
-						</li>
-						<li><code>assertTrue(x)</code> with <code>x</code> of type <code>bool</code></li>
-						<li><code>assertFalse(x)</code> with <code>x</code> of type <code>bool</code></li>
-						<li><code>assertNull(x)</code> with <code>x</code> of type <code>Class</code></li>
-						<li><code>assertNotNull(x)</code> with <code>x</code> of type <code>Class</code></li>
-					</ul>
-				</sectiond>
-			</section>
-			<section id="Run_tests">
-				<h3>Run the tests</h3>
-				<p>To run a test unit simply invoke <code>STest.run()</code></p>
-				<p>You can pass a single <code>STestUnit</code> or an <code>array of STestUnit</code></p>
-				<pre><code>
+			<sectiond id="Assertions">
+				<p>By default, sTest APIs will provide basic assertions method</p>
+				<ul>
+					<li><code>assertEqual(x, y)</code> where <code>x</code> and <code>y</code> can be:
+						<ul>
+							<li><code>float</code></li>
+							<li><code>int</code></li>
+							<li><code>string</code></li>
+							<li><code>bool</code></li>
+							<li><code>array&lt;float&gt;</code></li>
+						</ul>
+					</li>
+					<li><code>assertTrue(x)</code> with <code>x</code> of type <code>bool</code></li>
+					<li><code>assertFalse(x)</code> with <code>x</code> of type <code>bool</code></li>
+					<li><code>assertNull(x)</code> with <code>x</code> of type <code>Class</code></li>
+					<li><code>assertNotNull(x)</code> with <code>x</code> of type <code>Class</code></li>
+				</ul>
+			</sectiond>
+		</section>
+		<section id="Run_tests">
+			<h3>Run the tests</h3>
+			<p>To run a test unit simply invoke <code>STest.run()</code></p>
+			<p>You can pass a single <code>STestUnit</code> or an <code>array of STestUnit</code></p>
+			<pre><code>
 STest.run(MyTestUnit);
 STest.run({MyTestUnit, MyOtherTestUnit, MyLastTestUnit});
 				</code></pre>
-				<p>The results of the tests will be logged</p>
-				<pre><code class="language-plaintext">
+			<p>The results of the tests will be logged</p>
+			<pre><code class="language-plaintext">
 =======================================================================
 Running tests...
 -----------------------------------------------------------------------
@@ -147,36 +147,36 @@ MyTestUnit
                      2              1               0
 =======================================================================
 				</code></pre>
-				<blockquote class="info">
-					You're likely using the workbench, so you'll be able to see the test results in the <em>output</em>
-					window
+			<blockquote class="info">
+				You're likely using the workbench, so you'll be able to see the test results in the <em>output</em>
+				window
+			</blockquote>
+			<section id="Configuration">
+				<h4>Configuration</h4>
+				<p>You can configure <code>STest</code> behaviour</p>
+				<blockquote class="note">
+					This section may be incomplete or outdated
 				</blockquote>
-				<section id="Configuration">
-					<h4>Configuration</h4>
-					<p>You can configure <code>STest</code> behaviour</p>
-					<blockquote class="note">
-						This section may be incomplete or outdated
-					</blockquote>
-					<p>You can decide not to stop when a test fails</p>
-					<pre><code>
+				<p>You can decide not to stop when a test fails</p>
+				<pre><code>
 STest.shouldContinueAtFail = true; // default: false
 					</code></pre>
-					<p>You can change test result output verbosity</p>
-					<pre><code>
+				<p>You can change test result output verbosity</p>
+				<pre><code>
 STest.verbosity = 3; // default: 1
 					</code></pre>
-				</section>
 			</section>
-			<section id="Advanced_usage">
-				<h3>Advanced usage</h3>
-				<section id="Callbacks">
-					<h4>Callbacks</h4>
-					<p>
-						If you need to perform some actions before or after each test unit or each test case,
-						you can define and register some callbacks.<br>
-						Simply create a function and register them with the desired method
-					</p>
-					<pre><code>
+		</section>
+		<section id="Advanced_usage">
+			<h3>Advanced usage</h3>
+			<section id="Callbacks">
+				<h4>Callbacks</h4>
+				<p>
+					If you need to perform some actions before or after each test unit or each test case,
+					you can define and register some callbacks.<br>
+					Simply create a function and register them with the desired method
+				</p>
+				<pre><code>
 class MyTestUnit : STestUnit {
     
     override void init() {
@@ -220,14 +220,14 @@ class MyTestUnit : STestUnit {
 
 }
 					</code></pre>
-				</section>
-				<section id="Manual">
-					<h4>Manually failing, passing, skipping</h4>
-					<p>
-						If you need to write some more complex test cases, you can also manually
-						<code>fail()</code>, <code>pass()</code> or <code>skip()</code>
-					</p>
-					<pre><code>
+			</section>
+			<section id="Manual">
+				<h4>Manually failing, passing, skipping</h4>
+				<p>
+					If you need to write some more complex test cases, you can also manually
+					<code>fail()</code>, <code>pass()</code> or <code>skip()</code>
+				</p>
+				<pre><code>
 void testSomethingComplex() {
     int x = 2;
     int y = 2;
@@ -241,9 +241,9 @@ void testSomethingComplex() {
     }
 }
 					</code></pre>
-				</section>
 			</section>
-		</main>
-	</body>
+		</section>
+	</main>
+</body>
 
 </html>
