@@ -1,5 +1,6 @@
 window.onload = () => {
-	document.getElementsByTagName("nav")[0].setAttribute("aria-busy", "true");
+	const currentBreadcrumb = document.querySelector("nav[aria-label='breadcrumb'] a[aria-current='page']")
+	currentBreadcrumb.setAttribute("aria-busy", "true");
 
 	const toc = document.querySelector("main aside nav")
 	const observer = new IntersectionObserver(entries => {
@@ -16,11 +17,11 @@ window.onload = () => {
 
 	var split = document.location.href.split("/");
 	var id = split[split.length - 2];
-	fetchXML("/sUDE/tutorials/tutorials.xml", xml => onTutorialLoad(parseTutorialCard(xml.getElementById(id))));
+	fetchXML("/sUDE/tutorials/tutorials.xml", xml => onTutorialLoad(currentBreadcrumb, parseTutorialCard(xml.getElementById(id))));
 };
 
-function onTutorialLoad(tutorial) {
+function onTutorialLoad(currentBreadcrumb, tutorial) {
 	document.title = `sUDE | ${tutorial.title}`;
-	document.getElementById("breadcrumb_current").innerHTML = tutorial.title;
-	document.getElementsByTagName("nav")[0].setAttribute("aria-busy", "false");
+	currentBreadcrumb.innerHTML = tutorial.title;
+	currentBreadcrumb.setAttribute("aria-busy", "false");
 }
