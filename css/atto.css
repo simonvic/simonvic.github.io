@@ -405,6 +405,7 @@ meter {
 /* TODO: select, multiselect */
 
 input,
+textarea,
 button {
 	border: 1px solid transparent;
 	border-radius: 0.5rem;
@@ -521,6 +522,8 @@ input[type="color"] {
 
 input:focus,
 input:focus-visible,
+textarea:focus,
+textarea:focus-visible,
 button:focus,
 button:focus-visible {
 	outline: 1px;
