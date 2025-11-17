@@ -20,6 +20,12 @@
 	--atto-margin-pre: 0.5rem 0;
 	--atto-margin-li: 0.5rem 0;
 
+	--atto-line-height: 1.50rem;
+
+	--atto-font-size-code: 1rem;
+	--atto-line-height-code: 1.25rem;
+	--atto-tab-size: 4;
+
 	--atto-border-radius-code: 0.25rem;
 	--atto-border-radius-codeblock: 0.5rem;
 
@@ -144,7 +150,7 @@ body {
 	color: var(--atto-color-fg);
 	font-family: "sans";
 	font-size: 1rem;
-	line-height: 1.5rem;
+	line-height: var(--atto-line-height);
 	accent-color: var(--atto-color-accent);
 }
 
@@ -266,8 +272,8 @@ pre,
 code,
 samp {
 	font-family: "monospace";
-	font-size: 1rem;
-	tab-size: 4;
+	font-size: var(--atto-font-size-code);
+	tab-size: var(--atto-tab-size);
 }
 
 code {
