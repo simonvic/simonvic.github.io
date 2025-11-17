@@ -17,7 +17,11 @@
 	--atto-margin-h5: 2rem 0 0.5rem 0;
 	--atto-margin-h6: 2rem 0 0.5rem 0;
 	--atto-margin-p: 0 0;
+	--atto-margin-pre: 0.5rem 0;
 	--atto-margin-li: 0.5rem 0;
+
+	--atto-border-radius-code: 0.25rem;
+	--atto-border-radius-codeblock: 0.5rem;
 
 	--atto-transition: 0.2s ease-in-out;
 
@@ -48,6 +52,8 @@
 	--atto-color-fg-2: #EEEEEE;
 	--atto-color-fg-3: #FAFAFA;
 	--atto-color-fg-4: #FFFFFF;
+
+	--atto-color-code-bg--1: #303030;
 	--atto-color-code-bg: #404040;
 
 	--atto-color-mark-bg: var(--atto-color-accent--3);
@@ -118,6 +124,7 @@
 		--atto-color-fg-2: #222222;
 		--atto-color-fg-3: #111111;
 		--atto-color-fg-4: #000000;
+		--atto-color-code-bg--1: #EEEEEE;
 		--atto-color-code-bg: #DDDDDD;
 	}
 }
@@ -249,29 +256,52 @@ big {
 	font-size: 1.25rem;
 }
 
-code {
-	background-color: var(--atto-color-code-bg);
-	color: var(--atto-color-code-fg);
+pre {
+	margin: var(--atto-margin-pre);
+	overflow-x: auto;
+	display: block;
+}
+
+pre,
+code,
+samp {
 	font-family: "monospace";
 	font-size: 1rem;
-	border-radius: 0.25rem;
-	padding: 0 0.25rem;
 	tab-size: 4;
 }
 
-pre {
-	margin: var(--atto-margin-p);
-	overflow-x: auto;
-	background-color: var(--atto-color-bg);
+code {
+	background-color: var(--atto-color-code-bg);
+	color: var(--atto-color-code-fg);
+	border-radius: var(--atto-border-radius-code);
+	padding: 0 0.25rem;
 }
 
-pre>code {
-	background-color: var(--atto-color-code-bg);
+samp {
+	background-color: var(--atto-color-code-bg--1);
+	color: var(--atto-color-code-fg);
+	border-radius: var(--atto-border-radius-codeblock);
+	padding: 0 0.25rem;
+}
+
+pre>code,
+pre>samp {
 	display: block;
 	/* border-radius: 0; */
 	padding: 0.75rem;
-	font-size: 1rem;
 	overflow: auto;
+}
+
+pre:has(>code+samp)>*:first-child {
+	border-radius: var(--atto-border-radius-codeblock) var(--atto-border-radius-codeblock) 0 0;
+}
+
+pre:has(>code+samp)>* {
+	border-radius: 0;
+}
+
+pre:has(>code+samp)>*:last-child {
+	border-radius: 0 0 var(--atto-border-radius-codeblock) var(--atto-border-radius-codeblock);
 }
 
 /* TODO: Copy to clipboard button */
