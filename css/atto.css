@@ -68,7 +68,7 @@
 	--atto-color-kbd-bg: var(--atto-color-fg-1);
 	--atto-color-kbd-fg: var(--atto-color-bg-1);
 
-	--atto-color-indent-guide: var(--atto-color-bg-2);
+	--atto-color-guide: var(--atto-color-bg-2);
 
 	--atto-color-ins--1: #3A8C623f;
 	--atto-color-ins: #3A8C62;
@@ -262,6 +262,8 @@ big {
 	font-size: 1.25rem;
 }
 
+/*                                                           Other typography */
+
 pre {
 	margin: var(--atto-margin-pre);
 	overflow-x: auto;
@@ -311,6 +313,12 @@ pre:has(>code+samp)>*:last-child {
 	border-radius: 0 0 var(--atto-border-radius-codeblock) var(--atto-border-radius-codeblock);
 }
 
+/* TODO: show language used in ::before */
+/* pre:has(>code)::before { */
+/* 	display: block; */
+/* 	content: "Language: " attr(class); */
+/* } */
+
 /* TODO: Copy to clipboard button */
 /* pre>code::before { */
 /* 	content: var(--atto-glyph-clipboard); */
@@ -356,14 +364,6 @@ del {
 	color: var(--atto-color-del);
 }
 
-svg {
-	vertical-align: middle;
-}
-
-svg:not([fill]) {
-	fill: currentColor;
-}
-
 ol,
 ul {
 	list-style-position: inside;
@@ -406,8 +406,47 @@ blockquote {
 	padding: 1rem;
 }
 
-/* TODO: table */
+/*                                                                     Tables */
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+thead {
+	border-bottom: 2px solid var(--atto-color-guide);
+}
+
+tfoot {
+	border-top: 2px solid var(--atto-color-guide);
+	border-bottom: 2px solid var(--atto-color-guide);
+}
+
+/* th:not(:first-child) { */
+/* 	border-left: 1px solid var(--atto-color-guide); */
+/* } */
+
+tr {
+	border-bottom: 1px solid var(--atto-color-guide);
+}
+
+th {
+	padding: 0.5rem 0;
+	text-align: left;
+}
+
+th[colspan],
+td[colspan] {
+	text-align: center;
+}
+
+td {
+	padding: 0.25rem 0;
+}
+
 /* TODO: striped based on sibling */
+
+/*                                                                   Articles */
 
 article {
 	background-color: var(--atto-color-bg-1);
@@ -430,6 +469,17 @@ article>footer>* {
 /* details summary { */
 /* 	list-style-type: none; */
 /* } */
+
+/*                                                                     Images */
+
+svg {
+	vertical-align: middle;
+}
+
+svg:not([fill]) {
+	fill: currentColor;
+}
+
 
 /******************************************************************************/
 /*                                                                 COMPONENTS */
