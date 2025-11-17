@@ -339,7 +339,8 @@ li {
 }
 
 li>p,
-li>pre {
+li>pre,
+li>blockquote {
 	margin-left: calc(var(--atto-padding-left-list) / 2);
 }
 
