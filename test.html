@@ -25,83 +25,23 @@
 		<aside>
 			<nav role="tree">
 				<ol>
-					<li><a href="#article">Article</a></li>
-					<li><a href="#typography">Typography</a></li>
-					<li><a href="#other_typography">Other Typography</a></li>
-					<li><a href="#input">Input</a></li>
-					<li><a href="#other_input">Other Input</a></li>
+					<li><a href="#typography">Typography</a>
+						<ol>
+							<li><a href="#other_typography">Other Typography</a></li>
+							<li><a href="#tables">Tables</a></li>
+							<li><a href="#article">Article</a></li>
+						</ol>
+					</li>
+					<li><a href="#input">Input</a>
+						<ol>
+							<li><a href="#other_input">Other Input</a></li>
+						</ol>
+					</li>
 					<li><a href="#sections">Sections</a></li>
 					<li><a href="#layout_helpers">Layoyt helpers</a></li>
 				</ol>
 			</nav>
 		</aside>
-		<section id="article">
-			<article>
-				Enim repellat eos nulla vitae. Ducimus rerum aperiam doloremque laudantium quisquam voluptate. Inventore
-				non consectetur voluptatibus deleniti velit.
-			</article>
-
-			<article>
-				<p>
-					Enim repellat eos nulla vitae. Ducimus rerum aperiam doloremque laudantium quisquam voluptate.
-					Inventore
-					non consectetur voluptatibus deleniti velit.
-				</p>
-				<p>
-					Id rerum officia incidunt adipisci quia vel cupiditate aliquid. Culpa nulla maiores doloremque. Hic
-					voluptas ea rerum dolore. Molestiae expedita sapiente quis eligendi et tempore reiciendis. Ut ut
-					ullam
-					mollitia facilis velit. Natus iusto neque optio magnam.
-				</p>
-			</article>
-
-			<article>
-				<header>
-					<h1>Header heading 1</h1>
-				</header>
-				<p>
-					Enim repellat eos nulla vitae. Ducimus rerum aperiam doloremque laudantium quisquam voluptate.
-					Inventore
-					non consectetur voluptatibus deleniti velit.
-				</p>
-			</article>
-
-			<article>
-				<p>
-					Enim repellat eos nulla vitae. Ducimus rerum aperiam doloremque laudantium quisquam voluptate.
-					Inventore
-					non consectetur voluptatibus deleniti velit.
-				</p>
-				<footer>
-					<p>Footer paragraph</p>
-				</footer>
-			</article>
-
-			<article>
-				<header>
-					<h1>Header heading 1</h1>
-				</header>
-				<p>
-					Enim repellat eos nulla vitae. Ducimus rerum aperiam doloremque laudantium quisquam voluptate.
-					Inventore
-					non consectetur voluptatibus deleniti velit.
-				</p>
-				<footer>
-					<p>Footer paragraph</p>
-				</footer>
-			</article>
-
-			<article>
-				<h1>Header heading 1</h1>
-				<p>
-					Enim repellat eos nulla vitae. Ducimus rerum aperiam doloremque laudantium quisquam voluptate.
-					Inventore
-					non consectetur voluptatibus deleniti velit.
-				</p>
-				<p>Footer paragraph</p>
-			</article>
-
-		</section>
 		<section id="typography">
 			<h1>Heading 1</h1>
 			<h2>Heading 2</h2>
@@ -113,11 +53,39 @@
 				Enim repellat eos nulla vitae. Ducimus rerum aperiam doloremque laudantium quisquam voluptate. Inventore
 				non consectetur voluptatibus deleniti velit.
 			</p>
+			<i>italic</i>
+			<b>bold</b>
+			<u>underline</u>
+			<s>strikethrough</s>
+			<mark>mark</mark>
+			<code>code</code>
+			<samp>samp</samp>
+			<span role="suggestion">
+				<ins>Inserted</ins>
+				<del>Deleted</del>
+			</span>
+			<kbd>Ctrl + K</kbd>
+			<abbr>abbr</abbr>
+			<sub>sub</sub>
+			<sup>sup</sup>
+			<br />
+			normal
+			<small>small</small>
+			normal
+			<big>big</big>
+			normal
 			<p>
 				Id rerum officia incidunt adipisci quia vel cupiditate aliquid. Culpa nulla maiores doloremque. Hic
 				voluptas ea rerum dolore. Molestiae expedita sapiente quis eligendi et tempore reiciendis. Ut ut ullam
 				mollitia facilis velit. Natus iusto neque optio magnam.
 			</p>
+			<p data-tooltip="Some tooltip">Hover me for tooltip</p>
+			<p>
+				Enim repellat eos nulla vitae. Ducimus rerum aperiam doloremque <i
+					data-tooltip="Excepturi ut id et nulla deserunt consequatur animi. Sunt sed quo et adipisci omnis. Odio nesciunt quasi odit et. Facilis sequi sed dolorum eum ipsum omnis similique asperiores. Doloribus molestiae quas voluptatem amet autem quisquam non voluptates. Labore numquam tenetur ratione quia est non. Iusto dolores enim fugit sit eos. Commodi architecto est tempora qui et et aliquam. Autem consequuntur repellendus incidunt adipisci commodi molestias non et. Sit in soluta laudantium. Et aut sed voluptatibus repellat qui et. Ut veniam enim quod dolorem quo. Rem maxime odit ratione exercitationem dolorem dolores vitae. Unde ut sit porro aut tempore consectetur id repudiandae. Voluptatibus vitae ab non consequatur repellendus nisi eius earum.">laudantium</i>
+				quisquam voluptate. Inventore non consectetur voluptatibus deleniti velit.
+			</p>
+			<abbr data-tooltip="Three letter abbreviation">TLA</abbr>
 			<hgroup>
 				<h1>Heading 1 in a hgroup</h1>
 				<p>Some paragraph in a hgroup</p>
@@ -194,34 +162,6 @@
 				suscipit. Sit dolorem ipsum qui repudiandae. Harum provident aut perspiciatis. Similique porro maxime
 				voluptatibus occaecati rerum repudiandae harum.
 			</p>
-			<i>italic</i>
-			<b>bold</b>
-			<u>underline</u>
-			<s>strikethrough</s>
-			<mark>mark</mark>
-			<code>code</code>
-			<samp>samp</samp>
-			<span role="suggestion">
-				<ins>Inserted</ins>
-				<del>Deleted</del>
-			</span>
-			<kbd>Ctrl + K</kbd>
-			<abbr>abbr</abbr>
-			<sub>sub</sub>
-			<sup>sup</sup>
-			<br />
-			normal
-			<small>small</small>
-			normal
-			<big>big</big>
-			normal
-			<p data-tooltip="Some tooltip">Hover me for tooltip</p>
-			<p>
-				Enim repellat eos nulla vitae. Ducimus rerum aperiam doloremque <i
-					data-tooltip="Excepturi ut id et nulla deserunt consequatur animi. Sunt sed quo et adipisci omnis. Odio nesciunt quasi odit et. Facilis sequi sed dolorum eum ipsum omnis similique asperiores. Doloribus molestiae quas voluptatem amet autem quisquam non voluptates. Labore numquam tenetur ratione quia est non. Iusto dolores enim fugit sit eos. Commodi architecto est tempora qui et et aliquam. Autem consequuntur repellendus incidunt adipisci commodi molestias non et. Sit in soluta laudantium. Et aut sed voluptatibus repellat qui et. Ut veniam enim quod dolorem quo. Rem maxime odit ratione exercitationem dolorem dolores vitae. Unde ut sit porro aut tempore consectetur id repudiandae. Voluptatibus vitae ab non consequatur repellendus nisi eius earum.">laudantium</i>
-				quisquam voluptate. Inventore non consectetur voluptatibus deleniti velit.
-			</p>
-			<abbr data-tooltip="Three letter abbreviation">TLA</abbr>
 			<blockquote>
 				Blockquote: Enim repellat eos nulla vitae. Ducimus rerum aperiam doloremque laudantium quisquam
 				voluptate. Inventore non consectetur voluptatibus deleniti velit.
@@ -244,20 +184,19 @@
 			<blockquote role="alert strong">
 				Advises about risks or negative outcomes of certain actions.
 			</blockquote>
-		</section>
-		<section id="other_typography">
-			<h1>Code and other typography</h1>
-			<p>Some paragraph <code>inline code</code> and with <samp>inline samp</samp></p>
-			<pre>
+			<section id="other_typography">
+				<h2>Code and other typography</h2>
+				<p>Some paragraph <code>inline code</code> and with <samp>inline samp</samp></p>
+				<pre>
 Pre tag
 Enim hic expedita corrupti error veritatis consequatur culpa quisquam. Unde quia ipsam quae aut libero. Beatae ipsum
 repellat ab dignissimos quisquam est est. Eum veritatis sequi aut quis in enim consequatur tempore. Repellat maxime
 quasi neque quaerat laborum sapiente id.
 			</pre>
 
-			<br />
-			<p>Just some pre code</p>
-			<pre><code>
+				<br />
+				<p>Just some pre code</p>
+				<pre><code>
 class Main {
 	public static void main(String[] args) {
 		System.out.println("hello world");
@@ -266,9 +205,9 @@ class Main {
 			</code></pre>
 
 
-			<br />
-			<p>Just some pre sample</p>
-			<pre><samp>
+				<br />
+				<p>Just some pre sample</p>
+				<pre><samp>
 On branch dev
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
@@ -284,9 +223,9 @@ Changes not staged for commit:
 no changes added to commit (use "git add" and/or "git commit -a")
 			</samp></pre>
 
-			<br />
-			<p>Pre with code and sample</p>
-			<pre>
+				<br />
+				<p>Pre with code and sample</p>
+				<pre>
 <code>$ dotfiles status</code><samp>
 On branch dev
 Changes not staged for commit:
@@ -303,9 +242,9 @@ Changes not staged for commit:
 no changes added to commit (use "git add" and/or "git commit -a")
 		</samp></pre>
 
-			<br />
-			<p>Pre with multiple code and sample</p>
-			<pre>
+				<br />
+				<p>Pre with multiple code and sample</p>
+				<pre>
 <code>$ git clone --bare https://github.com/simonvic/dotfiles.git "${XDG_DATA_HOME:-$HOME/.local/share}/.dotfiles"</code><code>$ dotfiles status</code><samp>
 On branch dev
 Changes not staged for commit:
@@ -321,6 +260,116 @@ Changes not staged for commit:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 		</samp></pre>
+			</section>
+			<section id="tables">
+				<h2>Tables</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>Table header 1</th>
+							<th>Table header 2</th>
+							<th>Table header 3</th>
+							<th>Table header 4</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Colunn 1</td>
+							<td>Colunn 2</td>
+							<td>Colunn 3</td>
+							<td>Colunn 4</td>
+						</tr>
+						<tr>
+							<td>Colunn 1</td>
+							<td>Colunn 2</td>
+							<td>Colunn 3</td>
+							<td>Colunn 4</td>
+						</tr>
+						<tr>
+							<td colspan="3">multiple colspan</td>
+							<td>Column 4</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th>Table footer 1</th>
+							<th>Table footer 2</th>
+							<th>Table footer 3</th>
+							<th>Table footer 4</th>
+						</tr>
+					</tfoot>
+				</table>
+			</section>
+			<section id="article">
+				<h2>Articles</h2>
+				<article>
+					Enim repellat eos nulla vitae. Ducimus rerum aperiam doloremque laudantium quisquam voluptate.
+					Inventore
+					non consectetur voluptatibus deleniti velit.
+				</article>
+
+				<article>
+					<p>
+						Enim repellat eos nulla vitae. Ducimus rerum aperiam doloremque laudantium quisquam voluptate.
+						Inventore
+						non consectetur voluptatibus deleniti velit.
+					</p>
+					<p>
+						Id rerum officia incidunt adipisci quia vel cupiditate aliquid. Culpa nulla maiores doloremque.
+						Hic
+						voluptas ea rerum dolore. Molestiae expedita sapiente quis eligendi et tempore reiciendis. Ut ut
+						ullam
+						mollitia facilis velit. Natus iusto neque optio magnam.
+					</p>
+				</article>
+
+				<article>
+					<header>
+						<h1>Header heading 1</h1>
+					</header>
+					<p>
+						Enim repellat eos nulla vitae. Ducimus rerum aperiam doloremque laudantium quisquam voluptate.
+						Inventore
+						non consectetur voluptatibus deleniti velit.
+					</p>
+				</article>
+
+				<article>
+					<p>
+						Enim repellat eos nulla vitae. Ducimus rerum aperiam doloremque laudantium quisquam voluptate.
+						Inventore
+						non consectetur voluptatibus deleniti velit.
+					</p>
+					<footer>
+						<p>Footer paragraph</p>
+					</footer>
+				</article>
+
+				<article>
+					<header>
+						<h1>Header heading 1</h1>
+					</header>
+					<p>
+						Enim repellat eos nulla vitae. Ducimus rerum aperiam doloremque laudantium quisquam voluptate.
+						Inventore
+						non consectetur voluptatibus deleniti velit.
+					</p>
+					<footer>
+						<p>Footer paragraph</p>
+					</footer>
+				</article>
+
+				<article>
+					<h1>Header heading 1</h1>
+					<p>
+						Enim repellat eos nulla vitae. Ducimus rerum aperiam doloremque laudantium quisquam voluptate.
+						Inventore
+						non consectetur voluptatibus deleniti velit.
+					</p>
+					<p>Footer paragraph</p>
+				</article>
+
+			</section>
 		</section>
 		<section id="input">
 			<h1>Input</h1>
@@ -350,68 +399,32 @@ no changes added to commit (use "git add" and/or "git commit -a")
 			<label>time<input type="time" />time</label><br />
 			<label>url<input type="url" />url</label><br />
 			<label>week<input type="week" />week</label><br />
-		</section>
-		<section id="other_input">
-			<h1>Other input</h1>
-			<button>Button</button>
-			<a role="button">A button link</a>
-			<br />
-			<textarea placeholder="Placeholder for textarea..."></textarea>
-			<br />
-			<label>Progress<progress max=1 value=0.75>Progress</progress></label>
-			<br />
-			<label>Progress (indeterminate)<progress /></label>
-			<br />
-			<label>Meter<meter min="0" max="100" low="33" high="66" optimum="80" value="50">meter</meter></label>
-			<br />
-			<select>
-				<option value="">--Please choose an option--</option>
-				<option value="dog">Dog</option>
-				<option value="cat">Cat</option>
-				<option value="hamster">Hamster</option>
-			</select>
-			<select multiple>
-				<option value="">--Please choose an option--</option>
-				<option value="dog">Dog</option>
-				<option value="cat">Cat</option>
-				<option value="hamster">Hamster</option>
-			</select>
-			<table>
-				<thead>
-					<tr>
-						<th>(overlay)</th>
-						<th>Priority</th>
-						<th>Operator</th>
-						<th>Value</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>final result</td>
-						<td></td>
-						<td></td>
-						<td>0.80</td>
-					</tr>
-					<tr>
-						<td>Effect_A</td>
-						<td>420</td>
-						<td>MULTIPLICATIVE</td>
-						<td>2.00</td>
-					</tr>
-					<tr>
-						<td>Effect_B</td>
-						<td>1</td>
-						<td>ADD</td>
-						<td>0.40</td>
-					</tr>
-					<tr>
-						<td>default</td>
-						<td>0</td>
-						<td>SET</td>
-						<td>0</td>
-					</tr>
-				</tbody>
-			</table>
+			<section id="other_input">
+				<h1>Other input</h1>
+				<button>Button</button>
+				<a role="button">A button link</a>
+				<br />
+				<textarea placeholder="Placeholder for textarea..."></textarea>
+				<br />
+				<label>Progress<progress max=1 value=0.75>Progress</progress></label>
+				<br />
+				<label>Progress (indeterminate)<progress /></label>
+				<br />
+				<label>Meter<meter min="0" max="100" low="33" high="66" optimum="80" value="50">meter</meter></label>
+				<br />
+				<select>
+					<option value="">--Please choose an option--</option>
+					<option value="dog">Dog</option>
+					<option value="cat">Cat</option>
+					<option value="hamster">Hamster</option>
+				</select>
+				<select multiple>
+					<option value="">--Please choose an option--</option>
+					<option value="dog">Dog</option>
+					<option value="cat">Cat</option>
+					<option value="hamster">Hamster</option>
+				</select>
+			</section>
 		</section>
 		<section id="sections">
 			<h1>Section</h1>
