@@ -273,6 +273,7 @@ code,
 samp {
 	font-family: "monospace";
 	font-size: var(--atto-font-size-code);
+	line-height: var(--atto-line-height-code);
 	tab-size: var(--atto-tab-size);
 }
 
