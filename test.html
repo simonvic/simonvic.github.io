@@ -182,6 +182,7 @@
 			<s>strikethrough</s>
 			<mark>mark</mark>
 			<code>code</code>
+			<samp>samp</samp>
 			<span role="suggestion">
 				<ins>Inserted</ins>
 				<del>Deleted</del>
@@ -259,6 +260,8 @@
 			<button>Button</button>
 			<a role="button">A button link</a>
 			<br />
+			<textarea placeholder="Placeholder for textarea..."></textarea>
+			<br />
 			<label>Progress<progress max=1 value=0.75>Progress</progress></label>
 			<br />
 			<label>Progress (indeterminate)<progress /></label>
@@ -316,25 +319,80 @@
 		</section>
 		<section>
 			<h1>Code and other typography</h1>
+			<p>Some paragraph <code>inline code</code> and with <samp>inline samp</samp></p>
 			<pre>
 Pre tag
 Enim hic expedita corrupti error veritatis consequatur culpa quisquam. Unde quia ipsam quae aut libero. Beatae ipsum
 repellat ab dignissimos quisquam est est. Eum veritatis sequi aut quis in enim consequatur tempore. Repellat maxime
 quasi neque quaerat laborum sapiente id.
 			</pre>
-			<samp>
-				Sample
-				Enim hic expedita corrupti error veritatis consequatur culpa quisquam. Unde quia ipsam quae aut libero.
-				Beatae ipsum
-				repellat ab dignissimos quisquam est est. Eum veritatis sequi aut quis in enim consequatur tempore.
-				Repellat maxime
-				quasi neque quaerat laborum sapiente id.
-			</samp>
-			<pre><code>class Main {
+
+			<br/>
+			<p>Just some pre code</p>
+			<pre><code>
+class Main {
 	public static void main(String[] args) {
 		System.out.println("hello world");
 	}
-}</code></pre>
+}
+			</code></pre>
+
+
+			<br/>
+			<p>Just some pre sample</p>
+			<pre><samp>
+On branch dev
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   .config/nvim/after/lsp/html.lua
+	modified:   .config/nvim/lua/simonvic/colorscheme/init.lua
+	modified:   .config/nvim/lua/simonvic/plugins/configs/mdpreview.lua
+	modified:   .config/nvim/lua/simonvic/plugins/init.lua
+	modified:   .config/nvim/lua/simonvic/settings.lua
+	modified:   .config/zsh/custom/themes/prompt_simonvic-minimal_setup
+	modified:   .zshrc
+
+no changes added to commit (use "git add" and/or "git commit -a")
+			</samp></pre>
+
+			<br/>
+			<p>Pre with code and sample</p>
+			<pre>
+<code>$ dotfiles status</code><samp>
+On branch dev
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   .config/nvim/after/lsp/html.lua
+	modified:   .config/nvim/lua/simonvic/colorscheme/init.lua
+	modified:   .config/nvim/lua/simonvic/plugins/configs/mdpreview.lua
+	modified:   .config/nvim/lua/simonvic/plugins/init.lua
+	modified:   .config/nvim/lua/simonvic/settings.lua
+	modified:   .config/zsh/custom/themes/prompt_simonvic-minimal_setup
+	modified:   .zshrc
+
+no changes added to commit (use "git add" and/or "git commit -a")
+		</samp></pre>
+
+			<br/>
+			<p>Pre with multiple code and sample</p>
+			<pre>
+<code>$ git clone --bare https://github.com/simonvic/dotfiles.git "${XDG_DATA_HOME:-$HOME/.local/share}/.dotfiles"</code><code>$ dotfiles status</code><samp>
+On branch dev
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   .config/nvim/after/lsp/html.lua
+	modified:   .config/nvim/lua/simonvic/colorscheme/init.lua
+	modified:   .config/nvim/lua/simonvic/plugins/configs/mdpreview.lua
+	modified:   .config/nvim/lua/simonvic/plugins/init.lua
+	modified:   .config/nvim/lua/simonvic/settings.lua
+	modified:   .config/zsh/custom/themes/prompt_simonvic-minimal_setup
+	modified:   .zshrc
+
+no changes added to commit (use "git add" and/or "git commit -a")
+		</samp></pre>
 		</section>
 		<section>
 			<h1>Section</h1>
