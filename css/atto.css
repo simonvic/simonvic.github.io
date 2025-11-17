@@ -1,0 +1,741 @@
+@charset "UTF-8";
+
+:root {
+	--atto-main-width: 50rem;
+	--atto-padding-body: 1rem 0;
+	--atto-padding-header: 0 0 1rem 0;
+	--atto-padding-footer: 1rem 0 0 0;
+	--atto-padding-left-list: 2rem;
+
+	--atto-margin-group: 1rem 0;
+	--atto-margin-hr: 0.5rem 0;
+	--atto-margin-header: 0 auto;
+	--atto-margin-h1: 2rem 0 0.5rem 0;
+	--atto-margin-h2: 2rem 0 0.5rem 0;
+	--atto-margin-h3: 2rem 0 0.5rem 0;
+	--atto-margin-h4: 2rem 0 0.5rem 0;
+	--atto-margin-h5: 2rem 0 0.5rem 0;
+	--atto-margin-h6: 2rem 0 0.5rem 0;
+	--atto-margin-p: 0 0;
+	--atto-margin-li: 0.5rem 0;
+
+	--atto-transition: 0.2s ease-in-out;
+
+	--atto-color-accent--4: #3F2727;
+	--atto-color-accent--3: #4C302F;
+	--atto-color-accent--2: #88302B;
+	--atto-color-accent--1: #CC443D;
+	--atto-color-accent: #F0544C;
+	--atto-color-accent-1: #F6645D;
+	--atto-color-accent-2: #F7736D;
+	--atto-color-accent-3: #EF9F9B;
+	--atto-color-accent-4: #F7B3AF;
+	--atto-color-bg--4: #000000;
+	--atto-color-bg--3: #111111;
+	--atto-color-bg--2: #222222;
+	--atto-color-bg--1: #252525;
+	--atto-color-bg: #333333;
+	--atto-color-bg-1: #3a3a3a;
+	--atto-color-bg-2: #444444;
+	--atto-color-bg-3: #505050;
+	--atto-color-bg-4: #555555;
+	--atto-color-fg--4: #505050;
+	--atto-color-fg--3: #555555;
+	--atto-color-fg--2: #666666;
+	--atto-color-fg--1: #808080;
+	--atto-color-fg: #CACACA;
+	--atto-color-fg-1: #DADADA;
+	--atto-color-fg-2: #EEEEEE;
+	--atto-color-fg-3: #FAFAFA;
+	--atto-color-fg-4: #FFFFFF;
+	--atto-color-code-bg: #404040;
+
+	--atto-color-mark-bg: var(--atto-color-accent--3);
+	--atto-color-mark-fg: var(--atto-color-2);
+
+	--atto-color-kbd-bg: var(--atto-color-fg-1);
+	--atto-color-kbd-fg: var(--atto-color-bg-1);
+
+	--atto-color-indent-guide: var(--atto-color-bg-2);
+
+	--atto-color-ins--1: #3A8C623f;
+	--atto-color-ins: #3A8C62;
+
+	--atto-color-del--1: #C13C403f;
+	--atto-color-del: #C13C40;
+
+	--atto-color-note--1: #4AD7EA0C;
+	--atto-color-note: #4AD7EA;
+
+	--atto-color-note-suggestion--1: #32D7320C;
+	--atto-color-note-suggestion: #32D732;
+
+	--atto-color-note-strong--1: #8C5FB90C;
+	--atto-color-note-strong: #8C5FB9;
+
+	--atto-color-alert--1: #E87B2E0c;
+	--atto-color-alert: #E87B2E;
+
+	--atto-color-alert-strong--1: #FF0A320C;
+	--atto-color-alert-strong: #FF0A32;
+
+	--atto-glyph-clipboard: url("data:image/svg+xml,%3Csvg width='32px' height='32px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 5.00005C7.01165 5.00082 6.49359 5.01338 6.09202 5.21799C5.71569 5.40973 5.40973 5.71569 5.21799 6.09202C5 6.51984 5 7.07989 5 8.2V17.8C5 18.9201 5 19.4802 5.21799 19.908C5.40973 20.2843 5.71569 20.5903 6.09202 20.782C6.51984 21 7.07989 21 8.2 21H15.8C16.9201 21 17.4802 21 17.908 20.782C18.2843 20.5903 18.5903 20.2843 18.782 19.908C19 19.4802 19 18.9201 19 17.8V8.2C19 7.07989 19 6.51984 18.782 6.09202C18.5903 5.71569 18.2843 5.40973 17.908 5.21799C17.5064 5.01338 16.9884 5.00082 16 5.00005M8 5.00005V7H16V5.00005M8 5.00005V4.70711C8 4.25435 8.17986 3.82014 8.5 3.5C8.82014 3.17986 9.25435 3 9.70711 3H14.2929C14.7456 3 15.1799 3.17986 15.5 3.5C15.8201 3.82014 16 4.25435 16 4.70711V5.00005' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--atto-glyph-checkmark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(255, 255, 255)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+	--atto-glyph-note: url("data:image/svg+xml,%3Csvg id='svg' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0, 0, 400,400'%3E%3Cg id='svgg'%3E%3Cpath id='path0' d='M185.228 10.221 C 51.337 20.482,-29.863 163.007,29.258 283.984 C 98.274 425.210,301.726 425.210,370.742 283.984 C 435.488 151.497,332.124 -1.038,185.228 10.221 M222.047 49.592 C 330.906 65.988,387.317 189.983,327.700 281.825 C 262.999 381.498,116.901 373.033,63.628 266.525 C 9.676 158.661,102.477 31.584,222.047 49.592 M191.871 104.363 C 177.138 109.067,172.460 129.519,183.136 142.547 C 193.721 155.465,216.969 151.196,221.533 135.497 C 227.216 115.945,210.511 98.411,191.871 104.363 M185.652 171.150 L 183.594 172.770 183.594 232.783 C 183.594 305.192,181.351 296.484,200.000 296.484 C 218.649 296.484,216.406 305.192,216.406 232.783 L 216.406 172.770 214.348 171.150 C 212.463 169.668,211.250 169.531,200.000 169.531 C 188.750 169.531,187.537 169.668,185.652 171.150 ' stroke='none' fill='%234AD7EA' fill-rule='evenodd'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
+	--atto-glyph-note-suggestion: url("data:image/svg+xml,%3Csvg id='svg' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0, 0, 400,400'%3E%3Cg id='svgg'%3E%3Cpath id='path0' d='M198.586 1.583 C 193.977 4.392,193.750 5.862,193.750 32.865 C 193.750 62.747,194.705 65.625,204.623 65.625 C 214.970 65.625,215.619 63.650,215.622 32.135 L 215.625 6.066 212.592 3.033 C 208.917 -0.641,203.204 -1.233,198.586 1.583 M61.328 43.880 C 56.219 46.706,54.012 51.621,55.451 56.967 C 56.370 60.377,90.032 93.750,94.122 95.305 C 103.959 99.046,113.057 89.074,108.264 79.805 C 106.999 77.359,75.062 46.636,71.484 44.424 C 68.889 42.819,63.745 42.544,61.328 43.880 M333.019 47.119 C 328.318 49.731,296.070 81.539,295.209 84.413 C 292.414 93.742,301.073 101.769,309.818 97.956 C 312.836 96.641,342.517 69.197,347.193 63.398 C 354.173 54.743,342.803 41.684,333.019 47.119 M192.007 79.670 C 124.908 88.178,82.056 156.070,103.488 219.914 C 108.324 234.319,114.725 244.763,129.367 262.140 C 148.141 284.420,149.900 287.971,150.725 305.263 C 151.401 319.418,152.591 323.084,158.019 327.729 C 164.333 333.134,164.927 333.203,205.078 333.203 C 245.225 333.203,245.824 333.133,252.133 327.734 C 257.387 323.236,258.113 320.865,258.590 306.641 C 259.175 289.185,261.059 285.350,280.469 262.109 C 298.499 240.520,304.848 228.629,309.495 207.749 C 325.080 137.723,263.510 70.603,192.007 79.670 M220.117 102.744 C 274.664 113.091,304.880 171.974,281.206 221.791 C 277.266 230.082,273.499 235.456,261.862 249.391 C 241.454 273.828,236.719 283.684,236.719 301.727 L 236.719 310.938 204.786 310.938 L 172.853 310.938 172.457 299.805 C 171.791 281.065,167.931 273.259,146.843 248.008 C 127.605 224.973,121.620 211.724,120.540 189.783 C 117.889 135.902,167.288 92.722,220.117 102.744 M17.203 157.618 C 9.666 161.405,8.866 171.745,15.732 176.642 L 18.359 178.516 43.003 178.516 C 65.439 178.516,67.838 178.389,69.798 177.106 C 77.080 172.336,76.489 161.515,68.734 157.618 C 64.630 155.556,21.308 155.556,17.203 157.618 M331.266 157.618 C 323.511 161.515,322.920 172.336,330.202 177.106 C 332.162 178.389,334.561 178.516,356.997 178.516 L 381.641 178.516 384.268 176.642 C 391.134 171.745,390.334 161.405,382.797 157.618 C 378.692 155.556,335.370 155.556,331.266 157.618 M172.651 342.917 C 161.016 346.457,157.409 353.327,157.450 371.875 C 157.487 388.626,159.792 393.812,169.135 398.163 C 174.831 400.816,234.836 401.051,240.226 398.442 C 250.083 393.670,252.555 387.826,252.213 370.102 C 251.873 352.499,248.700 346.546,237.944 343.337 C 233.735 342.081,176.607 341.714,172.651 342.917 M230.469 371.094 L 230.469 378.125 205.078 378.125 L 179.688 378.125 179.688 371.094 L 179.688 364.063 205.078 364.063 L 230.469 364.063 230.469 371.094 ' stroke='none' fill='%2332D732' fill-rule='evenodd'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
+	--atto-glyph-note-strong: url("data:image/svg+xml,%3Csvg id='svg' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0, 0, 400,400'%3E%3Cg id='svgg'%3E%3Cpath id='path0' d='M187.109 20.795 C 42.551 32.531,-30.260 199.670,60.034 312.500 C 146.147 420.104,317.218 393.376,367.632 264.441 C 415.012 143.268,316.487 10.292,187.109 20.795 M223.047 48.037 C 347.188 67.108,397.276 219.759,308.518 308.518 C 212.137 404.898,46.553 336.306,46.553 200.000 C 46.553 119.197,105.726 55.315,188.672 46.572 C 194.541 45.954,215.221 46.835,223.047 48.037 M190.006 102.019 C 182.683 105.668,177.324 113.890,177.353 121.431 C 177.380 128.404,190.588 235.162,191.686 237.286 C 194.880 243.463,205.120 243.463,208.314 237.286 C 209.925 234.171,222.885 125.583,222.352 119.673 C 220.984 104.512,203.811 95.139,190.006 102.019 M193.773 267.235 C 176.418 274.529,181.252 300.000,199.992 300.000 C 221.903 300.000,222.828 267.512,200.943 266.634 C 198.061 266.518,194.835 266.788,193.773 267.235 ' stroke='none' fill='%238C5FB9' fill-rule='evenodd'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
+	--atto-glyph-alert: url("data:image/svg+xml,%3Csvg id='svg' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0, 0, 400,400'%3E%3Cg id='svgg'%3E%3Cpath id='path0' d='M185.156 19.572 C 173.055 22.705,161.233 30.505,154.287 39.941 C 148.138 48.293,4.824 299.941,2.590 306.307 C -8.102 336.783,11.161 372.433,42.674 380.493 C 50.809 382.574,347.309 382.919,356.049 380.858 C 388.284 373.258,408.247 337.057,397.192 306.250 C 394.545 298.875,251.032 46.876,245.061 39.119 C 231.950 22.087,206.951 13.929,185.156 19.572 M212.065 49.145 C 221.215 53.662,218.663 49.535,296.148 185.156 C 335.795 254.551,368.913 313.086,369.743 315.234 C 375.017 328.882,367.916 344.573,353.387 351.380 L 348.828 353.516 199.959 353.516 L 51.091 353.516 45.119 350.564 C 31.403 343.785,24.636 327.281,30.340 314.521 C 34.695 304.781,176.337 58.220,179.410 55.032 C 187.881 46.242,201.288 43.825,212.065 49.145 M195.043 137.817 C 191.295 139.205,188.400 141.826,187.009 145.092 C 185.408 148.850,185.436 224.118,187.040 227.187 C 191.884 236.461,204.379 237.803,211.134 229.776 C 214.142 226.201,214.156 225.958,213.903 183.923 L 213.672 145.580 211.483 142.711 C 207.631 137.662,200.886 135.654,195.043 137.817 M193.076 263.570 C 185.341 266.369,180.923 273.478,181.374 282.402 C 182.593 306.536,218.735 305.421,218.735 281.250 C 218.735 268.042,205.644 259.022,193.076 263.570 ' stroke='none' fill='%23E87B2E' fill-rule='evenodd'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
+	--atto-glyph-alert-strong: url("data:image/svg+xml,%3Csvg id='svg' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0, 0, 400,400'%3E%3Cg id='svgg'%3E%3Cpath id='path0' d='M188.511 35.528 C 181.606 37.466,180.441 38.100,123.707 70.853 C 42.733 117.601,50.027 104.815,50.027 200.000 C 50.027 271.258,49.926 269.762,55.487 281.044 C 59.891 289.978,65.850 295.742,77.803 302.626 C 82.921 305.575,107.852 319.970,133.203 334.616 C 187.497 365.982,185.741 365.179,200.000 365.179 C 214.365 365.179,211.887 366.343,274.609 330.148 C 339.640 292.621,338.967 293.103,345.287 279.596 C 350.101 269.310,350.073 269.809,349.830 197.390 L 349.609 131.641 347.462 125.571 C 344.133 116.167,339.273 109.166,332.474 103.983 C 326.356 99.319,221.358 38.980,215.625 36.834 C 209.166 34.415,194.917 33.729,188.511 35.528 M208.263 62.018 C 220.377 67.659,314.679 123.024,318.095 126.501 C 324.469 132.989,324.219 129.983,324.219 200.000 C 324.219 270.016,324.469 267.009,318.095 273.501 C 314.692 276.967,220.340 332.352,208.203 338.008 C 198.332 342.608,201.336 343.924,136.719 306.693 C 80.684 274.407,79.364 273.498,77.022 265.614 C 75.148 259.302,75.148 140.698,77.022 134.386 C 79.363 126.504,80.686 125.594,136.719 93.304 C 201.349 56.060,198.316 57.386,208.263 62.018 M193.888 105.221 C 192.461 105.925,190.439 107.756,189.396 109.291 L 187.500 112.081 187.500 166.472 L 187.500 220.863 189.258 223.445 C 194.824 231.624,205.176 231.624,210.742 223.445 L 212.500 220.863 212.500 166.578 C 212.500 112.789,212.485 112.270,210.859 109.638 C 207.678 104.491,199.624 102.395,193.888 105.221 M192.578 251.294 C 176.296 259.851,181.727 283.203,200.000 283.203 C 217.976 283.203,223.745 259.691,207.768 251.540 C 204.010 249.622,196.006 249.493,192.578 251.294 ' stroke='none' fill='%23FF0A32' fill-rule='evenodd'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
+
+}
+
+@media only screen and (prefers-color-scheme: light) {
+	:root {
+		--atto-color-accent--4: #F7B3AF;
+		--atto-color-accent--3: #EF9F9B;
+		--atto-color-accent--2: #F27F79;
+		--atto-color-accent--1: #F6645D;
+		--atto-color-accent: #F0544C;
+		--atto-color-accent-1: #CC443D;
+		--atto-color-accent-2: #88302B;
+		--atto-color-accent-3: #4C302F;
+		--atto-color-accent-4: #3F2727;
+		--atto-color-bg--4: #BABABA;
+		--atto-color-bg--3: #CACACA;
+		--atto-color-bg--2: #DADADA;
+		--atto-color-bg--1: #EAEAEA;
+		--atto-color-bg: #f5f5f5;
+		--atto-color-bg-1: #FAFAFA;
+		--atto-color-bg-2: #fdfdfd;
+		--atto-color-bg-3: #fefefe;
+		--atto-color-bg-4: #ffffff;
+		--atto-color-fg--4: #eeeeee;
+		--atto-color-fg--3: #bbbbbb;
+		--atto-color-fg--2: #999999;
+		--atto-color-fg--1: #777777;
+		--atto-color-fg: #444444;
+		--atto-color-fg-1: #333333;
+		--atto-color-fg-2: #222222;
+		--atto-color-fg-3: #111111;
+		--atto-color-fg-4: #000000;
+		--atto-color-code-bg: #DDDDDD;
+	}
+}
+
+::selection {
+	background-color: var(--atto-color-accent--3);
+}
+
+/******************************************************************************/
+/*                                                                  STRUCTURE */
+
+body {
+	margin: 0;
+	padding: 0;
+	padding: var(--atto-padding-body);
+	background-color: var(--atto-color-bg--1);
+	color: var(--atto-color-fg);
+	font-family: "sans";
+	font-size: 1rem;
+	accent-color: var(--atto-color-accent);
+}
+
+header {
+	max-width: var(--atto-main-width);
+	margin: var(--atto-margin-header);
+	padding: var(--atto-padding-header);
+}
+
+footer {
+	max-width: var(--atto-main-width);
+	margin-left: auto;
+	margin-right: auto;
+	padding: var(--atto-padding-footer);
+}
+
+footer nav {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	margin: auto;
+	gap: 0 1rem;
+}
+
+main {
+	max-width: var(--atto-main-width);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+nav {
+	margin: 0;
+	padding: 0;
+}
+
+section {
+	margin: var(--atto-margin-group);
+}
+
+fieldset {
+	margin: var(--atto-margin-group);
+	border: none;
+}
+
+/******************************************************************************/
+/*                                                                 TYPOGRAPHY */
+
+hr {
+	margin: var(--atto-margin-hr);
+}
+
+a {
+	color: var(--atto-color-accent-1);
+}
+
+a:hover {
+	color: var(--atto-color-accent-2);
+}
+
+h1 {
+	font-size: 2.0rem;
+	margin: var(--atto-margin-h1);
+}
+
+h2 {
+	font-size: 1.75rem;
+	margin: var(--atto-margin-h2);
+}
+
+h3 {
+	font-size: 1.5rem;
+	margin: var(--atto-margin-h3);
+}
+
+h4 {
+	font-size: 1.25rem;
+	margin: var(--atto-margin-h4);
+}
+
+h5 {
+	font-size: 1.125rem;
+	margin: var(--atto-margin-h5);
+}
+
+h6 {
+	font-size: 1.075rem;
+	margin: var(--atto-margin-h6);
+}
+
+hgroup {
+	margin: 2.0rem 0 1.0rem 0;
+}
+
+hgroup>* {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+p {
+	font-size: 1rem;
+	margin: var(--atto-margin-p);
+}
+
+small {
+	font-size: 0.75rem;
+}
+
+big {
+	font-size: 1.25rem;
+}
+
+code {
+	background-color: var(--atto-color-code-bg);
+	color: var(--atto-color-code-fg);
+	font-family: "monospace";
+	font-size: 1rem;
+	border-radius: 0.25rem;
+	padding: 0 0.25rem;
+	tab-size: 4;
+}
+
+pre {
+	margin: var(--atto-margin-p);
+	overflow-x: auto;
+	background-color: var(--atto-color-bg);
+}
+
+pre>code {
+	background-color: var(--atto-color-code-bg);
+	display: block;
+	/* border-radius: 0; */
+	padding: 0.75rem;
+	font-size: 16px;
+	overflow: auto;
+}
+
+/* TODO: Copy to clipboard button */
+/* pre>code::before { */
+/* 	content: var(--atto-glyph-clipboard); */
+/* 	position: sticky; */
+/* 	top: 0; */
+/* 	left: 100%; */
+/* 	display: inline; */
+/* } */
+
+kbd {
+	background-color: var(--atto-color-kbd-bg);
+	color: var(--atto-color-kbd-fg);
+	padding: 0 0.25rem;
+	border-radius: 0.25rem;
+}
+
+mark {
+	background-color: var(--atto-color-mark-bg);
+	color: var(--atto-color-mark-fg);
+	border-radius: 0.25rem;
+}
+
+abbr,
+[data-tooltip] {
+	text-decoration-line: underline;
+	text-decoration-style: dotted;
+	text-decoration-thickness: 0.1rem;
+}
+
+ins,
+del {
+	border-radius: 0.25rem;
+	text-decoration: none;
+}
+
+ins {
+	background-color: var(--atto-color-ins--1);
+	color: var(--atto-color-ins);
+}
+
+del {
+	background-color: var(--atto-color-del--1);
+	color: var(--atto-color-del);
+}
+
+svg {
+	vertical-align: middle;
+}
+
+svg:not([fill]) {
+	fill: currentColor;
+}
+
+ol,
+ul {
+	list-style-position: inside;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	margin: var(--atto-margin-li);
+}
+
+li>p,
+li>pre {
+	margin-left: calc(var(--atto-padding-left-list) / 2);
+}
+
+ol ol,
+ul ul {
+	padding-left: var(--atto-padding-left-list);
+}
+
+ol {
+	counter-reset: item;
+}
+
+ol>li::before {
+	counter-increment: item;
+	content: counters(item, ".") ". ";
+}
+
+ol>li {
+	list-style: none;
+}
+
+blockquote {
+	margin: 0.5rem 0;
+	border-left: 0.25rem solid var(--atto-color-bg-2);
+	background-color: var(--atto-color-bg);
+	padding: 1rem;
+}
+
+/* TODO: table */
+/* TODO: striped based on sibling */
+
+article {
+	background-color: var(--atto-color-bg-1);
+	padding: 1rem;
+	margin: 1rem 0;
+	border-radius: 1rem;
+	box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
+}
+
+article>header>* {
+	margin-top: 0;
+}
+
+article>footer>* {
+	margin-bottom: 0;
+}
+
+/* TODO: custom and animated chevron */
+/* TODO: add left padding */
+/* details summary { */
+/* 	list-style-type: none; */
+/* } */
+
+/******************************************************************************/
+/*                                                                 COMPONENTS */
+
+input,
+progress,
+meter {
+	vertical-align: middle;
+}
+
+/* TODO: progress, progress:indeterminate, meter */
+/* TODO: select, multiselect */
+
+input,
+button {
+	border: 1px solid transparent;
+	border-radius: 0.5rem;
+	margin: 0.5rem;
+	padding: 0.5rem;
+	transition:
+		background-color var(--atto-transition),
+		border-color var(--atto-transition),
+		color var(--atto-transition),
+		box-shadow var(--atto-transition);
+	background-color: var(--atto-color-bg-2);
+	color: var(--atto-color-fg-1);
+}
+
+input[type="search"] {
+	border-radius: 2rem;
+}
+
+button,
+input[type="button"],
+input[type="image"],
+input[type="reset"],
+input[type="submit"],
+[role="button"] {
+	background-color: var(--atto-color-accent--2);
+	color: var(--atto-color-fg-1);
+	border: 1px solid transparent;
+	border-radius: 0.5rem;
+	margin: 0.5rem;
+	padding: 0.5rem;
+	transition:
+		background-color var(--atto-transition),
+		border-color var(--atto-transition),
+		color var(--atto-transition),
+		box-shadow var(--atto-transition);
+	display: inline-block;
+	line-height: 1rem;
+	font-size: 1rem;
+	box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+
+button:active,
+input[type="button"]:active,
+input[type="image"]:active,
+input[type="reset"]:active,
+input[type="submit"]:active,
+[role="button"]:active {
+	background-color: var(--atto-color-accent--2);
+}
+
+input[type="checkbox"] {
+	appearance: none;
+	width: 1.75rem;
+	height: 1.75rem;
+	box-shadow: inset 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+}
+
+input[type="checkbox"]:checked {
+	background-color: var(--atto-color-accent--2);
+	background-image: var(--atto-glyph-checkmark);
+	background-size: 75% auto;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+input[type="checkbox"][role="switch"] {
+	width: 3.25rem;
+	border-radius: 1.25rem;
+	padding: 0.25rem;
+	background-image: none;
+	background-color: var(--atto-color-bg--2);
+}
+
+input[type="checkbox"][role="switch"]:checked {
+	background-color: var(--atto-color-accent--2);
+}
+
+input[type="checkbox"][role="switch"]::before {
+	display: block;
+	background-color: white;
+	content: "";
+	height: 100%;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	transition: margin .1s ease-in-out;
+}
+
+input[type="checkbox"][role="switch"]:checked::before {
+	/* width / 2 - padding */
+	margin-inline-start: 1.5rem;
+}
+
+input[type="radio"] {
+	appearance: none;
+	height: 1.75rem;
+	width: 1.75rem;
+	padding: 0.25rem;
+	border-radius: 50%;
+}
+
+input[type="radio"]:checked::before {
+	display: block;
+	background-color: var(--atto-color-accent);
+	content: "";
+	height: 100%;
+	aspect-ratio: 1;
+	border-radius: 50%;
+}
+
+input[type="color"] {
+	padding: 0.25rem;
+}
+
+input:focus,
+input:focus-visible,
+button:focus,
+button:focus-visible {
+	outline: 1px;
+	border: 1px solid var(--atto-color-accent);
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="image"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover,
+input[type="checkbox"]:hover,
+[role="button"]:hover {
+	background-color: var(--atto-color-accent--1);
+}
+
+input[type="checkbox"]:checked:hover {
+	background-color: var(--atto-color-accent);
+}
+
+/******************************************************************************/
+/*                                                             EXTRA FEATURES */
+
+/*                                                           Blockquote kinds */
+
+blockquote[role="note"]::before,
+blockquote[role="note suggestion"]::before,
+blockquote[role="note strong"]::before,
+blockquote[role="alert"]::before,
+blockquote[role="alert strong"]::before {
+	--icon-size: 1.75rem;
+	display: flex;
+	align-items: center;
+	background-repeat: no-repeat;
+	font-size: var(--icon-size);
+	background-position: calc(var(--icon-size) * 0.5) center;
+	background-size: var(--icon-size);
+	padding-left: calc(2 * var(--icon-size));
+}
+
+blockquote[role="note"]::before {
+	color: var(--atto-color-note);
+	content: "Note";
+	background-image: var(--atto-glyph-note);
+}
+
+blockquote[role="note"] {
+	border-color: var(--atto-color-note);
+	background-color: var(--atto-color-note--1);
+}
+
+blockquote[role="note suggestion"]::before {
+	color: var(--atto-color-note-suggestion);
+	content: "Tip";
+	background-image: var(--atto-glyph-note-suggestion);
+}
+
+blockquote[role="note suggestion"] {
+	border-color: var(--atto-color-note-suggestion);
+	background-color: var(--atto-color-note-suggestion--1);
+}
+
+blockquote[role="note strong"]::before {
+	color: var(--atto-color-note-strong);
+	content: "Important";
+	background-image: var(--atto-glyph-note-strong);
+}
+
+blockquote[role="note strong"] {
+	border-color: var(--atto-color-note-strong);
+	background-color: var(--atto-color-note-strong--1);
+}
+
+blockquote[role="alert"]::before {
+	color: var(--atto-color-alert);
+	content: "Warning";
+	background-image: var(--atto-glyph-alert);
+}
+
+blockquote[role="alert"] {
+	border-color: var(--atto-color-alert);
+	background-color: var(--atto-color-alert--1);
+}
+
+blockquote[role="alert strong"]::before {
+	color: var(--atto-color-alert-strong);
+	content: "Caution";
+	background-image: var(--atto-glyph-alert-strong);
+}
+
+blockquote[role="alert strong"] {
+	border-color: var(--atto-color-alert-strong);
+	background-color: var(--atto-color-alert-strong--1);
+}
+
+/*                                                                Breadcrumbs */
+
+nav[aria-label="breadcrumb"] a::before {
+	content: "/";
+	margin: 0 16px;
+	display: inline-block;
+	text-decoration: none;
+	color: var(--atto-color-fg);
+}
+
+/*                                                                    Tooltip */
+
+[data-tooltip] {
+	position: relative;
+}
+
+[data-tooltip]:hover::before,
+[data-tooltip]:focus::before {
+	content: attr(data-tooltip);
+	display: block;
+	position: absolute;
+	bottom: 100%;
+	left: 0;
+	white-space: nowrap;
+	background: var(--atto-color-bg-1);
+	border-radius: 0.25rem;
+	padding: 0.5rem;
+	box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+	max-width: 80vw;
+	overflow: auto;
+}
+
+/*                                                                   Dropdown */
+/* with menu maybe? */
+
+/*                                                             Dialog (popup) */
+
+dialog {
+	display: flex;
+	z-index: 999;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	align-items: center;
+	justify-content: center;
+	width: inherit;
+	min-width: 100%;
+	height: inherit;
+	min-height: 100%;
+	padding: 0;
+	border: 0;
+	color: var(--atto-color-fg);
+	background-color: transparent;
+	backdrop-filter: blur(0.5rem);
+}
+
+/*                                                                        ToC */
+/* nav[role="tree"] { } */
+/* aside nav[role="tree"] { } */
+
+/* Tabs in code (for multiple languages) */
+
+/*                                                   Header and Footer banner */
+
+body:has(>header[role="banner"]) {
+	padding-top: 0;
+}
+
+body:has(>footer[role="banner"]) {
+	padding-bottom: 0;
+}
+
+header[role="banner"] {
+	position: sticky;
+	top: 0;
+	display: block;
+	max-width: 100%;
+	margin: 0 0 2rem 0;
+	padding: 1rem;
+	background-color: var(--atto-color-bg-2);
+	box-shadow: 0px 20px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+footer[role="banner"] {
+	position: sticky;
+	bottom: 0;
+	display: block;
+	max-width: 100%;
+	margin: 2rem 0 0 0;
+	padding: 1rem;
+	background-color: var(--atto-color-bg-2);
+	box-shadow: 0px -20px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+/*                                                             Layout helpers */
+
+/*
+.flex {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0 1rem;
+}
+
+.hbox {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(0%, 1fr));
+	grid-gap: 1rem;
+}
+
+.vbox {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 1rem;
+}
+*/
+
+/* TODO: move out */
+details[hidden]+hr {
+	display: none;
+}
