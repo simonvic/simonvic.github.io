@@ -346,11 +346,20 @@ mark {
 	border-radius: 0.25rem;
 }
 
-abbr,
+/* TODO: add glyphs for time and abbr? */
+
+time[datetime],
+abbr[title],
 [data-tooltip] {
 	text-decoration-line: underline;
 	text-decoration-style: dotted;
 	text-decoration-thickness: 0.1rem;
+}
+
+time {
+	background-color: var(--atto-color-bg);
+	border-radius: 0.25rem;
+	padding: 0 0.25rem;
 }
 
 ins,
@@ -854,13 +863,18 @@ nav[aria-label="breadcrumb"] a::before {
 
 /*                                                                    Tooltip */
 
+time[datetime],
+abbr[title],
 [data-tooltip] {
 	position: relative;
 }
 
+time[datetime]:hover::before,
+time[datetime]:focus::before,
+abbr[title]:hover::before,
+abbr[title]:focus::before,
 [data-tooltip]:hover::before,
 [data-tooltip]:focus::before {
-	content: attr(data-tooltip);
 	display: block;
 	position: absolute;
 	bottom: 100%;
@@ -872,6 +886,21 @@ nav[aria-label="breadcrumb"] a::before {
 	box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
 	max-width: 80vw;
 	overflow: auto;
+}
+
+time[datetime]:hover::before,
+time[datetime]:focus::before {
+	content: attr(datetime);
+}
+
+abbr[title]:hover::before,
+abbr[title]:focus::before {
+	content: attr(title);
+}
+
+[data-tooltip]:hover::before,
+[data-tooltip]:focus::before {
+	content: attr(data-tooltip);
 }
 
 /*                                                                   Dropdown */
