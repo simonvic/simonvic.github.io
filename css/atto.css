@@ -770,9 +770,13 @@ input[type="button"]:hover,
 input[type="image"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover,
-input[type="checkbox"]:hover,
 [role="button"]:hover {
 	background-color: var(--atto-color-accent--1);
+}
+
+input[type="checkbox"]:hover {
+	background-color: var(--atto-color-accent--3);
+
 }
 
 input[type="checkbox"]:checked:hover {
