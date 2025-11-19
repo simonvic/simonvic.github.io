@@ -797,21 +797,59 @@ no changes added to commit (use "git add" and/or "git commit -a")
 				<br />
 				<label>
 					<select>
-						<option value="">--Please choose an option--</option>
-						<option value="dog">Dog</option>
-						<option value="cat">Cat</option>
-						<option value="hamster">Hamster</option>
+						<option>Option 1</option>
+						<option disabled>Option 2 (disabled)</option>
+						<optgroup label="Group">
+							<option>Option 1-3</option>
+							<option>Option 1-4</option>
+							<option>Option 1-5</option>
+						</optgroup>
+						<optgroup label="Group (disabled)" disabled>
+							<option>Option 1-3</option>
+							<option>Option 1-4</option>
+							<option>Option 1-5</option>
+						</optgroup>
+						<option>Option 6</option>
 					</select>
 					Select
 				</label>
+				<br />
 				<label>
 					<select multiple>
-						<option value="">--Please choose an option--</option>
-						<option value="dog">Dog</option>
-						<option value="cat">Cat</option>
-						<option value="hamster">Hamster</option>
+						<option>Option 1</option>
+						<option disabled>Option 2 (disabled)</option>
+						<optgroup label="Group">
+							<option>Option 1-3</option>
+							<option>Option 1-4</option>
+							<option>Option 1-5</option>
+						</optgroup>
+						<optgroup label="Group (disabled)" disabled>
+							<option>Option 1-3</option>
+							<option>Option 1-4</option>
+							<option>Option 1-5</option>
+						</optgroup>
+						<option>Option 6</option>
 					</select>
 					Select (multiple)
+				</label>
+				<br />
+				<label>
+					<select multiple size="13">
+						<option>Option 1</option>
+						<option disabled>Option 2 (disabled)</option>
+						<optgroup label="Group">
+							<option>Option 1-3</option>
+							<option>Option 1-4</option>
+							<option>Option 1-5</option>
+						</optgroup>
+						<optgroup label="Group (disabled)" disabled>
+							<option>Option 1-3</option>
+							<option>Option 1-4</option>
+							<option>Option 1-5</option>
+						</optgroup>
+						<option>Option 6</option>
+					</select>
+					Select (multiple with size)
 				</label>
 			</section>
 			<section id="inputs_states">
