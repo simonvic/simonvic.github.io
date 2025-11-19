@@ -34,7 +34,8 @@
 					</li>
 					<li><a href="#inputs">Input</a>
 						<ol>
-							<li><a href="#other_inputs">Other Input</a></li>
+							<li><a href="#inputs_other">Other</a></li>
+							<li><a href="#inputs_states">Inputs states</a></li>
 							<li><a href="#forms">Forms</a></li>
 						</ol>
 					</li>
@@ -724,63 +725,96 @@ no changes added to commit (use "git add" and/or "git commit -a")
 		</section>
 		<section id="inputs">
 			<h2>Inputs</h2>
-			<label>text <input type="text" placeholder="Placeholder..."> text</label><br />
-			<label>search <input type="search" placeholder="Placeholder..."> search</label><br />
-			<label>button<input type="button" value="Click me" />button</label><br />
-			<label>checkbox<input type="checkbox" /> checkbox</label>
-			<label>checkbox (checked)<input type="checkbox" checked />checkbox (checked)</label><br />
-			<label>switch<input type="checkbox" role="switch" />switch</label>
-			<label>switch (checked)<input type="checkbox" role="switch" checked />switch (checked)</label><br />
-			<label>color<input type="color" />color</label><br />
-			<label>date<input type="date" />date</label><br />
-			<label>datetime-local<input type="datetime-local" />datetime</label><br />
-			<label>email<input type="email" />email</label><br />
-			<label>file<input type="file" />file</label><br />
-			<label>hidden<input type="hidden" />hidden</label><br />
-			<label>image<input type="image" />image</label><br />
-			<label>month<input type="month" />month</label><br />
-			<label>number<input type="number" />number</label><br />
-			<label>password<input type="password" />password</label><br />
-			<label>radio<input type="radio" name="foo" />radio</label>
-			<label>radio (checked)<input type="radio" name="foo" checked />radio (checked)</label><br />
-			<label>range<input type="range" />range</label><br />
-			<label>reset<input type="reset" />reset</label><br />
-			<label>search<input type="search" />search</label><br />
-			<label>submit<input type="submit" />submit</label><br />
-			<label>tel<input type="tel" />tel</label><br />
-			<label>text<input type="text" />text</label><br />
-			<label>time<input type="time" />time</label><br />
-			<label>url<input type="url" />url</label><br />
-			<label>week<input type="week" />week</label><br />
-			<label>Required<input required />Required</label><br />
-			<label>Valid<input aria-invalid="false" />Valid</label><br />
-			<label>Invalid<input aria-invalid="true" />Invalid</label><br />
-			<label>Disabled<input disabled />Disabled</label><br />
-			<section id="other_inputs">
+			<label><input type="text" placeholder="Placeholder..."> text</label><br />
+			<label><input type="search" placeholder="Placeholder..."> search</label><br />
+			<label><input type="button" value="Click me" />button</label><br />
+			<label><input type="checkbox" /> checkbox</label><br />
+			<label><input type="checkbox" checked />checkbox (checked)</label><br />
+			<label><input type="checkbox" role="switch" />switch</label><br />
+			<label><input type="checkbox" role="switch" checked />switch (checked)</label><br />
+			<label><input type="color" />color</label><br />
+			<label><input type="date" />date</label><br />
+			<label><input type="datetime-local" />datetime</label><br />
+			<label><input type="email" />email</label><br />
+			<label><input type="file" />file</label><br />
+			<label><input type="hidden" />hidden</label><br />
+			<label><input type="image" />image</label><br />
+			<label><input type="month" />month</label><br />
+			<label><input type="number" />number</label><br />
+			<label><input type="password" />password</label><br />
+			<label><input type="radio" name="foo" />radio</label><br />
+			<label><input type="radio" name="foo" checked />radio (checked)</label><br />
+			<label><input type="range" />range</label><br />
+			<label><input type="reset" />reset</label><br />
+			<label><input type="search" />search</label><br />
+			<label><input type="submit" />submit</label><br />
+			<label><input type="tel" />tel</label><br />
+			<label><input type="text" />text</label><br />
+			<label><input type="time" />time</label><br />
+			<label><input type="url" />url</label><br />
+			<label><input type="week" />week</label><br />
+			<section id="inputs_other">
 				<h3>Other inputs</h3>
 				<button>Button</button>
 				<a role="button">A button link</a>
 				<br />
-				<textarea placeholder="Placeholder for textarea..."></textarea>
+				<label><textarea placeholder="Placeholder for textarea..."></textarea>Textarea</label>
 				<br />
-				<label>Progress<progress max=1 value=0.75>Progress</progress></label>
+				<label><progress max=1 value=0.75></progress>Progress</label>
 				<br />
-				<label>Progress (indeterminate)<progress /></label>
+				<label><progress></progress>Progress (indeterminate)</label>
 				<br />
-				<label>Meter<meter min="0" max="100" low="33" high="66" optimum="80" value="50">meter</meter></label>
+				<label>
+					<meter min="0" max="1" low="0.25" optimum="0.50" high="0.75" value="0"></meter>
+					Meter(min)
+				</label>
 				<br />
-				<select>
-					<option value="">--Please choose an option--</option>
-					<option value="dog">Dog</option>
-					<option value="cat">Cat</option>
-					<option value="hamster">Hamster</option>
-				</select>
-				<select multiple>
-					<option value="">--Please choose an option--</option>
-					<option value="dog">Dog</option>
-					<option value="cat">Cat</option>
-					<option value="hamster">Hamster</option>
-				</select>
+				<label>
+					<meter min="0" max="1" low="0.25" optimum="0.50" high="0.75" value="0.20"></meter>
+					Meter(low)
+				</label>
+				<br />
+				<label>
+					<meter min="0" max="1" low="0.25" optimum="0.50" high="0.75" value="0.55"></meter>
+					Meter(optimum)
+				</label>
+				<br />
+				<label>
+					<meter min="0" max="1" low="0.25" optimum="0.50" high="0.75" value="0.80"></meter>
+					Meter(high)
+				</label>
+				<br />
+				<label>
+					<meter min="0" max="1" low="0.25" optimum="0.50" high="0.75" value="1"></meter>
+					Meter(max)
+				</label>
+				<br />
+				<label>
+					<select>
+						<option value="">--Please choose an option--</option>
+						<option value="dog">Dog</option>
+						<option value="cat">Cat</option>
+						<option value="hamster">Hamster</option>
+					</select>
+					Select
+				</label>
+				<br />
+				<label>
+					<select multiple>
+						<option value="">--Please choose an option--</option>
+						<option value="dog">Dog</option>
+						<option value="cat">Cat</option>
+						<option value="hamster">Hamster</option>
+					</select>
+					Select (multiple)
+				</label>
+			</section>
+			<section id="inputs_states">
+				<h3>Input states</h3>
+				<label><input required />Required</label><br />
+				<label><input aria-invalid="false" />Valid</label><br />
+				<label><input aria-invalid="true" />Invalid</label><br />
+				<label><input disabled />Disabled</label><br />
 			</section>
 			<section id="labeled_inputs">
 				<h3>Labeled inputs</h3>
@@ -803,6 +837,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 					<label><input type="checkbox" /> Remember me</label>
 					<input type="submit" value="Login" />
 				</form>
+				<hr />
 
 				<form name="register">
 					<label>Email<input type="email" placeholder="email" /></label>
