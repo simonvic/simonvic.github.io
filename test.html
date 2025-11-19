@@ -730,8 +730,14 @@ no changes added to commit (use "git add" and/or "git commit -a")
 			<label><input type="button" value="Click me" />button</label><br />
 			<label><input type="checkbox" /> checkbox</label><br />
 			<label><input type="checkbox" checked />checkbox (checked)</label><br />
+			<label><input type="checkbox" id="checkbox_indeterminate" checked />checkbox (indeterminate)
+				<script>document.querySelector("#checkbox_indeterminate").indeterminate = true;</script>
+			</label><br />
 			<label><input type="checkbox" role="switch" />switch</label><br />
 			<label><input type="checkbox" role="switch" checked />switch (checked)</label><br />
+			<label><input type="checkbox" role="switch" id="switch_indeterminate" checked />switch (indeterminate)
+				<script>document.querySelector("#switch_indeterminate").indeterminate = true;</script>
+			</label><br />
 			<label><input type="color" />color</label><br />
 			<label><input type="date" />date</label><br />
 			<label><input type="datetime-local" />datetime</label><br />
@@ -798,7 +804,6 @@ no changes added to commit (use "git add" and/or "git commit -a")
 					</select>
 					Select
 				</label>
-				<br />
 				<label>
 					<select multiple>
 						<option value="">--Please choose an option--</option>
