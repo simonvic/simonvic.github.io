@@ -36,6 +36,8 @@
 						<ol>
 							<li><a href="#inputs_other">Other</a></li>
 							<li><a href="#inputs_states">Inputs states</a></li>
+							<li><a href="#inputs_labeled">Labeled inputs</a></li>
+							<li><a href="#fieldsets">Fieldsets</a></li>
 							<li><a href="#forms">Forms</a></li>
 						</ol>
 					</li>
@@ -859,7 +861,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 				<label><input aria-invalid="true" />Invalid</label><br />
 				<label><input disabled />Disabled</label><br />
 			</section>
-			<section id="labeled_inputs">
+			<section id="inputs_labeled">
 				<h3>Labeled inputs</h3>
 				<label>Inside before <input /></label>
 				<hr />
@@ -870,6 +872,20 @@ no changes added to commit (use "git add" and/or "git commit -a")
 				<hr />
 				<input name="after" />
 				<label for="after">Outside after</label>
+			</section>
+			<section id="fieldsets">
+				<h3>Fieldsets</h3>
+				<fieldset>
+					<legend>Legend</legend>
+					<input type="text" value="Unlabeled input" />
+					<br />
+					<label>Before <input type="text" value="labeled input" /></label>
+					<br />
+					<label><input type="text" value="labeled input" />After</label>
+					<br />
+					<label><input type="radio" name="fieldset_radio" /> Radio 1</label>
+					<label><input type="radio" name="fieldset_radio" /> Radio 2</label>
+				</fieldset>
 			</section>
 			<section id="forms">
 				<h3>Forms</h3>
@@ -888,8 +904,8 @@ no changes added to commit (use "git add" and/or "git commit -a")
 					<label>Confirm Password<input type="password" placeholder="password" /></label>
 					<fieldset>
 						<legend>Gender</legend>
-						<label><input type="radio" /> Male</label>
-						<label><input type="radio" /> Female</label>
+						<label><input name="gender" type="radio" /> Male</label>
+						<label><input name="gender" type="radio" /> Female</label>
 					</fieldset>
 					<label><input type="checkbox" /> Subscribe to newsletter</label>
 					<input type="submit" value="Register" />
