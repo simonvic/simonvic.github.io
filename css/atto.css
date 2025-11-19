@@ -160,7 +160,7 @@ body {
 	padding: var(--atto-padding-body);
 	background-color: var(--atto-color-bg--1);
 	color: var(--atto-color-fg);
-	font-family: "sans";
+	font-family: sans-serif;
 	font-size: 1rem;
 	line-height: var(--atto-line-height);
 	accent-color: var(--atto-color-accent);
@@ -291,7 +291,7 @@ pre {
 pre,
 code,
 samp {
-	font-family: "monospace";
+	font-family: monospace;
 	font-size: var(--atto-font-size-code);
 	line-height: var(--atto-line-height-code);
 	tab-size: var(--atto-tab-size);
