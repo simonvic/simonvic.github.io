@@ -912,6 +912,11 @@ form[role="presentation"] label:has(> input:not([type="checkbox"]):not([type="ra
 	text-align: left;
 }
 
+/*                                                              Table as grid */
+table[role="grid"] td {
+	text-align: initial;
+}
+
 /*                                                           Blockquote kinds */
 
 blockquote[role="note"]::before,
