@@ -152,11 +152,10 @@
 }
 
 /******************************************************************************/
-/*                                                                  STRUCTURE */
+/*                                                                COMPOSITION */
 
 body {
 	margin: 0;
-	padding: 0;
 	padding: var(--atto-padding-body);
 	background-color: var(--atto-color-bg--1);
 	color: var(--atto-color-fg);
@@ -1031,6 +1030,8 @@ dialog[role="banner"][open] {
 	backdrop-filter: blur(0.5rem);
 }
 
+/* TODO: search popup dialog > form[role="search"] */
+
 /*                                                                        ToC */
 /* nav[role="tree"] { } */
 /* aside nav[role="tree"] { } */
@@ -1068,6 +1069,22 @@ footer[role="banner"] {
 	margin: 2rem 0 0 0;
 	box-shadow: 0px -20px 16px 0px rgba(0, 0, 0, 0.2);
 }
+
+
+/*                                                             Vertical ruler */
+
+/* span[role="separator"] { */
+/* 	display: inline-block; */
+/* 	width: 1rem; */
+/* 	height: 1rem; */
+/* 	border-left: 1px solid var(--atto-color-guide); */
+/* 	margin-left: 0.5rem; */
+/* 	vertical-align: middle; */
+/* } */
+
+/* span[role="separator strong"] { */
+/* 	border-left-width: 3px; */
+/* } */
 
 /*                                                             Layout helpers */
 
