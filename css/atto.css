@@ -456,7 +456,7 @@ td {
 }
 
 td {
-	padding: 0.25rem 0;
+	padding: 0.25rem;
 }
 
 /* TODO: limit styling to table[role="table"]? */
@@ -915,6 +915,22 @@ form[role="presentation"] label:has(> input:not([type="checkbox"]):not([type="ra
 /*                                                              Table as grid */
 table[role="grid"] td {
 	text-align: initial;
+}
+
+tr[role="separator"] {
+	border-top: var(--atto-border-size-td) solid var(--atto-color-guide);
+}
+
+tr[role="separator strong"] {
+	border-top: var(--atto-border-size-th) solid var(--atto-color-guide);
+}
+
+td[role="separator"] {
+	border-left: var(--atto-border-size-td) solid var(--atto-color-guide);
+}
+
+td[role="separator strong"] {
+	border-left: var(--atto-border-size-th) solid var(--atto-color-guide);
 }
 
 /*                                                           Blockquote kinds */
