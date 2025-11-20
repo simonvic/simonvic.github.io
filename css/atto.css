@@ -925,6 +925,11 @@ form {
 }
 
 /******************************************************************************/
+/*                                                                EMBEDDABLES */
+
+/* TODO: ... */
+
+/******************************************************************************/
 /*                                                             EXTRA FEATURES */
 
 
@@ -1100,6 +1105,8 @@ abbr[title]:focus::before {
 }
 
 /*                                                                   Dropdown */
+
+/* TODO: ... */
 /* with menu maybe? */
 
 /*                                                             Dialog (popup) */
@@ -1127,10 +1134,17 @@ dialog[role="banner"][open] {
 /* TODO: search popup dialog > form[role="search"] */
 
 /*                                                                        ToC */
+
+/* TODO: ... */
 /* nav[role="tree"] { } */
 /* aside nav[role="tree"] { } */
 
-/* Tabs in code (for multiple languages) */
+/*                                                                 Code tabs  */
+
+/* (for multiple languages) */
+/* TODO: tab, tablist, tabpanel aria-controls */
+/* menu[role="tablist"] {} */
+/* Or maybe with accordions? details with name */
 
 /*                                                   Header and Footer banner */
 
