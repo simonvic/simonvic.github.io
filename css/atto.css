@@ -34,6 +34,9 @@
 
 	--atto-transition-default: 0.2s ease-in-out;
 
+	--atto-size-details-chevron: 1.5rem;
+	--atto-details-guide-width: 3px;
+
 	--atto-color-accent--4: #3F2727;
 	--atto-color-accent--3: #4C302F;
 	--atto-color-accent--2: #88302B;
@@ -110,6 +113,7 @@
 	--atto-glyph-telephone: url("data:image/svg+xml,%3Csvg fill='%23222222' width='24px' height='24px' viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z'/%3E%3C/svg%3E");
 	--atto-glyph-number: url("data:image/svg+xml,%3Csvg fill='%23222222' width='24px' height='24px' viewBox='0 0 56 56' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 8.7461 37.7031 L 15.8945 37.7031 L 13.7617 48.2969 C 13.7148 48.5312 13.6914 48.8125 13.6914 49.0469 C 13.6914 50.1953 14.4883 50.8281 15.5898 50.8281 C 16.7148 50.8281 17.5351 50.2187 17.7695 49.0703 L 20.0664 37.7031 L 31.1524 37.7031 L 29.0195 48.2969 C 28.9492 48.5312 28.9258 48.8125 28.9258 49.0469 C 28.9258 50.1953 29.7227 50.8281 30.8476 50.8281 C 31.9727 50.8281 32.7929 50.2187 33.0273 49.0703 L 35.3008 37.7031 L 43.6680 37.7031 C 44.9570 37.7031 45.8476 36.7656 45.8476 35.5 C 45.8476 34.4687 45.1445 33.6250 44.0898 33.6250 L 36.1445 33.6250 L 38.6289 21.25 L 46.8320 21.25 C 48.1211 21.25 49.0117 20.3125 49.0117 19.0468 C 49.0117 18.0156 48.3086 17.1719 47.2539 17.1719 L 39.4492 17.1719 L 41.3711 7.7265 C 41.3945 7.5859 41.4414 7.2812 41.4414 6.9766 C 41.4414 5.8281 40.6211 5.1719 39.4961 5.1719 C 38.1836 5.1719 37.5976 5.8984 37.3633 7.0000 L 35.3008 17.1719 L 24.2148 17.1719 L 26.1367 7.7265 C 26.1602 7.5859 26.2070 7.2812 26.2070 6.9766 C 26.2070 5.8281 25.3633 5.1719 24.2617 5.1719 C 22.9258 5.1719 22.3164 5.8984 22.1055 7.0000 L 20.0429 17.1719 L 12.3555 17.1719 C 11.0664 17.1719 10.1758 18.1563 10.1758 19.4453 C 10.1758 20.5 10.8789 21.25 11.9336 21.25 L 19.2227 21.25 L 16.7383 33.6250 L 9.1680 33.6250 C 7.8789 33.6250 6.9883 34.6094 6.9883 35.8984 C 6.9883 36.9531 7.6914 37.7031 8.7461 37.7031 Z M 20.8867 33.6250 L 23.3945 21.25 L 34.4805 21.25 L 31.9727 33.6250 Z'/%3E%3C/svg%3E");
 	--atto-glyph-url: url("data:image/svg+xml,%3Csvg width='24px' height='24px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 17H7C4.23858 17 2 14.7614 2 12C2 9.23858 4.23858 7 7 7H9M15 17H17C19.7614 17 22 14.7614 22 12C22 9.23858 19.7614 7 17 7H15M7 12L17 12' stroke='%23222222' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--atto-glyph-chevron: url("data:image/svg+xml,%3Csvg width='24px' height='24px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 6L15 12L9 18' stroke='%23555555' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 
 }
 
@@ -200,6 +204,13 @@ nav {
 section {
 	margin: var(--atto-margin-group);
 }
+
+/* section:target, */
+/* details:target { */
+/* 	border: 5px solid #f0544c15; */
+/* 	border-radius: 1rem; */
+/* 	padding: 1rem; */
+/* } */
 
 fieldset {
 	margin: var(--atto-margin-group);
@@ -520,11 +531,39 @@ article>footer>* {
 	margin-bottom: 0;
 }
 
-/* TODO: custom and animated chevron */
-/* TODO: add left padding */
-/* details summary { */
-/* 	list-style-type: none; */
-/* } */
+details summary {
+	list-style-type: none;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+details::before {
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	height: var(--atto-size-details-chevron);
+	width: var(--atto-size-details-chevron);
+	background-image: var(--atto-glyph-chevron);
+	background-size: var(--atto-size-details-chevron);
+	background-repeat: no-repeat;
+	transition: transform var(--atto-transition-default);
+}
+
+details[open]::before {
+	transform: rotate(90deg);
+}
+
+details[open] {
+	margin-bottom: 1rem;
+}
+
+details::details-content {
+	margin-left: var(--atto-size-details-chevron);
+	/* TODO: too much? */
+	/* margin-left: calc(var(--atto-size-details-chevron) / 2 - var(--atto-details-guide-width) / 2); */
+	/* border-left: var(--atto-details-guide-width) solid var(--atto-color-guide); */
+	/* padding-left: 1rem; */
+}
 
 /*                                                                     Images */
 
