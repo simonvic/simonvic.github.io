@@ -206,6 +206,10 @@ fieldset {
 	border: none;
 }
 
+/* fieldset[role="radiogroup"] input[type="radio"] { */
+/* 	display: block; */
+/* } */
+
 /******************************************************************************/
 /*                                                                 TYPOGRAPHY */
 
@@ -875,8 +879,38 @@ input[type="checkbox"]:checked:hover {
 	background-color: var(--atto-color-accent);
 }
 
+/*                                                                      Forms */
+
+form {
+	margin: --var(--atto-margin-group);
+}
+
 /******************************************************************************/
 /*                                                             EXTRA FEATURES */
+
+
+/*                                                          Presentation form */
+form[role="presentation"] {
+	display: grid;
+	width: fit-content;
+	max-width: 30rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+form[role="presentation"] label:has(> input:not([type="checkbox"]):not([type="radio"])) {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	align-items: center;
+	text-align: right;
+}
+
+form[role="presentation"] label:has(> input:not([type="checkbox"]):not([type="radio"])+span) {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	align-items: center;
+	text-align: left;
+}
 
 /*                                                           Blockquote kinds */
 
