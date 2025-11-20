@@ -32,7 +32,7 @@
 	--atto-border-radius-code: 0.25rem;
 	--atto-border-radius-codeblock: 0.5rem;
 
-	--atto-transition: 0.2s ease-in-out;
+	--atto-transition-default: 0.2s ease-in-out;
 
 	--atto-color-accent--4: #3F2727;
 	--atto-color-accent--3: #4C302F;
@@ -616,10 +616,10 @@ select {
 	margin: 0.5rem;
 	padding: 0.5rem;
 	transition:
-		background-color var(--atto-transition),
-		border-color var(--atto-transition),
-		color var(--atto-transition),
-		box-shadow var(--atto-transition);
+		background-color var(--atto-transition-default),
+		border-color var(--atto-transition-default),
+		color var(--atto-transition-default),
+		box-shadow var(--atto-transition-default);
 	background-color: var(--atto-color-bg-2);
 	color: var(--atto-color-fg-1);
 }
@@ -675,10 +675,10 @@ input[type="submit"],
 	margin: 0.5rem;
 	padding: 0.5rem;
 	transition:
-		background-color var(--atto-transition),
-		border-color var(--atto-transition),
-		color var(--atto-transition),
-		box-shadow var(--atto-transition);
+		background-color var(--atto-transition-default),
+		border-color var(--atto-transition-default),
+		color var(--atto-transition-default),
+		box-shadow var(--atto-transition-default);
 	display: inline-block;
 	line-height: 1rem;
 	font-size: 1rem;
