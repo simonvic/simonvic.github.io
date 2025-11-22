@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+/* TODO: cursor shapes */
+/* TODO: tab focus */
+
 :root {
 	--atto-main-width: 50rem;
 	--atto-padding-body: 1rem 0;
@@ -29,6 +32,7 @@
 	--atto-border-size-td: 1px;
 	--atto-border-size-th: 3px;
 
+	--atto-border-radius-input: 0.5rem;
 	--atto-border-radius-code: 0.25rem;
 	--atto-border-radius-codeblock: 0.5rem;
 
@@ -594,8 +598,6 @@ dialog {
 /******************************************************************************/
 /*                                                                 COMPONENTS */
 
-/* TODO: cursor shapes */
-
 input,
 progress,
 meter {
@@ -609,7 +611,7 @@ progress {
 	width: 10rem;
 	margin: 0.5rem;
 	border: 1px solid transparent;
-	border-radius: 0.5rem;
+	border-radius: var(--atto-border-radius-input);
 	background-color: var(--atto-color-bg-2);
 	color: var(--atto-color-fg-1);
 	box-shadow: inset 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
@@ -631,7 +633,7 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-	border-radius: 0.5rem;
+	border-radius: inherit;
 	background-color: var(--atto-color-accent);
 }
 
@@ -666,7 +668,7 @@ textarea,
 button,
 select {
 	border: 1px solid transparent;
-	border-radius: 0.5rem;
+	border-radius: var(--atto-border-radius-input);
 	margin: 0.5rem;
 	padding: 0.5rem;
 	transition:
@@ -725,7 +727,7 @@ input[type="submit"],
 	background-color: var(--atto-color-accent--2);
 	color: var(--atto-color-fg-1);
 	border: 1px solid transparent;
-	border-radius: 0.5rem;
+	border-radius: var(--atto-border-radius-input);
 	margin: 0.5rem;
 	padding: 0.5rem;
 	transition:
@@ -750,7 +752,7 @@ select[multiple] {
 }
 
 select option {
-	border-radius: 0.5rem;
+	border-radius: var(--atto-border-radius-input);
 	margin: 0.25rem;
 	color: inherit;
 }
@@ -859,7 +861,7 @@ input[type="range"] {
 input[type="range"]::-moz-range-track {
 	height: 0.5rem;
 	background-color: var(--atto-color-accent--3);
-	border-radius: 0.5rem;
+	border-radius: var(--atto-border-radius-input);
 }
 
 input[type="range"]:hover::-moz-range-track {
@@ -884,7 +886,7 @@ input[type="range"]::-moz-range-thumb:hover {
 input[type="range"]::-webkit-slider-runnable-track {
 	height: 0.5rem;
 	background-color: var(--atto-color-accent--3);
-	border-radius: 0.5rem;
+	border-radius: var(--atto-border-radius-input);
 }
 
 input[type="range"]:hover::-webkit-slider-runnable-track {
