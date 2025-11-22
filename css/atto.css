@@ -602,15 +602,28 @@ meter {
 	vertical-align: middle;
 }
 
+meter,
 progress {
 	appearance: none;
 	height: 1.25rem;
+	width: 10rem;
 	margin: 0.5rem;
 	border: 1px solid transparent;
 	border-radius: 0.5rem;
 	background-color: var(--atto-color-bg-2);
 	color: var(--atto-color-fg-1);
 	box-shadow: inset 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+}
+
+meter {
+	background: var(--atto-color-bg-2);
+	border-radius: 1.75rem;
+}
+
+meter::-moz-meter-bar {
+	/* background: var(--atto-color-accent); */
+	border-radius: inherit;
+	box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
 }
 
 progress::-webkit-progress-bar {
@@ -624,7 +637,7 @@ progress::-webkit-progress-value {
 
 progress::-moz-progress-bar {
 	background-color: var(--atto-color-accent);
-	border-radius: 0.5rem;
+	border-radius: inherit;
 	box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
 }
 
@@ -647,9 +660,6 @@ progress:indeterminate {
 		background-position: -200% 0;
 	}
 }
-
-/* TODO: meter */
-/* TODO: select, multiselect */
 
 input,
 textarea,
