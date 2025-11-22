@@ -533,11 +533,12 @@ article>footer>* {
 
 details summary {
 	list-style-type: none;
-	display: inline-block;
-	vertical-align: middle;
+	display: block;
+	position: relative;
+	padding-left: var(--atto-size-details-chevron);
 }
 
-details::before {
+details summary::before {
 	content: "";
 	display: inline-block;
 	vertical-align: middle;
@@ -547,9 +548,12 @@ details::before {
 	background-size: var(--atto-size-details-chevron);
 	background-repeat: no-repeat;
 	transition: transform var(--atto-transition-default);
+	position: absolute;
+	left: 0;
+	top: calc(50% - var(--atto-size-details-chevron) / 2);
 }
 
-details[open]::before {
+details[open] summary::before {
 	transform: rotate(90deg);
 }
 
@@ -573,6 +577,7 @@ svg {
 
 svg:not([fill]) {
 	fill: currentColor;
+	/* TODO: colorize with filters */
 }
 
 /*                                                                     Dialog */
