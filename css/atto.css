@@ -39,7 +39,6 @@
 	--atto-transition-default: 0.2s ease-in-out;
 
 	--atto-size-details-chevron: 1.5rem;
-	--atto-details-guide-width: 3px;
 
 	--atto-color-accent--4: #3F2727;
 	--atto-color-accent--3: #4C302F;
@@ -78,7 +77,7 @@
 	--atto-color-kbd-bg: var(--atto-color-fg-1);
 	--atto-color-kbd-fg: var(--atto-color-bg-1);
 
-	--atto-color-guide: var(--atto-color-bg-2);
+	--atto-color-guide: #444444;
 
 	--atto-color-ins--1: #3A8C623f;
 	--atto-color-ins: #3A8C62;
