@@ -1186,10 +1186,6 @@ dialog[role="banner"][open] {
 
 /*                                                                        ToC */
 
-/* TODO: ... */
-/* nav[role="tree"] { } */
-/* aside nav[role="tree"] { } */
-
 nav[role="tree"] ol li {
 	padding-left: 0.5rem;
 	border-left: 1px solid var(--atto-color-guide);
