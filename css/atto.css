@@ -233,10 +233,11 @@ hr {
 
 a {
 	color: var(--atto-color-accent-1);
+	text-decoration: none;
 }
 
 a:hover {
-	color: var(--atto-color-accent-2);
+	text-decoration: underline;
 }
 
 h1 {
