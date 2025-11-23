@@ -1190,6 +1190,57 @@ dialog[role="banner"][open] {
 /* nav[role="tree"] { } */
 /* aside nav[role="tree"] { } */
 
+nav[role="tree"] ol li {
+	padding-left: 0.5rem;
+	border-left: 1px solid var(--atto-color-guide);
+}
+
+nav[role="tree"] li li li li li {
+	font-size: 0.75rem;
+}
+
+nav[role="tree"] li li li li {
+	font-size: 0.80rem;
+}
+
+nav[role="tree"] li li li li {
+	font-size: 0.85rem;
+}
+
+nav[role="tree"] li li li {
+	font-size: 0.90rem;
+}
+
+nav[role="tree"] li li {
+	font-size: 0.95rem;
+}
+
+nav[role="tree"] li {
+	font-size: 1.00rem;
+	line-height: 1.50rem;
+}
+
+@media (min-width: 90rem) {
+	main>aside:has(>nav[role="tree"]) {
+		position: sticky;
+		top: 0;
+		height: 0;
+	}
+
+	main>aside>nav[role="tree"] {
+		position: relative;
+		--size: 20rem;
+		width: var(--size);
+		left: calc(var(--size) * -1);
+		display: inline-block;
+	}
+
+	main>aside>nav[role="tree"] li:has(a[aria-current="step"]) {
+		border-color: var(--atto-color-accent-1);
+	}
+
+}
+
 /*                                                                 Code tabs  */
 
 /* (for multiple languages) */
