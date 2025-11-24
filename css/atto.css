@@ -768,15 +768,6 @@ select option:disabled {
 }
 
 
-button:active,
-input[type="button"]:active,
-input[type="image"]:active,
-input[type="reset"]:active,
-input[type="submit"]:active,
-[role="button"]:active {
-	background-color: var(--atto-color-accent--2);
-}
-
 input[type="checkbox"] {
 	appearance: none;
 	width: 1.75rem;
@@ -933,6 +924,16 @@ input[type="checkbox"]:hover {
 
 input[type="checkbox"]:checked:hover {
 	background-color: var(--atto-color-accent);
+}
+
+button:active,
+input[type="button"]:active,
+input[type="image"]:active,
+input[type="reset"]:active,
+input[type="submit"]:active,
+[role="button"]:active {
+	transition: border-color 0s ease-in-out;
+	background-color: var(--atto-color-accent--2);
 }
 
 /*                                                                      Forms */
