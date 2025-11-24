@@ -1230,6 +1230,7 @@ nav[role="tree"] li {
 		width: var(--size);
 		left: calc(var(--size) * -1);
 		display: inline-block;
+		margin-top: 2rem;
 	}
 
 	main>aside>nav[role="tree"] li:has(a[aria-current="step"]) {
