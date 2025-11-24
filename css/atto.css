@@ -3,7 +3,7 @@
 /* TODO: tab focus */
 
 :root {
-	--atto-main-width: 50rem;
+	--atto-max-width-main: 50rem;
 	--atto-padding-body: 1rem 0;
 	--atto-padding-header: 0 0 1rem 0;
 	--atto-padding-footer: 1rem 0 0 0;
@@ -172,13 +172,13 @@ body {
 }
 
 header {
-	max-width: var(--atto-main-width);
+	max-width: var(--atto-max-width-main);
 	margin: var(--atto-margin-header);
 	padding: var(--atto-padding-header);
 }
 
 footer {
-	max-width: var(--atto-main-width);
+	max-width: var(--atto-max-width-main);
 	margin-left: auto;
 	margin-right: auto;
 	padding: var(--atto-padding-footer);
@@ -193,7 +193,7 @@ footer nav {
 }
 
 main {
-	max-width: var(--atto-main-width);
+	max-width: var(--atto-max-width-main);
 	margin-left: auto;
 	margin-right: auto;
 }
