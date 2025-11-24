@@ -1012,7 +1012,7 @@ blockquote[role="alert strong"]::before {
 	background-position: calc(var(--icon-size) * 0.5) center;
 	background-size: var(--icon-size);
 	padding-left: calc(2 * var(--icon-size));
-	margin-bottom: var(--icon-size);
+	margin-bottom: 0.5rem;
 }
 
 blockquote[role="note"]::before {
