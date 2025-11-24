@@ -21,9 +21,10 @@
 			<a href="" aria-current="page">Crumb</a>
 		</nav>
 	</header>
-	<main>
+	<main role="list">
 		<aside>
 			<nav role="tree">
+				<a href="">Atto stylesheet test page</a>
 				<ol>
 					<li><a href="#typography">Typography</a>
 						<ol>
@@ -41,7 +42,6 @@
 							<li><a href="#forms">Forms</a></li>
 						</ol>
 					</li>
-					<li><a href="#sections">Sections</a></li>
 					<li><a href="#dialogs">Dialogs</a></li>
 					<li><a href="#details">Details</a></li>
 					<li><a href="#dropdown">Dropdown menus</a></li>
@@ -80,13 +80,9 @@
 				</ol>
 			</nav>
 		</aside>
+		<h1>Atto stylesheet test page</h1>
 		<section id="typography">
-			<h1>Heading 1</h1>
-			<h2>Heading 2</h2>
-			<h3>Heading 3</h3>
-			<h4>Heading 4</h4>
-			<h5>Heading 5</h5>
-			<h6>Heading 6</h6>
+			<h2>Typography</h2>
 			<p>
 				Enim repellat eos nulla vitae. Ducimus rerum aperiam doloremque laudantium quisquam voluptate. Inventore
 				non consectetur voluptatibus deleniti velit.
@@ -131,6 +127,25 @@
 					id repudiandae. Voluptatibus vitae ab non consequatur repellendus nisi eius earum.">laudantium</i>
 				quisquam voluptate. Inventore non consectetur voluptatibus deleniti velit.
 			</p>
+			<!-- NOTE: wrapped in spans so we don't increment the section counter -->
+			<span>
+				<h1>Heading 1</h1>
+			</span>
+			<span>
+				<h2>Heading 2</h2>
+			</span>
+			<span>
+				<h3>Heading 3</h3>
+			</span>
+			<span>
+				<h4>Heading 4</h4>
+			</span>
+			<span>
+				<h5>Heading 5</h5>
+			</span>
+			<span>
+				<h6>Heading 6</h6>
+			</span>
 			<hgroup>
 				<h1>Heading 1 in hgroup</h1>
 				<h2>Heading 2 in hgroup</h2>
@@ -235,7 +250,7 @@
 				Advises about risks or negative outcomes of certain actions.
 			</blockquote>
 			<section id="other_typography">
-				<h2>Code and other typography</h2>
+				<h3>Code and other typography</h3>
 				<p>Some paragraph <code>inline code</code> and with <samp>inline samp</samp></p>
 				<pre>
 Pre tag
@@ -312,7 +327,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 		</samp></pre>
 			</section>
 			<section id="tables">
-				<h2>Tables</h2>
+				<h3>Tables</h3>
 
 				<table>
 					<caption>Table with just body</caption>
@@ -724,7 +739,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 			</section>
 			<section id="articles">
-				<h2>Articles</h2>
+				<h3>Articles</h3>
 				<article>
 					Enim repellat eos nulla vitae. Ducimus rerum aperiam doloremque laudantium quisquam voluptate.
 					Inventore
@@ -1096,97 +1111,6 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 			</section>
 		</section>
-		<section id="sections">
-			<h2>Sections</h2>
-			<p>
-				Enim repellat eos nulla vitae. Ducimus rerum aperiam doloremque laudantium quisquam voluptate. Inventore
-				non consectetur voluptatibus deleniti velit.
-			</p>
-			<p>
-				Id rerum officia incidunt adipisci quia vel cupiditate aliquid. Culpa nulla maiores doloremque. Hic
-				voluptas ea rerum dolore. Molestiae expedita sapiente quis eligendi et tempore reiciendis. Ut ut ullam
-				mollitia facilis velit. Natus iusto neque optio magnam.
-			</p>
-			<p>
-				Quasi veritatis at quia saepe voluptatem. Quam sint ut veritatis dolores autem. Iste sit ipsa rem natus
-				culpa. Eum molestias sit assumenda qui autem. Et ab ab omnis. Possimus nihil deleniti voluptate.
-			</p>
-			<p>
-				Enim hic expedita corrupti error veritatis consequatur culpa quisquam. Unde quia ipsam quae aut libero.
-				Beatae ipsum repellat ab dignissimos quisquam est est. Eum veritatis sequi aut quis in enim consequatur
-				tempore. Repellat maxime quasi neque quaerat laborum sapiente id.
-			</p>
-			<p>
-				Reiciendis possimus ut fugiat culpa est sapiente voluptas. Deleniti rerum odio omnis enim beatae
-				suscipit. Sit dolorem ipsum qui repudiandae. Harum provident aut perspiciatis. Similique porro maxime
-				voluptatibus occaecati rerum repudiandae harum.
-			</p>
-			<section>
-				<h3>SubSection</h3>
-				<p>
-					Enim repellat eos nulla vitae. Ducimus rerum aperiam doloremque laudantium quisquam voluptate.
-					Inventore
-					non consectetur voluptatibus deleniti velit.
-				</p>
-				<p>
-					Id rerum officia incidunt adipisci quia vel cupiditate aliquid. Culpa nulla maiores doloremque. Hic
-					voluptas ea rerum dolore. Molestiae expedita sapiente quis eligendi et tempore reiciendis. Ut ut
-					ullam
-					mollitia facilis velit. Natus iusto neque optio magnam.
-				</p>
-				<p>
-					Quasi veritatis at quia saepe voluptatem. Quam sint ut veritatis dolores autem. Iste sit ipsa rem
-					natus
-					culpa. Eum molestias sit assumenda qui autem. Et ab ab omnis. Possimus nihil deleniti voluptate.
-				</p>
-				<p>
-					Enim hic expedita corrupti error veritatis consequatur culpa quisquam. Unde quia ipsam quae aut
-					libero.
-					Beatae ipsum repellat ab dignissimos quisquam est est. Eum veritatis sequi aut quis in enim
-					consequatur
-					tempore. Repellat maxime quasi neque quaerat laborum sapiente id.
-				</p>
-				<p>
-					Reiciendis possimus ut fugiat culpa est sapiente voluptas. Deleniti rerum odio omnis enim beatae
-					suscipit. Sit dolorem ipsum qui repudiandae. Harum provident aut perspiciatis. Similique porro
-					maxime
-					voluptatibus occaecati rerum repudiandae harum.
-				</p>
-				<section>
-					<h4>SubSubSection</h4>
-					<p>
-						Enim repellat eos nulla vitae. Ducimus rerum aperiam doloremque laudantium quisquam voluptate.
-						Inventore
-						non consectetur voluptatibus deleniti velit.
-					</p>
-					<p>
-						Id rerum officia incidunt adipisci quia vel cupiditate aliquid. Culpa nulla maiores doloremque.
-						Hic
-						voluptas ea rerum dolore. Molestiae expedita sapiente quis eligendi et tempore reiciendis. Ut ut
-						ullam
-						mollitia facilis velit. Natus iusto neque optio magnam.
-					</p>
-					<p>
-						Quasi veritatis at quia saepe voluptatem. Quam sint ut veritatis dolores autem. Iste sit ipsa
-						rem natus
-						culpa. Eum molestias sit assumenda qui autem. Et ab ab omnis. Possimus nihil deleniti voluptate.
-					</p>
-					<p>
-						Enim hic expedita corrupti error veritatis consequatur culpa quisquam. Unde quia ipsam quae aut
-						libero.
-						Beatae ipsum repellat ab dignissimos quisquam est est. Eum veritatis sequi aut quis in enim
-						consequatur
-						tempore. Repellat maxime quasi neque quaerat laborum sapiente id.
-					</p>
-					<p>
-						Reiciendis possimus ut fugiat culpa est sapiente voluptas. Deleniti rerum odio omnis enim beatae
-						suscipit. Sit dolorem ipsum qui repudiandae. Harum provident aut perspiciatis. Similique porro
-						maxime
-						voluptatibus occaecati rerum repudiandae harum.
-					</p>
-				</section>
-			</section>
-		</section>
 		<section id="dialogs">
 			<h2>Dialogs</h2>
 
@@ -1337,6 +1261,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 			</details>
 		</section>
 		<section id="toc">
+			<h2>Table of Contents</h2>
 			<script>
 				window.onload = () => {
 					const toc = document.querySelector("main>aside>nav")
@@ -1353,7 +1278,6 @@ no changes added to commit (use "git add" and/or "git commit -a")
 					document.querySelectorAll("section[id]").forEach(section => observer.observe(section));
 				};
 			</script>
-			<h2>Table of Contents</h2>
 			<p>
 				Aspernatur sed magni eos debitis eaque debitis. Qui unde nisi fugit nihil labore ab vitae. Consequatur
 				consequatur et sunt sint suscipit et. Qui sed tenetur occaecati magni veniam molestiae. Sequi et sed
