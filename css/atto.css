@@ -1238,6 +1238,63 @@ nav[role="tree"] li {
 
 }
 
+/*                                                            Section counter */
+
+main[role="list"] {
+	counter-reset: section_step2;
+}
+
+main[role="list"] section[id]>h2::before {
+	counter-increment: section_step2;
+	content: counter(section_step2) ". ";
+}
+
+main[role="list"] section[id]>h2 {
+	counter-reset: section_step3;
+}
+
+main[role="list"] section[id]>h3::before {
+	counter-increment: section_step3;
+	content: counter(section_step2) "." counter(section_step3) ". ";
+}
+
+main[role="list"] section[id]>h3 {
+	counter-reset: section_step4;
+}
+
+main[role="list"] section[id]>h4::before {
+	counter-increment: section_step4;
+	content: counter(section_step2) "." counter(section_step3) "." counter(section_step4) ". ";
+}
+
+main[role="list"] section[id]>h4 {
+	counter-reset: section_step5;
+}
+
+main[role="list"] section[id]>h5::before {
+	counter-increment: section_step5;
+	content: counter(section_step2) "." counter(section_step3) "." counter(section_step4) "." counter(section_step5) ". ";
+}
+
+main[role="list"] section[id]>h5 {
+	counter-reset: section_step6;
+}
+
+main[role="list"] section[id]>h6::before {
+	counter-increment: section_step6;
+	content: counter(section_step2) "." counter(section_step3) "." counter(section_step4) "." counter(section_step5) "." counter(section_step6) ". ";
+}
+
+main[role="list"] section[id]>h2::before,
+main[role="list"] section[id]>h3::before,
+main[role="list"] section[id]>h4::before,
+main[role="list"] section[id]>h5::before,
+main[role="list"] section[id]>h6::before {
+	font-size: 0.75rem;
+}
+
+/* TODO: alternative steps main[role="list"] section[role="listitem option"] */
+
 /*                                                                 Code tabs  */
 
 /* (for multiple languages) */
