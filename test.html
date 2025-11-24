@@ -813,7 +813,12 @@ no changes added to commit (use "git add" and/or "git commit -a")
 			<h2>Inputs</h2>
 			<label><input type="text" placeholder="Placeholder..."> text</label><br />
 			<label><input type="search" placeholder="Placeholder..."> search</label><br />
-			<label><input type="button" value="Click me" />button</label><br />
+			<label><input type="email" />email</label><br />
+			<label><input type="password" />password</label><br />
+			<label><input type="tel" />tel</label><br />
+			<label><input type="url" />url</label><br />
+			<label><input type="number" />number</label><br />
+			<label><input type="range" />range</label><br />
 			<label><input type="checkbox" /> checkbox</label><br />
 			<label><input type="checkbox" checked />checkbox (checked)</label><br />
 			<label><input type="checkbox" id="checkbox_indeterminate" checked />checkbox (indeterminate)
@@ -824,62 +829,24 @@ no changes added to commit (use "git add" and/or "git commit -a")
 			<label><input type="checkbox" role="switch" id="switch_indeterminate" checked />switch (indeterminate)
 				<script>document.querySelector("#switch_indeterminate").indeterminate = true;</script>
 			</label><br />
-			<label><input type="color" />color</label><br />
-			<label><input type="date" />date</label><br />
-			<label><input type="datetime-local" />datetime</label><br />
-			<label><input type="email" />email</label><br />
-			<label><input type="file" />file</label><br />
-			<label><input type="hidden" />hidden</label><br />
-			<label><input type="image" />image</label><br />
-			<label><input type="month" />month</label><br />
-			<label><input type="number" />number</label><br />
-			<label><input type="password" />password</label><br />
 			<label><input type="radio" name="foo" />radio</label><br />
 			<label><input type="radio" name="foo" checked />radio (checked)</label><br />
-			<label><input type="range" />range</label><br />
-			<label><input type="reset" />reset</label><br />
-			<label><input type="search" />search</label><br />
-			<label><input type="submit" />submit</label><br />
-			<label><input type="tel" />tel</label><br />
-			<label><input type="text" />text</label><br />
 			<label><input type="time" />time</label><br />
-			<label><input type="url" />url</label><br />
+			<label><input type="date" />date</label><br />
+			<label><input type="datetime-local" />datetime</label><br />
 			<label><input type="week" />week</label><br />
+			<label><input type="month" />month</label><br />
+			<label><input type="hidden" />hidden</label><br />
+			<label><input type="color" />color</label><br />
+			<label><input type="file" />file</label><br />
+			<label><input type="button" value="Button" />button</label><br />
+			<label><input type="image" value="Image" />image</label><br />
+			<label><input type="reset" value="Reset" />reset</label><br />
+			<label><input type="submit" value="Submit" />submit</label><br />
 			<section id="inputs_other">
 				<h3>Other inputs</h3>
 				<button>Button</button>
 				<a role="button">A button link</a>
-				<br />
-				<label><textarea placeholder="Placeholder for textarea..."></textarea>Textarea</label>
-				<br />
-				<label><progress max=1 value=0.75></progress>Progress</label>
-				<br />
-				<label><progress></progress>Progress (indeterminate)</label>
-				<br />
-				<label>
-					<meter min="0" max="1" low="0.25" optimum="0.50" high="0.75" value="0"></meter>
-					Meter(min)
-				</label>
-				<br />
-				<label>
-					<meter min="0" max="1" low="0.25" optimum="0.50" high="0.75" value="0.20"></meter>
-					Meter(low)
-				</label>
-				<br />
-				<label>
-					<meter min="0" max="1" low="0.25" optimum="0.50" high="0.75" value="0.55"></meter>
-					Meter(optimum)
-				</label>
-				<br />
-				<label>
-					<meter min="0" max="1" low="0.25" optimum="0.50" high="0.75" value="0.80"></meter>
-					Meter(high)
-				</label>
-				<br />
-				<label>
-					<meter min="0" max="1" low="0.25" optimum="0.50" high="0.75" value="1"></meter>
-					Meter(max)
-				</label>
 				<br />
 				<label>
 					<select>
@@ -937,13 +904,45 @@ no changes added to commit (use "git add" and/or "git commit -a")
 					</select>
 					Select (multiple with size)
 				</label>
+				<br />
+				<label><textarea placeholder="Placeholder for textarea..."></textarea>Textarea</label>
+				<br />
+				<label><progress max=1 value=0.75></progress>Progress</label>
+				<br />
+				<label><progress></progress>Progress (indeterminate)</label>
+				<br />
+				<label>
+					<meter min="0" max="1" low="0.25" optimum="0.50" high="0.75" value="0"></meter>
+					Meter(min)
+				</label>
+				<br />
+				<label>
+					<meter min="0" max="1" low="0.25" optimum="0.50" high="0.75" value="0.20"></meter>
+					Meter(low)
+				</label>
+				<br />
+				<label>
+					<meter min="0" max="1" low="0.25" optimum="0.50" high="0.75" value="0.55"></meter>
+					Meter(optimum)
+				</label>
+				<br />
+				<label>
+					<meter min="0" max="1" low="0.25" optimum="0.50" high="0.75" value="0.80"></meter>
+					Meter(high)
+				</label>
+				<br />
+				<label>
+					<meter min="0" max="1" low="0.25" optimum="0.50" high="0.75" value="1"></meter>
+					Meter(max)
+				</label>
 			</section>
 			<section id="inputs_states">
 				<h3>Input states</h3>
-				<label><input required />Required</label><br />
-				<label><input aria-invalid="false" />Valid</label><br />
-				<label><input aria-invalid="true" />Invalid</label><br />
 				<label><input disabled />Disabled</label><br />
+				<label><input required type="text" />Required</label><br />
+				<label><input type="number" max="420" value="69" />Valid</label><br />
+				<label><input required type="number" max="420" value="69" />Required & Valid</label><br />
+				<label><input type="number" max="69" value="420">Invalid</label><br />
 			</section>
 			<section id="inputs_labeled">
 				<h3>Labeled inputs</h3>
