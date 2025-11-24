@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-/* TODO: cursor shapes */
 /* TODO: tab focus */
 
 :root {
@@ -385,6 +384,7 @@ abbr[title],
 	text-decoration-line: underline;
 	text-decoration-style: dotted;
 	text-decoration-thickness: 0.1rem;
+	cursor: help;
 }
 
 time {
@@ -540,6 +540,7 @@ details summary {
 	display: block;
 	position: relative;
 	padding-left: var(--atto-size-details-chevron);
+	cursor: pointer;
 }
 
 details summary::before {
@@ -739,12 +740,14 @@ input[type="submit"],
 	line-height: 1rem;
 	font-size: 1rem;
 	box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
 }
 
 select {
 	font-size: 1rem;
 	box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
 	vertical-align: middle;
+	cursor: pointer;
 }
 
 select[multiple] {
@@ -755,6 +758,7 @@ select option {
 	border-radius: var(--atto-border-radius-input);
 	margin: 0.25rem;
 	color: inherit;
+	cursor: pointer;
 }
 
 select option:checked {
@@ -765,6 +769,7 @@ select option:checked {
 select optgroup:disabled,
 select option:disabled {
 	color: var(--atto-color-fg--1);
+	cursor: not-allowed;
 }
 
 
@@ -773,6 +778,7 @@ input[type="checkbox"] {
 	width: 1.75rem;
 	height: 1.75rem;
 	box-shadow: inset 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
 }
 
 input[type="checkbox"]:checked {
@@ -829,6 +835,7 @@ input[type="radio"] {
 	width: 1.75rem;
 	padding: 0.25rem;
 	border-radius: 50%;
+	cursor: pointer;
 }
 
 input[type="radio"]:checked::before {
@@ -842,11 +849,17 @@ input[type="radio"]:checked::before {
 
 input[type="color"] {
 	padding: 0.25rem;
+	cursor: pointer;
+}
+
+input[type="file"] {
+	cursor: pointer;
 }
 
 input[type="range"] {
 	appearance: none;
 	background-color: transparent;
+	cursor: pointer;
 }
 
 input[type="range"]::-moz-range-track {
@@ -898,6 +911,18 @@ input[type="range"]::-webkit-slider-thumb:hover {
 	background-color: var(--atto-color-accent);
 }
 
+input[type="range"]:active {
+	cursor: grabbing;
+}
+
+input[type="range"]:active::-moz-range-thumb {
+	cursor: grabbing;
+}
+
+input[type="range"]:active::-webkit-slider-thumb {
+	cursor: grabbing;
+}
+
 input:focus,
 input:focus-visible,
 textarea:focus,
@@ -938,6 +963,7 @@ input[type="submit"]:active,
 
 input:disabled {
 	background-color: var(--atto-color-bg);
+	cursor: not-allowed;
 }
 
 input:invalid {
