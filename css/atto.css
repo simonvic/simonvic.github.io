@@ -78,10 +78,10 @@
 
 	--atto-color-guide: #444444;
 
-	--atto-color-ins--1: #3A8C623f;
-	--atto-color-ins: #3A8C62;
+	--atto-color-ins--1: #3A8C622f;
+	--atto-color-ins: #4FB783;
 
-	--atto-color-del--1: #C13C403f;
+	--atto-color-del--1: #C13C402f;
 	--atto-color-del: #C13C40;
 
 	--atto-color-note--1: #4AD7EA0C;
@@ -126,7 +126,7 @@
 		--atto-color-accent--2: #F27F79;
 		--atto-color-accent--1: #F6645D;
 		--atto-color-accent: #F0544C;
-		--atto-color-accent-1: #CC443D;
+		--atto-color-accent-1: #C63129;
 		--atto-color-accent-2: #88302B;
 		--atto-color-accent-3: #4C302F;
 		--atto-color-accent-4: #3F2727;
@@ -150,6 +150,10 @@
 		--atto-color-fg-4: #000000;
 		--atto-color-code-bg--1: #EEEEEE;
 		--atto-color-code-bg: #DDDDDD;
+
+		--atto-color-ins: #105932;
+		--atto-color-del: #9B1C20;
+
 	}
 }
 
