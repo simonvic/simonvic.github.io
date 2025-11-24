@@ -1293,6 +1293,7 @@ main[role="list"] {
 }
 
 /* TODO: require nested sections for more specificity? */
+/* TODO: only consider section[id] > h1 > a ???*/
 
 main[role="list"] section[id]>h2::before {
 	counter-increment: section_step2;
@@ -1343,7 +1344,11 @@ main[role="list"] section[id]>h6::before {
 	font-size: 0.75rem;
 }
 
-/* TODO: alternative steps main[role="list"] section[role="listitem option"] */
+/* TODO: alternative steps: main[role="list"] section[role="listitem option"] */
+
+/*                                                            Loading spinner */
+
+/* TODO: ... */
 
 /*                                                                 Code tabs  */
 
