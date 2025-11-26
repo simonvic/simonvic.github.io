@@ -1126,6 +1126,10 @@ nav[aria-label="breadcrumb"] a::before {
 	color: var(--atto-color-fg);
 }
 
+nav[aria-label="breadcrumb"] a[aria-current="page"] {
+	color: var(--atto-color-fg);
+}
+
 /*                                                                    Tooltip */
 
 time[datetime],
