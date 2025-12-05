@@ -63,7 +63,7 @@ class CfgPatches {
 	};
 };
 						</code></pre>
-			<blockquote class="info">
+			<blockquote role="note suggestion">
 				If you don't plan to use sVisual, you could just specify sFramework as
 				<code>requiredAddons</code>.
 			</blockquote>
@@ -105,7 +105,7 @@ class MyAnimatedEffect : SPPEffectAnimated {
 
 }
 						</code></pre>
-			<blockquote class="note">
+			<blockquote role="alert">
 				The <code>onInit</code> method gets called only once when the effect gets initialized, while
 				the <code>onAnimate</code> method gets called every frame. Choose wisely what to put inside
 				<code>onAnimate</code>
@@ -213,7 +213,7 @@ class SomeEffect : SPPEffect {
 	}
 }
 							</code></pre>
-				<blockquote class="info">
+				<blockquote role="note strong">
 					By default, normalization is set to <b>false</b> for backward compatibility reasons.<br>
 					I highly recommend using normalization.<br>
 					If you're interested in the actual value ranges, you can find them in game scripts.
@@ -262,7 +262,7 @@ class SomeEffect : SPPEffect {
 					</tbody>
 				</table>
 				<p>Let's see a practical example with code</p>
-				<blockquote class="info">
+				<blockquote role="note">
 					For the tutorial sake, I chose low priorities; it's advised to choose higher
 					priorities value (e.g. 100, 200, 500) so that it will be easier to interoperate with
 					other mods.
@@ -517,7 +517,7 @@ class DarknessEffect : SPPEffect {
 						</p>
 					</li>
 				</ul>
-				<blockquote class="note">
+				<blockquote role="note strong">
 					For backward compatibility reasons, the default priority is <b>1000</b> and the default
 					operator is <b>SET</b> if they're not specified.<br>
 					If you're upgrading your mod, it's highly recommended to choose the appropriate priority
@@ -526,7 +526,7 @@ class DarknessEffect : SPPEffect {
 
 				<section id="Operator_types">
 					<h4 role="listitem">Operator types</h4>
-					<blockquote class="note">
+					<blockquote role="note">
 						Not every operator is applicable to all parameters type.<br>
 						Some may work only for color parameters or for float parameters etc.
 					</blockquote>
@@ -575,14 +575,14 @@ class DarknessEffect : SPPEffect {
 						</li>
 						<li><code>SET</code>
 							<p>It ignores underlying layers and will set the value you specified</p>
-							<blockquote class="info">
+							<blockquote role="alert">
 								Unless strictly required, other operators are recommended, since this could
 								possibly "hide" other effects
 							</blockquote>
 						</li>
 						<li><code>OVERRIDE</code>
 							<p>It ignores <b>all</b> other layers and set the value you specified</p>
-							<blockquote class="note">
+							<blockquote role="alert strong">
 								Highly discouraged; use less destructive operators.
 							</blockquote>
 						</li>
@@ -726,7 +726,7 @@ class Effect_B : SPPEffect {
 					<li>Effect intensity of 1 is the default</li>
 					<li>An effect intensity of 2, means the player like very strong effects</li>
 				</ul>
-				<blockquote class="note">
+				<blockquote role="note strong">
 					This method is only available if you're using sVisual; so make sure to have specified
 					sVisual in the <code>requiredAddons</code>
 				</blockquote>

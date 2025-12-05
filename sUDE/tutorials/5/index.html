@@ -68,7 +68,7 @@ class CfgPatches {
 };
 // more stuff here...
 			</code></pre>
-			<blockquote class="info">
+			<blockquote role="note suggestion">
 				If you don't plan to use sVisual, you could just specify sFramework as
 				<code>requiredAddons</code>.
 			</blockquote>
@@ -237,7 +237,7 @@ override void onUpdate(float deltaTime) {
 					<li>0.5 = vertical center of the screen</li>
 					<li>1.0 = bottom of the screen</li>
 				</ul>
-				<blockquote class="info">
+				<blockquote role="note">
 					Values lower than 0.0 and higher than 1.0 are accepted
 				</blockquote>
 				<div class="grid">
@@ -267,7 +267,7 @@ override void onUpdate(float deltaTime) {
 					<li>0.5 = half the height of the screen</li>
 					<li>2.5 = double the height of the screen</li>
 				</ul>
-				<blockquote class="info">
+				<blockquote role="note">
 					Values lower than 0.0 and higher than 1.0 are accepted, where negative values will mean the
 					overlay will be flipped
 				</blockquote>
@@ -285,7 +285,7 @@ override void onUpdate(float deltaTime) {
 				<h3 role="listitem"><a href="#rotation" class="contrast">Rotation</a></h3>
 				<p>Yaw, Pitch and Roll angles of the overlay, defined in degrees [0° - 360°]</p>
 				<pre><code class="language-csharp">setRotation(yaw, pitch, roll);</code></pre>
-				<blockquote class="note">
+				<blockquote role="alert">
 					Setting an angle to 90° will make the overlay to be perpendicular to the camera, making it
 					not visible
 				</blockquote>
@@ -308,7 +308,7 @@ override void onUpdate(float deltaTime) {
 					potentially making them not visible
 				</p>
 				<pre><code class="language-csharp">setPriority(priority);</code></pre>
-				<blockquote class="info">
+				<blockquote role="note">
 					Vanilla in game HUD has a priority of ~200
 				</blockquote>
 				<div class="grid">
@@ -365,7 +365,7 @@ override void onInit() {
 			</section>
 			<section id="mask">
 				<h3 role="listitem"><a href="#mask" class="contrast">Mask</a></h3>
-				<blockquote class="info">
+				<blockquote role="note suggestion">
 					Using mask and other mask related values might seem intimidating, but they're very easy to
 					use.<br />
 					Refer to the <a href="https://simonvic.github.io/sUDE/tutorials/#69">dedicated tutorial</a>

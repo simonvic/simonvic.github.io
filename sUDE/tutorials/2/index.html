@@ -48,11 +48,6 @@
 
 		<section id="Setup">
 			<h2 role="listitem">Setup</h2>
-			<blockquote class="note">
-				Unless you need to mod sGunplay scripts, you may want to skip this step.
-				By not specifying sGunplay as a required addon, you can make your mod compatible
-				without a strong dependency to sGunplay, while keeping your modded items still compatible.
-			</blockquote>
 			<p>
 				Add sGunplay as a dependency by adding it to the <code>requiredAddons</code>
 				inside your <code>config.cpp</code>
@@ -67,6 +62,11 @@
 		};
 	};
 				</code></pre>
+			<blockquote role="note suggestion">
+				Unless you need to mod sGunplay scripts, you may want to skip this step.
+				By not specifying sGunplay as a required addon, you can make your mod compatible
+				without a strong dependency to sGunplay, while keeping your modded items still compatible.
+			</blockquote>
 		</section>
 		<section id="Optics">
 			<h2 role="listitem">Optics</h2>
@@ -74,11 +74,9 @@
 			<section id="Optics_PiP">
 				<h3 role="listitem"><em data-tooltip="Picture In Picture, aka lens magnification">PiP</em></h3>
 				<p>
-					If your optic has magnification (e.g. 2x, 4x, 6x etc), you should define some additional
-					attributes
+					If your optic has magnification (e.g. 2x, 4x, 6x etc), you should define some additional attributes
 					to enable the <em data-tooltip="Picture In Picture, aka lens magnification">PiP</em>. These
-					attributes will have to be added in the <code>config.cpp</code> class definition of your
-					optic.
+					attributes will have to be added in the <code>config.cpp</code> class definition of your optic.
 				</p>
 				<p>The configurable attributes are:</p>
 				<ul>
@@ -89,16 +87,15 @@
 					<li><code>s_pipMagnification</code>: intensity of the magnification<br>
 						<small>0.1 = low magnification | 0.5 = strong magnification</small><br>
 						<img src="https://imgur.com/PgpWOA5.gif" width="25%">
-						<blockquote class="note">
-							The final lens magnification also depends on the user option of the lens
-							magnification.
+						<blockquote role="note">
+							The final lens magnification also depends on the user option of the lens magnification.<br/>
 							See <a>user options</a> for more info
 						</blockquote>
 					</li>
 					<li><code>s_pipBlur</code>: blur of the PiP circumference<br>
 						<small>0.01 = sharp | 0.3 = very blurred</small><br>
 						<img src="https://imgur.com/Tq9GTlT.gif" width="25%">
-						<blockquote class="note">
+						<blockquote role="note strong">
 							The <code>s_pipBlur</code> <b>MUST</b> be a non-zero value or the PiP won't work.
 							If you don't want blur, use small values instead (e.g. 0.001)
 						</blockquote>
@@ -163,7 +160,7 @@
 
 		<section id="Recoils">
 			<h2 role="listitem">Recoils</h2>
-			<blockquote class="info">
+			<blockquote role="note">
 				If you have custom weapons which doesn't use custom recoil, but they instead use the recoils of some
 				existing vanilla weapons, you can skip to <a href="#Attachments_stats">this step</a>
 			</blockquote>
@@ -189,7 +186,7 @@
 				point, you'll be able to be more consistent in controlling it.
 			</p>
 			<p>Let's first understand what recoil really is made of:</p>
-			<blockquote class="note">
+			<blockquote role="note">
 				The following recoil has been "amplified" for showcasing purposes
 			</blockquote>
 			<div class="grid">
@@ -224,7 +221,7 @@
 			</div>
 			<div class="grid">
 				<p>The final result will be</p>
-				<blockquote class="note">
+				<blockquote role="note">
 					The recoil has been "amplified" for showcasing purposes.
 				</blockquote>
 				<img src="https://imgur.com/k5nrAl9.gif" width="320px">
@@ -263,7 +260,7 @@ modded class AUGRecoil {
 				<code>kick</code> describes in metres how much the weapon should "kick" into the shoulder, while
 				<code>kickResetTime</code> will define how "fast" the kick will be reset.
 			</p>
-			<blockquote class="note">
+			<blockquote role="note strong">
 				Remember that the final recoil will depends on many variables, most importantly on
 				<b>attachments</b>.
 				Many weapons use the same recoil definition, but some of them allow attachments (i.e. buttstocks,
@@ -299,7 +296,7 @@ modded class AUGRecoil {
 				<ul>
 					<li><code>s_recoilControlMouseX</code>: control of <b>horizontal</b> mouse offset</li>
 					<li><code>s_recoilControlMouseY</code>: control of <b>vertical</b> mouse offset</li>
-					<blockquote class="note">
+					<blockquote role="note">
 						I highly suggest not to modify the recoil control of the mouse offset, for a mere design
 						reason.
 					</blockquote>

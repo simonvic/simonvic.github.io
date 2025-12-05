@@ -2,16 +2,22 @@
 @import url(pico.min.css);
 
 :root {
-	--info-accent: #4AD7EA;
-	--info-accent-bg: #4AD7EA0C;
-	--tip-accent: #32D732;
-	--tip-accent-bg: #32D7320C;
-	--important-accent: #8C5FB9;
-	--important-accent-bg: #8C5FB90C;
-	--note-accent: #D8E44C;
-	--note-accent-bg: #D8E44C0C;
-	--caution-accent: #FF0A32;
-	--caution-accent-bg: #FF0A320C;
+	--color-note--1: #4AD7EA0C;
+	--color-note: #4AD7EA;
+	--color-note-suggestion--1: #32D7320C;
+	--color-note-suggestion: #32D732;
+	--color-note-strong--1: #8C5FB90C;
+	--color-note-strong: #8C5FB9;
+	--color-alert--1: #E87B2E0c;
+	--color-alert: #E87B2E;
+	--color-alert-strong--1: #FF0A320C;
+	--color-alert-strong: #FF0A32;
+
+	--glyph-note: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%234AD7EA' width='16' height='16' viewBox='0 0 16 16' %3E%3Cpath d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z'%3E%3C/path%3E%3C/svg%3E");
+	--glyph-note-suggestion: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2332D732' viewBox='0 0 16 16' width='16' height='16' %3E%3Cpath d='M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z'%3E%3C/path%3E%3C/svg%3E");
+	--glyph-note-strong: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%238C5FB9' viewBox='0 0 16 16' width='16' height='16'%3E%3Cpath d='M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z'%3E%3C/path%3E%3C/svg%3E");
+	--glyph-alert: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23E87B2E' viewBox='0 0 16 16' width='16' height='16' aria-hidden='true'%3E%3Cpath d='M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z'%3E%3C/path%3E%3C/svg%3E");
+	--glyph-alert-strong: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FF0A32' viewBox='0 0 16 16' width='16' height='16' aria-hidden='true'%3E%3Cpath d='M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z'%3E%3C/path%3E%3C/svg%3E");
 
 	--pico-font-size: 1rem;
 	--pico-nav-breadcrumb-divider: "/";
@@ -119,74 +125,77 @@ details:target {
 	padding: 1em;
 }
 
-blockquote.info::before,
-blockquote.tip::before,
-blockquote.important::before,
-blockquote.note::before,
-blockquote.caution::before {
-	white-space: pre;
-	display: flex;
+blockquote[role="note"]::before,
+blockquote[role="note suggestion"]::before,
+blockquote[role="note strong"]::before,
+blockquote[role="alert"]::before,
+blockquote[role="alert strong"]::before {
+	--icon-size: 1.25rem;
+	display: block;
 	align-items: center;
+	background-repeat: no-repeat;
+	font-size: var(--icon-size);
+	line-height: var(--icon-size);
+	font-weight: bold;
+	background-position: calc(var(--icon-size) * 0.5) center;
+	background-size: var(--icon-size);
+	padding-left: calc(2 * var(--icon-size));
+	margin-bottom: 0.5rem;
 }
 
-blockquote.info,
-blockquote.tip,
-blockquote.important,
-blockquote.note,
-blockquote.caution {
-	border-left-width: .25rem;
-	border-left-style: solid;
-	-webkit-border-start: .25rem solid;
+blockquote[role="note"]::before {
+	color: var(--color-note);
+	content: "Note";
+	background-image: var(--glyph-note);
 }
 
-blockquote.info::before {
-	color: var(--info-accent);
-	content: url("data:image/svg+xml,%3Csvg id='svg' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='32' height='32' viewBox='0, 0, 400,400'%3E%3Cg id='svgg'%3E%3Cpath id='path0' d='M185.228 10.221 C 51.337 20.482,-29.863 163.007,29.258 283.984 C 98.274 425.210,301.726 425.210,370.742 283.984 C 435.488 151.497,332.124 -1.038,185.228 10.221 M222.047 49.592 C 330.906 65.988,387.317 189.983,327.700 281.825 C 262.999 381.498,116.901 373.033,63.628 266.525 C 9.676 158.661,102.477 31.584,222.047 49.592 M191.871 104.363 C 177.138 109.067,172.460 129.519,183.136 142.547 C 193.721 155.465,216.969 151.196,221.533 135.497 C 227.216 115.945,210.511 98.411,191.871 104.363 M185.652 171.150 L 183.594 172.770 183.594 232.783 C 183.594 305.192,181.351 296.484,200.000 296.484 C 218.649 296.484,216.406 305.192,216.406 232.783 L 216.406 172.770 214.348 171.150 C 212.463 169.668,211.250 169.531,200.000 169.531 C 188.750 169.531,187.537 169.668,185.652 171.150 ' stroke='none' fill='%234AD7EA' fill-rule='evenodd'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A") " Info\a";
+blockquote[role="note"] {
+	border-color: var(--color-note);
+	background-color: var(--color-note--1);
 }
 
-blockquote.info {
-	border-color: var(--info-accent);
-	background-color: var(--info-accent-bg);
+blockquote[role="note suggestion"]::before {
+	color: var(--color-note-suggestion);
+	content: "Tip";
+	background-image: var(--glyph-note-suggestion);
 }
 
-blockquote.tip::before {
-	color: var(--tip-accent);
-	content: url("data:image/svg+xml,%3Csvg id='svg' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='32' height='32' viewBox='0, 0, 400,400'%3E%3Cg id='svgg'%3E%3Cpath id='path0' d='M198.586 1.583 C 193.977 4.392,193.750 5.862,193.750 32.865 C 193.750 62.747,194.705 65.625,204.623 65.625 C 214.970 65.625,215.619 63.650,215.622 32.135 L 215.625 6.066 212.592 3.033 C 208.917 -0.641,203.204 -1.233,198.586 1.583 M61.328 43.880 C 56.219 46.706,54.012 51.621,55.451 56.967 C 56.370 60.377,90.032 93.750,94.122 95.305 C 103.959 99.046,113.057 89.074,108.264 79.805 C 106.999 77.359,75.062 46.636,71.484 44.424 C 68.889 42.819,63.745 42.544,61.328 43.880 M333.019 47.119 C 328.318 49.731,296.070 81.539,295.209 84.413 C 292.414 93.742,301.073 101.769,309.818 97.956 C 312.836 96.641,342.517 69.197,347.193 63.398 C 354.173 54.743,342.803 41.684,333.019 47.119 M192.007 79.670 C 124.908 88.178,82.056 156.070,103.488 219.914 C 108.324 234.319,114.725 244.763,129.367 262.140 C 148.141 284.420,149.900 287.971,150.725 305.263 C 151.401 319.418,152.591 323.084,158.019 327.729 C 164.333 333.134,164.927 333.203,205.078 333.203 C 245.225 333.203,245.824 333.133,252.133 327.734 C 257.387 323.236,258.113 320.865,258.590 306.641 C 259.175 289.185,261.059 285.350,280.469 262.109 C 298.499 240.520,304.848 228.629,309.495 207.749 C 325.080 137.723,263.510 70.603,192.007 79.670 M220.117 102.744 C 274.664 113.091,304.880 171.974,281.206 221.791 C 277.266 230.082,273.499 235.456,261.862 249.391 C 241.454 273.828,236.719 283.684,236.719 301.727 L 236.719 310.938 204.786 310.938 L 172.853 310.938 172.457 299.805 C 171.791 281.065,167.931 273.259,146.843 248.008 C 127.605 224.973,121.620 211.724,120.540 189.783 C 117.889 135.902,167.288 92.722,220.117 102.744 M17.203 157.618 C 9.666 161.405,8.866 171.745,15.732 176.642 L 18.359 178.516 43.003 178.516 C 65.439 178.516,67.838 178.389,69.798 177.106 C 77.080 172.336,76.489 161.515,68.734 157.618 C 64.630 155.556,21.308 155.556,17.203 157.618 M331.266 157.618 C 323.511 161.515,322.920 172.336,330.202 177.106 C 332.162 178.389,334.561 178.516,356.997 178.516 L 381.641 178.516 384.268 176.642 C 391.134 171.745,390.334 161.405,382.797 157.618 C 378.692 155.556,335.370 155.556,331.266 157.618 M172.651 342.917 C 161.016 346.457,157.409 353.327,157.450 371.875 C 157.487 388.626,159.792 393.812,169.135 398.163 C 174.831 400.816,234.836 401.051,240.226 398.442 C 250.083 393.670,252.555 387.826,252.213 370.102 C 251.873 352.499,248.700 346.546,237.944 343.337 C 233.735 342.081,176.607 341.714,172.651 342.917 M230.469 371.094 L 230.469 378.125 205.078 378.125 L 179.688 378.125 179.688 371.094 L 179.688 364.063 205.078 364.063 L 230.469 364.063 230.469 371.094 ' stroke='none' fill='%2332D732' fill-rule='evenodd'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A") " Tip\a";
+blockquote[role="note suggestion"] {
+	border-color: var(--color-note-suggestion);
+	background-color: var(--color-note-suggestion--1);
 }
 
-blockquote.tip {
-	border-color: var(--tip-accent);
-	background-color: var(--tip-accent-bg);
+blockquote[role="note strong"]::before {
+	color: var(--color-note-strong);
+	content: "Important";
+	background-image: var(--glyph-note-strong);
 }
 
-blockquote.important::before {
-	color: var(--important-accent);
-	content: url("data:image/svg+xml,%3Csvg id='svg' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='32' height='32' viewBox='0, 0, 400,400'%3E%3Cg id='svgg'%3E%3Cpath id='path0' d='M187.109 20.795 C 42.551 32.531,-30.260 199.670,60.034 312.500 C 146.147 420.104,317.218 393.376,367.632 264.441 C 415.012 143.268,316.487 10.292,187.109 20.795 M223.047 48.037 C 347.188 67.108,397.276 219.759,308.518 308.518 C 212.137 404.898,46.553 336.306,46.553 200.000 C 46.553 119.197,105.726 55.315,188.672 46.572 C 194.541 45.954,215.221 46.835,223.047 48.037 M190.006 102.019 C 182.683 105.668,177.324 113.890,177.353 121.431 C 177.380 128.404,190.588 235.162,191.686 237.286 C 194.880 243.463,205.120 243.463,208.314 237.286 C 209.925 234.171,222.885 125.583,222.352 119.673 C 220.984 104.512,203.811 95.139,190.006 102.019 M193.773 267.235 C 176.418 274.529,181.252 300.000,199.992 300.000 C 221.903 300.000,222.828 267.512,200.943 266.634 C 198.061 266.518,194.835 266.788,193.773 267.235 ' stroke='none' fill='%238C5FB9' fill-rule='evenodd'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A") " Important\a";
+blockquote[role="note strong"] {
+	border-color: var(--color-note-strong);
+	background-color: var(--color-note-strong--1);
 }
 
-blockquote.important {
-	border-color: var(--important-accent);
-	background-color: var(--important-accent-bg);
+blockquote[role="alert"]::before {
+	color: var(--color-alert);
+	content: "Warning";
+	background-image: var(--glyph-alert);
 }
 
-blockquote.note::before {
-	color: var(--note-accent);
-	content: url("data:image/svg+xml,%3Csvg id='svg' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='32' height='32' viewBox='0, 0, 400,400'%3E%3Cg id='svgg'%3E%3Cpath id='path0' d='M185.156 19.572 C 173.055 22.705,161.233 30.505,154.287 39.941 C 148.138 48.293,4.824 299.941,2.590 306.307 C -8.102 336.783,11.161 372.433,42.674 380.493 C 50.809 382.574,347.309 382.919,356.049 380.858 C 388.284 373.258,408.247 337.057,397.192 306.250 C 394.545 298.875,251.032 46.876,245.061 39.119 C 231.950 22.087,206.951 13.929,185.156 19.572 M212.065 49.145 C 221.215 53.662,218.663 49.535,296.148 185.156 C 335.795 254.551,368.913 313.086,369.743 315.234 C 375.017 328.882,367.916 344.573,353.387 351.380 L 348.828 353.516 199.959 353.516 L 51.091 353.516 45.119 350.564 C 31.403 343.785,24.636 327.281,30.340 314.521 C 34.695 304.781,176.337 58.220,179.410 55.032 C 187.881 46.242,201.288 43.825,212.065 49.145 M195.043 137.817 C 191.295 139.205,188.400 141.826,187.009 145.092 C 185.408 148.850,185.436 224.118,187.040 227.187 C 191.884 236.461,204.379 237.803,211.134 229.776 C 214.142 226.201,214.156 225.958,213.903 183.923 L 213.672 145.580 211.483 142.711 C 207.631 137.662,200.886 135.654,195.043 137.817 M193.076 263.570 C 185.341 266.369,180.923 273.478,181.374 282.402 C 182.593 306.536,218.735 305.421,218.735 281.250 C 218.735 268.042,205.644 259.022,193.076 263.570 ' stroke='none' fill='%23D8E44C' fill-rule='evenodd'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A") " Note\a";
+blockquote[role="alert"] {
+	border-color: var(--color-alert);
+	background-color: var(--color-alert--1);
 }
 
-blockquote.note {
-	border-color: var(--note-accent);
-	background-color: var(--note-accent-bg);
+blockquote[role="alert strong"]::before {
+	color: var(--color-alert-strong);
+	content: "Caution";
+	background-image: var(--glyph-alert-strong);
 }
 
-blockquote.caution::before {
-	color: var(--caution-accent);
-	content: url("data:image/svg+xml,%3Csvg id='svg' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='32' height='32' viewBox='0, 0, 400,400'%3E%3Cg id='svgg'%3E%3Cpath id='path0' d='M188.511 35.528 C 181.606 37.466,180.441 38.100,123.707 70.853 C 42.733 117.601,50.027 104.815,50.027 200.000 C 50.027 271.258,49.926 269.762,55.487 281.044 C 59.891 289.978,65.850 295.742,77.803 302.626 C 82.921 305.575,107.852 319.970,133.203 334.616 C 187.497 365.982,185.741 365.179,200.000 365.179 C 214.365 365.179,211.887 366.343,274.609 330.148 C 339.640 292.621,338.967 293.103,345.287 279.596 C 350.101 269.310,350.073 269.809,349.830 197.390 L 349.609 131.641 347.462 125.571 C 344.133 116.167,339.273 109.166,332.474 103.983 C 326.356 99.319,221.358 38.980,215.625 36.834 C 209.166 34.415,194.917 33.729,188.511 35.528 M208.263 62.018 C 220.377 67.659,314.679 123.024,318.095 126.501 C 324.469 132.989,324.219 129.983,324.219 200.000 C 324.219 270.016,324.469 267.009,318.095 273.501 C 314.692 276.967,220.340 332.352,208.203 338.008 C 198.332 342.608,201.336 343.924,136.719 306.693 C 80.684 274.407,79.364 273.498,77.022 265.614 C 75.148 259.302,75.148 140.698,77.022 134.386 C 79.363 126.504,80.686 125.594,136.719 93.304 C 201.349 56.060,198.316 57.386,208.263 62.018 M193.888 105.221 C 192.461 105.925,190.439 107.756,189.396 109.291 L 187.500 112.081 187.500 166.472 L 187.500 220.863 189.258 223.445 C 194.824 231.624,205.176 231.624,210.742 223.445 L 212.500 220.863 212.500 166.578 C 212.500 112.789,212.485 112.270,210.859 109.638 C 207.678 104.491,199.624 102.395,193.888 105.221 M192.578 251.294 C 176.296 259.851,181.727 283.203,200.000 283.203 C 217.976 283.203,223.745 259.691,207.768 251.540 C 204.010 249.622,196.006 249.493,192.578 251.294 ' stroke='none' fill='%23FF0A32' fill-rule='evenodd'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A") " Caution\a";
-}
-
-blockquote.caution {
-	border-color: var(--caution-accent);
-	background-color: var(--caution-accent-bg);
+blockquote[role="alert strong"] {
+	border-color: var(--color-alert-strong);
+	background-color: var(--color-alert-strong--1);
 }
 
 .hljs {

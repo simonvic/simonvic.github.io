@@ -115,7 +115,7 @@ class SomeClass {
 		<section id="Options">
 			<h2 role="listitem">Options</h2>
 			<p>When creating a widget, you can specify multiple options of the form <code>key = value</code></p>
-			<blockquote class="info">
+			<blockquote role="note">
 				White spaces before and after the equal symbol will be ignored, but they're recommended for
 				redeability
 			</blockquote>
@@ -137,7 +137,7 @@ dui.with({
 dui.with("bg = #FF0000").text("Hello world");
 dui.end();
 				</code></pre>
-			<blockquote class="tip">
+			<blockquote role="note suggestion">
 				Since options are just string, you are free to use concatenation or string formatting to create
 				dynamic options
 				<pre><code>
@@ -288,7 +288,7 @@ dui.window();
 				<h3 role="listitem">Richtext</h3>
 				<p>Richtext widget, like <code>text</code> but supports pango markup</p>
 				<pre><code class="language-csharp">dui.textrich("hello &lt;b&gt;world&lt;/&gt;");</code></pre>
-				<blockquote class="tip">
+				<blockquote role="note suggestion">
 					Pango markup supports images! You can also use images from an imageset; try this:
 					<pre><code class="language-csharp">
 dui.textrich("This is an icon &lt;image set='dayz_gui' name='icon_pin' /&gt; ");
@@ -429,7 +429,7 @@ float myFloatValue;
 dui.slider("my unique slider name", myFloatValue);
 					</code></pre>
 				<p>The value of <code>myFloatValue</code> will change based on the slider value</p>
-				<blockquote class="important">
+				<blockquote role="note strong">
 					Given the "immediate mode" approach of the IMGUI framework, the slider won't be able to capture
 					mouse input.<br>
 					To control the slider you can hover it with the mouse, and use mouse wheel to change the
