@@ -53,8 +53,8 @@ function updateConstraints(optionName, field, value) {
 }
 
 function updateMinMaxConstraint(constraint, field, minmaxInput) {
-	let minSlider = minmaxInput.querySelectorAll('input[type="range"][name="min"]')[0];
-	let maxSlider = minmaxInput.querySelectorAll('input[type="range"][name="max"]')[0];
+	let minSlider = minmaxInput.querySelector('input[type="range"][name="min"]');
+	let maxSlider = minmaxInput.querySelector('input[type="range"][name="max"]');
 	let minValue = Number(minSlider.value);
 	let maxValue = Number(maxSlider.value);
 	if (field == "min" && minValue > maxValue) {
