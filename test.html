@@ -82,7 +82,7 @@
 		</aside>
 		<h1>Atto stylesheet test page</h1>
 		<section id="typography">
-			<h2>Typography</h2>
+			<h2 role="listitem">Typography</h2>
 			<p>
 				Enim repellat eos nulla vitae. Ducimus rerum aperiam doloremque laudantium quisquam voluptate. Inventore
 				non consectetur voluptatibus deleniti velit.
@@ -127,25 +127,12 @@
 					id repudiandae. Voluptatibus vitae ab non consequatur repellendus nisi eius earum.">laudantium</i>
 				quisquam voluptate. Inventore non consectetur voluptatibus deleniti velit.
 			</p>
-			<!-- NOTE: wrapped in spans so we don't increment the section counter -->
-			<span>
-				<h1>Heading 1</h1>
-			</span>
-			<span>
-				<h2>Heading 2</h2>
-			</span>
-			<span>
-				<h3>Heading 3</h3>
-			</span>
-			<span>
-				<h4>Heading 4</h4>
-			</span>
-			<span>
-				<h5>Heading 5</h5>
-			</span>
-			<span>
-				<h6>Heading 6</h6>
-			</span>
+			<h1>Heading 1</h1>
+			<h2>Heading 2</h2>
+			<h3>Heading 3</h3>
+			<h4>Heading 4</h4>
+			<h5>Heading 5</h5>
+			<h6>Heading 6</h6>
 			<hgroup>
 				<h1>Heading 1 in hgroup</h1>
 				<h2>Heading 2 in hgroup</h2>
@@ -274,7 +261,7 @@
 				Advises about risks or negative outcomes of certain actions.
 			</blockquote>
 			<section id="code">
-				<h3>Code</h3>
+				<h3 role="listitem">Code</h3>
 				<p>Some paragraph <code>inline code</code> and with <samp>inline samp</samp></p>
 				<pre>
 Pre tag
@@ -351,7 +338,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 		</samp></pre>
 			</section>
 			<section id="tables">
-				<h3>Tables</h3>
+				<h3 role="listitem">Tables</h3>
 
 				<table>
 					<caption>Table with just body</caption>
@@ -763,7 +750,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 			</section>
 			<section id="articles">
-				<h3>Articles</h3>
+				<h3 role="listitem">Articles</h3>
 				<article>
 					Enim repellat eos nulla vitae. Ducimus rerum aperiam doloremque laudantium quisquam voluptate.
 					Inventore
@@ -834,7 +821,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 			</section>
 		</section>
 		<section id="inputs">
-			<h2>Inputs</h2>
+			<h2 role="listitem">Inputs</h2>
 			<label><input type="text" placeholder="Placeholder..."> text</label><br />
 			<label><input type="search" placeholder="Placeholder..."> search</label><br />
 			<label><input type="email" />email</label><br />
@@ -868,7 +855,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 			<label><input type="reset" value="Reset" />reset</label><br />
 			<label><input type="submit" value="Submit" />submit</label><br />
 			<section id="inputs_other">
-				<h3>Other inputs</h3>
+				<h3 role="listitem">Other inputs</h3>
 				<button>Button</button>
 				<a role="button">A button link</a>
 				<br />
@@ -961,7 +948,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 				</label>
 			</section>
 			<section id="inputs_states">
-				<h3>Input states</h3>
+				<h3 role="listitem">Input states</h3>
 				<label><input disabled />Disabled</label><br />
 				<label><input required type="text" />Required</label><br />
 				<label><input type="number" max="420" value="69" />Valid</label><br />
@@ -969,7 +956,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 				<label><input type="number" max="69" value="420">Invalid</label><br />
 			</section>
 			<section id="inputs_labeled">
-				<h3>Labeled inputs</h3>
+				<h3 role="listitem">Labeled inputs</h3>
 				<label>Inside before <input /></label>
 				<hr />
 				<label><input />Inside after</label>
@@ -981,7 +968,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 				<label for="after">Outside after</label>
 			</section>
 			<section id="fieldsets">
-				<h3>Fieldsets</h3>
+				<h3 role="listitem">Fieldsets</h3>
 				<fieldset>
 					<legend>Legend</legend>
 					<input type="text" value="Unlabeled input" />
@@ -995,7 +982,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 				</fieldset>
 			</section>
 			<section id="forms">
-				<h3>Forms</h3>
+				<h3 role="listitem">Forms</h3>
 
 				<form role="presentation">
 					<input placeholder="Unlabeled" />
@@ -1135,7 +1122,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 			</section>
 		</section>
 		<section id="dialogs">
-			<h2>Dialogs</h2>
+			<h2 role="listitem">Dialogs</h2>
 
 			<button onclick="document.querySelector('#dialog_simple').showModal()">Simple</button>
 			<button onclick="document.querySelector('#dialog_banner').showModal()">Banner</button>
@@ -1180,7 +1167,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 			</dialog>
 		</section>
 		<section id="details">
-			<h2>Details</h2>
+			<h2 role="listitem">Details</h2>
 			<details>
 				<summary>Summary</summary>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -1240,7 +1227,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 			</details>
 		</section>
 		<section id="dropdown">
-			<h2>Dropdown menu</h2>
+			<h2 role="listitem">Dropdown menu</h2>
 			<details role="list">
 				<summary>Dropdown menu</summary>
 				<menu>
@@ -1292,7 +1279,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 			</details>
 		</section>
 		<section id="toc">
-			<h2>Table of Contents</h2>
+			<h2 role="listitem">Table of Contents</h2>
 			<script>
 				window.onload = () => {
 					const toc = document.querySelector("main>aside>nav")
@@ -1332,7 +1319,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 				voluptatem neque laudantium iusto. Voluptatem est quam ut velit consectetur.
 			</p>
 			<section id="toc_1">
-				<h3>ToC .1</h3>
+				<h3 role="listitem">ToC .1</h3>
 
 				<p>
 					Aspernatur sed magni eos debitis eaque debitis. Qui unde nisi fugit nihil labore ab vitae.
@@ -1360,7 +1347,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 			</section>
 			<section id="toc_2">
-				<h3>ToC .2</h3>
+				<h3 role="listitem">ToC .2</h3>
 
 				<p>
 					Aspernatur sed magni eos debitis eaque debitis. Qui unde nisi fugit nihil labore ab vitae.
@@ -1387,7 +1374,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 				</p>
 
 				<section id="toc_2_1">
-					<h4>ToC .2.1</h4>
+					<h4 role="listitem">ToC .2.1</h4>
 
 					<p>
 						Aspernatur sed magni eos debitis eaque debitis. Qui unde nisi fugit nihil labore ab vitae.
@@ -1416,7 +1403,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 				</section>
 				<section id="toc_2_2">
-					<h4>ToC .2.2</h4>
+					<h4 role="listitem">ToC .2.2</h4>
 
 					<p>
 						Aspernatur sed magni eos debitis eaque debitis. Qui unde nisi fugit nihil labore ab vitae.
@@ -1444,7 +1431,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 					</p>
 
 					<section id="toc_2_2_1">
-						<h5>ToC .2.2.1</h5>
+						<h5 role="listitem">ToC .2.2.1</h5>
 
 						<p>
 							Aspernatur sed magni eos debitis eaque debitis. Qui unde nisi fugit nihil labore ab vitae.
@@ -1474,7 +1461,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 					</section>
 					<section id="toc_2_2_2">
-						<h5>ToC .2.2.2</h5>
+						<h5 role="listitem">ToC .2.2.2</h5>
 
 						<p>
 							Aspernatur sed magni eos debitis eaque debitis. Qui unde nisi fugit nihil labore ab vitae.
@@ -1503,7 +1490,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 						</p>
 
 						<section id="toc_2_2_2_1">
-							<h6>ToC .2.2.2.1</h6>
+							<h6 role="listitem">ToC .2.2.2.1</h6>
 
 							<p>
 								Aspernatur sed magni eos debitis eaque debitis. Qui unde nisi fugit nihil labore ab
@@ -1535,7 +1522,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 						</section>
 					</section>
 					<section id="toc_2_2_3">
-						<h5>ToC .2.2.3</h5>
+						<h5 role="listitem">ToC .2.2.3</h5>
 
 						<p>
 							Aspernatur sed magni eos debitis eaque debitis. Qui unde nisi fugit nihil labore ab vitae.
@@ -1566,7 +1553,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 					</section>
 				</section>
 				<section id="toc_2_3">
-					<h4>ToC .2.3</h4>
+					<h4 role="listitem">ToC .2.3</h4>
 
 					<p>
 						Aspernatur sed magni eos debitis eaque debitis. Qui unde nisi fugit nihil labore ab vitae.
@@ -1594,7 +1581,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 					</p>
 
 					<section id="toc_2_3_1">
-						<h5>ToC .2.3.1</h5>
+						<h5 role="listitem">ToC .2.3.1</h5>
 
 						<p>
 							Aspernatur sed magni eos debitis eaque debitis. Qui unde nisi fugit nihil labore ab vitae.
@@ -1626,7 +1613,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 				</section>
 			</section>
 			<section id="toc_3">
-				<h3>ToC .3</h3>
+				<h3 role="listitem">ToC .3</h3>
 
 				<p>
 					Aspernatur sed magni eos debitis eaque debitis. Qui unde nisi fugit nihil labore ab vitae.

@@ -1308,56 +1308,54 @@ main[role="list"] {
 /* TODO: require nested sections for more specificity? */
 /* TODO: only consider section[id] > h1 > a ???*/
 
-main[role="list"] section[id]>h2::before {
+main[role="list"] h2[role="listitem"]::before {
 	counter-increment: section_step2;
 	content: counter(section_step2) ". ";
 }
 
-main[role="list"] section[id]>h2 {
+main[role="list"] h2[role="listitem"] {
 	counter-reset: section_step3;
 }
 
-main[role="list"] section[id]>h3::before {
+main[role="list"] h3[role="listitem"]::before {
 	counter-increment: section_step3;
 	content: counter(section_step2) "." counter(section_step3) ". ";
 }
 
-main[role="list"] section[id]>h3 {
+main[role="list"] h3[role="listitem"] {
 	counter-reset: section_step4;
 }
 
-main[role="list"] section[id]>h4::before {
+main[role="list"] h4[role="listitem"]::before {
 	counter-increment: section_step4;
 	content: counter(section_step2) "." counter(section_step3) "." counter(section_step4) ". ";
 }
 
-main[role="list"] section[id]>h4 {
+main[role="list"] h4[role="listitem"] {
 	counter-reset: section_step5;
 }
 
-main[role="list"] section[id]>h5::before {
+main[role="list"] h5[role="listitem"]::before {
 	counter-increment: section_step5;
 	content: counter(section_step2) "." counter(section_step3) "." counter(section_step4) "." counter(section_step5) ". ";
 }
 
-main[role="list"] section[id]>h5 {
+main[role="list"] h5[role="listitem"] {
 	counter-reset: section_step6;
 }
 
-main[role="list"] section[id]>h6::before {
+main[role="list"] h6[role="listitem"]::before {
 	counter-increment: section_step6;
 	content: counter(section_step2) "." counter(section_step3) "." counter(section_step4) "." counter(section_step5) "." counter(section_step6) ". ";
 }
 
-main[role="list"] section[id]>h2::before,
-main[role="list"] section[id]>h3::before,
-main[role="list"] section[id]>h4::before,
-main[role="list"] section[id]>h5::before,
-main[role="list"] section[id]>h6::before {
+main[role="list"] h2[role="listitem"]::before,
+main[role="list"] h3[role="listitem"]::before,
+main[role="list"] h4[role="listitem"]::before,
+main[role="list"] h5[role="listitem"]::before,
+main[role="list"] h6[role="listitem"]::before {
 	font-size: 0.75rem;
 }
-
-/* TODO: alternative steps: main[role="list"] section[role="listitem option"] */
 
 /*                                                            Loading spinner */
 
