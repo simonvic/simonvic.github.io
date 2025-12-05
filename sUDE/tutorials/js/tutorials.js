@@ -24,4 +24,5 @@ function onTutorialLoad(currentBreadcrumb, tutorial) {
 	document.title = `sUDE | ${tutorial.title}`;
 	currentBreadcrumb.innerHTML = tutorial.title;
 	currentBreadcrumb.setAttribute("aria-busy", "false");
+	document.querySelector("main aside nav[role='tree']>a[href='#']").innerHTML = tutorial.title;
 }

@@ -7,7 +7,7 @@
 		height: 0;
 	}
 
-	main aside nav {
+	main aside nav[role="tree"] {
 		position: relative;
 		height: 0;
 		width: 360px;
@@ -17,29 +17,38 @@
 	}
 }
 
-main aside nav ol {
+nav[role="tree"] ol {
 	counter-reset: toc_step;
 }
 
-main aside nav ol li {
+nav[role="tree"] ol li {
 	border-left: .125rem solid var(--pico-blockquote-border-color);
 	margin: 0.25rem 0;
 }
 
-main aside nav ol li:has(a.active) {
+nav[role="tree"] ol li:has(a.active) {
 	border-left: .125rem solid var(--pico-blockquote-border-color);
 	border-left-color: var(--pico-primary);
 }
 
-main aside nav ol {
+nav[role="tree"] ol {
 	padding-left: .5rem !important;
 	margin-left: .5rem !important;
 }
 
-main aside nav li a::before {
+nav[role="tree"] li a::before {
 	counter-increment: toc_step;
 	content: counters(toc_step, ".") ". ";
 	font-size: var(--pico-font-size);
+}
+
+nav[role="tree"] li:has(a[aria-current="step"]) {
+	border-color: var(--pico-primary);
+}
+
+
+nav[role="tree"] a[aria-current="step"] {
+	color: var(--pico-primary);
 }
 
 
