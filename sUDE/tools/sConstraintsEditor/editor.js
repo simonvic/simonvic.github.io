@@ -74,14 +74,13 @@ function buildMinMaxConstraint(optionName, constraint) {
 	if (Array.isArray(constraint.min))
 		return `<p><i>Not implemented yet... Please manually edit the <code>${optionName}</code> option in the json</i></p>`;
 	return `
-		<label for="minmax">Constrain to min / max
-			<fieldset name="minmax" class="input_minmax">
-				<input name="min" type="range" min="${constraint.min}" max="${constraint.max}" step="0.01" value="${constraint.min}"
-					oninput="updateMinMaxConstraint('${optionName}', 'min', this.parentNode)"/>
-				<input name="max" type="range" min="${constraint.min}" max="${constraint.max}" step="0.01" value="${constraint.max}"
-					oninput="updateMinMaxConstraint('${optionName}', 'max', this.parentNode)"/>
-			</fieldset>
-		</label>
+		<fieldset name="minmax" class="input_minmax">
+			<legend>Constrain to min / max</legend>
+			<input name="min" type="range" min="${constraint.min}" max="${constraint.max}" step="0.01" value="${constraint.min}"
+				oninput="updateMinMaxConstraint('${optionName}', 'min', this.parentNode)"/>
+			<input name="max" type="range" min="${constraint.min}" max="${constraint.max}" step="0.01" value="${constraint.max}"
+				oninput="updateMinMaxConstraint('${optionName}', 'max', this.parentNode)"/>
+		</fieldset>
 		`;
 }
 
@@ -137,7 +136,7 @@ function buildConstraints() {
 						<code>${optionName}</code>
 				</summary>
 				${buildConstraint(optionName, constraint)}
-				<label for="message">
+				<label>
 					Message
 					<input type="text" name="message" placeholder="Message to show to player if the option is constrained" value="${constraint.message}"
 						onchange="updateConstraints('${optionName}', 'message', this.value)">
