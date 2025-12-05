@@ -1019,6 +1019,10 @@ form[role="presentation"] label:has(> input:not([type="checkbox"]):not([type="ra
 }
 
 /*                                                              Table as grid */
+table[role="grid"] {
+	table-layout: fixed;
+}
+
 table[role="grid"] td {
 	text-align: initial;
 }
