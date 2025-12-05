@@ -1139,8 +1139,11 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 			<button onclick="document.querySelector('#dialog_simple').showModal()">Simple</button>
 			<button onclick="document.querySelector('#dialog_banner').showModal()">Banner</button>
-			<button onclick="document.querySelector('#dialog_banner_form').showModal()">Banner with form</button>
 			<button onclick="document.querySelector('#dialog_banner_article').showModal()">Banner with article</button>
+			<button onclick="document.querySelector('#dialog_banner_form').showModal()">Banner with form</button>
+			<button onclick="document.querySelector('#dialog_banner_form_search').showModal()">
+				Banner with form search
+			</button>
 
 			<dialog id="dialog_simple">
 				<p>
@@ -1148,12 +1151,6 @@ no changes added to commit (use "git add" and/or "git commit -a")
 				</p>
 			</dialog>
 			<dialog role="banner" id="dialog_banner">
-			</dialog>
-			<dialog role="banner" id="dialog_banner_form">
-				Banner dialog with form
-				<form method="dialog">
-					<button>Close</button>
-				</form>
 			</dialog>
 			<dialog role="banner" id="dialog_banner_article">
 				<article>
@@ -1169,6 +1166,17 @@ no changes added to commit (use "git add" and/or "git commit -a")
 						<button>Close</button>
 					</form>
 				</article>
+			</dialog>
+			<dialog role="banner" id="dialog_banner_form">
+				Banner dialog with form
+				<form method="dialog">
+					<button>Close</button>
+				</form>
+			</dialog>
+			<dialog role="banner" id="dialog_banner_form_search">
+				<form role="search">
+					<input type="search" placeholder="How to..." />
+				</form>
 			</dialog>
 		</section>
 		<section id="details">
