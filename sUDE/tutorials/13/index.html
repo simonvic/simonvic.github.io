@@ -23,7 +23,7 @@
 			</ul>
 		</nav>
 	</header>
-	<main class="container">
+	<main role="list" class="container">
 		<aside>
 			<nav>
 				<ol>
@@ -56,7 +56,7 @@
 		</aside>
 
 		<section id="Setup">
-			<h3>Setup</h3>
+			<h2 role="listitem">Setup</h2>
 			<p>
 				Add sFramework as a dependency by adding it to the <code>requiredAddons</code> inside your
 				<code>config.cpp</code>
@@ -72,7 +72,7 @@ class CfgPatches {
 				</code></pre>
 		</section>
 		<section id="Quick_example">
-			<h3>Quick example</h3>
+			<h2 role="listitem">Quick example</h2>
 			<pre><code>
 class SomeClass {					
 	void OnUpdate(float timeslice) {
@@ -112,7 +112,7 @@ class SomeClass {
 				</code></pre>
 		</section>
 		<section id="Options">
-			<h3>Options</h3>
+			<h2 role="listitem">Options</h2>
 			<p>When creating a widget, you can specify multiple options of the form <code>key = value</code></p>
 			<blockquote class="info">
 				White spaces before and after the equal symbol will be ignored, but they're recommended for
@@ -146,12 +146,12 @@ dui.with({
 					</code></pre>
 			</blockquote>
 			<section id="Color">
-				<h4>Color</h4>
+				<h3 role="listitem">Color</h3>
 				<p>Some options like <code>bg</code> (background) accept color value in hex format</p>
 				<p>They can be in <code>RRGGBB</code> or <code>RRGGBBAA</code> format</p>
 			</section>
 			<section id="Dimension">
-				<h4>Dimension</h4>
+				<h3 role="listitem">Dimension</h3>
 				<p>
 					Some options like <code>pos</code> (position) or <code>size</code> accept can accept one or more
 					space separated value of type <em>dimension</em>
@@ -163,7 +163,7 @@ dui.with({
 			</section>
 		</section>
 		<section id="Widgets">
-			<h3>Widgets</h3>
+			<h2 role="listitem">Widgets</h2>
 			<p>
 				You can create widgets by invoking the <code>widget(layout)</code>, where <code>layout</code> is the
 				path of a .layout file
@@ -202,7 +202,7 @@ dui.with({
 				</tbody>
 			</table>
 			<section id="Window">
-				<h4>Window</h4>
+				<h3 role="listitem">Window</h3>
 				<p>Used to create a window, which will contain all of your other widget</p>
 				<pre><code>
 dui.window();
@@ -247,7 +247,7 @@ dui.window();
 				</table>
 			</section>
 			<section id="Text">
-				<h4>Text</h4>
+				<h3 role="listitem">Text</h3>
 				<p>Simple text widget</p>
 				<pre><code>dui.text("hello world");</code></pre>
 				<p>Supported options</p>
@@ -284,7 +284,7 @@ dui.window();
 				</table>
 			</section>
 			<section id="Richtext">
-				<h4>Richtext</h4>
+				<h3 role="listitem">Richtext</h3>
 				<p>Richtext widget, like <code>text</code> but supports pango markup</p>
 				<pre><code class="language-csharp">dui.textrich("hello &lt;b&gt;world&lt;/&gt;");</code></pre>
 				<blockquote class="tip">
@@ -327,7 +327,7 @@ dui.textrich("This is an icon &lt;image set='dayz_gui' name='icon_pin' /&gt; ");
 				</table>
 			</section>
 			<section id="Checkbox">
-				<h4>Checkbox</h4>
+				<h3 role="listitem">Checkbox</h3>
 				<p>A checkbox, usually used to change a boolean value</p>
 				<pre><code>
 bool myBoolVariable;
@@ -370,7 +370,7 @@ dui.check("unique checkbox name", myBoolVariable);
 				</table>
 			</section>
 			<section id="Button">
-				<h4>Button</h4>
+				<h3 role="listitem">Button</h3>
 				<p>A simple button which, upon pressing it, will invoke a function you define</p>
 				<pre><code>
 dui.button("my unique button", this, myFunction, new Param2&lt;string, int&gt;("hello world", 69));
@@ -421,7 +421,7 @@ void myOtherFunction() {
 				</table>
 			</section>
 			<section id="Slider">
-				<h4>Slider</h4>
+				<h3 role="listitem">Slider</h3>
 				<p>A slider to control a float value</p>
 				<pre><code>
 float myFloatValue;
@@ -484,7 +484,7 @@ dui.slider("my unique slider name", myFloatValue);
 				</table>
 			</section>
 			<section id="Table">
-				<h4>Table</h4>
+				<h3 role="listitem">Table</h3>
 				<p>A super powerful and quick way of display data in a organized manner</p>
 				<p>It accepts a list of row; each row is a list of cell (strings)</p>
 				<pre><code>
@@ -540,7 +540,7 @@ dui.table({
 				</table>
 			</section>
 			<section id="Canvas">
-				<h4>Canvas</h4>
+				<h3 role="listitem">Canvas</h3>
 				<p>A canvas where you can paint anything</p>
 				<pre><code>
 dui.canvas();
@@ -584,7 +584,7 @@ dui.canvas();
 				</table>
 			</section>
 			<section id="Plot">
-				<h4>Plot</h4>
+				<h3 role="listitem">Plot</h3>
 				<p>Supported options</p>
 				<p>It takes a list of lines (x,y coordinate pairs)</p>
 				<pre><code>
@@ -674,7 +674,7 @@ dui.plot({points});
 				</table>
 			</section>
 			<section id="Plot_live">
-				<h4>Live plot</h4>
+				<h3 role="listitem">Live plot</h3>
 				<p>A plot meant to track changes of a float value</p>
 				<pre><code>
 dui.plotlive("my unique plotlive name", GetGame().GetPlayer().GetStamina());
@@ -763,7 +763,7 @@ dui.plotlive("my unique plotlive name", GetGame().GetPlayer().GetStamina());
 				</table>
 			</section>
 			<section id="Spacer">
-				<h4>Spacer</h4>
+				<h3 role="listitem">Spacer</h3>
 				<p>A simple "empty" widget meant to create spacing between other widgets</p>
 				<pre><code>
 dui.spacer();
@@ -802,7 +802,7 @@ dui.spacer();
 				</table>
 			</section>
 			<section id="Newline">
-				<h4>Newline</h4>
+				<h3 role="listitem">Newline</h3>
 				<p>A simple "empty" widget to force new widgets to be on a new line</p>
 				<pre><code>
 dui.newline();

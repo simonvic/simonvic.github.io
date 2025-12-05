@@ -23,7 +23,7 @@
 			</ul>
 		</nav>
 	</header>
-	<main class="container">
+	<main role="list" class="container">
 		<aside>
 			<nav>
 				<ol>
@@ -36,7 +36,7 @@
 		</aside>
 
 		<section id="Setup">
-			<h3>Setup</h3>
+			<h2 role="listitem">Setup</h2>
 			<p>
 				Add sFramework as a dependency by adding it to the <code>requiredAddons</code> inside your
 				<code>config.cpp</code>
@@ -52,7 +52,7 @@ class CfgPatches {
 				</code></pre>
 		</section>
 		<section id="Implement">
-			<h3>Setup</h3>
+			<h2 role="listitem">Implement</h2>
 			<p>Implement the <code>SUserConfigBase</code> class as follows</p>
 			<pre><code>
 class MySUserConfig : SUserConfigBase {
@@ -115,7 +115,7 @@ class MySUserConfig : SUserConfigBase {
 				</code></pre>
 		</section>
 		<section id="Use">
-			<h3>Use</h3>
+			<h2 role="listitem">Use</h2>
 			<p>You can now instantiate the config, save it, load it and more</p>
 			<pre><code>
 MySUserConfig myCfg = new MySUserConfig();
@@ -124,7 +124,7 @@ myCfg.load();
 				</code></pre>
 		</section>
 		<section id="Creating_UI">
-			<h3>Creation User Interface</h3>
+			<h2 role="listitem">Creation User Interface</h2>
 			<p>You likely want to create a graphical user interface to edit the options</p>
 			<pre><code>
 class MyOptionsMenu : SOptionsMenuBase {

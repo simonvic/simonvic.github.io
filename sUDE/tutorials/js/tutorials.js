@@ -2,14 +2,14 @@ window.onload = () => {
 	const currentBreadcrumb = document.querySelector("nav[aria-label='breadcrumb'] a[aria-current='page']")
 	currentBreadcrumb.setAttribute("aria-busy", "true");
 
-	const toc = document.querySelector("main aside nav")
+	const toc = document.querySelector("main aside nav[role='tree']")
 	const observer = new IntersectionObserver(entries => {
 		entries.forEach(entry => {
 			const a = toc.querySelector(`a[href="#${entry.target.id}"]`)
 			if (entry.isIntersecting) {
-				a.classList.add("active")
+				a.setAttribute("aria-current", "step")
 			} else {
-				a.classList.remove("active")
+				a.removeAttribute("aria-current")
 			}
 		});
 	});

@@ -1,9 +1,5 @@
 @import url(style.css);
 
-:root {
-	counter-reset: tutorial_step1;
-}
-
 @media (min-width: 1700px) {
 	main aside {
 		position: sticky;
@@ -47,34 +43,55 @@ main aside nav li a::before {
 }
 
 
-section>h3::before {
-	counter-increment: tutorial_step1;
-	content: counter(tutorial_step1) ". ";
-}
-
-section>h3 {
+main[role="list"] {
 	counter-reset: tutorial_step2;
 }
 
-section>h4::before {
+main[role="list"] h2[role="listitem"]::before {
 	counter-increment: tutorial_step2;
-	content: counter(tutorial_step1) "." counter(tutorial_step2) ". ";
+	content: counter(tutorial_step2) ". ";
 }
 
-section>h4 {
+main[role="list"] h2[role="listitem"] {
 	counter-reset: tutorial_step3;
 }
 
-section>h5::before {
+main[role="list"] h3[role="listitem"]::before {
 	counter-increment: tutorial_step3;
-	content: counter(tutorial_step1) "." counter(tutorial_step2) "." counter(tutorial_step3) ". ";
+	content: counter(tutorial_step2) "." counter(tutorial_step3) ". ";
 }
 
-section>h5 {
+main[role="list"] h3[role="listitem"] {
 	counter-reset: tutorial_step4;
 }
 
-section>h6::before {
+main[role="list"] h4[role="listitem"]::before {
 	counter-increment: tutorial_step4;
-	content: counter(tutorial_step1) "." counter(tutorial_step2) "." counter(tutorial_step3) "." counter(tutorial_step4) ". ";
+	content: counter(tutorial_step2) "." counter(tutorial_step3) "." counter(tutorial_step4) ". ";
+}
+
+main[role="list"] h4[role="listitem"] {
+	counter-reset: tutorial_step5;
+}
+
+main[role="list"] h5[role="listitem"]::before {
+	counter-increment: tutorial_step5;
+	content: counter(tutorial_step2) "." counter(tutorial_step3) "." counter(tutorial_step4) "." counter(tutorial_step5) ". ";
+}
+
+main[role="list"] h5[role="listitem"] {
+	counter-reset: tutorial_step6;
+}
+
+main[role="list"] h6[role="listitem"]::before {
+	counter-increment: tutorial_step6;
+	content: counter(tutorial_step2) "." counter(tutorial_step3) "." counter(tutorial_step4) "." counter(tutorial_step5) "." counter(tutorial_step6) ". ";
+}
+
+main[role="list"] h2[role="listitem"]::before,
+main[role="list"] h3[role="listitem"]::before,
+main[role="list"] h4[role="listitem"]::before,
+main[role="list"] h5[role="listitem"]::before,
+main[role="list"] h6[role="listitem"]::before {
+	font-size: 0.75rem;
 }

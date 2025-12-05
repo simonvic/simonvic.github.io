@@ -23,7 +23,7 @@
 			</ul>
 		</nav>
 	</header>
-	<main class="container">
+	<main role="list" class="container">
 		<aside>
 			<nav>
 				<ol>
@@ -49,7 +49,7 @@
 			</nav>
 		</aside>
 		<section id="Setup">
-			<h3>Setup</h3>
+			<h2 role="listitem">Setup</h2>
 			<p>
 				Add sVisual as a dependency by adding it to the <code>requiredAddons</code>
 				inside your <code>config.cpp</code>
@@ -74,7 +74,7 @@ class CfgPatches {
 		</section>
 
 		<section id="Create_overlay">
-			<h3>Create an overlay</h3>
+			<h2 role="listitem">Create an overlay</h3>
 			<p><code>sVisual</code> currently supports 3 types of overlay:</p>
 			<ul>
 				<li><code>SCameraOverlay</code></li>
@@ -134,7 +134,7 @@ class MyTimedOverlay : SCameraOverlayTimed {
 		</section>
 
 		<section id="Activate_overlay">
-			<h3>Activate the overlay</h3>
+			<h2 role="listitem">Activate the overlay</h2>
 			<p>Let's say that we want to activate our overlay when the player jumps</p>
 			<pre><code class="language-csharp">
 modded class PlayerBase {
@@ -182,13 +182,13 @@ myTimedOverlay.getRemaining(); // returns how many seconds left to deactivation
 		</section>
 
 		<section id="Advanced_usage">
-			<h3>Advanced usage</h3>
+			<h2 role="listitem">Advanced usage</h2>
 			<p>
 				Overlays have many attributes that you can play with. All these values can be set in both
 				<code>onInit</code> or <code>onAnimate</code> methods via the appropriate setters.
 			</p>
 			<section id="image">
-				<h4><a href="#image" class="contrast">Image</a></h4>
+				<h3 role="listitem"><a href="#image" class="contrast">Image</a></h3>
 				<p>Resource image path; can be whatever an ImageWidget accepts as texture</p>
 				<pre><code class="language-csharp">setImage("image here");</code></pre>
 				<p>Currently working formats</p>
@@ -199,7 +199,7 @@ myTimedOverlay.getRemaining(); // returns how many seconds left to deactivation
 				</ul>
 			</section>
 			<section id="alpha">
-				<h4><a href="#alpha" class="contrast">Alpha</a></h4>
+				<h3 role="listitem"><a href="#alpha" class="contrast">Alpha</a></h3>
 				<p>
 					A float value that ranges from 0.0 to 1.0 that represents the alpha channel
 					(trasparency) of the overlay
@@ -221,7 +221,7 @@ override void onUpdate(float deltaTime) {
 				</div>
 			</section>
 			<section id="position">
-				<h4><a href="#position" class="contrast">Position</a></h4>
+				<h3 role="listitem"><a href="#position" class="contrast">Position</a></h3>
 				<p>A couple of X and Y coordinates in screenspace</p>
 				<pre><code class="language-csharp">setPosition(x, y);</code></pre>
 				<p>Where the X value can be:</p>
@@ -251,7 +251,7 @@ override void onUpdate(float deltaTime) {
 				</div>
 			</section>
 			<section id="size">
-				<h4><a href="#size" class="contrast">Size</a></h4>
+				<h3 role="listitem"><a href="#size" class="contrast">Size</a></h3>
 				<p>A couple of X and Y values which determine the size of the image in screenspace</p>
 				<pre><code class="language-csharp">setSize(x, y);</code></pre>
 				<p>Where the X value can be:</p>
@@ -281,7 +281,7 @@ override void onUpdate(float deltaTime) {
 				</div>
 			</section>
 			<section id="rotation">
-				<h4><a href="#rotation" class="contrast">Rotation</a></h4>
+				<h3 role="listitem"><a href="#rotation" class="contrast">Rotation</a></h3>
 				<p>Yaw, Pitch and Roll angles of the overlay, defined in degrees [0° - 360°]</p>
 				<pre><code class="language-csharp">setRotation(yaw, pitch, roll);</code></pre>
 				<blockquote class="note">
@@ -299,7 +299,7 @@ override void onUpdate(float deltaTime) {
 				</div>
 			</section>
 			<section id="priority">
-				<h4><a href="#priority" class="contrast">Priority</a></h4>
+				<h3 role="listitem"><a href="#priority" class="contrast">Priority</a></h3>
 				<p>
 					An integer value which ranges from 0 - 1000 that represents how close to the camera the
 					overlay will be (also known as z-depth).
@@ -321,7 +321,7 @@ override void onUpdate(float deltaTime) {
 				</div>
 			</section>
 			<section id="target_cameras">
-				<h4><a href="#target_camera" class="contrast">Target cameras</a></h4>
+				<h3 role="listitem"><a href="#target_camera" class="contrast">Target cameras</a></h3>
 				<p>
 					An array of typenames of cameras, which is used to hide/show the overlay based on the
 					currently used camera.
@@ -344,7 +344,7 @@ override void onInit() {
 				</div>
 			</section>
 			<section id="hides_with_hud">
-				<h4><a href="#hides_with_hud" class="contrast">Hides with HUD</a></h4>
+				<h3 role="listitem"><a href="#hides_with_hud" class="contrast">Hides with HUD</a></h3>
 				<p>
 					A boolean value (true / false) that will determines if the overlay will hides along with the
 					in-game HUD
@@ -363,7 +363,7 @@ override void onInit() {
 				</div>
 			</section>
 			<section id="mask">
-				<h4><a href="#mask" class="contrast">Mask</a></h4>
+				<h3 role="listitem"><a href="#mask" class="contrast">Mask</a></h3>
 				<blockquote class="info">
 					Using mask and other mask related values might seem intimidating, but they're very easy to
 					use.<br />
@@ -377,7 +377,7 @@ override void onInit() {
 				<pre><code class="language-csharp">setMask("path/to/your/image.edds");</code></pre>
 			</section>
 			<section id="mask_progress">
-				<h4><a href="#mask_progress" class="contrast">Mask progress</a></h4>
+				<h3 role="listitem"><a href="#mask_progress" class="contrast">Mask progress</a></h3>
 				<p>
 					A float value that ranges from 0.0 to 1.0 which determines which alpha values are opaque
 					using the <code>mask</code>.
@@ -388,7 +388,7 @@ override void onInit() {
 				<pre><code class="language-csharp">setMaskProgress(0.69);</code></pre>
 			</section>
 			<section id="mask_transition_width">
-				<h4><a href="#mask_transition_width" class="contrast">Mask transition width</a></h4>
+				<h3 role="listitem"><a href="#mask_transition_width" class="contrast">Mask transition width</a></h3>
 				<p>A float value that determines the "width" of the alpha values that must be smoothed.</p>
 				<p>
 					Alpha values will be fully opaque at <code>maskProgress</code>. Values between

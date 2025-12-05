@@ -23,7 +23,7 @@
 			</ul>
 		</nav>
 	</header>
-	<main class="container">
+	<main role="list" class="container">
 		<aside>
 			<nav>
 				<ol>
@@ -38,7 +38,7 @@
 			The following tutorial applies to all sUDE mods, namely sVisual and sGunplay at the moment.
 		</blockquote>
 		<section id="First_server_launch">
-			<h3>First server launch</h3>
+			<h2 role="listitem">First server launch</h2>
 			<p>
 				Make sure you launch the server at least once with the mod of which you wish to constrain the user
 				settings, and that at least player has joined once; this will ensure the needed files will be
@@ -67,94 +67,95 @@
 			<blockquote class="note">
 				By default the constraints are disabled. Proceed to the next step to enable them.
 			</blockquote>
+		</section>
 
-			<section id="Edit_the_constraints">
-				<h3>Edit the constraints</h3>
-				<p>
-					Open the file with your favorite text editor and edit the constraints as needed
-				</p>
-				<p>
-					If you're unfamiliar with editing JSON files, you can use the
-					<a href="https://simonvic.github.io/sUDE/tools/sConstraintsEditor">sConstraint editor tool</a>
-				</p>
-				<blockquote class="note">
-					Make sure that the syntax of the file is correct, or the server will refuse to load the file and
-					will override it with the default values
-				</blockquote>
+		<section id="Edit_the_constraints">
+			<h2 role="listitem">Edit the constraints</h2>
+			<p>
+				Open the file with your favorite text editor and edit the constraints as needed
+			</p>
+			<p>
+				If you're unfamiliar with editing JSON files, you can use the
+				<a href="https://simonvic.github.io/sUDE/tools/sConstraintsEditor">sConstraint editor tool</a>
+			</p>
+			<blockquote class="note">
+				Make sure that the syntax of the file is correct, or the server will refuse to load the file and
+				will override it with the default values
+			</blockquote>
 
-				<h4>How a constraint work</h4>
-				<p>A constraint is made of mainly three fields:</p>
-				<ol>
-					<li>
-						<code>constrain</code>: a
-						<em data-tooltip="DayZ JSON parser also accepts '0' for 'false' and '1' for 'true'">boolean</em>
-						value.<br />
-						If set to <code>false</code> the user will be able to freely change the setting
-						without any constraint<br />
-						If set to <code>true</code> the user will be able to change the setting
-						based on the constrain you define.
-					</li>
-					<li>
-						<code>message</code>: A string containing a message that will be shown to the players when
-						trying to edit a constrained option.
-						<blockquote class="info">
-							A message also supports some basic
-							<em data-tooltip="subset of Pango markup <b>bold</b>, <i>italic</i> etc">markup</em> and
-							strings of different localizations from <code>stringtables.csv</code> (e.g.
-							"#MY_LOCALIZED_STRING")
-						</blockquote>
-					</li>
-					<li>
-						The actual constrained value: this may depends on the option you want to constrain.<br />
-						<ul>
-							<li>
-								If the option is a "checkbox" you'll see a <code>value</code> field: a
-								<em
-									data-tooltip="DayZ JSON parser also accepts '0' for 'false' and '1' for 'true'">boolean</em>
-								value.<br />
-								If set to <code>false</code> the user setting will be forced to be turned off<br />
-								If set to <code>true</code> the user setting will always be turned on
-							</li>
-							<li>
-								If the option is a "slider" you'll see two field <code>min</code> and <code>max</code>:
-								they will respecitevly constrain the minimum and maximum value.
-								<blockquote class="info">
-									If you don't want the player to change the setting at all, you can set constrain
-									both <code>min</code> and <code>max</code> at the same value
-								</blockquote>
-							</li>
-						</ul>
+			<h3 role="listitem">How a constraint work</h3>
+			<p>A constraint is made of mainly three fields:</p>
+			<ol>
+				<li>
+					<code>constrain</code>: a
+					<em data-tooltip="DayZ JSON parser also accepts '0' for 'false' and '1' for 'true'">boolean</em>
+					value.<br />
+					If set to <code>false</code> the user will be able to freely change the setting
+					without any constraint<br />
+					If set to <code>true</code> the user will be able to change the setting
+					based on the constrain you define.
+				</li>
+				<li>
+					<code>message</code>: A string containing a message that will be shown to the players when
+					trying to edit a constrained option.
+					<blockquote class="info">
+						A message also supports some basic
+						<em data-tooltip="subset of Pango markup <b>bold</b>, <i>italic</i> etc">markup</em> and
+						strings of different localizations from <code>stringtables.csv</code> (e.g.
+						"#MY_LOCALIZED_STRING")
+					</blockquote>
+				</li>
+				<li>
+					The actual constrained value: this may depends on the option you want to constrain.<br />
+					<ul>
+						<li>
+							If the option is a "checkbox" you'll see a <code>value</code> field: a
+							<em
+								data-tooltip="DayZ JSON parser also accepts '0' for 'false' and '1' for 'true'">boolean</em>
+							value.<br />
+							If set to <code>false</code> the user setting will be forced to be turned off<br />
+							If set to <code>true</code> the user setting will always be turned on
+						</li>
+						<li>
+							If the option is a "slider" you'll see two field <code>min</code> and <code>max</code>:
+							they will respecitevly constrain the minimum and maximum value.
+							<blockquote class="info">
+								If you don't want the player to change the setting at all, you can set constrain
+								both <code>min</code> and <code>max</code> at the same value
+							</blockquote>
+						</li>
+					</ul>
 
-					</li>
-				</ol>
+				</li>
+			</ol>
 
-			</section>
+		</section>
 
-			<section id="Save_and_restart">
-				<h3>Save and restart</h3>
-				<p>
-					Once you finished editing the file, save it and restart the server to make sure the changes take
-					effect
-				</p>
-			</section>
-			<section id="Additional_info">
-				<h3>Additional info</h3>
-				<ul>
-					<li>Make sure your .json syntax is correct, otherwise the file will be regenerated with the default
-						values</li>
-					<li>Since the .json will be regenerated when incorrect, corrupt or can't be read from the server,
-						it's advised to keep a backup, so you won't loose your edits</li>
-					<li>The DayZ JSON parser is not capable of handling comments, so refrain from adding them in the
-						.json</li>
-					<li>The JSON parser accepts both 0 or false and 1 or true for boolean values</li>
-					<li>If you're having issues with constraints not working, delete the constraint file and let the
-						server regenerate it</li>
-				</ul>
+		<section id="Save_and_restart">
+			<h2 role="listitem">Save and restart</h2>
+			<p>
+				Once you finished editing the file, save it and restart the server to make sure the changes take
+				effect
+			</p>
+		</section>
+		<section id="Additional_info">
+			<h2 role="listitem">Additional info</h2>
+			<ul>
+				<li>Make sure your .json syntax is correct, otherwise the file will be regenerated with the default
+					values</li>
+				<li>Since the .json will be regenerated when incorrect, corrupt or can't be read from the server,
+					it's advised to keep a backup, so you won't loose your edits</li>
+				<li>The DayZ JSON parser is not capable of handling comments, so refrain from adding them in the
+					.json</li>
+				<li>The JSON parser accepts both 0 or false and 1 or true for boolean values</li>
+				<li>If you're having issues with constraints not working, delete the constraint file and let the
+					server regenerate it</li>
+			</ul>
 
-				<h4>Sample constraints configuration</h4>
-				<details>
-					<summary>sVisual constraints file</summary>
-					<pre><code>
+			<h3>Sample constraints configuration</h3>
+			<details>
+				<summary>sVisual constraints file</summary>
+				<pre><code>
 {
 	"effectsIntensity": {
 		"constrain": true,
@@ -209,10 +210,10 @@
 	}
 }					
 				</code></pre>
-				</details>
-				<details>
-					<summary>sGunplay constraints file</summary>
-					<pre><code>
+			</details>
+			<details>
+				<summary>sGunplay constraints file</summary>
+				<pre><code>
 {
 	"adsFOVMultiplier": {
 		"constrain": true,
@@ -297,8 +298,8 @@
 	}
 }					
 					</code></pre>
-				</details>
-			</section>
+			</details>
+		</section>
 
 	</main>
 </body>

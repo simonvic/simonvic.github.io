@@ -23,7 +23,7 @@
 			</ul>
 		</nav>
 	</header>
-	<main class="container">
+	<main role="list" class="container">
 		<aside>
 			<nav>
 				<ol>
@@ -48,7 +48,7 @@
 		</aside>
 
 		<section id="Setup">
-			<h3>Setup</h3>
+			<h2 role="listitem">Setup</h2>
 			<p>
 				Add sVisual as a dependency by adding it to the <code>requiredAddons</code> inside your
 				<code>config.cpp</code>
@@ -68,7 +68,7 @@ class CfgPatches {
 			</blockquote>
 		</section>
 		<section id="Defining_an_effect">
-			<h3>Defining an effect</h3>
+			<h2 role="listitem">Defining an effect</h2>
 			<p><code>sVisual</code> currently supports 3 types of effect:</p>
 			<ul>
 				<li><code>SPPEffect</code></li>
@@ -129,7 +129,7 @@ class MyTimedEffect : SPPEffectTimed {
 						</code></pre>
 		</section>
 		<section id="Registering_the_effect">
-			<h3>Register the effect</h3>
+			<h2 role="listitem">Register the effect</h2>
 			<p>
 				You've defined your effect. Before being able to use and activate it, you need to
 				<em>register</em> its classname into the <code>PPERequesterBank</code>, which holds the
@@ -146,7 +146,7 @@ modded class PPERequesterRegistrations {
 						</code></pre>
 		</section>
 		<section id="Using_the_effect">
-			<h3>Using the effect</h3>
+			<h2 role="listitem">Using the effect</h2>
 			<p>We can now retrieve the effect from the bank and use it.</p>
 			<p>Let's say we want to activate our effects visible when the player jumps.</p>
 			<pre><code class="language-csharp">
@@ -194,9 +194,9 @@ myAnimatedEffect.getRemaining(); // returns how many seconds left to deactivatio
 						</code></pre>
 		</section>
 		<section id="Advanced_definition">
-			<h3>Advanced definition</h3>
+			<h2 role="listitem">Advanced definition</h2>
 			<section id="Normalization">
-				<h4>Normalization</h4>
+				<h3 role="listitem">Normalization</h3>
 				<p>
 					Some effect could accept values in the -1,1 range, some other in the -2,2 range, while
 					some other in the 0,1000 range.<br>
@@ -219,7 +219,7 @@ class SomeEffect : SPPEffect {
 				</blockquote>
 			</section>
 			<section id="Priority_and_operator">
-				<h4>Priority and Operator</h4>
+				<h3 role="listitem">Priority and Operator</h3>
 				<p>
 					You may be wondering what would happen when two different PPEffects are active at the
 					same time, and they both set the same effect parameter (e.g. vignette intensity,
@@ -524,7 +524,7 @@ class DarknessEffect : SPPEffect {
 				</blockquote>
 
 				<section id="Operator_types">
-					<h5>Operator types</h5>
+					<h4 role="listitem">Operator types</h4>
 					<blockquote class="note">
 						Not every operator is applicable to all parameters type.<br>
 						Some may work only for color parameters or for float parameters etc.
@@ -589,7 +589,7 @@ class DarknessEffect : SPPEffect {
 				</section>
 			</section>
 			<section id="Multiple_parameters">
-				<h4>Multiple parameters in the same PPEffect</h4>
+				<h3 role="listitem">Multiple parameters in the same PPEffect</h3>
 				<p>A PPEffect can "request" multiple parameters at the same time</p>
 				<p>
 					You're free to set a different priority and a different operator for each parameter,
@@ -701,7 +701,7 @@ class Effect_B : SPPEffect {
 				</table>
 			</section>
 			<section id="Effects_intensity_option">
-				<h4>Effects intensity option</h4>
+				<h3 role="listitem">Effects intensity option</h3>
 				<p>
 					Some players may enjoy more intense effects for immersion, while some other may find
 					them too distracting.<br>

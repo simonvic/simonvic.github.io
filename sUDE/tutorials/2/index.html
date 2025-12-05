@@ -23,7 +23,7 @@
 			</ul>
 		</nav>
 	</header>
-	<main class="container">
+	<main role="list" class="container">
 		<aside>
 			<nav>
 				<ol>
@@ -46,7 +46,7 @@
 		</aside>
 
 		<section id="Setup">
-			<h3>Setup</h3>
+			<h2 role="listitem">Setup</h2>
 			<blockquote class="note">
 				Unless you need to mod sGunplay scripts, you may want to skip this step.
 				By not specifying sGunplay as a required addon, you can make your mod compatible
@@ -68,10 +68,10 @@
 				</code></pre>
 		</section>
 		<section id="Optics">
-			<h3>Optics</h3>
+			<h2 role="listitem">Optics</h2>
 
 			<section id="Optics_PiP">
-				<h4><em data-tooltip="Picture In Picture, aka lens magnification">PiP</em></h4>
+				<h3 role="listitem"><em data-tooltip="Picture In Picture, aka lens magnification">PiP</em></h3>
 				<p>
 					If your optic has magnification (e.g. 2x, 4x, 6x etc), you should define some additional
 					attributes
@@ -120,7 +120,7 @@
 				<br>
 			</section>
 			<section id="Optics_Other">
-				<h4>Other parameters</h4>
+				<h3 role="listitem">Other parameters</h3>
 				<p>
 					If your optic has a "fullscreen reticle", like the vanilla <i>HuntingOptic</i>, you should
 					enable the <code>s_isFullscreen</code> to make the optic behave correctly, and
@@ -161,7 +161,7 @@
 		</section>
 
 		<section id="Recoils">
-			<h3>Recoils</h3>
+			<h2 role="listitem">Recoils</h2>
 			<blockquote class="info">
 				If you have custom weapons which doesn't use custom recoil, but they instead use the recoils of some
 				existing vanilla weapons, you can skip to <a href="#Attachments_stats">this step</a>
@@ -276,14 +276,14 @@ modded class AUGRecoil {
 			</blockquote>
 
 			<section id="Attachments_stats">
-				<h4>Attachments stats</h4>
+				<h3 role="listitem">Attachments stats</h3>
 				<p>
 					Attachments play a major role in the final recoil computation as they could heavily modify
 					the before mentioned values of the recoils (i.e. mouse, stability, misalignment, kick),
 					hence improving (or also worsen) the recoil.
 				</p>
 
-				<h5>How attachments stats work</h5>
+				<h4 role="listitem">How attachments stats work</h4>
 				<p>
 					All the stats are defined in percentage (0.0 = 0%, 0.69 = 69%, 1.0 = 100%, -0.42 = -42%) and
 					they're <b>additive</b>, which means that if two attachments are being used, and they reduce
@@ -291,7 +291,7 @@ modded class AUGRecoil {
 					So be mindful when choosing the stats.
 				</p>
 
-				<h5>Define attachments stats</h5>
+				<h4 role="listitem">Define attachments stats</h4>
 				<p>
 					The definition is done through the <code>config.cpp</code>. The configurable attributes are:
 				</p>
@@ -339,7 +339,7 @@ class cfgVehicles {
 			</section>
 
 			<section id="Integrated_attachments">
-				<h4>Integrated attachments</h4>
+				<h3 role="listitem">Integrated attachments</h3>
 				<p>Some weapons may not have removable attachments (e.g. M16A1 rifle)</p>
 				<p>In this case it's possible to add stats for "integrated attachment" directly in your weapon
 					class</p>
@@ -358,7 +358,7 @@ class cfgWeapons {
 				<p>So in this example, the M16A1 rifle will have those stats without attachments</p>
 
 				<section id="Complete_example">
-					<h4>A complete example</h4>
+					<h3 role="listitem">A complete example</h3>
 					<pre><code>
 class cfgVehicles {
 	class Inventory_Base;

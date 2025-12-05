@@ -23,7 +23,7 @@
 			</ul>
 		</nav>
 	</header>
-	<main class="container">
+	<main role="list" class="container">
 		<aside>
 			<nav>
 				<ol>
@@ -36,7 +36,6 @@
 					<li><a href="#Run_tests">Run the tests</a>
 						<ol>
 							<li><a href="#Configuration">Configuration</a></li>
-							<li><a href="#Using_debug_menu">Using debug menu</a></li>
 						</ol>
 					</li>
 					<li><a href="#Advanced_usage">Advanced usage</a>
@@ -50,7 +49,7 @@
 		</aside>
 
 		<section id="Setup">
-			<h3>Setup</h3>
+			<h2 role="listitem">Setup</h2>
 			<p>
 				Add sFramework as a dependency by adding it to the <code>requiredAddons</code> inside your
 				<code>config.cpp</code>
@@ -67,7 +66,7 @@ class CfgPatches {
 		</section>
 
 		<section id="Create_test_unit">
-			<h3>Create Test Unit</h3>
+			<h2 role="listitem">Create Test Unit</h2>
 			<p>To create a test unit, simply implement the <code>STestUnit</code> class</p>
 			<pre><code>
 class MyTestUnit : STestUnit { }
@@ -105,6 +104,7 @@ class MyTestUnit : STestUnit {
     }
 }					</code></pre>
 			<sectiond id="Assertions">
+				<h3 role="listitem">Assertions</h3>
 				<p>By default, sTest APIs will provide basic assertions method</p>
 				<ul>
 					<li><code>assertEqual(x, y)</code> where <code>x</code> and <code>y</code> can be:
@@ -124,7 +124,7 @@ class MyTestUnit : STestUnit {
 			</sectiond>
 		</section>
 		<section id="Run_tests">
-			<h3>Run the tests</h3>
+			<h2 role="listitem">Run the tests</h2>
 			<p>To run a test unit simply invoke <code>STest.run()</code></p>
 			<p>You can pass a single <code>STestUnit</code> or an <code>array of STestUnit</code></p>
 			<pre><code>
@@ -152,7 +152,7 @@ MyTestUnit
 				window
 			</blockquote>
 			<section id="Configuration">
-				<h4>Configuration</h4>
+				<h3 role="listitem">Configuration</h3>
 				<p>You can configure <code>STest</code> behaviour</p>
 				<blockquote class="note">
 					This section may be incomplete or outdated
@@ -168,9 +168,9 @@ STest.verbosity = 3; // default: 1
 			</section>
 		</section>
 		<section id="Advanced_usage">
-			<h3>Advanced usage</h3>
+			<h2 role="listitem">Advanced usage</h2>
 			<section id="Callbacks">
-				<h4>Callbacks</h4>
+				<h3 role="listitem">Callbacks</h3>
 				<p>
 					If you need to perform some actions before or after each test unit or each test case,
 					you can define and register some callbacks.<br>
@@ -222,7 +222,7 @@ class MyTestUnit : STestUnit {
 					</code></pre>
 			</section>
 			<section id="Manual">
-				<h4>Manually failing, passing, skipping</h4>
+				<h3 role="listitem">Manually failing, passing, skipping</h3>
 				<p>
 					If you need to write some more complex test cases, you can also manually
 					<code>fail()</code>, <code>pass()</code> or <code>skip()</code>
