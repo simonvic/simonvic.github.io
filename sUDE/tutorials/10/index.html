@@ -57,44 +57,22 @@ class CfgPatches {
 			<pre><code>
 class MySUserConfig : SUserConfigBase {
 
-    /**
-    *   Where the config will be saved
-    */
+    // Where the config will be saved
     override string getPath(){
         return "$saves:\\path\\to\\my\\config.json";
     }
     
-    /**
-    *   Where the config with default values will be saved
-    */
-    override string getDefaultPath(){
-        return "$profile:\\path\\to\\my\\config_default.json";
-    }
-
-    /**
-    *   Implement the deserialization
-    */
-    override void deserialize(string data, out string error){
-        auto cfg = this;
-        m_serializer.ReadFromString(cfg, data, error);
-    }
+    // Implement the deserialization
+	override bool deserialize(string data, out string error) {
+		auto thiz = this;
+		return getSerializer().ReadFromString(thiz, data, error);
+	}
     
-    /**
-    *   Implement the serialization
-    */
-    override string serialize() {
-        string result;
-        auto cfg = this;
-        getSerializer().WriteToString(cfg, true, result);
-        return result;
-    }
-    
-    override string serializeDefault() {
-        string result;
-        auto cfg = new MySUserConfig();
-        getSerializer().WriteToString(cfg, true, result);
-        return result;
-    }
+    // Implement the serialization
+	override bool serialize(out string result) {
+		auto thiz = this;
+		return getSerializer().WriteToString(thiz, true, result);
+	}
 
     // Configuration options (and their default values) you want to store
     float myFloatOption = 0.69;

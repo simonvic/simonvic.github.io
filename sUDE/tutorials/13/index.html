@@ -77,32 +77,31 @@ class CfgPatches {
 class SomeClass {					
 	void OnUpdate(float timeslice) {
 		auto dui = SDebugUI.of("TestDebugUI");
-		dui.begin();
-		dui.window("Debug monitor");
-		dui.text("Day Time : " + GetGame().GetDayTime());
-		dui.newline();
-		
-		dui.textrich("&lt;image set='dayz_gui' name='icon_pin' /&gt; ");
-		dui.textrich("You can click on the slider, or you can use the mouse wheel");
-		dui.textrich("If you hold shift while using mouse wheel, it will go wrooom!");
-		float sliderValue;
-		dui.slider("mySlider", sliderValue);
-		dui.textrich("The value of &lt;font name='gui/fonts/amorserifpro'&gt;sliderValue&lt;/font&gt; is: &lt;b&gt;"+ sliderValue +"&lt;/b&gt;");
-		
-		bool checkValue
-		dui.check("myCheck", checkValue);
-		dui.text("CheckValue: " + checkValue);
-		dui.button("click me", this, "printSum", new Param2<int,int>(69, 420));
-		dui.newline();
-		dui.table({
-			{"Attribute",    "Value"},
-			{"Time",         ""+GetGame().GetTickTime()},
-			{"Radio volume", ""+GetGame().GetSoundScene().GetRadioVolume()},
-			{"VoIP volume",  ""+GetGame().GetSoundScene().GetVOIPVolume()},
-			{"VoIP level",   ""+GetGame().GetSoundScene().GetAudioLevel()}
-		});
-		dui.plotlive("Sin", Easing.EaseInBounce(Math.AbsFloat(Math.Sin(m_time))));
-		dui.end();
+		if (dui.begin()) {
+			dui.window("Debug monitor");
+			dui.text("Day Time : " + GetGame().GetDayTime());
+			dui.newline();
+
+			dui.textrich("&#60;image set='dayz_gui' name='icon_pin' /&#62;");
+			dui.textrich("You can click on the slider, or you can use the mouse wheel");
+			dui.textrich("If you hold shift while using mouse wheel, it will go wrooom!");
+			float sliderValue = dui.slider("mySlider");
+			dui.textrich("The value of &#60;font name='gui/fonts/amorserifpro'&#62;sliderValue&#60;/font&#62; is: &#60;b&#62;"+ sliderValue +"&#60;/b&#62;");
+
+			if (dui.check("show live plot")) {
+				dui.plotlive("Sin", Easing.EaseInBounce(Math.AbsFloat(Math.Sin(m_time))));
+			}
+			dui.newline();
+			dui.table({
+				{"Attribute",    "Value"},
+				{"Time",         ""+GetGame().GetTickTime()},
+				{"Radio volume", ""+GetGame().GetSoundScene().GetRadioVolume()},
+				{"VoIP volume",  ""+GetGame().GetSoundScene().GetVOIPVolume()},
+				{"VoIP level",   ""+GetGame().GetSoundScene().GetAudioLevel()}
+			});
+			dui.button("click me", this, "printSum", new Param2<int,int>(69, 420));
+			dui.end();
+		}
 	}
 
 	void printSum(int x, int y) {
@@ -118,19 +117,18 @@ class SomeClass {
 				White spaces before and after the equal symbol will be ignored, but they're recommended for
 				redeability
 			</blockquote>
-			<p>Each widget has its own options, but my inherit some from another</p>
+			<p>Each widget has its own options, but may inherit some from another.</p>
 			<p>
 				You can set options via the <code>withOpt()</code> method, which accepts a single option or an array
 				of options.<br>
-				The <code>withOpt()</code> method must be called before the widget you wish to apply the options
-				to.<br>
+				The <code>with()</code> method must be called before the widget you wish to apply the options to.<br>
 				It returns the DUI instance, making it possible to chain with other calls
 			</p>
 			<pre><code>
 auto dui = SDebugUI.of("Test");
 dui.begin();
 dui.with({
-	"size = 69px 420px"
+	"size = 69px 420px",
 	"pos = 0.5 10px"
 }).window();
 dui.with("bg = #FF0000").text("Hello world");
@@ -165,7 +163,7 @@ dui.with({
 		<section id="Widgets">
 			<h2 role="listitem">Widgets</h2>
 			<p>
-				You can create widgets by invoking the <code>widget(layout)</code>, where <code>layout</code> is the
+				You can create widgets by invoking the <code>widget("layout")</code>, where <code>layout</code> is the
 				path of a .layout file
 			</p>
 			<p>Alternatively, use the already provided widget prefab</p>
@@ -207,7 +205,7 @@ dui.with({
 				<pre><code>
 dui.window();
 					</code></pre>
-				<p>It's possible to create multiple window for each DUI</p>
+				<p>It's possible to create multiple window in a DUI</p>
 				<p>Supported options</p>
 				<table>
 					<thead>

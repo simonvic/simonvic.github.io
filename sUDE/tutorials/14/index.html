@@ -131,15 +131,13 @@ SLog.d("B is set : " + fop.check(MyFlags.B));
 			<p><code>SRaycast</code> helps you launching raycasts with more flexibility</p>
 			<pre><code>
 SRaycast ray = new SRaycast(/**...*/);
-vector contactPositon = ray
-    .from(thisPosition)
-    .to(thisOtherPosition)
-    .ignore(thisItem, thisOtherItem)
-    .launch()
-    .getContactPosition();
+ray.from(thisPosition)
+	.to(thisOtherPosition)
+	.ignore(thisItem, thisOtherItem)
+	.launch()
 
 if (ray.hasHit()){
-    SLog.d("Raycast has hit at this position" + contactPositon);
+    SLog.d("Raycast has hit at this position" + ray.getContactPosition());
 }
 				</code></pre>
 

@@ -79,7 +79,7 @@ class CfgPatches {
 			<pre><code class="language-csharp">
 class MyStaticEffect : SPPEffect {
 	override void onInit() {
-		setVignetteIntensity(0.69)
+		setVignetteIntensity(0.69);
 		setVignetteColor(SColor.rgb(RGBColors.BLACK)); // SColor: https://simonvic.github.io/sUDE/tutorials/9
 		//...
 	}  
@@ -148,7 +148,7 @@ modded class PPERequesterRegistrations {
 		<section id="Using_the_effect">
 			<h2 role="listitem">Using the effect</h2>
 			<p>We can now retrieve the effect from the bank and use it.</p>
-			<p>Let's say we want to activate our effects visible when the player jumps.</p>
+			<p>Let's say we want to activate our effects when the player jumps.</p>
 			<pre><code class="language-csharp">
 modded class PlayerBase {
 
@@ -590,7 +590,7 @@ class DarknessEffect : SPPEffect {
 			</section>
 			<section id="Multiple_parameters">
 				<h3 role="listitem">Multiple parameters in the same PPEffect</h3>
-				<p>A PPEffect can "request" multiple parameters at the same time</p>
+				<p>A PPEffect can "request" multiple parameters at the same time.</p>
 				<p>
 					You're free to set a different priority and a different operator for each parameter,
 					since each parameter will "affect its own stack of layers".<br>
