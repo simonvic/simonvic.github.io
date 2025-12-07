@@ -1551,6 +1551,106 @@
 			<modding>Refactored attachments stats code in <code>PropertyModifiers</code> to be easier to mod</modding>
 		</changes>
 	</changelog>
+	<changelog mod="sFramework" tag="v3.0.0-exp" type="minor" branch="dev" date="2025/12/07 20:00:00">
+		<preamble></preamble>
+		<changes>
+			<added>Improved documentation about user configuration and server constraints</added>
+			<added>
+				A <code>preload</code> function that implementing user configurations could hook into for preloading
+			</added>
+			<added>New <code>SLOG</code> logger implementation superseding the now deprecated <code>SLog</code></added>
+			<added>New <code>SLOG</code> options added in the diagnostic menu</added>
+			<added>New <code>sDebugUI</code> function for building checkbox returning its boolean state</added>
+			<added>New <code>sDebugUI</code> function for building sliders returning its float value</added>
+			<added>
+				New <code>onValueChange</code> event (ScriptInvoker) for user configuration options that gets fired when
+				the value of the option effectively changes
+			</added>
+			<changed>
+				The default message of a server constraint is now an empty string and it will default to the localized
+				string in the UI. This resulted in a slight reduction in the data size being sent to the clients over
+				the wire
+			</changed>
+			<changed>Improved logging related to user configurations and server constraints</changed>
+			<changed>
+				User configuration and server constraints are initialized earlier in the game lifecycle
+				(<code>DayZGame::DeferredInit</code>)
+			</changed>
+			<changed>
+				Removed default user configuration.<br/>
+				The implementation was meh, it was unused and it only complicated the user configuration APIs with no
+				real benefit.<br/>
+				<i>SPOILER: it might come back once the user configuration gets refactored to be more similar to DayZ
+					vanilla settings</i>
+			</changed>
+			<changed>Removed user configuration and server constraints validation step.</changed>
+			<changed>Removed unnecessary typedefs in favor of the actual type</changed>
+			<changed>Replaced client/server checks with <code>IsDedicatedServer</code></changed>
+			<changed>Cleaner and more human readable log entry format</changed>
+			<changed>Improved UI and localization for boolean based constraints</changed>
+			<changed>The method loading a user configuration will now return the loaded instance</changed>
+			<changed>The method loading a server constraint will now return the loaded instance</changed>
+			<changed>
+				<code>sJONSSerializable</code> serialization and deserialization now returns a boolean value based on
+				whether or not the operation was successful
+			</changed>
+			<changed>The new logging implementation is now used throughout sFramework</changed>
+			<fixed>Mod list in log files wouldn't be printed entirely if too long</fixed>
+			<fixed>File handles are now being closed only if it was actually open</fixed>
+			<fixed>
+				The user configuration constraint reading flow has been refactored, and should fix a rare case of
+				constraints not being applied correctly.
+			</fixed>
+		</changes>
+	</changelog>
+	<changelog mod="sVisual" tag="v2.1.0-exp" type="minor" branch="dev" date="2025/12/07 20:00:00">
+		<preamble>
+			Due to the new available options and some changes to old ones, your current configuration file
+			(<i>sVisual.json</i>) is not compatible anymore and will be regenerated, reverting all options to their
+			default value.<br/>
+			You can configure the settings again in the options menu.<br/>
+			Sorry for the inconvenience :)
+		</preamble>
+		<changes>
+			<added>
+				New user option to <b>toggle clothing overlays</b>!<br/>
+				Toggling the option off will turn off all overlays added by clothing items such as headgear, sunglasses,
+				mask etc.
+			</added>
+			<added>
+				New user option to <b>tweak headbob intensity for each stance</b> (idle, walking, running,
+				sprinting)<br/>
+				The default intensity is 1.00. Setting it to 0.00 will disable the headbob completely (for the
+				configured stance).
+			</added>
+			<changed>The default headbob intensity when idle has been increased</changed>
+			<changed>Minor performance improvements</changed>
+			<changed>More detailed logging when loading user configurations</changed>
+			<changed>More detailed logging about server constraints</changed>
+			<fixes>The headbob is now correctly applied when walking in crouched stance with the weapon raised</fixes>
+			<fixes>The headbob is now correctly applied when idle</fixes>
+			<modding>Updated to support the latest user configuration and server constraints version</modding>
+			<modding>User configuration is now preloaded in <code>sUserConfig::preload</code></modding>
+		</changes>
+	</changelog>
+	<changelog mod="sGunplay" tag="v2.4.0-exp" type="minor" branch="dev" date="2025/12/07 20:00:00">
+		<preamble></preamble>
+		<changes>
+			<changed>Minor performance improvements</changed>
+			<changed>More detailed logging when loading user configurations</changed>
+			<changed>More detailed logging about server constraints</changed>
+			<changed><code>GetWeightEx()</code> is now used instead of the deprecated <code>GetWeight()</code></changed>
+			<modding>
+				The <code>SCOFocusing</code> overlay has been move from the <i>4_World</i> script module to the <i>3_Game</i> script module
+			</modding>
+			<modding>Updated to support the latest user configuration and server constraints version</modding>
+			<modding>User configuration is now preloaded in <code>sUserConfig::preload</code></modding>
+			<modding>
+				Added <code>SHOW_ATTACHMENT_STATS</code> constant to toggle attachment stats widgets in the UI
+			</modding>
+			<modding>Added <code>SHOW_PLAYER_STATS</code> constant to toggle player stats widgets in the UI</modding>
+		</changes>
+	</changelog>
 </changelogs>
 
 <!--
