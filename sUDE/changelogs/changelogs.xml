@@ -1459,7 +1459,7 @@
 			<modding>Deprecated <code>PPERequester_CameraADS::resetLens</code></modding>
 		</changes>
 	</changelog>
-	<changelog mod="sFramework" tag="v2.0.1.exp" type="minor" branch="dev" date="2025/04/23 16:30:00"> 
+	<changelog mod="sFramework" tag="v2.0.1.exp" type="minor" branch="dev" date="2025/04/23 16:30:00">
 		<preamble></preamble>
 		<changes>
 			<fixed>Various syntax errors</fixed>
@@ -1469,14 +1469,14 @@
 			</modding>
 		</changes>
 	</changelog>
-	<changelog mod="sVisual" tag="v2.0.1.exp" type="minor" branch="dev" date="2025/04/23 16:30:00"> 
+	<changelog mod="sVisual" tag="v2.0.1.exp" type="minor" branch="dev" date="2025/04/23 16:30:00">
 		<preamble></preamble>
 		<changes>
 			<fixed>The hit effect would be shown even when succesfully blocking a zombie attack</fixed>
 			<fixed>Various syntax errors</fixed>
 		</changes>
 	</changelog>
-	<changelog mod="sGunplay" tag="v2.3.0.exp" type="major" branch="dev" date="2025/04/23 16:30:00"> 
+	<changelog mod="sGunplay" tag="v2.3.0.exp" type="major" branch="dev" date="2025/04/23 16:30:00">
 		<preamble></preamble>
 		<changes>
 			<added>
@@ -1505,7 +1505,7 @@
 			<modding>Refactored attachments stats code in <code>PropertyModifiers</code> to be easier to mod</modding>
 		</changes>
 	</changelog>
-	<changelog mod="sFramework" tag="v2.0.1" type="minor" branch="main" date="2025/06/03 16:30:00"> 
+	<changelog mod="sFramework" tag="v2.0.1" type="minor" branch="main" date="2025/06/03 16:30:00">
 		<preamble></preamble>
 		<changes>
 			<fixed>Various syntax errors</fixed>
@@ -1515,14 +1515,14 @@
 			</modding>
 		</changes>
 	</changelog>
-	<changelog mod="sVisual" tag="v2.0.1" type="minor" branch="main" date="2025/06/03 16:30:00"> 
+	<changelog mod="sVisual" tag="v2.0.1" type="minor" branch="main" date="2025/06/03 16:30:00">
 		<preamble></preamble>
 		<changes>
 			<fixed>The hit effect would be shown even when succesfully blocking a zombie attack</fixed>
 			<fixed>Various syntax errors</fixed>
 		</changes>
 	</changelog>
-	<changelog mod="sGunplay" tag="v2.3.0" type="major" branch="main" date="2025/06/03 16:30:00"> 
+	<changelog mod="sGunplay" tag="v2.3.0" type="major" branch="main" date="2025/06/03 16:30:00">
 		<preamble></preamble>
 		<changes>
 			<added>
@@ -1551,7 +1551,7 @@
 			<modding>Refactored attachments stats code in <code>PropertyModifiers</code> to be easier to mod</modding>
 		</changes>
 	</changelog>
-	<changelog mod="sFramework" tag="v3.0.0-exp" type="minor" branch="dev" date="2025/12/07 20:00:00">
+	<changelog mod="sFramework" tag="v3.0.0-exp" type="major" branch="dev" date="2025/12/07 20:00:00">
 		<preamble></preamble>
 		<changes>
 			<added>Improved documentation about user configuration and server constraints</added>
@@ -1577,9 +1577,9 @@
 				(<code>DayZGame::DeferredInit</code>)
 			</changed>
 			<changed>
-				Removed default user configuration.<br/>
+				Removed default user configuration.<br />
 				The implementation was meh, it was unused and it only complicated the user configuration APIs with no
-				real benefit.<br/>
+				real benefit.<br />
 				<i>SPOILER: it might come back once the user configuration gets refactored to be more similar to DayZ
 					vanilla settings</i>
 			</changed>
@@ -1607,19 +1607,19 @@
 		<preamble>
 			Due to the new available options and some changes to old ones, your current configuration file
 			(<i>sVisual.json</i>) is not compatible anymore and will be regenerated, reverting all options to their
-			default value.<br/>
-			You can configure the settings again in the options menu.<br/>
+			default value.<br />
+			You can configure the settings again in the options menu.<br />
 			Sorry for the inconvenience :)
 		</preamble>
 		<changes>
 			<added>
-				New user option to <b>toggle clothing overlays</b>!<br/>
+				New user option to <b>toggle clothing overlays</b>!<br />
 				Toggling the option off will turn off all overlays added by clothing items such as headgear, sunglasses,
 				mask etc.
 			</added>
 			<added>
 				New user option to <b>tweak headbob intensity for each stance</b> (idle, walking, running,
-				sprinting)<br/>
+				sprinting)<br />
 				The default intensity is 1.00. Setting it to 0.00 will disable the headbob completely (for the
 				configured stance).
 			</added>
@@ -1641,7 +1641,8 @@
 			<changed>More detailed logging about server constraints</changed>
 			<changed><code>GetWeightEx()</code> is now used instead of the deprecated <code>GetWeight()</code></changed>
 			<modding>
-				The <code>SCOFocusing</code> overlay has been move from the <i>4_World</i> script module to the <i>3_Game</i> script module
+				The <code>SCOFocusing</code> overlay has been move from the <i>4_World</i> script module to the
+				<i>3_Game</i> script module
 			</modding>
 			<modding>Updated to support the latest user configuration and server constraints version</modding>
 			<modding>User configuration is now preloaded in <code>sUserConfig::preload</code></modding>
