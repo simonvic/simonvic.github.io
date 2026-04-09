@@ -1652,6 +1652,46 @@
 			<modding>Added <code>SHOW_PLAYER_STATS</code> constant to toggle player stats widgets in the UI</modding>
 		</changes>
 	</changelog>
+	<changelog mod="sFramework" tag="v3.0.0-exp.1" type="major" branch="dev" date="2026/04/09 18:00">
+		<preamble>
+			<b>Changes are relative to previous experimental revision</b>
+		</preamble>
+		<changes>
+			<changed>Performance improvements</changed>
+			<modding>
+				Camera modded static methods now invoke the super implementation yielding better
+				compatibility with
+				other mods
+			</modding>
+		</changes>
+	</changelog>
+	<changelog mod="sVisual" tag="v2.1.0-exp.1" type="minor" branch="dev" date="2026/04/09 18:00">
+		<preamble>
+			<b>Changes are relative to previous experimental revision</b>
+		</preamble>
+		<changes>
+			<changes>Performance improvements</changes>
+			<fixes>Bloom effect not starting when loading in</fixes>
+			<fixes>Motion blur effect not starting when loading in</fixes>
+			<fixes>
+				Camera doesn't jiggle when the head lean angle user option is disabled.<br />
+				The issue is still present otherwise. See <a href="https://feedback.bistudio.com/T195618">T195618</a>
+			</fixes>
+		</changes>
+	</changelog>
+	<changelog mod="sGunplay" tag="v2.4.0-exp.1" type="minor" branch="dev" date="2026/04/09 18:00">
+		<preamble>
+			<b>Changes are relative to previous experimental revision</b>
+		</preamble>
+		<changes>
+			<changes>Performance improvements</changes>
+			<modding>The <code>m_CurrentCameraYaw</code> is now correctly updated</modding>
+			<modding>
+				<code>m_iDirectBoneMode</code> has been reverted to <code>4</code>. See <a
+					href="https://feedback.bistudio.com/T195618">T195618</a>
+			</modding>
+		</changes>
+	</changelog>
 </changelogs>
 
 <!--
