@@ -1,6 +1,10 @@
 /* TODO: preload */
 @import url(/css/atto.css);
 
+:root {
+	--atto-margin-hr: 1rem 0;
+}
+
 /* TODO: eventually remove once included in atto */
 
 footer>nav:has(>ul) {
