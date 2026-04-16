@@ -162,11 +162,11 @@ function buildTutorialCard(tutorialCard) {
 	html += `		<a href="#${tutorialCard.id}" onclick="onClickDetailAnchor('${tutorialCard.id}')">#</a>`
 	html += `		<span>${tutorialCard.title}</span>`;
 	html += "	</summary>";
-	html += `	<div class="grid">`;
-	html += `		<div class="container">`;
+	html += `	<div>`;
+	html += `		<div>`;
 	html += `			<p>${tutorialCard.description}</p>`;
 	html += `		</div>`;
-	html += `		<div class="container">`;
+	html += `		<div>`;
 	html += `			<p data-tooltip="The difficulty is relative and only an approximation of the required knowledge">Difficulty <progress value="${tutorialCard.difficulty}" max="100"></progress></p>`;
 	html += `			<a href="${tutorialCard.href}" role="button" ${tutorialCard.href == "wip.html" ? "data-tooltip='WORK IN PROGRESS'" : ""}>Open</a>`;
 	html += `		</div>`;

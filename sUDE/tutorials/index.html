@@ -9,23 +9,23 @@
 </head>
 
 <body>
-	<header class="container">
+	<header>
 		<nav aria-label="breadcrumb">
 			<a href="/">Home</a>
 			<a href="/sUDE">sUDE</a>
 			<a href="" aria-current="page">Tutorials</a>
 		</nav>
 	</header>
-	<main class="container">
+	<main>
 		<section>
-			<fieldset class="grid" onchange="applyFiltersTutorials()">
+			<fieldset onchange="applyFiltersTutorials()">
 				<label for="filter_search">
 					Search
 					<input id="filter_search" type="search" placeholder="How to..." onkeyup="applyFiltersTutorials()">
 				</label>
 				<label for="filter_tags">
 					Tags
-					<details id="filter_tags" class="dropdown">
+					<details id="filter_tags">
 						<summary aria-haspopup="listbox">Tags</summary>
 						<ul>
 							<li><label><input type="checkbox" value="sUDE" checked>sUDE</label></li>
@@ -37,7 +37,7 @@
 					</details>
 				</label>
 			</fieldset>
-			<fieldset class="grid" onchange="applyFiltersTutorials()">
+			<fieldset onchange="applyFiltersTutorials()">
 				<label for="filter_difficulty">
 					Max difficulty
 					<input id="filter_difficulty" type="range" min="0" max="100" step="1" value="100">

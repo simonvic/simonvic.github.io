@@ -10,7 +10,7 @@
 </head>
 
 <body>
-	<header class="container">
+	<header>
 		<nav aria-label="breadcrumb">
 			<a href="/">Home</a>
 			<a href="/sUDE">sUDE</a>
@@ -18,9 +18,9 @@
 			<a href="" aria-current="page">sConstraintsEditor</a>
 		</nav>
 	</header>
-	<main class="container">
+	<main>
 
-		<div class="grid">
+		<div>
 			<label for="mod">
 				<select id="mod" onchange="onModChange(`${this.options[this.selectedIndex].value}`)">
 					<option value="">Select a mod</option>
@@ -30,11 +30,11 @@
 			</label>
 			<div>
 				<a id="downloadCode" role="button">Download</a>
-				<a id="copyCode" role="button" class="outline" onclick="copyToClipboard()" href="#">Copy</a>
+				<a id="copyCode" role="button" onclick="copyToClipboard()" href="#">Copy</a>
 			</div>
 		</div>
 
-		<div class="grid">
+		<div>
 			<form id="constraints_options" onchange="updateOutputJson()">
 
 			</form>
