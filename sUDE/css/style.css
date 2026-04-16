@@ -1,6 +1,23 @@
 /* TODO: preload */
 @import url(/css/atto.css);
 
+/* TODO: eventually remove once included in atto */
+
+footer>nav:has(>ul) {
+	display: flex;
+	justify-content: space-between;
+}
+
+footer>nav>ul {
+	display: flex;
+	align-items: center;
+	list-style: none;
+}
+
+footer>nav>ul>li {
+	margin: 0 0.5rem;
+}
+
 .hljs {
 	color: var(--atto-color-code-syhntax-normal);
 	background: var(--atto-color-code-bg--1);
