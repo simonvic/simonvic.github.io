@@ -249,6 +249,10 @@ fieldset {
 
 hr {
 	margin: var(--atto-margin-hr);
+	color: var(--atto-color-guide);
+	background-color: var(--atto-color-guide);
+	border: 0;
+	border-top: 1px solid var(--atto-color-guide);
 }
 
 a {
