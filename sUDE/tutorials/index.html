@@ -19,32 +19,25 @@
 	<main>
 		<section>
 			<fieldset onchange="applyFiltersTutorials()">
-				<label for="filter_search">
-					Search
-					<input id="filter_search" type="search" placeholder="How to..." onkeyup="applyFiltersTutorials()">
-				</label>
-				<label for="filter_tags">
-					Tags
-					<details id="filter_tags">
-						<summary aria-haspopup="listbox">Tags</summary>
-						<ul>
-							<li><label><input type="checkbox" value="sUDE" checked>sUDE</label></li>
-							<li><label><input type="checkbox" value="sFramework" checked>sFramework</label></li>
-							<li><label><input type="checkbox" value="sVisual" checked>sVisual</label></li>
-							<li><label><input type="checkbox" value="sGunplay" checked>sGunplay</label></li>
-							<li><label><input type="checkbox" value="Other" checked>Other</label></li>
-						</ul>
-					</details>
-				</label>
-			</fieldset>
-			<fieldset onchange="applyFiltersTutorials()">
-				<label for="filter_difficulty">
-					Max difficulty
-					<input id="filter_difficulty" type="range" min="0" max="100" step="1" value="100">
-				</label>
+				<input id="filter_search" type="search" placeholder="How to..." onkeyup="applyFiltersTutorials()">
+				<details id="filter_tags" role="list">
+					<summary aria-haspopup="listbox">Tags</summary>
+					<menu>
+						<li><label><input type="checkbox" value="sUDE" checked>sUDE</label></li>
+						<li><label><input type="checkbox" value="sFramework" checked>sFramework</label></li>
+						<li><label><input type="checkbox" value="sVisual" checked>sVisual</label></li>
+						<li><label><input type="checkbox" value="sGunplay" checked>sGunplay</label></li>
+						<li><label><input type="checkbox" value="Other" checked>Other</label></li>
+					</menu>
+				</details>
 				<label for="filter_showWIP">
 					<input id="filter_showWIP" type="checkbox" role="switch" checked>
 					Show WIP tutorials
+				</label>
+				<br />
+				<label for="filter_difficulty" hidden>
+					Max difficulty
+					<input id="filter_difficulty" type="range" min="0" max="100" step="1" value="100">
 				</label>
 			</fieldset>
 		</section>

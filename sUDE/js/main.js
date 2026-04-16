@@ -150,30 +150,27 @@ function parseTutorialCard(xml) {
 
 function buildTutorialCard(tutorialCard) {
 	if (tutorialCard.hidden) return "";
-	var html = "";
-	html += `<details id="${tutorialCard.id}"`;
-	html += `	title="${tutorialCard.title}"`;
-	html += `	difficulty=${tutorialCard.difficulty}`;
-	html += `	tags=${tutorialCard.tags}`;
-	html += `	wip=${tutorialCard.href == "wip.html"}`;
-	html += `	${document.location.href.endsWith("#" + tutorialCard.id) ? "open" : ""}`;
-	html += ">";
-	html += "	<summary>";
-	html += `		<a href="#${tutorialCard.id}" onclick="onClickDetailAnchor('${tutorialCard.id}')">#</a>`
-	html += `		<span>${tutorialCard.title}</span>`;
-	html += "	</summary>";
-	html += `	<div>`;
-	html += `		<div>`;
-	html += `			<p>${tutorialCard.description}</p>`;
-	html += `		</div>`;
-	html += `		<div>`;
-	html += `			<p data-tooltip="The difficulty is relative and only an approximation of the required knowledge">Difficulty <progress value="${tutorialCard.difficulty}" max="100"></progress></p>`;
-	html += `			<a href="${tutorialCard.href}" role="button" ${tutorialCard.href == "wip.html" ? "data-tooltip='WORK IN PROGRESS'" : ""}>Open</a>`;
-	html += `		</div>`;
-	html += `	</div>`;
-	html += `</details>`;
-	html += `<hr/>`;
-	return html;
+	// TODO: use data-xxx to be HTML5 compliant
+	return `
+<details id="${tutorialCard.id}"
+		title="${tutorialCard.title}"
+		difficulty=${tutorialCard.difficulty}
+		tags=${tutorialCard.tags}
+		wip=${tutorialCard.href == "wip.html"}
+		${document.location.href.endsWith("#" + tutorialCard.id) ? "open" : ""}
+	>
+		<summary>
+			<a href="#${tutorialCard.id}" onclick="onClickDetailAnchor('${tutorialCard.id}')">#</a>
+			${tutorialCard.title}
+		</summary>
+		<section>
+			<p>${tutorialCard.description}</p>
+		</section>
+		<p hidden data-tooltip="The difficulty is relative and only an approximation of the required knowledge">Difficulty <progress value="${tutorialCard.difficulty}" max="100"></progress></p>
+		<a href="${tutorialCard.href}" role="button" ${tutorialCard.href == "wip.html" ? "data-tooltip='WORK IN PROGRESS'" : ""}>Open</a>
+	</details>
+	<hr/>
+`;
 }
 
 
