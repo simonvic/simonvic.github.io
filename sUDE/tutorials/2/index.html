@@ -51,13 +51,13 @@
 			</p>
 
 			<pre><code>
-	class CfgPatches {
-		class YourMod {
-			requiredAddons[] = {
-				"sGunplay"
-			};
+class CfgPatches {
+	class YourMod {
+		requiredAddons[] = {
+			"sGunplay"
 		};
 	};
+};
 				</code></pre>
 			<blockquote role="note suggestion">
 				Unless you need to mod sGunplay scripts, you may want to skip this step.
@@ -85,7 +85,8 @@
 						<small>0.1 = low magnification | 0.5 = strong magnification</small><br>
 						<img src="https://imgur.com/PgpWOA5.gif" width="25%">
 						<blockquote role="note">
-							The final lens magnification also depends on the user option of the lens magnification.<br/>
+							The final lens magnification also depends on the user option of the lens
+							magnification.<br />
 							See <a>user options</a> for more info
 						</blockquote>
 					</li>
@@ -124,33 +125,33 @@
 				</p>
 				<p>Both are boolean options: they accept <code>true</code>(1) or <code>false</code>(0)</p>
 				<pre><code>
-	s_isFullscreen = 1;
-	s_showEnterMisalignment = 1;
+s_isFullscreen = 1;
+s_showEnterMisalignment = 1;
 						</code></pre>
 			</section>
 			<p>This is an example configuration of two optics</p>
 			<pre><code>
-	class cfgVehicles {
+class cfgVehicles {
 
-		class ItemOptics;
-		class NAME_OF_YOUR_OPTIC : ItemOptics {
-			s_pipRadius = 0.3;
-			s_pipMagnification = 0.3;
-			s_pipBlur = 0.01;
-			s_pipChromAber = 0.2;
-			// rest of your config.cpp
-		};
-
-		class NAME_OF_YOUR_SNIPER_OPTIC : ItemOptics {
-			s_isFullscreen = 1;
-			s_showEnterMisalignment = 1;
-			s_pipRadius = 1.0;
-			s_pipMagnification = 0.2;
-			s_pipBlur = 0.01;
-			s_pipChromAber = 0.3;
-			// rest of your config.cpp
-		};
+	class ItemOptics;
+	class NAME_OF_YOUR_OPTIC : ItemOptics {
+		s_pipRadius = 0.3;
+		s_pipMagnification = 0.3;
+		s_pipBlur = 0.01;
+		s_pipChromAber = 0.2;
+		// rest of your config.cpp
 	};
+
+	class NAME_OF_YOUR_SNIPER_OPTIC : ItemOptics {
+		s_isFullscreen = 1;
+		s_showEnterMisalignment = 1;
+		s_pipRadius = 1.0;
+		s_pipMagnification = 0.2;
+		s_pipBlur = 0.01;
+		s_pipChromAber = 0.3;
+		// rest of your config.cpp
+	};
+};
 				</code></pre>
 
 		</section>
@@ -186,43 +187,49 @@
 			<blockquote role="note">
 				The following recoil has been "amplified" for showcasing purposes
 			</blockquote>
-			<div>
-				<p>Mouse offset</p>
-				<p>
-					Here we see only the recoil being applied to the mouse, that the player should eventually
-					counter with mouse movements.
-				</p>
-				<img src="https://imgur.com/0QXdTjD.gif" width="320px">
-			</div>
-			<div>
-				<p id="handsOffset">Hands offset</p>
-				<p>
-					Here we see only the "stability", which is the recoil being applied to the hands. More stability
-					means that the gun will stay closer to the center.
-				</p>
-				<img src="https://imgur.com/1hlcj8L.gif" width="320px">
-			</div>
-			<div>
-				<p>Misalignment</p>
-				<p>
-					Here we see only the misalignment: the recoil causes the front and rear sight to misalign.
-				</p>
-				<img src="https://imgur.com/3DjtCnY.gif" width="320px">
-			</div>
-			<div>
-				<p>Kick</p>
-				<p>
-					Here we see only the "kick", which is the recoil pushing the weapon into the shoulder.
-				</p>
-				<img src="https://imgur.com/OW09bwN.gif" width="320px">
-			</div>
-			<div>
-				<p>The final result will be</p>
-				<blockquote role="note">
-					The recoil has been "amplified" for showcasing purposes.
-				</blockquote>
-				<img src="https://imgur.com/k5nrAl9.gif" width="320px">
-			</div>
+			<table role="grid">
+				<tbody>
+					<tr>
+						<td>Mouse offset</td>
+						<td>
+							Here we see only the recoil being applied to the mouse, that the player should eventually
+							counter with mouse movements.
+						</td>
+						<td><img src="https://imgur.com/0QXdTjD.gif" width="512px"></td>
+					</tr>
+					<tr>
+						<td>Hands offset</td>
+						<td>
+							Here we see only the "stability", which is the recoil being applied to the hands. More
+							stability means that the gun will stay closer to the center.
+						</td>
+						<td><img src="https://imgur.com/1hlcj8L.gif" width="512px"></td>
+					</tr>
+					<tr>
+						<td>Misalignment</td>
+						<td>
+							Here we see only the misalignment: the recoil causes the front and rear sight to misalign.
+						</td>
+						<td><img src="https://imgur.com/3DjtCnY.gif" width="512px"></td>
+					</tr>
+					<tr>
+						<td>Kick</td>
+						<td>
+							Here we see only the "kick", which is the recoil pushing the weapon into the shoulder.
+						</td>
+						<td><img src="https://imgur.com/OW09bwN.gif" width="512px"></td>
+					</tr>
+					<tr>
+						<td>The final result will be</td>
+						<td>
+							<blockquote role="note">
+								The recoil has been "amplified" for showcasing purposes.
+							</blockquote>
+						</td>
+						<td><img src="https://imgur.com/k5nrAl9.gif" width="512px"></td>
+					</tr>
+				</tbody>
+			</table>
 			<p>Let's see how a recoil is defined in sGunplay, using the <code>AUGRecoil</code> as example</p>
 			<pre><code>
 modded class AUGRecoil {
