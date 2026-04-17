@@ -76,9 +76,19 @@ function buildMinMaxConstraint(optionName, constraint) {
 	return `
 		<fieldset name="minmax" class="input_minmax">
 			<legend>Constrain to min / max</legend>
-			<input name="min" type="range" min="${constraint.min}" max="${constraint.max}" step="0.01" value="${constraint.min}"
+			<input name="min"
+				type="range"
+				min="${constraint.min}"
+				max="${constraint.max}"
+				step="0.01"
+				value="${constraint.min}"
 				oninput="updateMinMaxConstraint('${optionName}', 'min', this.parentNode)"/>
-			<input name="max" type="range" min="${constraint.min}" max="${constraint.max}" step="0.01" value="${constraint.max}"
+			<input name="max"
+				type="range"
+				min="${constraint.min}"
+				max="${constraint.max}"
+				step="0.01"
+				value="${constraint.max}"
 				oninput="updateMinMaxConstraint('${optionName}', 'max', this.parentNode)"/>
 		</fieldset>
 		`;
@@ -92,14 +102,16 @@ function buildNumericConstraint(optionName, constraint) {
 }
 
 function buildCrosshairTypeOption(optionName, constraint) {
-	let html = "";
-	html += `<label>Constrain to</label>`;
-	html += `<select onchange="updateConstraints('${optionName}', 'value', Number(this.options[this.selectedIndex].value))">`;
+	let html = `
+		<fieldset>
+			<legend>Constrain to</legend>
+			<select onchange="updateConstraints('${optionName}', 'value', Number(this.options[this.selectedIndex].value))">
+		`;
 	let types = ["Default", "Curve", "Chevron", "Double curve", "Dot", "Cross", "T cross", "Angles"];
 	types.forEach((type, index) => {
 		html += `<option name="${type}" value="${index}" ${constraint.value == index ? "" : "checked"}>${type}</option>`;
 	});
-	html += `</select>`;
+	html += `</select></fieldset>`;
 	return html;
 }
 
@@ -109,6 +121,7 @@ function buildBooleanConstraint(optionName, constraint) {
 		<fieldset onchange="updateConstraints('${optionName}', 'value', this.querySelector(&quot;input[name='${optionName}']:checked&quot;).value == 'enabled')">
 			<legend>Constrain to</legend>
 			<label><input name="${optionName}" type="radio" value="disabled" ${constraint.value ? "" : "checked"}>Always disabled</label>
+			<br/>
 			<label><input name="${optionName}" type="radio" value="enabled" ${constraint.value ? "checked" : ""}>Always enabled</label>
 		</fieldset>
 		`;
@@ -136,11 +149,13 @@ function buildConstraints() {
 						<code>${optionName}</code>
 				</summary>
 				${buildConstraint(optionName, constraint)}
-				<label>
-					Message
-					<input type="text" name="message" placeholder="Message to show to player if the option is constrained" value="${constraint.message}"
+				<fieldset role="presentation">
+					<label>Message</label>
+					<br />
+					<input type="text" name="message"
+						placeholder="Message to show to player if the option is constrained" value="${constraint.message}"
 						onchange="updateConstraints('${optionName}', 'message', this.value)">
-				</label>
+				</fieldset>
 			</details>
 			<hr/>
 			`;

@@ -19,31 +19,33 @@
 		</nav>
 	</header>
 	<main>
+		<table role="grid" class="constraintEditorGrid">
+			<tr>
+				<td>
+					<label for="mod">
+						<select id="mod" onchange="onModChange(`${this.options[this.selectedIndex].value}`)">
+							<option value="">Select a mod</option>
+							<option value="sGunplay">sGunplay</option>
+							<option value="sVisual">sVisual</option>
+						</select>
+					</label>
+				</td>
+				<td>
+					<a id="downloadCode" role="button">Download</a>
+					<a id="copyCode" role="button" onclick="copyToClipboard()" href="#">Copy to clipboard</a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<form id="constraints_options" onchange="updateOutputJson()">
 
-		<div>
-			<label for="mod">
-				<select id="mod" onchange="onModChange(`${this.options[this.selectedIndex].value}`)">
-					<option value="">Select a mod</option>
-					<option value="sGunplay">sGunplay</option>
-					<option value="sVisual">sVisual</option>
-				</select>
-			</label>
-			<div>
-				<a id="downloadCode" role="button">Download</a>
-				<a id="copyCode" role="button" onclick="copyToClipboard()" href="#">Copy</a>
-			</div>
-		</div>
-
-		<div>
-			<form id="constraints_options" onchange="updateOutputJson()">
-
-			</form>
-			<div>
-				<pre><code id="output_json" class="language-json">
-
-				</code></pre>
-			</div>
-		</div>
+					</form>
+				</td>
+				<td>
+					<pre><code id="output_json" class="language-json"></code></pre>
+				</td>
+			</tr>
+		</table>
 	</main>
 </body>
 

@@ -5,6 +5,10 @@
 	--atto-margin-hr: 1rem 0;
 }
 
+table.constraintEditorGrid tr {
+	vertical-align: top;
+}
+
 /* TODO: eventually remove once included in atto */
 
 footer>nav:has(>ul) {
