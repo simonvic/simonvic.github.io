@@ -6,6 +6,7 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="/sUDE/css/style.css">
 	<script src="/sUDE/js/main.js"></script>
+	<script src="https://unpkg.com/semver-ts/dist/index.global.js"></script>
 </head>
 
 <body>
@@ -19,11 +20,12 @@
 	<main>
 		<section>
 			<fieldset onchange="applyFiltersChangelogs()">
-				<label for="filter_mods">
-					Filter by mods
-					<details id="filter_mods">
+				<legend>Filters</legend>
+				<label>
+					By mods
+					<details id="filter_mods" role="list">
 						<summary aria-haspopup="listbox">Mods</summary>
-						<ul>
+						<menu>
 							<li>
 								<label>
 									<input type="checkbox" value="sFramework" checked>
@@ -42,13 +44,15 @@
 									sGunplay
 								</label>
 							</li>
-						</ul>
+						</menu>
 					</details>
 				</label>
+				<br />
 				<label for="filter_date">
 					Show after
 					<input id="filter_date" type="date">
 				</label>
+				<br />
 				<label for="filter_show_experimental">
 					<input id="filter_show_experimental" type="checkbox" role="switch" checked>
 					Show experimental changelogs

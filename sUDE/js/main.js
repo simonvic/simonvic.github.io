@@ -86,28 +86,34 @@ function onClickDetailAnchor(id) {
 }
 
 function buildChangelog(changelog) {
-	var html = "";
 	var changelogId = changelog.mod + "_" + changelog.tag;
 	var differenceInDays = (new Date().getTime() - new Date(changelog.date).getTime()) / (1000 * 3600 * 24);
 	var timeDiff = relativeTimeDifference(new Date(changelog.date));
 	var relativeTimeTag = differenceInDays > 7 ? timeDiff : `<mark>${timeDiff}</mark>`;
-	html += `<details id="${changelogId}"`;
-	html += ` mod="${changelog.mod}"`;
-	html += ` tag="${changelog.tag}"`;
-	html += ` type="${changelog.type}"`;
-	html += ` date="${changelog.date}"`;
-	html += ` branch="${changelog.branch}"`;
-	html += ` ${document.location.href.endsWith("#" + changelogId) ? "open" : ""}`;
-	html += ">";
-	html += "	<summary class='grid'>";
-	html += `			<span><a href="#${changelogId}" onclick="onClickDetailAnchor('${changelogId}')">#</a> ${changelog.mod}</span>`;
-	html += `			<span>${changelog.tag}</span>`;
-	html += `			<span>${changelog.type}</span>`;
-	html += `			<span>${relativeTimeTag}</span>`;
-	html += `			<span hidden>${changelog.branch}</span>`;
-	html += "	</summary>";
-	html += `<small>${changelog.date}</small>`;
-	html += `<p>${changelog.preamble}</p>`
+	// TODO: use data-xxx
+	var html = `
+<details id="${changelogId}"
+	mod="${changelog.mod}"
+	tag="${changelog.tag}"
+	type="${changelog.type}"
+	date="${changelog.date}"
+	branch="${changelog.branch}"
+	${document.location.href.endsWith("#" + changelogId) ? "open" : ""}
+>
+	<summary>
+		<b><table role="grid">
+			<tr>
+				<td><a href="#${changelogId}" onclick="onClickDetailAnchor('${changelogId}')">#</a> ${changelog.mod}</td>
+				<td>${changelog.tag}</td>
+				<td hidden>${changelog.type}</td>
+				<td>${relativeTimeTag}</td>
+				<td hidden>${changelog.branch}</td>
+			</tr>
+		</table></b>
+	</summary>
+	<small>${changelog.date}</small>
+	<p>${changelog.preamble}</p>
+`;
 	changelog.changes.forEach((changes, category) => {
 		html += `<h5>${category.toUpperCase()}</h5>`;
 		html += "<ul>";
