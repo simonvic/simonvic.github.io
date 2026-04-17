@@ -1002,7 +1002,7 @@ input:required:valid {
 /*                                                                      Forms */
 
 form {
-	margin: --var(--atto-margin-group);
+	margin: var(--atto-margin-group);
 }
 
 /******************************************************************************/
