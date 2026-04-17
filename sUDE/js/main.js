@@ -7,9 +7,9 @@ function applyFiltersChangelogs() {
 	var date = new Date(document.getElementById("filter_date").value);
 	document.querySelectorAll("#changelogContainer details")
 		.forEach(node => node.hidden =
-			(node.getAttribute("branch") == "dev" && !showExperimental)
-			|| !modsFilter.get(node.getAttribute("mod"))
-			|| new Date(node.getAttribute("date")) <= date
+			(node.getAttribute("data-branch") == "dev" && !showExperimental)
+			|| !modsFilter.get(node.getAttribute("data-mod"))
+			|| new Date(node.getAttribute("data-date")) <= date
 		);
 }
 
@@ -90,14 +90,13 @@ function buildChangelog(changelog) {
 	var differenceInDays = (new Date().getTime() - new Date(changelog.date).getTime()) / (1000 * 3600 * 24);
 	var timeDiff = relativeTimeDifference(new Date(changelog.date));
 	var relativeTimeTag = differenceInDays > 7 ? timeDiff : `<mark>${timeDiff}</mark>`;
-	// TODO: use data-xxx
 	var html = `
 <details id="${changelogId}"
-	mod="${changelog.mod}"
-	tag="${changelog.tag}"
-	type="${changelog.type}"
-	date="${changelog.date}"
-	branch="${changelog.branch}"
+	data-mod="${changelog.mod}"
+	data-tag="${changelog.tag}"
+	data-type="${changelog.type}"
+	data-date="${changelog.date}"
+	data-branch="${changelog.branch}"
 	${document.location.href.endsWith("#" + changelogId) ? "open" : ""}
 >
 	<summary>
@@ -156,13 +155,12 @@ function parseTutorialCard(xml) {
 
 function buildTutorialCard(tutorialCard) {
 	if (tutorialCard.hidden) return "";
-	// TODO: use data-xxx to be HTML5 compliant
 	return `
 <details id="${tutorialCard.id}"
-		title="${tutorialCard.title}"
-		difficulty=${tutorialCard.difficulty}
-		tags=${tutorialCard.tags}
-		wip=${tutorialCard.href == "wip.html"}
+		data-title="${tutorialCard.title}"
+		data-difficulty=${tutorialCard.difficulty}
+		data-tags=${tutorialCard.tags}
+		data-wip=${tutorialCard.href == "wip.html"}
 		${document.location.href.endsWith("#" + tutorialCard.id) ? "open" : ""}
 	>
 		<summary>
@@ -191,9 +189,9 @@ function applyFiltersTutorials() {
 		});
 	document.querySelectorAll("#tutorialsCardsContainer details")
 		.forEach(node => node.hidden =
-			!node.getAttribute("title").toLowerCase().includes(searchFilter.toLowerCase())
-			|| (!showWIP && node.getAttribute("wip") == "true")
-			|| !node.getAttribute("tags").split(",").some(tag => tagsFilter.includes(tag))
-			|| Number(node.getAttribute("difficulty")) >= difficultyFilter
+			!node.getAttribute("data-title").toLowerCase().includes(searchFilter.toLowerCase())
+			|| (!showWIP && node.getAttribute("data-wip") == "true")
+			|| !node.getAttribute("data-tags").split(",").some(tag => tagsFilter.includes(tag))
+			|| Number(node.getAttribute("data-difficulty")) >= difficultyFilter
 		);
 }
