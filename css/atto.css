@@ -170,6 +170,14 @@
 	}
 }
 
+@media screen and (width <=50rem) {
+
+	:root {
+		--atto-max-width-main: 90%;
+	}
+
+}
+
 ::selection {
 	background-color: var(--atto-color-accent--3);
 }
