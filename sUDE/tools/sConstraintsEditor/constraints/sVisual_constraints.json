@@ -49,5 +49,15 @@
 		"message": "",
 		"min": 0.0,
 		"max": 45.0
+	},
+	"showClothingOverlays": {
+		"constrain": false,
+		"message": "",
+		"value": true
+	},
+	"showBleedingOverlay": {
+		"constrain": false,
+		"message": "",
+		"value": true
 	}
 }
