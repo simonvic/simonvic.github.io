@@ -252,6 +252,12 @@ fieldset {
 /* 	display: block; */
 /* } */
 
+figure {
+	margin: 0;
+	padding: 0;
+	overflow: auto;
+}
+
 /******************************************************************************/
 /*                                                                 TYPOGRAPHY */
 
