@@ -25,7 +25,7 @@ function onModChange(newMod) {
 	if (newMod == "") return;
 	code.setAttribute("aria-busy", true);
 	form.setAttribute("aria-busy", true);
-	fetch(`constraints/${newMod}_constraints.json`)
+	fetch(`constraints/${newMod}_constraints.json`, { cache: "no-store" })
 		.then(response => response.json())
 		.then(json => {
 			jsonConstraints = json;
