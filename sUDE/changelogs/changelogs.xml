@@ -1692,6 +1692,31 @@
 			</modding>
 		</changes>
 	</changelog>
+	<changelog mod="sVisual" tag="v2.1.0-exp.2" type="minor" branch="dev" date="2026/04/28 16:00">
+		<preamble>
+			<b>Changes are relative to previous experimental revision</b>
+		</preamble>
+		<changes>
+			<added>New user option to <b>toggle bleeding overlay</b>!<br /></added>
+			<fixed>Logging level for constraints messages</fixed>
+			<changed>
+				Rewrote clothing overlay activation logic, leading to better performance and better moddability
+			</changed>
+			<changed>Refactored burlap sack overlay activation logic</changed>
+			<changed>Performance improvements</changed>
+			<modding>Moved bleeding PPE and camera overlay logic to <code>PlayerBase</code></modding>
+			<modding>Improved code documentation</modding>
+			<modding>Clothing overlays loading is now deferred as late as possible</modding>
+		</changes>
+	</changelog>
+	<changelog mod="sGunplay" tag="v2.4.0-exp.2" type="minor" branch="dev" date="2026/04/28 16:00">
+		<preamble>
+			<b>Changes are relative to previous experimental revision</b>
+		</preamble>
+		<changes>
+			<fixed>Logging level for constraints messages</fixed>
+		</changes>
+	</changelog>
 </changelogs>
 
 <!--
