@@ -46,8 +46,8 @@
 			<change type="change">Bleeding vignette effect is slightly more intense</change>
 			<change type="change">Paused animations will not be animated, but still applied (with their current state)</change>
 			<change type="change">CameraManager now completely handles the headbob and headlean</change>
-			<change type="change">Moved onInit from PPEAnimatedParams to PPEParams [ 0fbdcdb ]</change>
-			<change type="change">Removed redundant init method in PPEPresets [ 0fbdcdb ]</change>
+			<change type="change" commit="0fbdcdb">Moved onInit from PPEAnimatedParams to PPEParams</change>
+			<change type="change" commit="0fbdcdb">Removed redundant init method in PPEPresets</change>
 			<change type="fix">File handlers were not being closed properly in SFileHelper</change>
 		</changes>
 	</changelog>
@@ -280,9 +280,8 @@
 
 	<changelog mod="sVisual" tag="v1.3.1" branch="main" date="2021-07-17T00:00:00+02:00">
 		<changes>
-			<change type="feat">
-				Preprocessor defines are now available in scripts modules [
-				https://github.com/simonvic/sVisual/commit/cad6404f85c90ce99208722f93214adb7c564c90 ]
+			<change type="feat" commit="cad6404f85c90ce99208722f93214adb7c564c90">
+				Preprocessor defines are now available in scripts modules
 			</change>
 			<change type="change">Reduced exhausted post processing effect</change>
 		</changes>
@@ -290,9 +289,8 @@
 
 	<changelog mod="sGunplay" tag="v1.4.1" branch="main" date="2021-07-17T00:00:00+02:00">
 		<changes>
-			<change type="feat">
-				Preprocessor defines are now available in scripts modules [
-				https://github.com/simonvic/sGunplay/commit/4a1858bcae696230a6c215916a0331b6c78449a3 ]
+			<change type="feat" commit="4a1858bcae696230a6c215916a0331b6c78449a3">
+				Preprocessor defines are now available in scripts modules
 			</change>
 			<change type="change">Increased stamina drain exponent while holding breath</change>
 			<change type="change">Stamina drains slightly less while holding breath</change>
@@ -339,13 +337,11 @@
 			<change type="change">Bleeding animation won't have red vignette anymore (replaced by an overlay)</change>
 			<change type="change">Improved <code>SGameConfig</code></change>
 			<change type="change">Refactored and improved <code>SFlagOperator</code> (formerly FlagOperation)</change>
-			<change type="change">
-				PPEparams variables in <code>PlayerBase</code> have been renamed [
-				82170116bda2884aa94cc4281f15309b28f0457a ]
+			<change type="change" commit="82170116bda2884aa94cc4281f15309b28f0457a">
+				PPEparams variables in <code>PlayerBase</code> have been renamed
 			</change>
-			<change type="change">
-				Renamed some PP effects related methods in <code>PlayerBase</code> [
-				7d8163554b17ab79b4b5df99a3488393f296fa69 ]
+			<change type="change" commit="7d8163554b17ab79b4b5df99a3488393f296fa69">
+				Renamed some PP effects related methods in <code>PlayerBase</code>
 			</change>
 			<change type="change">
 				PP effects and overlays are now activated <code>OnPlayerLoaded</code> instead of
@@ -359,16 +355,15 @@
 	<changelog mod="sVisual" tag="v1.4.1" branch="main" date="2021-08-10T00:00:00+02:00">
 		<changes>
 			<change type="feat">Added ruined motohelmet overlay</change>
-			<change type="feat">
+			<change type="feat" commit="6d406401643988f058be976b9fdcca02d94b2d13">
 				Added <code>onPreBuild()</code> and <code>onPostBuild()</code> widget method to allow correct change of
-				widget flag [ 6d406401643988f058be976b9fdcca02d94b2d13 ]
+				widget flag
 			</change>
 			<change type="feat">Added sUDE log to ingame menu</change>
 			<change type="change">Reworked generic scratches overlays</change>
 			<change type="change">Reworked motohelmet overlays</change>
-			<change type="change">
-				Moved overlay change on clothing health level change to different method [
-				919fb127333900424ea3d98ff48ef8562ea71238 ]
+			<change type="change" commit="919fb127333900424ea3d98ff48ef8562ea71238">
+				Moved overlay change on clothing health level change to different method
 			</change>
 			<change type="fix">Removed unused debug variables</change>
 		</changes>
@@ -513,9 +508,9 @@
 					<li>Moved masks .edds</li>
 				</ul>
 			</change>
-			<change type="change">
+			<change type="change" commit="f120276d9eb7d4579395e3258fc7ab1824dcb252">
 				Deleted ppe presets classes as they were unused and completely useless, since everything could be
-				achieved with a simple sPPEffect (former PPEParams) [ f120276d9eb7d4579395e3258fc7ab1824dcb252 ]
+				achieved with a simple sPPEffect (former PPEParams)
 			</change>
 			<change type="change">Some of these changes and more can also be found in sFramework</change>
 			<change type="change">

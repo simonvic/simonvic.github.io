@@ -71,6 +71,8 @@ function parseChangelog(xml) {
 			categories.getOrInsert(change.getAttribute("type"), new Array()).push({
 				category: change.getAttribute("category"),
 				type: change.getAttribute("type"),
+				commit: change.getAttribute("commit"),
+				isBreaking: change.getAttribute("breaking"),
 				body: change.innerHTML,
 			})
 		}
@@ -127,7 +129,9 @@ function buildChangelog(changelog) {
 			html += `<h4>${FRIENDLY_CHANGE_TYPE[type].toUpperCase()}</h4>`;
 			html += "<ul>";
 			for (const change of changes) {
-				html += `<li>${change.body}</li>`
+				// TODO: add link to commit
+				// TODO: add some styling for breaking changes
+				html += `<li ${change.isBreaking ? 'data-breaking="true"' : ''} ${change.commit ? 'data-commit="' + change.commit + '"' : ''}>${change.body}</li>`
 			}
 			html += "</ul>";
 		}
