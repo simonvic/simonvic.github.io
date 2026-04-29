@@ -103,6 +103,8 @@
 
 						</xs:sequence>
 
+						<!-- TODO: add unique restriction -->
+
 						<xs:attribute name="mod" use="required">
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
