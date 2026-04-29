@@ -54,17 +54,15 @@ function fetchXML(url, onSuccess, options = {}) {
 
 function parseChangelog(xml) {
 	var preamble = "";
-	Array.from(xml.getElementsByTagName("preamble")).forEach(p => preamble += p.innerHTML);
-
+	for (const p of xml.getElementsByTagName("preamble")) {
+		preamble += p.innerHTML;
+	}
 	var changes = new Map();
-	Array.from(xml.getElementsByTagName("changes")[0].children).forEach(change => {
+	for (const change of xml.getElementsByTagName("changes")[0].children) {
 		var category = change.tagName;
-		if (!changes.has(category)) {
-			changes.set(category, new Array());
-		}
-		changes.get(category).push(change.innerHTML);
-	});
-
+		changes.getOrInsertComputed(category, _ => new Array())
+			.push(change.innerHTML);
+	};
 	return {
 		mod: xml.getAttribute("mod"),
 		tag: xml.getAttribute("tag"),
