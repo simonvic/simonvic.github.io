@@ -1,170 +1,187 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <changelogs>
+
 	<changelog mod="sVisual" tag="v1.0.2" branch="main" date="2021-05-05T00:00:00+02:00">
 		<changes>
-			<added>New Motion blur parameters ( mininum/maximum angle per sec)</added>
-			<changed>Removed motion blur intensity parameter (it was unused)</changed>
-			<fixed>Properly fixed DDoF deactivation</fixed>
-			<fixed>Fixed blurry vision when switching from optic to ironsight and viceversa</fixed>
+			<change type="feat">New Motion blur parameters ( mininum/maximum angle per sec)</change>
+			<change type="change">Removed motion blur intensity parameter (it was unused)</change>
+			<change type="fix">Properly fixed DDoF deactivation</change>
+			<change type="fix">Fixed blurry vision when switching from optic to ironsight and viceversa</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.0.2a" branch="main" date="2021-05-05T00:00:00+02:00">
 		<changes>
-			<fixed>PPEffects were being applied to both client and client_remote</fixed>
+			<change type="fix">PPEffects were being applied to both client and client_remote</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.0.3" branch="main" date="2021-05-06T00:00:00+02:00">
 		<changes>
-			<added>New user settings (ddofEnabledIn3PP, ddofEnabledInVehicle, headbobEnabledIn3PP)</added>
-			<added>UserConfig validator: UserConfig will be regenerated if invalid</added>
-			<changed>Better DDoF smoothing</changed>
-			<changed>Refactored config class</changed>
-			<changed>UserConfig improvements</changed>
-			<fixed>Temp fix for DDoF not resetting properly</fixed>
+			<change type="feat">New user settings (ddofEnabledIn3PP, ddofEnabledInVehicle, headbobEnabledIn3PP)</change>
+			<change type="feat">UserConfig validator: UserConfig will be regenerated if invalid</change>
+			<change type="change">Better DDoF smoothing</change>
+			<change type="change">Refactored config class</change>
+			<change type="change">UserConfig improvements</change>
+			<change type="fix">Temp fix for DDoF not resetting properly</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.0.4" branch="main" date="2021-05-10T00:00:00+02:00">
 		<changes>
-			<added>New night vision custom effect</added>
-			<changed>Bleeding effect now shows a dark red vignette with better user feedback</changed>
-			<changed>Reworked DynamicDoF (Even better smoothing!)</changed>
-			<changed>Reimplemented ADS DoF</changed>
-			<fixed>Night vision was too bright (fixed with new PPEffect)</fixed>
+			<change type="feat">New night vision custom effect</change>
+			<change type="change">Bleeding effect now shows a dark red vignette with better user feedback</change>
+			<change type="change">Reworked DynamicDoF (Even better smoothing!)</change>
+			<change type="change">Reimplemented ADS DoF</change>
+			<change type="fix">Night vision was too bright (fixed with new PPEffect)</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.1.0" branch="main" date="2021-05-11T00:00:00+02:00">
 		<changes>
-			<added>Improved SLog (logger). Added timestamp, caller prefix and text prefix</added>
-			<added>PPEAnimatedParams performance improvements</added>
-			<changed>Bleeding vignette effect is slightly more intense</changed>
-			<changed>Paused animations will not be animated, but still applied (with their current state)</changed>
-			<changed>CameraManager now completely handles the headbob and headlean</changed>
-			<changed>Moved onInit from PPEAnimatedParams to PPEParams [ 0fbdcdb ]</changed>
-			<changed>Removed redundant init method in PPEPresets [ 0fbdcdb ]</changed>
-			<fixed>File handlers were not being closed properly in SFileHelper</fixed>
+			<change type="feat">Improved SLog (logger). Added timestamp, caller prefix and text prefix</change>
+			<change type="feat">PPEAnimatedParams performance improvements</change>
+			<change type="change">Bleeding vignette effect is slightly more intense</change>
+			<change type="change">Paused animations will not be animated, but still applied (with their current state)</change>
+			<change type="change">CameraManager now completely handles the headbob and headlean</change>
+			<change type="change">Moved onInit from PPEAnimatedParams to PPEParams [ 0fbdcdb ]</change>
+			<change type="change">Removed redundant init method in PPEPresets [ 0fbdcdb ]</change>
+			<change type="fix">File handlers were not being closed properly in SFileHelper</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.1.1" branch="main" date="2021-05-16T00:00:00+02:00">
 		<changes>
-			<added>
+			<change type="feat">
 				New Color class! You can now define color using the new shiny Color class, which allows various
 				format like RGB, RGBA, ARGB, HSB (hue, saturation and brigthness) with also hex definition
-			</added>
-			<added>
+			</change>
+			<change type="feat">
 				Color class comes with plenty of predefined colors taken from
 				https://www.w3schools.com/cssref/css_colors.asp
-			</added>
-			<added>Added <code>PPEManager.toggle( )</code>, to more easily enable/disable a PPE</added>
-			<changed>
+			</change>
+			<change type="feat">Added <code>PPEManager.toggle( )</code>, to more easily enable/disable a PPE</change>
+			<change type="change">
 				All color parameters are now compatible with new Color class (they remain retrocompatible with old
 				color type)
-			</changed>
-			<fixed>Night vision "brightness" wasn't set properly when optics/goggles weren't powered</fixed>
+			</change>
+			<change type="fix">Night vision "brightness" wasn't set properly when optics/goggles weren't powered</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.1.1a" branch="main" date="2021-05-16T00:00:00+02:00">
 		<changes>
-			<changed>The Color class has been renamed to SColor in order to avoid possible mod conflicts</changed>
-			<fixed>Possible fix for the compiler issue</fixed>
+			<change type="change">The Color class has been renamed to SColor in order to avoid possible mod conflicts</change>
+			<change type="fix">Possible fix for the compiler issue</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.1.1b" branch="main" date="2021-05-18T00:00:00+02:00">
 		<changes>
-			<fixed>Blood loss saturation was not being updated</fixed>
+			<change type="fix">Blood loss saturation was not being updated</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.1.2" branch="main" date="2021-05-21T00:00:00+02:00">
 		<changes>
-			<changed>Greatly decreased exhausted animation intensity</changed>
-			<changed>minor performance improvements</changed>
+			<change type="change">Greatly decreased exhausted animation intensity</change>
+			<change type="change">minor performance improvements</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.1.3" branch="main" date="2021-05-21T00:00:00+02:00">
 		<changes>
-			<added>Added methods for optic lenses and mask to PPEManager</added>
-			<changed>
+			<change type="feat">Added methods for optic lenses and mask to PPEManager</change>
+			<change type="change">
 				Tweaked Exhausted PPE animation behaviour. It will now activate only if the player is actually
 				exhausted (i.e. the stamina bar becomes dark gray), and deactivate if the stamina regenerate over a
 				threshold ( > 50% of available stamina)
-			</changed>
-			<changed>minor performance improvements</changed>
-			<fixed>
+			</change>
+			<change type="change">minor performance improvements</change>
+			<change type="fix">
 				The Exhausted PPE animation would activate upon the increase of the stamina cap (i.e. dropping
 				objects from inventory)
-			</fixed>
+			</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.1.4" branch="main" date="2021-05-30T00:00:00+02:00">
 		<changes>
-			<added>Log file will now have an header with some basic diagnostic information</added>
-			<added>Added stuff for sGunplay module to PPEManager</added>
-			<changed>Log folder has been changed. Log files can now be found in "$profile:sUDE\logs"</changed>
-			<fixed>Logger file handler wasn't being closed properly</fixed>
+			<change type="feat">Log file will now have an header with some basic diagnostic information</change>
+			<change type="feat">Added stuff for sGunplay module to PPEManager</change>
+			<change type="change">Log folder has been changed. Log files can now be found in "$profile:sUDE\logs"</change>
+			<change type="fix">Logger file handler wasn't being closed properly</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.2.0" branch="main" date="2021-05-31T00:00:00+02:00">
 		<changes>
-			<changed>SRaycast has been rewritten from scratch</changed>
-			<fixed>SRaycast memory usage improved</fixed>
+			<change type="change">SRaycast has been rewritten from scratch</change>
+			<change type="fix">SRaycast memory usage improved</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v1.1.0" branch="main" date="2021-06-01T00:00:00+02:00">
 		<changes>
-			<added>
+			<change type="feat">
 				When getting close to a wall, you will "retract" your weapon before lifting it up.
 				<br />
 				(This is useful to understand when you will touch the wall with the weapon)
-			</added>
-			<added>
+			</change>
+			<change type="feat">
 				Added "Hide clothing" option, which will make invisible the upper body part while ADS in optics
-			</added>
-			<added>
+			</change>
+			<change type="feat">
 				The inertia is now also based on the weapon length: longer weapons will be harder to control, giving
 				each weapon a different feel
-			</added>
-			<added>Added a slight "misalignment" when doing rapid movements while in ADS</added>
-			<changed>
+			</change>
+			<change type="feat">Added a slight "misalignment" when doing rapid movements while in ADS</change>
+			<change type="change">
 				New lens (PiP) system. It's much more reliable, more performant and it's now compatible with all weapons
 				and all scopes.<br />
 				(if you want to make your modded optics compatible, you may still need to modify the
 				<code>PPEMaskProperties</code> in the config.cpp.)<br />
 				For the best result, set both X and Y position to "0.0" and adjust the radius accordingly)
-			</changed>
-			<changed>Tweaked all vanilla optic lenses</changed>
-			<changed>Reworked sway (breathing), it's a bit more intense and more smooth</changed>
-			<fixed>It now works properly also in offline mode</fixed>
-			<fixed>The stance wasn't being used in the sway calculation</fixed>
-			<fixed>Sway (breathing) now correctly gets applied along with the the movement offset</fixed>
+			</change>
+			<change type="change">Tweaked all vanilla optic lenses</change>
+			<change type="change">Reworked sway (breathing), it's a bit more intense and more smooth</change>
+			<change type="fix">It now works properly also in offline mode</change>
+			<change type="fix">The stance wasn't being used in the sway calculation</change>
+			<change type="fix">Sway (breathing) now correctly gets applied along with the the movement offset</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v1.1.1" branch="main" date="2021-06-04T00:00:00+02:00">
 		<changes>
-			<added>Added defines. It's now possible to check if the mod is loaded with sGunplay</added>
-			<changed>Decreased the sway when you're crouched or prone</changed>
-			<changed>Improved lens effects</changed>
-			<fixed>Fixed wrong directory prefix</fixed>
-			<fixed>The dynamic crosshair wouldn't be visible after death sometimes</fixed>
+			<change type="feat">Added defines. It's now possible to check if the mod is loaded with sGunplay</change>
+			<change type="change">Decreased the sway when you're crouched or prone</change>
+			<change type="change">Improved lens effects</change>
+			<change type="fix">Fixed wrong directory prefix</change>
+			<change type="fix">The dynamic crosshair wouldn't be visible after death sometimes</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v1.1.2" branch="main" date="2021-06-04T00:00:00+02:00">
 		<changes>
-			<added>
+			<change type="feat">
 				sGunplay is now compatible with CommunityFramework and animation registering now works properly
-			</added>
+			</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.2.2" branch="main" date="2021-06-06T00:00:00+02:00">
 		<changes>
-			<changed>Reduced chromatic aberration in the PPE hit received animation</changed>
-			<changed>Most user settings are now disabled by default</changed>
+			<change type="change">Reduced chromatic aberration in the PPE hit received animation</change>
+			<change type="change">Most user settings are now disabled by default</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v1.2.0" branch="main" date="2021-06-06T00:00:00+02:00">
 		<changes>
-			<added>Added custom Scout (pioneer) recoil</added>
-			<changed>Focusing is now slightly faster</changed>
-			<changed>SMGs now are a bit more stable</changed>
-			<changed>
+			<change type="feat">Added custom Scout (pioneer) recoil</change>
+			<change type="change">Focusing is now slightly faster</change>
+			<change type="change">SMGs now are a bit more stable</change>
+			<change type="change">
 				Completely reworked recoil control system
 				<br />
 				All modifiers are now additive, fixing many inconsistencies and making them more easily tweaked and
@@ -175,67 +192,73 @@
 				<br />
 				Inventory weight "confort weight range" is now at ~25kg (you'll start to see benefits below 25, and
 				deficits if above)
-			</changed>
-			<changed>Less misalignment caused by movement</changed>
-			<changed>Slightly faster ADS timing</changed>
-			<changed>Updated stringtable</changed>
-			<changed>Very slight reduction of hipfire inertia and inventory weight impact</changed>
-			<fixed>
+			</change>
+			<change type="change">Less misalignment caused by movement</change>
+			<change type="change">Slightly faster ADS timing</change>
+			<change type="change">Updated stringtable</change>
+			<change type="change">Very slight reduction of hipfire inertia and inventory weight impact</change>
+			<change type="fix">
 				Dynamic crosshair is now properly centered (There was a slight offset to the right from the center of
 				the screen)
-			</fixed>
-			<fixed>
+			</change>
+			<change type="fix">
 				Clothing will now hide a bit sooner when entering optic (it previously could cause some clipping)
-			</fixed>
+			</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.2.2a" branch="main" date="2021-06-09T00:00:00+02:00">
 		<changes>
-			<added>Warning logs when activating/deactivating PPE on server</added>
-			<changed>Reduced chromatic aberration by 75% when bleeding</changed>
-			<fixed>The exhausted animation was being mistakenly activated server-side</fixed>
+			<change type="feat">Warning logs when activating/deactivating PPE on server</change>
+			<change type="change">Reduced chromatic aberration by 75% when bleeding</change>
+			<change type="fix">The exhausted animation was being mistakenly activated server-side</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.2.2b" branch="main" date="2021-06-12T00:00:00+02:00">
 		<changes>
-			<fixed>Effects work again in offline mode</fixed>
-			<fixed>Fixed SColor constructor</fixed>
+			<change type="fix">Effects work again in offline mode</change>
+			<change type="fix">Fixed SColor constructor</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v1.3.0" branch="main" date="2021-06-13T00:00:00+02:00">
 		<changes>
-			<added>Natural misalignment caused by the player movement</added>
-			<changed>Weapon retraction when close to a wall is now smoother</changed>
-			<changed>Focus speed is 25% faster with non-magnifying optic and 20% faster with ironsight</changed>
-			<changed>Removed zeroing optic lens offset</changed>
-			<changed>Slightly reduced shotguns recoil</changed>
-			<changed>
+			<change type="feat">Natural misalignment caused by the player movement</change>
+			<change type="change">Weapon retraction when close to a wall is now smoother</change>
+			<change type="change">Focus speed is 25% faster with non-magnifying optic and 20% faster with ironsight</change>
+			<change type="change">Removed zeroing optic lens offset</change>
+			<change type="change">Slightly reduced shotguns recoil</change>
+			<change type="change">
 				Renamed some focus speed constants and methods
 				<br />
 				https://github.com/simonvic/sGunplay/commit/70c362c7efe0b5891667f218ff19d089d1c0ab22
-			</changed>
-			<fixed>Possible clipping caused by the weapon retraction</fixed>
+			</change>
+			<change type="fix">Possible clipping caused by the weapon retraction</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.2.2c" branch="main" date="2021-06-21T00:00:00+02:00">
 		<changes>
-			<fixed>Invisible player would remain on server when logging out</fixed>
+			<change type="fix">Invisible player would remain on server when logging out</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.3.0" branch="main" date="2021-07-13T00:00:00+02:00">
 		<changes>
-			<added>Radial blur when receiving damage (1.13 DayZ)</added>
-			<changed>minor UI tweaks</changed>
-			<fixed>Camera would remain angled when going prone while leaning</fixed>
+			<change type="feat">Radial blur when receiving damage (1.13 DayZ)</change>
+			<change type="change">minor UI tweaks</change>
+			<change type="fix">Camera would remain angled when going prone while leaning</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v1.4.0" branch="main" date="2021-07-13T00:00:00+02:00">
 		<changes>
-			<added>ACOG 6x is now compatible</added>
-			<added>M16A2 recoil</added>
-			<added>SSpawnable API (to be moved to sCore)</added>
-			<changed>minor UI tweaks</changed>
-			<changed>
+			<change type="feat">ACOG 6x is now compatible</change>
+			<change type="feat">M16A2 recoil</change>
+			<change type="feat">SSpawnable API (to be moved to sCore)</change>
+			<change type="change">minor UI tweaks</change>
+			<change type="change">
 				Recoil changes (to balance 1.13 attachments changes)
 				<ul>
 					<li>Reduced MP5k horizontal recoil</li>
@@ -249,53 +272,57 @@
 					<li>Mp5k more kick</li>
 					<li>Scout slightly less vertical misalignment (+ more kick)</li>
 				</ul>
-			</changed>
+			</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.3.1" branch="main" date="2021-07-17T00:00:00+02:00">
 		<changes>
-			<added>
+			<change type="feat">
 				Preprocessor defines are now available in scripts modules [
 				https://github.com/simonvic/sVisual/commit/cad6404f85c90ce99208722f93214adb7c564c90 ]
-			</added>
-			<changed>Reduced exhausted post processing effect</changed>
+			</change>
+			<change type="change">Reduced exhausted post processing effect</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v1.4.1" branch="main" date="2021-07-17T00:00:00+02:00">
 		<changes>
-			<added>
+			<change type="feat">
 				Preprocessor defines are now available in scripts modules [
 				https://github.com/simonvic/sGunplay/commit/4a1858bcae696230a6c215916a0331b6c78449a3 ]
-			</added>
-			<changed>Increased stamina drain exponent while holding breath</changed>
-			<changed>Stamina drains slightly less while holding breath</changed>
-			<changed>minor decrease to inventory weight impact on inertia</changed>
+			</change>
+			<change type="change">Increased stamina drain exponent while holding breath</change>
+			<change type="change">Stamina drains slightly less while holding breath</change>
+			<change type="change">minor decrease to inventory weight impact on inertia</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v1.4.2" branch="main" date="2021-07-27T00:00:00+02:00">
 		<changes>
-			<added>
+			<change type="feat">
 				New sounds will play when interacting with weapon (changing zoom, zeroing and firemode)
 				<br />
 				NOTE: they will only be client side, other players won't be able to hear it
-			</added>
-			<changed>Reduced inertia caused by walking by ~25%</changed>
-			<changed>Reduced inertia caused by jogging by ~10%</changed>
-			<fixed>Fixed camera transformation when moving while leaning</fixed>
+			</change>
+			<change type="change">Reduced inertia caused by walking by ~25%</change>
+			<change type="change">Reduced inertia caused by jogging by ~10%</change>
+			<change type="fix">Fixed camera transformation when moving while leaning</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.4.0" branch="main" date="2021-08-09T00:00:00+02:00">
 		<changes>
-			<added>Camera Overlays ! A new framework to work with overlays</added>
-			<added>Added <code>SCameraOverlay</code> (and their animated version)</added>
-			<added>Added <code>SCameraOverlaysManager</code></added>
-			<added>
+			<change type="feat">Camera Overlays ! A new framework to work with overlays</change>
+			<change type="feat">Added <code>SCameraOverlay</code> (and their animated version)</change>
+			<change type="feat">Added <code>SCameraOverlaysManager</code></change>
+			<change type="feat">
 				Clothing overlays: overlays can be automatically activated based on the health level of an equipped
 				clothing
-			</added>
-			<added>Added 10 new textures used for overlays</added>
-			<added>Added 20 new masks for animating overlays</added>
-			<added>
+			</change>
+			<change type="feat">Added 10 new textures used for overlays</change>
+			<change type="feat">Added 20 new masks for animating overlays</change>
+			<change type="feat">
 				Added sample overlays to:
 				<ul>
 					<li><code>AviatorGlasses</code></li>
@@ -304,64 +331,67 @@
 					<li><code>BurlapSack</code></li>
 					<li>gas masks</li>
 				</ul>
-			</added>
-			<changed>AviatorGlasses will only remove bloom when equipped (removed PPE overlay)</changed>
-			<changed>Spawn PPE animation has been replaced by an overlay</changed>
-			<changed>Bleeding animation won't have red vignette anymore (replaced by an overlay)</changed>
-			<changed>Improved <code>SGameConfig</code></changed>
-			<changed>Refactored and improved <code>SFlagOperator</code> (formerly FlagOperation)</changed>
-			<changed>
+			</change>
+			<change type="change">AviatorGlasses will only remove bloom when equipped (removed PPE overlay)</change>
+			<change type="change">Spawn PPE animation has been replaced by an overlay</change>
+			<change type="change">Bleeding animation won't have red vignette anymore (replaced by an overlay)</change>
+			<change type="change">Improved <code>SGameConfig</code></change>
+			<change type="change">Refactored and improved <code>SFlagOperator</code> (formerly FlagOperation)</change>
+			<change type="change">
 				PPEparams variables in <code>PlayerBase</code> have been renamed [
 				82170116bda2884aa94cc4281f15309b28f0457a ]
-			</changed>
-			<changed>
+			</change>
+			<change type="change">
 				Renamed some PP effects related methods in <code>PlayerBase</code> [
 				7d8163554b17ab79b4b5df99a3488393f296fa69 ]
-			</changed>
-			<changed>
+			</change>
+			<change type="change">
 				PP effects and overlays are now activated <code>OnPlayerLoaded</code> instead of
 				<code>OnPlayerSelect</code>
-			</changed>
-			<fixed>The screen won't become red when player is low on shock and bleeding (thanks overlays!)</fixed>
-			<fixed>Spawn ppe animation won't play when exiting from freecam</fixed>
+			</change>
+			<change type="fix">The screen won't become red when player is low on shock and bleeding (thanks overlays!)</change>
+			<change type="fix">Spawn ppe animation won't play when exiting from freecam</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.4.1" branch="main" date="2021-08-10T00:00:00+02:00">
 		<changes>
-			<added>Added ruined motohelmet overlay</added>
-			<added>
+			<change type="feat">Added ruined motohelmet overlay</change>
+			<change type="feat">
 				Added <code>onPreBuild()</code> and <code>onPostBuild()</code> widget method to allow correct change of
 				widget flag [ 6d406401643988f058be976b9fdcca02d94b2d13 ]
-			</added>
-			<added>Added sUDE log to ingame menu</added>
-			<changed>Reworked generic scratches overlays</changed>
-			<changed>Reworked motohelmet overlays</changed>
-			<changed>
+			</change>
+			<change type="feat">Added sUDE log to ingame menu</change>
+			<change type="change">Reworked generic scratches overlays</change>
+			<change type="change">Reworked motohelmet overlays</change>
+			<change type="change">
 				Moved overlay change on clothing health level change to different method [
 				919fb127333900424ea3d98ff48ef8562ea71238 ]
-			</changed>
-			<fixed>Removed unused debug variables</fixed>
+			</change>
+			<change type="fix">Removed unused debug variables</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.4.2" branch="main" date="2021-08-13T00:00:00+02:00">
 		<changes>
-			<changed>Reworked bleeding overlay</changed>
-			<changed>Removed sample gasmasks overlay</changed>
-			<changed>
+			<change type="change">Reworked bleeding overlay</change>
+			<change type="change">Removed sample gasmasks overlay</change>
+			<change type="change">
 				Hit received PPE animation activation has been moved to <code>OnPlayerRecievedHit</code> to avoid
 				possible future vanilla incompatibilities
-			</changed>
-			<changed>Removed unused logs</changed>
+			</change>
+			<change type="change">Removed unused logs</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sFramework" tag="v1.0.0" branch="main" date="2021-09-29T00:00:00+02:00">
 		<changes>
-			<added>Added godrays PPE parameter</added>
-			<added>Added basic Tree data structure</added>
-			<added>Added basic Stack data structure</added>
-			<added>Improved sGameConfig capabilities</added>
-			<added>Added setters for R, G, B and alpha channel to sColor</added>
-			<added>
+			<change type="feat">Added godrays PPE parameter</change>
+			<change type="feat">Added basic Tree data structure</change>
+			<change type="feat">Added basic Stack data structure</change>
+			<change type="feat">Improved sGameConfig capabilities</change>
+			<change type="feat">Added setters for R, G, B and alpha channel to sColor</change>
+			<change type="feat">
 				Moved most logic and generic assets from sVisual
 				<ul>
 					<li>Moved sGameConfig and sUserConfig</li>
@@ -372,15 +402,15 @@
 					<li>Moved sCameraOverlayManager</li>
 					<li>Moved masks .edds</li>
 				</ul>
-			</added>
-			<changed>
+			</change>
+			<change type="change">
 				Rewrote from scratch options menu UI/UX
 				<ul>
 					<li>A sUDE tab will now hold all sUDE modules options menu</li>
 					<li>Options can now be locked more easily with the possibility to show a message next to them</li>
 				</ul>
-			</changed>
-			<changed>
+			</change>
+			<change type="change">
 				The sPPEManager is now more consistent:
 				<ul>
 					<li>
@@ -390,71 +420,73 @@
 					<li>Only non-requested PPE will now be interpolated to the default values</li>
 					<li>Added ACTIVATION_SPEED constant, which will dictates how fast effects will be applied</li>
 				</ul>
-			</changed>
-			<changed>
+			</change>
+			<change type="change">
 				Added DEFAULT, COPY, INTERPOLATE, UNION and INTERSECTION merge flags<br />
 				By default the merging will be done with INTERPOLATE and UNION flags
-			</changed>
-			<changed>Improved merging performance</changed>
-			<changed>Improved SLog redeability</changed>
-			<fixed>minor fixes</fixed>
+			</change>
+			<change type="change">Improved merging performance</change>
+			<change type="change">Improved SLog redeability</change>
+			<change type="fix">minor fixes</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v1.5.0" branch="main" date="2021-08-10T00:00:00+02:00">
 		<changes>
-			<added>Added sFramework as dependency</added>
-			<added>Added custom recoil to FAMAS (LE-MAS from DayZ 1.14)</added>
-			<changed>Removed sVisual as dependency</changed>
-			<changed>Moved cameras transitions logic to sFramework</changed>
-			<changed>
+			<change type="feat">Added sFramework as dependency</change>
+			<change type="feat">Added custom recoil to FAMAS (LE-MAS from DayZ 1.14)</change>
+			<change type="change">Removed sVisual as dependency</change>
+			<change type="change">Moved cameras transitions logic to sFramework</change>
+			<change type="change">
 				Rewrote from scratch options menu UI/UX
 				<br />
 				sGunplay tab will now be under the sUDE tab
-			</changed>
-			<changed>
+			</change>
+			<change type="change">
 				Improved camera shake aiming model filter
 				<br />
 				The shake of the weapon (caused by cold or kuru) will only shake the weapon and not the camera
-			</changed>
-			<changed>Tweaked sight misalignment animation when moving</changed>
-			<fixed>Fixed harsh camera movement when releasing breath</fixed>
-			<fixed>Fixed deadzone with night vision optics</fixed>
-			<fixed>Fixed breathing sway aiming model filter computation</fixed>
-			<fixed>canZoom was not getting called properly during FOV focus value computation</fixed>
-			<fixed>Fixed handheld sniper optic zoom speed</fixed>
-			<fixed>Fixed zooming while inspecting the weapon</fixed>
+			</change>
+			<change type="change">Tweaked sight misalignment animation when moving</change>
+			<change type="fix">Fixed harsh camera movement when releasing breath</change>
+			<change type="fix">Fixed deadzone with night vision optics</change>
+			<change type="fix">Fixed breathing sway aiming model filter computation</change>
+			<change type="fix">canZoom was not getting called properly during FOV focus value computation</change>
+			<change type="fix">Fixed handheld sniper optic zoom speed</change>
+			<change type="fix">Fixed zooming while inspecting the weapon</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.5.0" branch="main" date="2021-08-10T00:00:00+02:00">
 		<changes>
-			<added>Added sFramework as dependency</added>
-			<added>Added colored effect when wearing various sunglasses</added>
-			<added>Added support for new vanilla PPEManager and overlay manager (1.14)</added>
-			<added>Added overlay to dark variant of motohelmet + godrays and bloom reduction</added>
-			<changed>
+			<change type="feat">Added sFramework as dependency</change>
+			<change type="feat">Added colored effect when wearing various sunglasses</change>
+			<change type="feat">Added support for new vanilla PPEManager and overlay manager (1.14)</change>
+			<change type="feat">Added overlay to dark variant of motohelmet + godrays and bloom reduction</change>
+			<change type="change">
 				Improved sunglasses visibility
 				<ul>
 					<li>the overlays are less obstructive</li>
 					<li>they will reduce godrays and bloom intensity</li>
 				</ul>
-			</changed>
-			<changed>The ppe bleeding animation is now in sync with the overlay animation</changed>
-			<changed>
+			</change>
+			<change type="change">The ppe bleeding animation is now in sync with the overlay animation</change>
+			<change type="change">
 				Improved tunnel vision effect (from low shock value)<br />
 				It will now use radial blur and vignette as fallback if radial blur is disabled
-			</changed>
-			<changed>Improved death darkening effect</changed>
-			<changed>Improved headbob animation (reduced horizontal movement)</changed>
-			<changed>Unconscious ppeffect has been replaced with an overlay</changed>
-			<changed>
+			</change>
+			<change type="change">Improved death darkening effect</change>
+			<change type="change">Improved headbob animation (reduced horizontal movement)</change>
+			<change type="change">Unconscious ppeffect has been replaced with an overlay</change>
+			<change type="change">
 				Rewrote from scratch options menu UI/UX<br />
 				sVisual tab will now be under the sUDE tab
-			</changed>
-			<changed>
+			</change>
+			<change type="change">
 				Refactored sCameraManager<br />
 				It will now handle DDoF and headbob logic
-			</changed>
-			<changed>
+			</change>
+			<change type="change">
 				Renamed many classes to avoid DayZ 1.14 name collisions
 				<ul>
 					<li><code>PPEManager</code> to <code>SPPEManager</code></li>
@@ -466,8 +498,8 @@
 					<li><code>MaterialNames</code> to <code>PPEMaterialNames</code></li>
 					<li><code>PPEConstants</code> to <code>SPPEConstants</code></li>
 				</ul>
-			</changed>
-			<changed>
+			</change>
+			<change type="change">
 				Moved most logic and generic assets to sFramework
 				<ul>
 					<li>Moved sGameConfig and sUserConfig</li>
@@ -478,13 +510,13 @@
 					<li>Moved sCameraOverlayManager</li>
 					<li>Moved masks .edds</li>
 				</ul>
-			</changed>
-			<changed>
+			</change>
+			<change type="change">
 				Deleted ppe presets classes as they were unused and completely useless, since everything could be
 				achieved with a simple sPPEffect (former PPEParams) [ f120276d9eb7d4579395e3258fc7ab1824dcb252 ]
-			</changed>
-			<changed>Some of these changes and more can also be found in sFramework</changed>
-			<changed>
+			</change>
+			<change type="change">Some of these changes and more can also be found in sFramework</change>
+			<change type="change">
 				The sPPEManager is now more consistent:
 				<ul>
 					<li>
@@ -494,152 +526,166 @@
 					<li>Only non-requested PPE will now be interpolated to the default values</li>
 					<li>Added ACTIVATION_SPEED constant, which will dictates how fast effects will be applied</li>
 				</ul>
-			</changed>
-			<fixed>NightVision effect will now be activated correctly</fixed>
-			<fixed>NightVision activation method will now call the super method</fixed>
+			</change>
+			<change type="fix">NightVision effect will now be activated correctly</change>
+			<change type="fix">NightVision activation method will now call the super method</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sFramework" tag="v1.1.0" branch="main" date="2021-10-25T00:00:00+02:00">
 		<changes>
-			<added>
+			<change type="feat">
 				ServerSide config constraints<br />
 				sUserConfig can now be constrained based on constraints defined on the server
-			</added>
-			<added>InfoBox in options menu, containing option (and constraints) description</added>
-			<added>
+			</change>
+			<change type="feat">InfoBox in options menu, containing option (and constraints) description</change>
+			<change type="feat">
 				sUserConfigOption<br />
 				A generic option, to replace the old coupled way of creating UserConfig
-			</added>
-			<added>JSONSerializable interface</added>
-			<added>
+			</change>
+			<change type="feat">JSONSerializable interface</change>
+			<change type="feat">
 				(for primitive and non primitive data)
 				<ul>
 					<li><code>sConstraintSimple</code></li>
 					<li><code>sConstraintMinMax</code></li>
 				</ul>
-			</added>
-			<changed>
+			</change>
+			<change type="change">
 				Completely reworked sUserConfig
 				<ul>
 					<li>sUserConfigBase now implements JSONSerializable interface</li>
 					<li>options are now held in the new generic sUserConfigOption</li>
 					<li>options must be registered with a unique string identifier</li>
 				</ul>
-			</changed>
-			<changed>
+			</change>
+			<change type="change">
 				Improved generalization of user config UI controllers
 				<ul>
 					<li>widgets that control options now need to be binded with the option</li>
 					<li>they won't handle the option change anymore (the option itself will)</li>
 					<li>improved config change handling to reduce reads/writes on disk</li>
 				</ul>
-			</changed>
-			<changed>Improved sMath and sTest</changed>
-			<fixed>onInit method in SCameraOverlayTimed was not getting called at the right time</fixed>
+			</change>
+			<change type="change">Improved sMath and sTest</change>
+			<change type="fix">onInit method in SCameraOverlayTimed was not getting called at the right time</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.6.0" branch="main" date="2021-10-25T00:00:00+02:00">
 		<changes>
-			<added>Server side config constraints</added>
-			<added>InfoBox in options menu, containing option (and constraints) description</added>
-			<changed>Updated sUserConfigVisual to the new sUserConfig system</changed>
-			<changed>Updated stringtables with new option description</changed>
-			<fixed>
+			<change type="feat">Server side config constraints</change>
+			<change type="feat">InfoBox in options menu, containing option (and constraints) description</change>
+			<change type="change">Updated sUserConfigVisual to the new sUserConfig system</change>
+			<change type="change">Updated stringtables with new option description</change>
+			<change type="fix">
 				Occasional game crashes when receiving shock damage.<br />
 				A vanilla effect was setting huge values to the radial blur effect, causing a massive performance
 				drop.<br />
 				Technically the game didn't crash, but only ran at 0.00001 FPS :p
-			</fixed>
-			<fixed>Fixed sun flicker when looking at it</fixed>
-			<fixed>Wrong default visual user config creation</fixed>
+			</change>
+			<change type="fix">Fixed sun flicker when looking at it</change>
+			<change type="fix">Wrong default visual user config creation</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v1.6.0" branch="main" date="2021-10-25T00:00:00+02:00">
 		<changes>
-			<added>Server side config constraints</added>
-			<added>InfoBox in options menu, containing option (and constraints) description</added>
-			<changed>Updated sUserConfigGunplay to the new sUserConfig system</changed>
-			<changed>Updated stringtables with new option description</changed>
-			<fixed>Temp fix for gunplay user config not getting loaded at the right time</fixed>
+			<change type="feat">Server side config constraints</change>
+			<change type="feat">InfoBox in options menu, containing option (and constraints) description</change>
+			<change type="change">Updated sUserConfigGunplay to the new sUserConfig system</change>
+			<change type="change">Updated stringtables with new option description</change>
+			<change type="fix">Temp fix for gunplay user config not getting loaded at the right time</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.6.1" branch="main" date="2021-11-23T00:00:00+02:00">
 		<changes>
-			<changed>Moved NightVision post processing handling from the camera to vanilla PPERequester</changed>
+			<change type="change">Moved NightVision post processing handling from the camera to vanilla PPERequester</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v1.6.1" branch="main" date="2021-11-23T00:00:00+02:00">
 		<changes>
-			<added>AUG recoil</added>
-			<added>AUG optic</added>
-			<added>
+			<change type="feat">AUG recoil</change>
+			<change type="feat">AUG optic</change>
+			<change type="feat">
 				Sniper optics have been nerfed with a new overlay that emulates the misalignment of the optic.
-			</added>
-			<changed>Removed sound when changing firemode; it's now implemented in vanilla</changed>
+			</change>
+			<change type="change">Removed sound when changing firemode; it's now implemented in vanilla</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sFramework" tag="v1.1.1" branch="main" date="2022-02-08T00:00:00+02:00">
 		<changes>
-			<added>Added compatibility mod icon</added>
-			<fixed>Removed debug plugin</fixed>
+			<change type="feat">Added compatibility mod icon</change>
+			<change type="fix">Removed debug plugin</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v1.6.2" branch="main" date="2022-02-15T00:00:00+02:00">
 		<changes>
-			<added>Added PP19 (Bizon SMG) recoil</added>
-			<changed>Dynamic crosshair can now be used when vanilla crosshair is disabled by the server</changed>
-			<changed>Renamed weapons recoil files for consistency</changed>
-			<fixed>Dynamic crosshair UI widget now ignores pointer</fixed>
-			<fixed>Default recoil was missing some parameters, causing division by zero script error</fixed>
+			<change type="feat">Added PP19 (Bizon SMG) recoil</change>
+			<change type="change">Dynamic crosshair can now be used when vanilla crosshair is disabled by the server</change>
+			<change type="change">Renamed weapons recoil files for consistency</change>
+			<change type="fix">Dynamic crosshair UI widget now ignores pointer</change>
+			<change type="fix">Default recoil was missing some parameters, causing division by zero script error</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sFramework" tag="v1.1.1a" branch="main" date="2022-02-18T00:00:00+02:00">
 		<changes>
-			<fixed>
+			<change type="fix">
 				Fixed server constraints not being sent to clients when joined while not having an alive character
-			</fixed>
+			</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sFramework" tag="v1.2.0" branch="main" date="2022-04-19T00:00:00+02:00">
 		<changes>
-			<added>Added sObservableArray API</added>
-			<added>
+			<change type="feat">Added sObservableArray API</change>
+			<change type="feat">
 				Added sTest framework (UnitTesting). sTest related stuff is only compiled with
 				<code>DIAG_DEVELOPER</code> directive
-			</added>
-			<added>Added test unit for sMath</added>
-			<added>Added test unit for sConstraints</added>
-			<added>Added test unit for sUserConfigs</added>
-			<added>Added test unit for sObservableArray</added>
+			</change>
+			<change type="feat">Added test unit for sMath</change>
+			<change type="feat">Added test unit for sConstraints</change>
+			<change type="feat">Added test unit for sUserConfigs</change>
+			<change type="feat">Added test unit for sObservableArray</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v1.6.3" branch="main" date="2022-04-19T00:00:00+02:00">
 		<changes>
-			<added>Added CZ550 recoil</added>
-			<added>Added LongHorn recoil</added>
-			<added>Added P1 recoil</added>
-			<fixed>Fix option sliders widget (DayZ 1.17 update)</fixed>
+			<change type="feat">Added CZ550 recoil</change>
+			<change type="feat">Added LongHorn recoil</change>
+			<change type="feat">Added P1 recoil</change>
+			<change type="fix">Fix option sliders widget (DayZ 1.17 update)</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.6.2" branch="main" date="2022-04-19T00:00:00+02:00">
 		<changes>
-			<changed>Removed unnecessary config declarations</changed>
-			<fixed>Fix option sliders widget (DayZ 1.17 update)</fixed>
+			<change type="change">Removed unnecessary config declarations</change>
+			<change type="fix">Fix option sliders widget (DayZ 1.17 update)</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.6.2a" branch="main" date="2022-05-05T00:00:00+02:00">
 		<changes>
-			<fixed>Fixed Dynamic FieldOfView not working in first person camera after DayZ 1.17.154754 hotifx</fixed>
+			<change type="fix">Fixed Dynamic FieldOfView not working in first person camera after DayZ 1.17.154754 hotifx</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v1.6.4" branch="main" date="2022-06-14T00:00:00+02:00">
 		<changes>
-			<added>Added Derringer recoil</added>
-			<added>Added M79 recoil</added>
-			<changed>sGunplay keybinding section can be found under the sUDE tab in the options menu</changed>
-			<fixed>missing quote in stringtable (translation)</fixed>
+			<change type="feat">Added Derringer recoil</change>
+			<change type="feat">Added M79 recoil</change>
+			<change type="change">sGunplay keybinding section can be found under the sUDE tab in the options menu</change>
+			<change type="fix">missing quote in stringtable (translation)</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sFramework" tag="v1.3.0" branch="main" date="2022-10-20T17:00:00+02:00">
 		<preamble>
 			Because of some breaking changes to user config constraints, server owners are advised to delete the
@@ -648,49 +694,53 @@
 			<a href="https://simonvic.github.io/sUDE/tools/sConstraintsEditor/">sConstraintsEditor</a>
 		</preamble>
 		<changes>
-			<added>New logo</added>
-			<added><code>sDebugUI</code> IMGUI framework</added>
-			<added>sMath: <code>normalize()</code> function</added>
-			<added>sMath: <code>normalizeClamp()</code> function</added>
-			<added>sMath: <code>map()</code> function</added>
-			<added>sMath: <code>mapClamp()</code> function</added>
-			<added>sMath: squared PI constant</added>
-			<added><code>sSpawnableBundle</code> API</added>
-			<added><code>ComboWidget</code> options can now be registered in the Options menu</added>
-			<added>sTreeNode: allow max depth in debug print</added>
-			<changed>sConstraints <code>enabled</code> field has been renamed to <code>constrain</code></changed>
-			<changed>sConstraints now can get preloaded at mission start</changed>
-			<changed>User config array options only worked with floats</changed>
-			<changed>Removed <code>sCameraManager</code></changed>
-			<changed>Code refactor and cleanup</changed>
-			<fixed><code>sCameraOverlay</code> not hiding along with the HUD</fixed>
-			<fixed>sLog: the header will now be printed at every boot</fixed>
-			<fixed>sLog: filename date format</fixed>
-			<fixed>sMath: Wrong arctan computation</fixed>
-			<fixed>sPPEManager: potenrially wrong DoF reset</fixed>
-			<fixed>sPPEManager: PiP not working without sVisual</fixed>
-			<fixed><code>sUserConfigConstraints</code> deserialization validation</fixed>
+			<change type="feat">New logo</change>
+			<change type="feat"><code>sDebugUI</code> IMGUI framework</change>
+			<change type="feat">sMath: <code>normalize()</code> function</change>
+			<change type="feat">sMath: <code>normalizeClamp()</code> function</change>
+			<change type="feat">sMath: <code>map()</code> function</change>
+			<change type="feat">sMath: <code>mapClamp()</code> function</change>
+			<change type="feat">sMath: squared PI constant</change>
+			<change type="feat"><code>sSpawnableBundle</code> API</change>
+			<change type="feat"><code>ComboWidget</code> options can now be registered in the Options menu</change>
+			<change type="feat">sTreeNode: allow max depth in debug print</change>
+			<change type="change">sConstraints <code>enabled</code> field has been renamed to <code>constrain</code></change>
+			<change type="change">sConstraints now can get preloaded at mission start</change>
+			<change type="change">User config array options only worked with floats</change>
+			<change type="change">Removed <code>sCameraManager</code></change>
+			<change type="change">Code refactor and cleanup</change>
+			<change type="fix"><code>sCameraOverlay</code> not hiding along with the HUD</change>
+			<change type="fix">sLog: the header will now be printed at every boot</change>
+			<change type="fix">sLog: filename date format</change>
+			<change type="fix">sMath: Wrong arctan computation</change>
+			<change type="fix">sPPEManager: potenrially wrong DoF reset</change>
+			<change type="fix">sPPEManager: PiP not working without sVisual</change>
+			<change type="fix"><code>sUserConfigConstraints</code> deserialization validation</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.7.0" branch="main" date="2022-10-20T17:00:00+02:00">
 		<changes>
-			<added>New logo</added>
-			<added>Improved clothing overlays by doing a lazy initialization</added>
-			<added>Support for 1.19 NVG and underground effect</added>
-			<changed>The options menu have been remade from scratch, with improved performance and look</changed>
-			<fixed>The Dynamic DepthOfField wasn't resetting properly</fixed>
-			<fixed>Some helmets weren't taking damage due to improper config.cpp</fixed>
-			<fixed>Death darkening effect not working in some edge case scenarios</fixed>
-			<fixed>Removed sCameraManager; camera lean is now much smoother and doesn't reset when ADS</fixed>
-			<fixed>Improved server-side performance by removing some unnecessary logic</fixed>
-			<fixed>Errors in stringtable.csv translation file</fixed>
-			<modding>
+			<change type="feat">New logo</change>
+			<change type="feat">Improved clothing overlays by doing a lazy initialization</change>
+			<change type="feat">Support for 1.19 NVG and underground effect</change>
+			<change type="change">The options menu have been remade from scratch, with improved performance and look</change>
+			<change type="fix">The Dynamic DepthOfField wasn't resetting properly</change>
+			<change type="fix">Some helmets weren't taking damage due to improper config.cpp</change>
+			<change type="fix">Death darkening effect not working in some edge case scenarios</change>
+			<change type="fix">Removed sCameraManager; camera lean is now much smoother and doesn't reset when ADS</change>
+			<change type="fix">Improved server-side performance by removing some unnecessary logic</change>
+			<change type="fix">Errors in stringtable.csv translation file</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">
 				A new config parameters has been added to tweak the NVG efficiency when there is no light at all (i.e.
 				underground) Default: 0.01
-			</modding>
-			<modding>Server side constraints now gets preloaded as soon as the server starts</modding>
+			</change>
+			<change type="change">Server side constraints now gets preloaded as soon as the server starts</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v2.0.0" branch="main" date="2022-10-20T17:00:00+02:00">
 		<preamble>
 			<blockquote>WHY VERSION 2.0 ?</blockquote>
@@ -718,82 +768,89 @@
 			</ul>
 		</preamble>
 		<changes>
-			<added>A completely new aiming model!</added>
-			<added>Weapon handling will now feel much more responsive and less "sluggish"</added>
-			<added>New recoil system</added>
-			<added>
+			<change type="feat">A completely new aiming model!</change>
+			<change type="feat">Weapon handling will now feel much more responsive and less "sluggish"</change>
+			<change type="feat">New recoil system</change>
+			<change type="feat">
 				Weapon attachments, such as buttstocks, handguards and compensators, will now contribute to the
 				recoil control
-			</added>
-			<added>
+			</change>
+			<change type="feat">
 				Recoil intensity will "accumulate" if you shoot faster than your ability to control the recoil and to
 				reset the weapon.<br />
 				While short burst are manegeable, being accurate with a long spray is not an easy task (especially at
 				long engagements), but it will become easier once you reach the "apex" of the recoil. At that point,
 				you'll be able to be more consistent in controlling it.
-			</added>
-			<added>Two new options to change FieldOfView while ADS</added>
-			<added>Added 6 new dynamic crosshair styles</added>
-			<added>You can now choose dynamic crosshair color via RGB format</added>
-			<added>
+			</change>
+			<change type="feat">Two new options to change FieldOfView while ADS</change>
+			<change type="feat">Added 6 new dynamic crosshair styles</change>
+			<change type="feat">You can now choose dynamic crosshair color via RGB format</change>
+			<change type="feat">
 				New stats meters are visible in the inventory UI; they will show an approximation of Inventory Weight
 				and Shooting Accuracy
-			</added>
-			<added>Weapon retraction (when you hit a wall) has been improved for weapons with shorter barrels</added>
-			<added>A very subtle vignette effect is being used when focusing</added>
-			<added>New animations when interacting with the weapon (changing firemode or zeroing)</added>
-			<added>New animation for the shake caused by Kuru illness</added>
-			<added>New animation for the shake caused by cold</added>
-			<added>New mod logo</added>
-			<added>Recoil definition for SSG82</added>
-			<added>PiP definition for SSG82 optic</added>
-			<added>Kazuar (AK night vision optic) now behaves correctly and has proper PiP</added>
-			<added>Starlight (M4 night vision optic) now behaves correctly and has proper PiP</added>
-			<changed>Reduced head bobbing while AimingDownSight</changed>
-			<changed>Faster and smoother misalignment overlay when using long range optics</changed>
-			<changed>Decoupled long range optic behaviour from the misalignment overlay</changed>
-			<changed>Improved PiP lens positioning; it will now sits better in the optic</changed>
-			<changed>Improved PiP visibility for some optics</changed>
-			<changed>The options menu have been remade from scratch, with improved performance and look</changed>
-			<changed>Removed the default WeaponInteraction keybinding</changed>
-			<changed>Deadzone is now marked as deprecated and planned for major changes or removal</changed>
-			<fixed>
+			</change>
+			<change type="feat">Weapon retraction (when you hit a wall) has been improved for weapons with shorter barrels</change>
+			<change type="feat">A very subtle vignette effect is being used when focusing</change>
+			<change type="feat">New animations when interacting with the weapon (changing firemode or zeroing)</change>
+			<change type="feat">New animation for the shake caused by Kuru illness</change>
+			<change type="feat">New animation for the shake caused by cold</change>
+			<change type="feat">New mod logo</change>
+			<change type="feat">Recoil definition for SSG82</change>
+			<change type="feat">PiP definition for SSG82 optic</change>
+			<change type="feat">Kazuar (AK night vision optic) now behaves correctly and has proper PiP</change>
+			<change type="feat">Starlight (M4 night vision optic) now behaves correctly and has proper PiP</change>
+			<change type="change">Reduced head bobbing while AimingDownSight</change>
+			<change type="change">Faster and smoother misalignment overlay when using long range optics</change>
+			<change type="change">Decoupled long range optic behaviour from the misalignment overlay</change>
+			<change type="change">Improved PiP lens positioning; it will now sits better in the optic</change>
+			<change type="change">Improved PiP visibility for some optics</change>
+			<change type="change">The options menu have been remade from scratch, with improved performance and look</change>
+			<change type="change">Removed the default WeaponInteraction keybinding</change>
+			<change type="change">Deadzone is now marked as deprecated and planned for major changes or removal</change>
+			<change type="fix">
 				Possibly definitive solution for the inventory weight desync, which caused the hand position being
 				desynced between clients
-			</fixed>
-			<fixed>Dynamic Crosshairs were not perfectly centered, new ad-hoc crosshairs are now pixel perfect</fixed>
-			<fixed>The correct NightVision type wasn't being used</fixed>
-			<fixed>Wrong sway animation, and made it slightly slower</fixed>
-			<fixed>Camera shake not being applied while AimingDownSight</fixed>
-			<fixed>Recoil control function was not being applied properly</fixed>
-			<fixed>Errors in stringtable.csv translation file</fixed>
-			<fixed>Improved server-side performance by removing some unnecessary logic</fixed>
-			<fixed>Missing preset definition for input actions</fixed>
-			<fixed>ItemOptics config class definition for DayZ 1.19</fixed>
-			<modding>New Ad-hoc config parameters for PiP</modding>
-			<modding>Cleaned up unused constants</modding>
-			<modding>Server side constraints now gets preloaded as soon as the server starts</modding>
+			</change>
+			<change type="fix">Dynamic Crosshairs were not perfectly centered, new ad-hoc crosshairs are now pixel perfect</change>
+			<change type="fix">The correct NightVision type wasn't being used</change>
+			<change type="fix">Wrong sway animation, and made it slightly slower</change>
+			<change type="fix">Camera shake not being applied while AimingDownSight</change>
+			<change type="fix">Recoil control function was not being applied properly</change>
+			<change type="fix">Errors in stringtable.csv translation file</change>
+			<change type="fix">Improved server-side performance by removing some unnecessary logic</change>
+			<change type="fix">Missing preset definition for input actions</change>
+			<change type="fix">ItemOptics config class definition for DayZ 1.19</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">New Ad-hoc config parameters for PiP</change>
+			<change type="change">Cleaned up unused constants</change>
+			<change type="change">Server side constraints now gets preloaded as soon as the server starts</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sFramework" tag="v1.3.1.exp" branch="dev" date="2023-01-27T23:00:00+02:00">
 		<changes>
-			<added>New camera transition timing from 3rd person vehicle to 3rd person (DayZ 1.20)</added>
-			<modding>Removed debug plugin</modding>
+			<change type="feat">New camera transition timing from 3rd person vehicle to 3rd person (DayZ 1.20)</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">Removed debug plugin</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.7.1.exp" branch="dev" date="2023-01-27T23:00:00+02:00">
 		<preamble>
 			This update brings a different headbob animation, you may want to tweak the headbob intensity;
 			you can do it in the options menu.
 		</preamble>
 		<changes>
-			<changed>Improved headbob animation</changed>
-			<changed>
+			<change type="change">Improved headbob animation</change>
+			<change type="change">
 				Headbob is now properly synchronized with the player speed; it will smoothly transition from jogging to
 				running
-			</changed>
+			</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v2.1.0.exp" branch="dev" date="2023-01-27T23:00:00+02:00">
 		<preamble>
 			Thanks to the fixes done in DayZ 1.20, sGunplay is now capable of properly implementing player
@@ -803,167 +860,191 @@
 			of sGunplay remains usable with current DayZ version
 		</preamble>
 		<changes>
-			<added>Player movement inertia based on inventory weight</added>
-			<changed>
+			<change type="feat">Player movement inertia based on inventory weight</change>
+			<change type="change">
 				Inventory weight is not netsynced manually anymore. DayZ 1.20 should have fixed weight desync issues
-			</changed>
-			<fixed>
+			</change>
+			<change type="fix">
 				Camera clipping with clothing when using ACOG6x with <code>HideClothing</code> option disabled
-			</fixed>
-			<fixed>Missing recoil for lzh18 recoil</fixed>
-			<fixed>Lens values for NightVision optics (Kazuar, Starlight)</fixed>
-			<modding>New constants related to the inventory/weapon weight are used instead of hardcoded values</modding>
-			<modding>
+			</change>
+			<change type="fix">Missing recoil for lzh18 recoil</change>
+			<change type="fix">Lens values for NightVision optics (Kazuar, Starlight)</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">New constants related to the inventory/weapon weight are used instead of hardcoded values</change>
+			<change type="change">
 				Removed unnecessary bool constants where it's possible to disable a
 				feature via the other constants
-			</modding>
+			</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sFramework" tag="v1.4.0.exp" branch="dev" date="2023-02-15T21:00:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
 		<changes>
-			<added>sDebugUI widgets now use consumable options instead of parameters</added>
-			<added>sColor method to build color from string</added>
+			<change type="feat">sDebugUI widgets now use consumable options instead of parameters</change>
+			<change type="feat">sColor method to build color from string</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v2.1.0.exp.1" branch="dev" date="2023-02-15T21:00:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
 		<changes>
-			<changed>The "zoom boost" when focusing (holding breath) has been reduced</changed>
-			<changed>Tweaked VSS and ASVAl recoil</changed>
-			<changed>Increased time between shivers casued by cold</changed>
-			<fixed>SSG optic would clip with camera</fixed>
-			<fixed>SSG optic PiP may not work sometime</fixed>
-			<fixed>The focusing vignette could remain active under certain conditions</fixed>
-			<fixed>The focusing vignette is now better synchronized with FoV when focusing</fixed>
-			<modding>
+			<change type="change">The "zoom boost" when focusing (holding breath) has been reduced</change>
+			<change type="change">Tweaked VSS and ASVAl recoil</change>
+			<change type="change">Increased time between shivers casued by cold</change>
+			<change type="fix">SSG optic would clip with camera</change>
+			<change type="fix">SSG optic PiP may not work sometime</change>
+			<change type="fix">The focusing vignette could remain active under certain conditions</change>
+			<change type="fix">The focusing vignette is now better synchronized with FoV when focusing</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">
 				Three new constants have been added to respectively change the focus effectiveness (zoom boost) with
 				ironsights, non-magnifying optics and magnifying optics
-			</modding>
-			<modding>Added constant to toggle player movement inertia</modding>
+			</change>
+			<change type="change">Added constant to toggle player movement inertia</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v2.1.0.exp.2" branch="dev" date="2023-03-28T19:00:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
 		<changes>
-			<changed>The hipfire deadzone has been reduced and will reset when raising the weapon</changed>
-			<fixed>Camera clipping when using the PSO optic</fixed>
-			<fixed>Incorrect sounds being played when interacting with the weapon</fixed>
-			<fixed>Focus vignette effect deactivation with sniper optics</fixed>
+			<change type="change">The hipfire deadzone has been reduced and will reset when raising the weapon</change>
+			<change type="fix">Camera clipping when using the PSO optic</change>
+			<change type="fix">Incorrect sounds being played when interacting with the weapon</change>
+			<change type="fix">Focus vignette effect deactivation with sniper optics</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v2.1.0.exp.3" branch="dev" date="2023-05-06T17:30:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
 		<changes>
-			<added>New icons for recoil control meter in the inventory</added>
-			<added>Crossbow recoil</added>
-			<changed>Improved visibility for PSO optics (DayZ 1.21)</changed>
-			<changed>Tweaked hipfire deadzone</changed>
-			<changed>Hipfire deadzone will now reset upon raising weapon</changed>
-			<fixed>
+			<change type="feat">New icons for recoil control meter in the inventory</change>
+			<change type="feat">Crossbow recoil</change>
+			<change type="change">Improved visibility for PSO optics (DayZ 1.21)</change>
+			<change type="change">Tweaked hipfire deadzone</change>
+			<change type="change">Hipfire deadzone will now reset upon raising weapon</change>
+			<change type="fix">
 				Most logic for weapon handling and camera is now frame-indipendent and everything
 				should feel more consistent. <b>(This only applies if you're playing with DayZ 1.21
 					build)</b>
-			</fixed>
-			<fixed>PSO optics near plane clipping (DayZ 1.21)</fixed>
-			<fixed>Minor improvements</fixed>
-			<modding>Preprocessor defines are now declared according to DayZ 1.21 changes</modding>
-			<modding>Renamed player inertia constants</modding>
-			<modding>Added constant for player inertia timing for sprint direction change</modding>
-			<modding>Added constant for toggling hipfire deadzone reset upon weapon raise</modding>
-			<modding>Renamed recoil control stats root widget</modding>
+			</change>
+			<change type="fix">PSO optics near plane clipping (DayZ 1.21)</change>
+			<change type="fix">Minor improvements</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">Preprocessor defines are now declared according to DayZ 1.21 changes</change>
+			<change type="change">Renamed player inertia constants</change>
+			<change type="change">Added constant for player inertia timing for sprint direction change</change>
+			<change type="change">Added constant for toggling hipfire deadzone reset upon weapon raise</change>
+			<change type="change">Renamed recoil control stats root widget</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sFramework" tag="v1.4.0.exp.1" branch="dev" date="2023-05-06T17:30:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
 		<changes>
-			<added>sDebugUI: option helper function with map argument</added>
-			<added>
+			<change type="feat">sDebugUI: option helper function with map argument</change>
+			<change type="feat">
 				sDebugUI: window body color can now be changed with <code>body.bg</code> option
-			</added>
-			<added>
+			</change>
+			<change type="feat">
 				sDebugUI: new options for table cells flags (<code>table.cell.flags.set</code>,
 				<code>table.cell.flags.set</code>)
-			</added>
-			<added>Helper function to convert array to csv row</added>
-			<added>sColor: getter for normalized array in RGBA format</added>
-			<added>sColor: allow hashtag (#) in color string representation</added>
-			<changed>sDebugUI: Enabling/disabling a DUI won't show/hide it</changed>
-			<fixed>sColor: memory leak</fixed>
-			<fixed>sDebugUI: vertical scale option not working for plot widget</fixed>
-			<fixed>sDebugUI: null pointer exception on server</fixed>
-			<fixed>sDebugUI: possible lost refs when instatiating a DUI early during game init</fixed>
-			<fixed>sSpawnableBundle: missin argument in constructor</fixed>
-			<modding>Preprocessor defines are now declared according to DayZ 1.21 changes</modding>
+			</change>
+			<change type="feat">Helper function to convert array to csv row</change>
+			<change type="feat">sColor: getter for normalized array in RGBA format</change>
+			<change type="feat">sColor: allow hashtag (#) in color string representation</change>
+			<change type="change">sDebugUI: Enabling/disabling a DUI won't show/hide it</change>
+			<change type="fix">sColor: memory leak</change>
+			<change type="fix">sDebugUI: vertical scale option not working for plot widget</change>
+			<change type="fix">sDebugUI: null pointer exception on server</change>
+			<change type="fix">sDebugUI: possible lost refs when instatiating a DUI early during game init</change>
+			<change type="fix">sSpawnableBundle: missin argument in constructor</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">Preprocessor defines are now declared according to DayZ 1.21 changes</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v2.1.0.exp.4" branch="dev" date="2023-05-23T15:00:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
 		<changes>
-			<changed>Tweaked player movement inertia</changed>
-			<modding>Renamed constant to enable movement inertia affected by player inventory weight</modding>
+			<change type="change">Tweaked player movement inertia</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">Renamed constant to enable movement inertia affected by player inventory weight</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.7.1.exp.1" branch="dev" date="2023-05-23T15:00:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
-		<changes>
-			<modding>Preprocessor defines are now declared according to DayZ 1.21 changes</modding>
+		<changes category="modding">
+			<change type="change">Preprocessor defines are now declared according to DayZ 1.21 changes</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sFramework" tag="v1.4.0" branch="main" date="2023-05-23T17:30:00+02:00">
 		<changes>
-			<added>New camera transition timing from 3rd person vehicle to 3rd person (DayZ 1.20)</added>
-			<added>sDebugUI widgets now use consumable options instead of parameters</added>
-			<added>sColor method to build color from string</added>
-			<added>sDebugUI: option helper function with map argument</added>
-			<added>
+			<change type="feat">New camera transition timing from 3rd person vehicle to 3rd person (DayZ 1.20)</change>
+			<change type="feat">sDebugUI widgets now use consumable options instead of parameters</change>
+			<change type="feat">sColor method to build color from string</change>
+			<change type="feat">sDebugUI: option helper function with map argument</change>
+			<change type="feat">
 				sDebugUI: window body color can now be changed with <code>body.bg</code> option
-			</added>
-			<added>
+			</change>
+			<change type="feat">
 				sDebugUI: new options for table cells flags (<code>table.cell.flags.set</code>,
 				<code>table.cell.flags.set</code>)
-			</added>
-			<added>Helper function to convert array to csv row</added>
-			<added>sColor: getter for normalized array in RGBA format</added>
-			<added>sColor: allow hashtag (#) in color string representation</added>
-			<changed>sDebugUI: Enabling/disabling a DUI won't show/hide it</changed>
-			<fixed>sColor: memory leak</fixed>
-			<fixed>sDebugUI: vertical scale option not working for plot widget</fixed>
-			<fixed>sDebugUI: null pointer exception on server</fixed>
-			<fixed>sDebugUI: possible lost refs when instatiating a DUI early during game init</fixed>
-			<fixed>sSpawnableBundle: missin argument in constructor</fixed>
-			<modding>Preprocessor defines are now declared according to DayZ 1.21 changes</modding>
-			<modding>Removed debug plugin</modding>
+			</change>
+			<change type="feat">Helper function to convert array to csv row</change>
+			<change type="feat">sColor: getter for normalized array in RGBA format</change>
+			<change type="feat">sColor: allow hashtag (#) in color string representation</change>
+			<change type="change">sDebugUI: Enabling/disabling a DUI won't show/hide it</change>
+			<change type="fix">sColor: memory leak</change>
+			<change type="fix">sDebugUI: vertical scale option not working for plot widget</change>
+			<change type="fix">sDebugUI: null pointer exception on server</change>
+			<change type="fix">sDebugUI: possible lost refs when instatiating a DUI early during game init</change>
+			<change type="fix">sSpawnableBundle: missin argument in constructor</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">Preprocessor defines are now declared according to DayZ 1.21 changes</change>
+			<change type="change">Removed debug plugin</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v1.7.1" branch="main" date="2023-05-23T17:30:00+02:00">
 		<preamble>
 			This update brings a different headbob animation, you may want to tweak the headbob intensity;
 			you can do it in the options menu.
 		</preamble>
 		<changes>
-			<changed>Improved headbob animation</changed>
-			<changed>
+			<change type="change">Improved headbob animation</change>
+			<change type="change">
 				Headbob is now properly synchronized with the player speed; it will smoothly transition from jogging to
 				running
-			</changed>
-			<modding>Preprocessor defines are now declared according to DayZ 1.21 changes</modding>
+			</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">Preprocessor defines are now declared according to DayZ 1.21 changes</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v2.1.0" branch="main" date="2023-05-23T17:30:00+02:00">
 		<preamble>
 			Thanks to the fixes done in DayZ 1.20, sGunplay is now capable of properly implementing player
@@ -975,184 +1056,198 @@
 			by editing the values in the Movement section.
 		</preamble>
 		<changes>
-			<added>Player movement inertia based on inventory weight</added>
-			<added>New icons for recoil control meter in the inventory GUI</added>
-			<added>Crossbow recoil</added>
-			<added>Recoil for lzh18 recoil</added>
-			<changed>The hipfire deadzone has been reduced and will reset when raising the weapon</changed>
-			<changed>
+			<change type="feat">Player movement inertia based on inventory weight</change>
+			<change type="feat">New icons for recoil control meter in the inventory GUI</change>
+			<change type="feat">Crossbow recoil</change>
+			<change type="feat">Recoil for lzh18 recoil</change>
+			<change type="change">The hipfire deadzone has been reduced and will reset when raising the weapon</change>
+			<change type="change">
 				Inventory weight is not netsynced manually anymore. DayZ 1.20 should have fixed weight desync issues
-			</changed>
-			<changed>The "zoom boost" when focusing (holding breath) has been reduced</changed>
-			<changed>Tweaked VSS and ASVAl recoil</changed>
-			<changed>Increased time between shivers casued by cold</changed>
-			<changed>Improved visibility for PSO optics (DayZ 1.21)</changed>
-			<fixed>
+			</change>
+			<change type="change">The "zoom boost" when focusing (holding breath) has been reduced</change>
+			<change type="change">Tweaked VSS and ASVAl recoil</change>
+			<change type="change">Increased time between shivers casued by cold</change>
+			<change type="change">Improved visibility for PSO optics (DayZ 1.21)</change>
+			<change type="fix">
 				Most logic for weapon handling and camera is now frame-indipendent and everything
 				should feel more consistent.
-			</fixed>
-			<fixed>
+			</change>
+			<change type="fix">
 				Camera clipping with clothing when using ACOG6x with <code>HideClothing</code> option disabled
-			</fixed>
-			<fixed>Lens values for NightVision optics (Kazuar, Starlight)</fixed>
-			<fixed>Camera clipping when using the PSO optic</fixed>
-			<fixed>SSG optic would clip with camera</fixed>
-			<fixed>SSG optic PiP may not work sometime</fixed>
-			<fixed>Incorrect sounds being played when interacting with the weapon</fixed>
-			<fixed>The focusing vignette could remain active under certain conditions</fixed>
-			<fixed>The focusing vignette is now better synchronized with FoV when focusing</fixed>
-			<fixed>Minor improvements</fixed>
-			<modding>Preprocessor defines are now declared according to DayZ 1.21 changes</modding>
-			<modding>New constants related to the inventory/weapon weight are used instead of hardcoded values</modding>
-			<modding>
+			</change>
+			<change type="fix">Lens values for NightVision optics (Kazuar, Starlight)</change>
+			<change type="fix">Camera clipping when using the PSO optic</change>
+			<change type="fix">SSG optic would clip with camera</change>
+			<change type="fix">SSG optic PiP may not work sometime</change>
+			<change type="fix">Incorrect sounds being played when interacting with the weapon</change>
+			<change type="fix">The focusing vignette could remain active under certain conditions</change>
+			<change type="fix">The focusing vignette is now better synchronized with FoV when focusing</change>
+			<change type="fix">Minor improvements</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">Preprocessor defines are now declared according to DayZ 1.21 changes</change>
+			<change type="change">New constants related to the inventory/weapon weight are used instead of hardcoded values</change>
+			<change type="change">
 				Removed unnecessary bool constants where it's possible to disable a
 				feature via the other constants
-			</modding>
-			<modding>
+			</change>
+			<change type="change">
 				Three new constants have been added to respectively change the focus effectiveness (zoom boost) with
 				ironsights, non-magnifying optics and magnifying optics
-			</modding>
-			<modding>
+			</change>
+			<change type="change">
 				Added constant to toggle player movement inertia being affected by player inventory weight
-			</modding>
-			<modding>Added constant for player inertia timing for sprint direction change</modding>
-			<modding>Added constant for toggling hipfire deadzone reset upon weapon raise</modding>
-			<modding>Renamed recoil control stats root widget</modding>
+			</change>
+			<change type="change">Added constant for player inertia timing for sprint direction change</change>
+			<change type="change">Added constant for toggling hipfire deadzone reset upon weapon raise</change>
+			<change type="change">Renamed recoil control stats root widget</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sFramework" tag="v2.0.0.exp" branch="dev" date="2023-05-25T21:00:00+02:00">
 		<changes>
-			<added>Builder classes for camera overlays</added>
-			<added>
+			<change type="feat">Builder classes for camera overlays</change>
+			<change type="feat">
 				Added <code>isActive</code>, <code>activate</code>, <code>deactivate</code> and
 				<code>toggle</code> methods to <code>sCameraOverlay</code>
-			</added>
-			<changed>
+			</change>
+			<change type="change">
 				<code>sPPEffect</code> (and all child classes) now inherit from the vanilla
 				<code>PPERequesterBase</code>
-			</changed>
-			<changed>Removed <code>sPPEManager</code></changed>
-			<changed>Removed <code>DoFPreset</code></changed>
-			<changed>Removed <code>PPEDefaultPreset</code></changed>
-			<changed>Removed <code>PPEMergeFlags</code></changed>
-			<changed>Removed <code>PPEMaterialsNames</code></changed>
-			<changed>Removed <code>PPEParamNames</code></changed>
-			<changed>Removed <code>SPPEConstants</code></changed>
-			<changed>
+			</change>
+			<change type="change">Removed <code>sPPEManager</code></change>
+			<change type="change">Removed <code>DoFPreset</code></change>
+			<change type="change">Removed <code>PPEDefaultPreset</code></change>
+			<change type="change">Removed <code>PPEMergeFlags</code></change>
+			<change type="change">Removed <code>PPEMaterialsNames</code></change>
+			<change type="change">Removed <code>PPEParamNames</code></change>
+			<change type="change">Removed <code>SPPEConstants</code></change>
+			<change type="change">
 				<code>Duration</code> for <code>SPPEffectTimed</code> doesn't have a default value anymore.
 				Be sure to set it in the constructor or the <code>onInit</code> method
-			</changed>
-			<changed>
+			</change>
+			<change type="change">
 				<code>DeactivationOnStop</code> for <code>SPPEffectTimed</code> doesn't have a default value anymore.
 				Be sure to set it in the constructor or the <code>onInit</code> method
-			</changed>
-			<changed>Camera overlays constructors don't have arguments anymore. Use builders or setters</changed>
-			<changed>Removed unnecessary typedefs for overlays and ppeffects</changed>
-			<changed>Changed camera overlay priorities ranges</changed>
-			<fixed>Decreased camera overlay UI priority from 200 to 100</fixed>
-			<fixed>Camera overlay manager <code>getAnimating</code> returning set of overlay weak ref</fixed>
-			<fixed>Removed unused widget in camera overlays root layout</fixed>
+			</change>
+			<change type="change">Camera overlays constructors don't have arguments anymore. Use builders or setters</change>
+			<change type="change">Removed unnecessary typedefs for overlays and ppeffects</change>
+			<change type="change">Changed camera overlay priorities ranges</change>
+			<change type="fix">Decreased camera overlay UI priority from 200 to 100</change>
+			<change type="fix">Camera overlay manager <code>getAnimating</code> returning set of overlay weak ref</change>
+			<change type="fix">Removed unused widget in camera overlays root layout</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v2.0.0.exp" branch="dev" date="2023-05-25T21:00:00+02:00">
 		<changes>
-			<added>New overall effects intensity option</added>
-			<added>
+			<change type="feat">New overall effects intensity option</change>
+			<change type="feat">
 				Completely new HighQuality overlays for motohelmet, sun glasses and gasmasks for all health
 				states (pristine, worn, damaged, badly damaged, ruined)
-			</added>
-			<added>New HighQuality overlay for burlap sack</added>
-			<added>Special overlay for yellowking helmet</added>
-			<added>Vanilla glasses pperequesters will now reduce the bloom (if active) by 90%</added>
-			<changed>
+			</change>
+			<change type="feat">New HighQuality overlay for burlap sack</change>
+			<change type="feat">Special overlay for yellowking helmet</change>
+			<change type="feat">Vanilla glasses pperequesters will now reduce the bloom (if active) by 90%</change>
+			<change type="change">
 				All ppeffects and overlays will now scale along the overall effects intensity user option
-			</changed>
-			<changed>Completely reworked all effects (bleeding, exhausted, damage etc.)</changed>
-			<changed>Some user options (ddof, headbob, motion blur, bloom) have been normalized</changed>
-			<changed>Updated options stringtable</changed>
-			<changed>Minor performance improvements</changed>
-			<fixed>Fixed possibly all mods compatibility issues</fixed>
-			<fixed>Fixed possibly all compatibility issues with night vision related effects</fixed>
-			<fixed>Bloom effect will no longer cause flickering</fixed>
-			<fixed>Increased unconscious overlay priority</fixed>
-			<fixed>Fixed some instances of DDoF not properly disabling</fixed>
-			<fixed>Warning about possible 'stamina' name conflict</fixed>
-			<modding>
+			</change>
+			<change type="change">Completely reworked all effects (bleeding, exhausted, damage etc.)</change>
+			<change type="change">Some user options (ddof, headbob, motion blur, bloom) have been normalized</change>
+			<change type="change">Updated options stringtable</change>
+			<change type="change">Minor performance improvements</change>
+			<change type="fix">Fixed possibly all mods compatibility issues</change>
+			<change type="fix">Fixed possibly all compatibility issues with night vision related effects</change>
+			<change type="fix">Bloom effect will no longer cause flickering</change>
+			<change type="fix">Increased unconscious overlay priority</change>
+			<change type="fix">Fixed some instances of DDoF not properly disabling</change>
+			<change type="fix">Warning about possible 'stamina' name conflict</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">
 				<code>getEffectsIntensity</code> method has been added to <code>sPPEffect</code>
 				and <code>sCameraOverlay</code>
-			</modding>
-			<modding>sVisual won't disable vanilla ppemanager anymore</modding>
+			</change>
+			<change type="change">sVisual won't disable vanilla ppemanager anymore</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v2.2.0.exp" branch="dev" date="2023-05-25T21:00:00+02:00">
 		<changes>
-			<changed>Update to support sFramework and sVisual 2.0 update</changed>
-			<fixed>Depth of Field not resetting when exiting ADS while inspecting a weapon</fixed>
-			<fixed>Optic misalignment overlay duration and priority</fixed>
+			<change type="change">Update to support sFramework and sVisual 2.0 update</change>
+			<change type="fix">Depth of Field not resetting when exiting ADS while inspecting a weapon</change>
+			<change type="fix">Optic misalignment overlay duration and priority</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v2.0.0.exp.1" branch="dev" date="2023-05-29T17:00:00+02:00">
 		<changes>
-			<changed>Tweaked minimum and maximum duration of the hit received ppeffect</changed>
-			<fixed>
+			<change type="change">Tweaked minimum and maximum duration of the hit received ppeffect</change>
+			<change type="fix">
 				Hit received ppeffect overlay factor was not scaling with the effects intensity user option
-			</fixed>
-			<fixed>Bloom not working anymore after it was being deactivated</fixed>
-			<modding>Renamed ppeffects classes</modding>
+			</change>
+			<change type="fix">Bloom not working anymore after it was being deactivated</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">Renamed ppeffects classes</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sFramework" tag="v2.0.0.exp.1" branch="dev" date="2023-11-12T19:00:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
 		<changes>
-			<added>Modded diag menu available with diagnostic executable</added>
-			<added>DUIs constructor method with default visibility state</added>
+			<change type="feat">Modded diag menu available with diagnostic executable</change>
+			<change type="feat">DUIs constructor method with default visibility state</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v2.0.0.exp.2" branch="dev" date="2023-11-12T19:00:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
 		<changes>
-			<fixed>
+			<change type="fix">
 				Dynamic Depth of Field near focus length was not adjusting
 				properly
-			</fixed>
+			</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v2.2.0.exp.1" branch="dev" date="2023-11-12T19:00:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
 		<changes>
-			<added>Recoil for M14 DMR (DayZ 1.23)</added>
-			<added>
+			<change type="feat">Recoil for M14 DMR (DayZ 1.23)</change>
+			<change type="feat">
 				It's now possible to see weapons and attachments recoil control
 				statistics when hovering them in the inventory
-			</added>
-			<added>
+			</change>
+			<change type="feat">
 				It's now possible to see attachments recoil control statistics
 				in the inspection menu
-			</added>
-			<added>
+			</change>
+			<change type="feat">
 				DepthOfField blur now correctly works like in vanilla with
 				magnifying optics and its intensity can be changed with the
 				<code>ADS DoF intensity</code> option
-			</added>
-			<changed>
+			</change>
+			<change type="change">
 				Reduced lens magnification intensity for the HuntingOptic,
 				which caused strong distortions at high zoom levels
-			</changed>
-			<fixed>Wrong base classes for certain items in the config.cpp</fixed>
-			<fixed>
+			</change>
+			<change type="fix">Wrong base classes for certain items in the config.cpp</change>
+			<change type="fix">
 				The FoV (zoom) was not updating when changing zoom level on
 				certain modded optics
-			</fixed>
-			<fixed>PiP is now being correctly applied with handheld optics</fixed>
-			<fixed>PiP was "popping" when entering magnifying optics</fixed>
+			</change>
+			<change type="fix">PiP is now being correctly applied with handheld optics</change>
+			<change type="fix">PiP was "popping" when entering magnifying optics</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v2.2.0.exp.2" branch="dev" date="2023-11-18T17:45:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b><br />
@@ -1161,56 +1256,68 @@
 			way.
 		</preamble>
 		<changes>
-			<changed>
+			<change type="change">
 				Revisited recoils for most ARs, SMGs and rifles to have less
 				vertical misalignment and slightly more horizontal misalignment,
 				resulting in aiming being a bit easier during long sprays.
-			</changed>
-			<modding>
+			</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">
 				All recoils, attachment stats and weapon integrated attachment stats
 				have been "normalized", meaning that it will be easier to compare
 				and balance them in the future.
-			</modding>
-			<modding>Improved UI for recoil control stats to be easier to mod</modding>
+			</change>
+			<change type="change">Improved UI for recoil control stats to be easier to mod</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sFramework" tag="v2.0.0.exp.2" branch="dev" date="2024-02-15T19:30:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
 		<changes>
-			<fixed>Registered new camera transitions from DayZ 1.24 update</fixed>
-			<modding>Removed debug code</modding>
+			<change type="fix">Registered new camera transitions from DayZ 1.24 update</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">Removed debug code</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v2.0.0.exp.3" branch="dev" date="2024-02-15T19:30:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
 		<changes>
-			<added>Overlays for GP5 and Airborn gas masks</added>
-			<fixed>
+			<change type="feat">Overlays for GP5 and Airborn gas masks</change>
+			<change type="fix">
 				Wearing burlap sack head cover would permanently disable
 				actions menu in the HUD
-			</fixed>
-			<changed>Decreased glass overlays opacity</changed>
-			<modding>Removed dead code in config.cpp</modding>
+			</change>
+			<change type="change">Decreased glass overlays opacity</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">Removed dead code in config.cpp</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v2.2.0.exp.3" branch="dev" date="2024-02-15T19:30:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
 		<changes>
-			<changed>
+			<change type="change">
 				Temporarily disabled the deadzone when aiming in low ready
 				stance (hipfire).<br />
 				See <a href="https://feedback.bistudio.com/T178620">T178620</a>
-			</changed>
-			<fixed>Stamina depletion when holding breath (DayZ 1.24 update)</fixed>
-			<modding>Removed debug code</modding>
+			</change>
+			<change type="fix">Stamina depletion when holding breath (DayZ 1.24 update)</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">Removed debug code</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sFramework" tag="v2.0.0" branch="main" date="2024-02-20T18:00:00+02:00">
 		<preamble>
 			<p>
@@ -1242,34 +1349,35 @@
 			</p>
 		</preamble>
 		<changes>
-			<added>
+			<change type="feat">
 				<code>isActive()</code>, <code>activate()</code>, <code>deactivate()</code> and <code>toggle()</code>
 				functions have been added to <code>sCameraOverlay</code>
-			</added>
-			<added>
+			</change>
+			<change type="feat">
 				<code>isActive()</code>, <code>activate()</code>, <code>deactivate()</code> and <code>toggle()</code>
 				functions have been added to <code>sPPEffect</code>
-			</added>
-			<added>Builders for CameraOverlays</added>
-			<added>Modded diagnostic menu (only available with diagnostic executable)</added>
-			<added><code>sDebugUI</code> builder function with default visibility state</added>
-			<changed><code>sPPEffect</code> now extends the vanilla <code>PPERequester</code></changed>
-			<changed>Removed <code>sPPEManager</code></changed>
-			<changed>Removed <code>PPEPreset</code> and <code>PPEDefaultPreset</code></changed>
-			<changed>Removed <code>DoFPreset</code></changed>
-			<changed>The <code>sColor</code> class is now the preferred way to define and use colors</changed>
-			<changed>
+			</change>
+			<change type="feat">Builders for CameraOverlays</change>
+			<change type="feat">Modded diagnostic menu (only available with diagnostic executable)</change>
+			<change type="feat"><code>sDebugUI</code> builder function with default visibility state</change>
+			<change type="change"><code>sPPEffect</code> now extends the vanilla <code>PPERequester</code></change>
+			<change type="change">Removed <code>sPPEManager</code></change>
+			<change type="change">Removed <code>PPEPreset</code> and <code>PPEDefaultPreset</code></change>
+			<change type="change">Removed <code>DoFPreset</code></change>
+			<change type="change">The <code>sColor</code> class is now the preferred way to define and use colors</change>
+			<change type="change">
 				Removed arguments in CameraOverlays constructors; <code>onInit</code> is now the preferred way to
 				override default settings of an overlay
-			</changed>
-			<changed>
+			</change>
+			<change type="change">
 				The overlays default priorities have been changed to allow finer control between types of overlays
-			</changed>
-			<changed>Cleaned up overlay root layout</changed>
-			<changed>Removed unnecessary typedefs</changed>
-			<fixed><code>CameraOverlayManager::getAnimating</code> would return a set of overlays weak ref</fixed>
+			</change>
+			<change type="change">Cleaned up overlay root layout</change>
+			<change type="change">Removed unnecessary typedefs</change>
+			<change type="fix"><code>CameraOverlayManager::getAnimating</code> would return a set of overlays weak ref</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v2.0.0" branch="main" date="2024-02-20T18:00:00+02:00">
 		<preamble>
 			<i>
@@ -1287,23 +1395,26 @@
 			</p>
 		</preamble>
 		<changes>
-			<added>New HQ overlay for burlap sack cover</added>
-			<added>New HQ overlay for motohelmets (all health levels)</added>
-			<added>New HQ overlay for <i>REDACTED</i></added>
-			<added>New HQ overlay for all eye glasses (all health levels)</added>
-			<added>New "exhausted" ppeffect animation for when you're out of stamina</added>
-			<added>New "hit recieved" ppeffect animation for when you get hit</added>
-			<added>New "bleeding" ppeffect animation for when you're bleeding</added>
-			<changed>Reworked bleeding overlay</changed>
-			<changed>Glasswear and helmets with visors will now reduce bloom by 90% when worn</changed>
-			<fixed>Unconscious overlay now has the right priority</fixed>
-			<fixed>The bloom effect would cause flickering when aiming down sight</fixed>
-			<fixed>Harmless warning about stamina variable</fixed>
-			<modding>sPPEffects are now defined with 2.0 specs</modding>
-			<modding>Reworked ppeffects and overlay handling</modding>
-			<modding>Removed debug overlays and ppeffects</modding>
+			<change type="feat">New HQ overlay for burlap sack cover</change>
+			<change type="feat">New HQ overlay for motohelmets (all health levels)</change>
+			<change type="feat">New HQ overlay for <i>REDACTED</i></change>
+			<change type="feat">New HQ overlay for all eye glasses (all health levels)</change>
+			<change type="feat">New "exhausted" ppeffect animation for when you're out of stamina</change>
+			<change type="feat">New "hit recieved" ppeffect animation for when you get hit</change>
+			<change type="feat">New "bleeding" ppeffect animation for when you're bleeding</change>
+			<change type="change">Reworked bleeding overlay</change>
+			<change type="change">Glasswear and helmets with visors will now reduce bloom by 90% when worn</change>
+			<change type="fix">Unconscious overlay now has the right priority</change>
+			<change type="fix">The bloom effect would cause flickering when aiming down sight</change>
+			<change type="fix">Harmless warning about stamina variable</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">sPPEffects are now defined with 2.0 specs</change>
+			<change type="change">Reworked ppeffects and overlay handling</change>
+			<change type="change">Removed debug overlays and ppeffects</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v2.2.0" branch="main" date="2024-02-20T18:00:00+02:00">
 		<preamble>
 			<p>With this update most weapon recoils and attachment stats have been rebalanced.</p>
@@ -1313,208 +1424,231 @@
 			</p>
 		</preamble>
 		<changes>
-			<added>
+			<change type="feat">
 				Now every item that has "attachment stats" defined will show them in the popup when hovering the item
 				with the mouse. This should make it easier to choose the right attachment :)
-			</added>
-			<added>M14 recoil</added>
-			<added>
+			</change>
+			<change type="feat">M14 recoil</change>
+			<change type="feat">
 				DepthOfField blur is now applied to magnifying optics too to emulate focusing inside the optic.<br />
 				Its intensity depends on the magnification intensity of the optic itself, and can optionally be
 				tweaked in the settings.
-			</added>
-			<added>The PiP is now working for handheld optics too</added>
-			<changed>
+			</change>
+			<change type="feat">The PiP is now working for handheld optics too</change>
+			<change type="change">
 				Reduced lens magnification intensity for HuntingOptic, resulting in less distortion and a clearer sight
-			</changed>
-			<changed>Rebalanced and normalized recoils for all pistols, SMGs, rifles and shotguns</changed>
-			<changed>
+			</change>
+			<change type="change">Rebalanced and normalized recoils for all pistols, SMGs, rifles and shotguns</change>
+			<change type="change">
 				Temporarily disabled low ready stance (hipfire) deadzone.
 				<a href="https://feedback.bistudio.com/T178620">T178620</a>
-			</changed>
-			<changed>Completely refactored and rebalanced attachment </changed>
-			<changed>Updated stamina depletion logic for DayZ 1.24 update</changed>
-			<fixed>The PiP would sometimes "pop" and flicker when entering the optic</fixed>
-			<fixed>The FoV would not update correctly upon changing the optic zoom level</fixed>
-			<fixed>The "focusing" overlay should now behave correctly with handheld optics</fixed>
-			<modding>Fixed wrong base classes in config.cpp for certain items</modding>
-			<modding>Refactored the recoil control stats UI</modding>
-			<modding>Removed debug code</modding>
+			</change>
+			<change type="change">Completely refactored and rebalanced attachment </change>
+			<change type="change">Updated stamina depletion logic for DayZ 1.24 update</change>
+			<change type="fix">The PiP would sometimes "pop" and flicker when entering the optic</change>
+			<change type="fix">The FoV would not update correctly upon changing the optic zoom level</change>
+			<change type="fix">The "focusing" overlay should now behave correctly with handheld optics</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">Fixed wrong base classes in config.cpp for certain items</change>
+			<change type="change">Refactored the recoil control stats UI</change>
+			<change type="change">Removed debug code</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v2.0.0a" branch="main" date="2024-02-21T16:00:00+02:00">
 		<changes>
-			<changed>
+			<change type="change">
 				The overlays for sunglasses, helmets and gasmasks have been tweaked to improve visibility and to be more
 				similar to the actual item texture at the specific health level
-			</changed>
+			</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v2.2.1" branch="main" date="2024-05-27T16:00:00+02:00">
 		<changes>
-			<added>SV98 recoil</added>
-			<added>SV98 integrated attachment attributes</added>
-			<fixed>
+			<change type="feat">SV98 recoil</change>
+			<change type="feat">SV98 integrated attachment attributes</change>
+			<change type="fix">
 				Aim change delta is now frame-indipendent (it was accidentally only working on DayZ 1.21 specifically)
-			</fixed>
-			<fixed>Removed old preprocessor defines</fixed>
+			</change>
+			<change type="fix">Removed old preprocessor defines</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v2.2.2" branch="main" date="2025-02-26T15:00:00+02:00">
 		<changes>
-			<changed>
+			<change type="change">
 				The "specialization" soft-skill has been removed in DayZ, hence it won't affect recoil control anymore
-			</changed>
-			<fixed>
+			</change>
+			<change type="fix">
 				The weapon stats UI in the hands area would not scale well at certain screen resolutions, causing the
 				text to be clipped
-			</fixed>
-			<fixed>Minor performance improvements</fixed>
-			<modding>
+			</change>
+			<change type="fix">Minor performance improvements</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">
 				The logic for resetting PostProcessingEffect Mask has been moved to the appropriate
 				<code>PPERequester_CameraADS</code>
-			</modding>
-			<modding>Deprecated <code>PPERequester_CameraADS::resetMask</code></modding>
-			<modding>Deprecated <code>PPERequester_CameraADS::resetLens</code></modding>
+			</change>
+			<change type="change">Deprecated <code>PPERequester_CameraADS::resetMask</code></change>
+			<change type="change">Deprecated <code>PPERequester_CameraADS::resetLens</code></change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sFramework" tag="v2.0.1.exp" branch="dev" date="2025-04-23T16:30:00+02:00">
 		<changes>
-			<fixed>Various syntax errors</fixed>
-			<modding>The <code>begin()</code> function for DebugUI now returns the enabled status</modding>
-			<modding>
+			<change type="fix">Various syntax errors</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">The <code>begin()</code> function for DebugUI now returns the enabled status</change>
+			<change type="change">
 				The <code>onValueChange()</code> user config callback would not get called for array based options
-			</modding>
+			</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v2.0.1.exp" branch="dev" date="2025-04-23T16:30:00+02:00">
 		<changes>
-			<fixed>The hit effect would be shown even when succesfully blocking a zombie attack</fixed>
-			<fixed>Various syntax errors</fixed>
+			<change type="fix">The hit effect would be shown even when succesfully blocking a zombie attack</change>
+			<change type="fix">Various syntax errors</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v2.3.0.exp" branch="dev" date="2025-04-23T16:30:00+02:00">
 		<changes>
-			<added>
+			<change type="feat">
 				Static dot crosshair: can be toggled indipendently from the dynamic crosshair and it's shown when the
 				weapon is not raised
-			</added>
-			<added>PiP now works with hand held optics</added>
-			<added>PiP configured for MK4 optic</added>
-			<added>PiP configured for Sporting optic</added>
-			<added>PiP configured for PSO6 optic</added>
-			<added>Integrated attachment stats for PM73Rak</added>
-			<added>Integrated attachment stats for R12</added>
-			<added>Recoil definition for PM73Rak</added>
-			<added>Recoil definition for R12</added>
-			<changed>Slightly decreased SKS vertical recoil and misalignment</changed>
-			<fixed>Attachment stats would not scale properly with chinese game language</fixed>
-			<fixed>Use non-deprecated stamina depletion functions in DayZ 1.28</fixed>
-			<fixed>Recoil control gauges overlapping with inventory UI</fixed>
-			<fixed>The dynamic crosshair would sometimes be visible when raising hands with no weapon</fixed>
-			<fixed>
+			</change>
+			<change type="feat">PiP now works with hand held optics</change>
+			<change type="feat">PiP configured for MK4 optic</change>
+			<change type="feat">PiP configured for Sporting optic</change>
+			<change type="feat">PiP configured for PSO6 optic</change>
+			<change type="feat">Integrated attachment stats for PM73Rak</change>
+			<change type="feat">Integrated attachment stats for R12</change>
+			<change type="feat">Recoil definition for PM73Rak</change>
+			<change type="feat">Recoil definition for R12</change>
+			<change type="change">Slightly decreased SKS vertical recoil and misalignment</change>
+			<change type="fix">Attachment stats would not scale properly with chinese game language</change>
+			<change type="fix">Use non-deprecated stamina depletion functions in DayZ 1.28</change>
+			<change type="fix">Recoil control gauges overlapping with inventory UI</change>
+			<change type="fix">The dynamic crosshair would sometimes be visible when raising hands with no weapon</change>
+			<change type="fix">
 				Non-hardcoded values are now used for optics near plane values. This also fixes camera clipping with
 				range finder in 1.28
-			</fixed>
-			<fixed>Minor performance improvements to the dynamic crosshair</fixed>
-			<modding>Refactored stamina depletion logic in <code>DayZPlayerImplementAiming</code></modding>
-			<modding>Refactored attachments stats code in <code>PropertyModifiers</code> to be easier to mod</modding>
+			</change>
+			<change type="fix">Minor performance improvements to the dynamic crosshair</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">Refactored stamina depletion logic in <code>DayZPlayerImplementAiming</code></change>
+			<change type="change">Refactored attachments stats code in <code>PropertyModifiers</code> to be easier to mod</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sFramework" tag="v2.0.1" branch="main" date="2025-06-03T16:30:00+02:00">
 		<changes>
-			<fixed>Various syntax errors</fixed>
-			<modding>The <code>begin()</code> function for DebugUI now returns the enabled status</modding>
-			<modding>
+			<change type="fix">Various syntax errors</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">The <code>begin()</code> function for DebugUI now returns the enabled status</change>
+			<change type="change">
 				The <code>onValueChange()</code> user config callback would not get called for array based options
-			</modding>
+			</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v2.0.1" branch="main" date="2025-06-03T16:30:00+02:00">
 		<changes>
-			<fixed>The hit effect would be shown even when succesfully blocking a zombie attack</fixed>
-			<fixed>Various syntax errors</fixed>
+			<change type="fix">The hit effect would be shown even when succesfully blocking a zombie attack</change>
+			<change type="fix">Various syntax errors</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v2.3.0" branch="main" date="2025-06-03T16:30:00+02:00">
 		<changes>
-			<added>
+			<change type="feat">
 				Static dot crosshair: can be toggled indipendently from the dynamic crosshair and it's shown when the
 				weapon is not raised
-			</added>
-			<added>PiP now works with hand held optics</added>
-			<added>PiP configured for MK4 optic</added>
-			<added>PiP configured for Sporting optic</added>
-			<added>PiP configured for PSO6 optic</added>
-			<added>Integrated attachment stats for PM73Rak</added>
-			<added>Integrated attachment stats for R12</added>
-			<added>Recoil definition for PM73Rak</added>
-			<added>Recoil definition for R12</added>
-			<changed>Slightly decreased SKS vertical recoil and misalignment</changed>
-			<fixed>Attachment stats would not scale properly with chinese game language</fixed>
-			<fixed>Use non-deprecated stamina depletion functions in DayZ 1.28</fixed>
-			<fixed>Recoil control gauges overlapping with inventory UI</fixed>
-			<fixed>The dynamic crosshair would sometimes be visible when raising hands with no weapon</fixed>
-			<fixed>
+			</change>
+			<change type="feat">PiP now works with hand held optics</change>
+			<change type="feat">PiP configured for MK4 optic</change>
+			<change type="feat">PiP configured for Sporting optic</change>
+			<change type="feat">PiP configured for PSO6 optic</change>
+			<change type="feat">Integrated attachment stats for PM73Rak</change>
+			<change type="feat">Integrated attachment stats for R12</change>
+			<change type="feat">Recoil definition for PM73Rak</change>
+			<change type="feat">Recoil definition for R12</change>
+			<change type="change">Slightly decreased SKS vertical recoil and misalignment</change>
+			<change type="fix">Attachment stats would not scale properly with chinese game language</change>
+			<change type="fix">Use non-deprecated stamina depletion functions in DayZ 1.28</change>
+			<change type="fix">Recoil control gauges overlapping with inventory UI</change>
+			<change type="fix">The dynamic crosshair would sometimes be visible when raising hands with no weapon</change>
+			<change type="fix">
 				Non-hardcoded values are now used for optics near plane values. This also fixes camera clipping with
 				range finder in 1.28
-			</fixed>
-			<fixed>Minor performance improvements to the dynamic crosshair</fixed>
-			<modding>Refactored stamina depletion logic in <code>DayZPlayerImplementAiming</code></modding>
-			<modding>Refactored attachments stats code in <code>PropertyModifiers</code> to be easier to mod</modding>
+			</change>
+			<change type="fix">Minor performance improvements to the dynamic crosshair</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">Refactored stamina depletion logic in <code>DayZPlayerImplementAiming</code></change>
+			<change type="change">Refactored attachments stats code in <code>PropertyModifiers</code> to be easier to mod</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sFramework" tag="v3.0.0-exp" branch="dev" date="2025-12-07T20:00:00+02:00">
 		<changes>
-			<added>Improved documentation about user configuration and server constraints</added>
-			<added>
+			<change type="feat">Improved documentation about user configuration and server constraints</change>
+			<change type="feat">
 				A <code>preload</code> function that implementing user configurations could hook into for preloading
-			</added>
-			<added>New <code>SLOG</code> logger implementation superseding the now deprecated <code>SLog</code></added>
-			<added>New <code>SLOG</code> options added in the diagnostic menu</added>
-			<added>New <code>sDebugUI</code> function for building checkbox returning its boolean state</added>
-			<added>New <code>sDebugUI</code> function for building sliders returning its float value</added>
-			<added>
+			</change>
+			<change type="feat">New <code>SLOG</code> logger implementation superseding the now deprecated <code>SLog</code></change>
+			<change type="feat">New <code>SLOG</code> options added in the diagnostic menu</change>
+			<change type="feat">New <code>sDebugUI</code> function for building checkbox returning its boolean state</change>
+			<change type="feat">New <code>sDebugUI</code> function for building sliders returning its float value</change>
+			<change type="feat">
 				New <code>onValueChange</code> event (ScriptInvoker) for user configuration options that gets fired when
 				the value of the option effectively changes
-			</added>
-			<changed>
+			</change>
+			<change type="change">
 				The default message of a server constraint is now an empty string and it will default to the localized
 				string in the UI. This resulted in a slight reduction in the data size being sent to the clients over
 				the wire
-			</changed>
-			<changed>Improved logging related to user configurations and server constraints</changed>
-			<changed>
+			</change>
+			<change type="change">Improved logging related to user configurations and server constraints</change>
+			<change type="change">
 				User configuration and server constraints are initialized earlier in the game lifecycle
 				(<code>DayZGame::DeferredInit</code>)
-			</changed>
-			<changed>
+			</change>
+			<change type="change">
 				Removed default user configuration.<br />
 				The implementation was meh, it was unused and it only complicated the user configuration APIs with no
 				real benefit.<br />
 				<i>SPOILER: it might come back once the user configuration gets refactored to be more similar to DayZ
 					vanilla settings</i>
-			</changed>
-			<changed>Removed user configuration and server constraints validation step.</changed>
-			<changed>Removed unnecessary typedefs in favor of the actual type</changed>
-			<changed>Replaced client/server checks with <code>IsDedicatedServer</code></changed>
-			<changed>Cleaner and more human readable log entry format</changed>
-			<changed>Improved UI and localization for boolean based constraints</changed>
-			<changed>The method loading a user configuration will now return the loaded instance</changed>
-			<changed>The method loading a server constraint will now return the loaded instance</changed>
-			<changed>
+			</change>
+			<change type="change">Removed user configuration and server constraints validation step.</change>
+			<change type="change">Removed unnecessary typedefs in favor of the actual type</change>
+			<change type="change">Replaced client/server checks with <code>IsDedicatedServer</code></change>
+			<change type="change">Cleaner and more human readable log entry format</change>
+			<change type="change">Improved UI and localization for boolean based constraints</change>
+			<change type="change">The method loading a user configuration will now return the loaded instance</change>
+			<change type="change">The method loading a server constraint will now return the loaded instance</change>
+			<change type="change">
 				<code>sJONSSerializable</code> serialization and deserialization now returns a boolean value based on
 				whether or not the operation was successful
-			</changed>
-			<changed>The new logging implementation is now used throughout sFramework</changed>
-			<fixed>Mod list in log files wouldn't be printed entirely if too long</fixed>
-			<fixed>File handles are now being closed only if it was actually open</fixed>
-			<fixed>
+			</change>
+			<change type="change">The new logging implementation is now used throughout sFramework</change>
+			<change type="fix">Mod list in log files wouldn't be printed entirely if too long</change>
+			<change type="fix">File handles are now being closed only if it was actually open</change>
+			<change type="fix">
 				The user configuration constraint reading flow has been refactored, and should fix a rare case of
 				constraints not being applied correctly.
-			</fixed>
+			</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v2.1.0-exp" branch="dev" date="2025-12-07T20:00:00+02:00">
 		<preamble>
 			Due to the new available options and some changes to old ones, your current configuration file
@@ -1524,110 +1658,126 @@
 			Sorry for the inconvenience :)
 		</preamble>
 		<changes>
-			<added>
+			<change type="feat">
 				New user option to <b>toggle clothing overlays</b>!<br />
 				Toggling the option off will turn off all overlays added by clothing items such as headgear, sunglasses,
 				mask etc.
-			</added>
-			<added>
+			</change>
+			<change type="feat">
 				New user option to <b>tweak headbob intensity for each stance</b> (idle, walking, running,
 				sprinting)<br />
 				The default intensity is 1.00. Setting it to 0.00 will disable the headbob completely (for the
 				configured stance).
-			</added>
-			<changed>The default headbob intensity when idle has been increased</changed>
-			<changed>Minor performance improvements</changed>
-			<changed>More detailed logging when loading user configurations</changed>
-			<changed>More detailed logging about server constraints</changed>
-			<fixed>The headbob is now correctly applied when walking in crouched stance with the weapon raised</fixed>
-			<fixed>The headbob is now correctly applied when idle</fixed>
-			<modding>Updated to support the latest user configuration and server constraints version</modding>
-			<modding>User configuration is now preloaded in <code>sUserConfig::preload</code></modding>
+			</change>
+			<change type="change">The default headbob intensity when idle has been increased</change>
+			<change type="change">Minor performance improvements</change>
+			<change type="change">More detailed logging when loading user configurations</change>
+			<change type="change">More detailed logging about server constraints</change>
+			<change type="fix">The headbob is now correctly applied when walking in crouched stance with the weapon raised</change>
+			<change type="fix">The headbob is now correctly applied when idle</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">Updated to support the latest user configuration and server constraints version</change>
+			<change type="change">User configuration is now preloaded in <code>sUserConfig::preload</code></change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v2.4.0-exp" branch="dev" date="2025-12-07T20:00:00+02:00">
 		<changes>
-			<changed>Minor performance improvements</changed>
-			<changed>More detailed logging when loading user configurations</changed>
-			<changed>More detailed logging about server constraints</changed>
-			<changed><code>GetWeightEx()</code> is now used instead of the deprecated <code>GetWeight()</code></changed>
-			<modding>
+			<change type="change">Minor performance improvements</change>
+			<change type="change">More detailed logging when loading user configurations</change>
+			<change type="change">More detailed logging about server constraints</change>
+			<change type="change"><code>GetWeightEx()</code> is now used instead of the deprecated <code>GetWeight()</code></change>
+		</changes>
+		<changes category="modding">
+			<change type="change">
 				The <code>SCOFocusing</code> overlay has been move from the <i>4_World</i> script module to the
 				<i>3_Game</i> script module
-			</modding>
-			<modding>Updated to support the latest user configuration and server constraints version</modding>
-			<modding>User configuration is now preloaded in <code>sUserConfig::preload</code></modding>
-			<modding>
+			</change>
+			<change type="change">Updated to support the latest user configuration and server constraints version</change>
+			<change type="change">User configuration is now preloaded in <code>sUserConfig::preload</code></change>
+			<change type="change">
 				Added <code>SHOW_ATTACHMENT_STATS</code> constant to toggle attachment stats widgets in the UI
-			</modding>
-			<modding>Added <code>SHOW_PLAYER_STATS</code> constant to toggle player stats widgets in the UI</modding>
+			</change>
+			<change type="change">Added <code>SHOW_PLAYER_STATS</code> constant to toggle player stats widgets in the UI</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sFramework" tag="v3.0.0-exp.1" branch="dev" date="2026-04-09T18:00:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
 		<changes>
-			<changed>Performance improvements</changed>
-			<modding>
-				Camera modded static methods now invoke the super implementation yielding better
-				compatibility with
+			<change type="change">Performance improvements</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">
+				Camera modded static methods now invoke the super implementation yielding better compatibility with
 				other mods
-			</modding>
+			</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v2.1.0-exp.1" branch="dev" date="2026-04-09T18:00:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
 		<changes>
-			<changed>Performance improvements</changed>
-			<fixed>Bloom effect not starting when loading in</fixed>
-			<fixed>Motion blur effect not starting when loading in</fixed>
-			<fixed>
+			<change type="change">Performance improvements</change>
+			<change type="fix">Bloom effect not starting when loading in</change>
+			<change type="fix">Motion blur effect not starting when loading in</change>
+			<change type="fix">
 				Camera doesn't jiggle when the head lean angle user option is disabled.<br />
 				The issue is still present otherwise. See <a href="https://feedback.bistudio.com/T195618">T195618</a>
-			</fixed>
+			</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v2.4.0-exp.1" branch="dev" date="2026-04-09T18:00:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
 		<changes>
-			<changed>Performance improvements</changed>
-			<modding>The <code>m_CurrentCameraYaw</code> is now correctly updated</modding>
-			<modding>
+			<change type="change">Performance improvements</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">The <code>m_CurrentCameraYaw</code> is now correctly updated</change>
+			<change type="change">
 				<code>m_iDirectBoneMode</code> has been reverted to <code>4</code>. See <a
 					href="https://feedback.bistudio.com/T195618">T195618</a>
-			</modding>
+			</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sVisual" tag="v2.1.0-exp.2" branch="dev" date="2026-04-28T16:00:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
 		<changes>
-			<added>New user option to <b>toggle bleeding overlay</b>!<br /></added>
-			<fixed>Logging level for constraints messages</fixed>
-			<changed>
+			<change type="feat">New user option to <b>toggle bleeding overlay</b>!<br /></change>
+			<change type="fix">Logging level for constraints messages</change>
+			<change type="change">
 				Rewrote clothing overlay activation logic, leading to better performance and better moddability
-			</changed>
-			<changed>Refactored burlap sack overlay activation logic</changed>
-			<changed>Performance improvements</changed>
-			<modding>Moved bleeding PPE and camera overlay logic to <code>PlayerBase</code></modding>
-			<modding>Improved code documentation</modding>
-			<modding>Clothing overlays loading is now deferred as late as possible</modding>
+			</change>
+			<change type="change">Refactored burlap sack overlay activation logic</change>
+			<change type="change">Performance improvements</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">Moved bleeding PPE and camera overlay logic to <code>PlayerBase</code></change>
+			<change type="change">Improved code documentation</change>
+			<change type="change">Clothing overlays loading is now deferred as late as possible</change>
 		</changes>
 	</changelog>
+
 	<changelog mod="sGunplay" tag="v2.4.0-exp.2" branch="dev" date="2026-04-28T16:00:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
 		<changes>
-			<fixed>Logging level for constraints messages</fixed>
+			<change type="fix">Logging level for constraints messages</change>
 		</changes>
 	</changelog>
+
 </changelogs>
 
 <!--

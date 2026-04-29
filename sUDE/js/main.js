@@ -1,3 +1,13 @@
+const FRIENDLY_CHANGE_TYPE = {
+	"feat": "added",
+	"fix": "fixed",
+	"revert": "changed",
+	"change": "changed",
+	"chore": "other",
+	"style": "other",
+	"docs": "other",
+	"build": "other",
+}
 
 function applyFiltersChangelogs() {
 	var showExperimental = document.getElementById("filter_show_experimental").checked;
@@ -53,24 +63,25 @@ function fetchXML(url, onSuccess, options = {}) {
 }
 
 function parseChangelog(xml) {
-	var preamble = "";
-	for (const p of xml.getElementsByTagName("preamble")) {
-		preamble += p.innerHTML;
-	}
+	// category : [type : [changes]]
 	var changes = new Map();
-	for (const change of xml.getElementsByTagName("changes")[0].children) {
-		var category = change.tagName;
-		changes.getOrInsertComputed(category, _ => new Array())
-			.push(change.innerHTML);
-	};
+	for (const changesCategory of xml.getElementsByTagName("changes")) {
+		var categories = changes.getOrInsert(changesCategory.getAttribute("category"), new Map());
+		for (const change of changesCategory.getElementsByTagName("change")) {
+			categories.getOrInsert(change.getAttribute("type"), new Array()).push({
+				category: change.getAttribute("category"),
+				type: change.getAttribute("type"),
+				body: change.innerHTML,
+			})
+		}
+	}
 	return {
 		mod: xml.getAttribute("mod"),
 		tag: xml.getAttribute("tag"),
-		type: xml.getAttribute("type"),
 		date: xml.getAttribute("date"),
 		branch: xml.getAttribute("branch"),
-		preamble: preamble,
-		changes: changes
+		preamble: xml.getElementsByTagName("preamble")[0]?.innerHTML,
+		changes: changes,
 	};
 }
 
@@ -108,20 +119,19 @@ function buildChangelog(changelog) {
 	if (changelog.preamble) {
 		html += `<p>${changelog.preamble}</p>`;
 	}
-	changelog.changes.forEach((changes, category) => {
-		html += `<h5>${category.toUpperCase()}</h5>`;
-		html += "<ul>";
-		changes.forEach(change => html += `<li>${change}</li>`);
-		html += "</ul>";
-	});
-	// for (const key in changelog.changes) {
-	// 	html += `<h5>${key.toUpperCase()}</h5>`;
-	// 	html += "<ul>";
-	// 	changelog.changes[key].forEach(change =>
-	// 		html += `<li>${change}</li>`
-	// 	);
-	// 	html += "</ul>";
-	// }
+	for (const [category, changesByType] of changelog.changes) {
+		if (category) {
+			html += `<h3>${category.toUpperCase()}</h3>`;
+		}
+		for (const [type, changes] of changesByType) {
+			html += `<h4>${FRIENDLY_CHANGE_TYPE[type].toUpperCase()}</h4>`;
+			html += "<ul>";
+			for (const change of changes) {
+				html += `<li>${change.body}</li>`
+			}
+			html += "</ul>";
+		}
+	}
 	html += "</details>";
 	html += "<hr/>";
 	return html;

@@ -79,13 +79,18 @@ function generateGithub(changelog, previousChangelog = null) {
 
 function githubFormatChanges(changes) {
 	var md = "";
-	for (const [category, changesList] of changes) {
-		md += `## ${category.toUpperCase()}\n\n`;
-		for (const change of changesList) {
-			md += `- ${toMarkdown(change)}\n`;
+	for (const [category, changesByType] of changes) {
+		if (category) {
+			md += `## ${category.toUpperCase()}\n\n`;
 		}
-		md += "\n";
-	};
+		for (const [type, changes] of changesByType) {
+			md += `### ${FRIENDLY_CHANGE_TYPE[type].toUpperCase()}\n\n`;
+			for (const change of changes) {
+				md += `- ${toMarkdown(change.body)}\n`
+			}
+			md += "\n";
+		}
+	}
 	return md;
 }
 
@@ -96,23 +101,11 @@ function generateDiscordForum(changelog, previousChangelog = null) {
 	if (changelog.preamble) {
 		md += toMarkdown(changelog.preamble) + "\n\n";
 	}
-	md += discordFormatChanges(changelog.changes);
+	md += githubFormatChanges(changelog.changes);
 	if (previousChangelog != null) {
 		md += "# FULL CHANGELOG\n\n"
 		md += buildTagCompareURL(changelog, previousChangelog);
 	}
-	return md;
-}
-
-function discordFormatChanges(changes) {
-	var md = "";
-	for (const [category, changesList] of changes) {
-		md += `# ${category.toUpperCase()}\n\n`;
-		for (const change of changesList) {
-			md += `- ${toMarkdown(change)}\n`;
-		}
-		md += "\n";
-	};
 	return md;
 }
 
