@@ -1,3 +1,28 @@
+var turndownService = new TurndownService({
+	headingStyle: "atx",
+	hr: "- - -",
+	bulletListMarker: "-",
+	codeBlockstyle: "fenced",
+	emDelimiter: "*",
+	strongDelimiter: "**",
+});
+
+turndownService.addRule("strikethrough", {
+	filter: ["del", "s", "strike"],
+	replacement: function(content) {
+		return "~" + content + "~"
+	}
+})
+
+turndownService.addRule("underline", {
+	filter: ["u"],
+	replacement: function(content) {
+		return "__" + content + "__"
+	}
+})
+
+// TODO: add spoiler
+
 function findPreviousChangelog(head, headIndex, xmlChangelogs) {
 	for (let i = headIndex - 1; i >= 0; i--) {
 		let xmlChangelog = xmlChangelogs[i];
@@ -13,9 +38,9 @@ function findPreviousChangelog(head, headIndex, xmlChangelogs) {
 }
 
 function generate(changelog, previousChangelog) {
-	var steam = he.encode(generateSteam(changelog, previousChangelog));
-	var discord = he.encode(generateDiscordForum(changelog, previousChangelog));
-	var github = he.encode(generateGithub(changelog, previousChangelog));
+	var steam = generateSteam(changelog, previousChangelog);
+	var discord = generateDiscordForum(changelog, previousChangelog);
+	var github = generateGithub(changelog, previousChangelog);
 	var html = "";
 	html += `<details><summary><table role="grid"><td>${changelog.mod}</td><td>${changelog.tag}</td><td>${changelog.type}</td></table></summary>`;
 	html += `<details open><summary><small>github</small></summary><pre><code>${github}</pre></code></details>`;
@@ -105,16 +130,5 @@ function discordFormatDate(date) {
 }
 
 function toMarkdown(text) {
-	return text
-		.replace(/\t*/g, "")
-		.trim()
-		.replace(/\n/g, " ")
-		.replace(/<i>(.*?)<\/i>/g, "*$1*")
-		.replace(/<b>(.*?)<\/b>/g, "**$1**")
-		.replace(/<u>(.*?)<\/u>/g, "__$1__")
-		.replace(/<blockquote>(.*?)<\/blockquote>/g, "\n> $1\n")
-		.replace(/<code>(.*?)<\/code>/g, "`$1`")
-		.replace(/<p>(.*?)<\/p>/g, "\n$1\n")
-		.replace(/<a href="(.*?)">(.*?)<\/a>/g, "[$2]($1)")
-		.replace(/<br *\/>/g, "\n");
+	return turndownService.turndown(text);
 }
