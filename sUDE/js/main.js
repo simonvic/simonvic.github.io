@@ -89,7 +89,6 @@ function buildChangelog(changelog) {
 <details id="${changelogId}"
 	data-mod="${changelog.mod}"
 	data-tag="${changelog.tag}"
-	data-type="${changelog.type}"
 	data-date="${changelog.date}"
 	data-branch="${changelog.branch}"
 	${document.location.href.endsWith("#" + changelogId) ? "open" : ""}
@@ -99,7 +98,6 @@ function buildChangelog(changelog) {
 			<tr>
 				<td><a href="#${changelogId}" onclick="onClickDetailAnchor('${changelogId}')">#</a> ${changelog.mod}</td>
 				<td>${changelog.tag}</td>
-				<td hidden>${changelog.type}</td>
 				<td>${relativeTimeTag}</td>
 				<td hidden>${changelog.branch}</td>
 			</tr>

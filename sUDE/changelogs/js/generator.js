@@ -42,7 +42,7 @@ function generate(changelog, previousChangelog) {
 	var discord = generateDiscordForum(changelog, previousChangelog);
 	var github = generateGithub(changelog, previousChangelog);
 	var html = "";
-	html += `<details><summary><table role="grid"><td>${changelog.mod}</td><td>${changelog.tag}</td><td>${changelog.type}</td></table></summary>`;
+	html += `<details><summary><table role="grid"><td>${changelog.mod}</td><td>${changelog.tag}</td></table></summary>`;
 	html += `<details open><summary><small>github</small></summary><pre><code>${github}</pre></code></details>`;
 	html += `<details open><summary><small>discord</small></summary><pre><code>${discord}</pre></code></details>`;
 	html += `<details open><summary><small>steam</small></summary><pre><code>${steam}</pre></code></details>`;
@@ -91,7 +91,7 @@ function githubFormatChanges(changes) {
 
 function generateDiscordForum(changelog, previousChangelog = null) {
 	var md = "";
-	md += `${changelog.mod} | ${changelog.tag} | ${discordFormatType(changelog.type)}\n\n`;
+	md += `${changelog.mod} | ${changelog.tag}\n\n`;
 	md += `released: ${discordFormatDate(changelog.date)}\n\n`;
 	if (changelog.preamble) {
 		md += toMarkdown(changelog.preamble) + "\n\n";
@@ -102,15 +102,6 @@ function generateDiscordForum(changelog, previousChangelog = null) {
 		md += buildTagCompareURL(changelog, previousChangelog);
 	}
 	return md;
-}
-
-function discordFormatType(type) {
-	switch (type.toLowerCase()) {
-		case "major": return "Major";
-		case "minor": return "minor";
-		case "hotfix": return "hotfix";
-		default: return type;
-	}
 }
 
 function discordFormatChanges(changes) {
