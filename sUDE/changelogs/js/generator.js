@@ -18,9 +18,9 @@ function generate(changelog, previousChangelog) {
 	var github = he.encode(generateGithub(changelog, previousChangelog));
 	var html = "";
 	html += `<details><summary>${changelog.mod} | ${changelog.tag} | ${changelog.type}</summary>`;
-	html += `<details open><summary><small>steam</small></summary><pre><code>${steam}</pre></code></details>`;
-	html += `<details open><summary><small>discord</small></summary><pre><code>${discord}</pre></code></details>`;
 	html += `<details open><summary><small>github</small></summary><pre><code>${github}</pre></code></details>`;
+	html += `<details open><summary><small>discord</small></summary><pre><code>${discord}</pre></code></details>`;
+	html += `<details open><summary><small>steam</small></summary><pre><code>${steam}</pre></code></details>`;
 	html += "</details>";
 	return html;
 }
@@ -41,12 +41,12 @@ function generateSteam(changelog, previousChangelog = null) {
 
 function generateGithub(changelog, previousChangelog = null) {
 	var md = "";
-	md += toMarkdown(changelog.preamble);
-	md += "\n"
+	if (changelog.preamble) {
+		md += toMarkdown(changelog.preamble) + "\n\n";
+	}
 	md += githubFormatChanges(changelog.changes);
-	md += "\n"
 	if (previousChangelog != null) {
-		md += "## FULL CHANGELOG\n"
+		md += "## FULL CHANGELOG\n\n"
 		md += buildTagCompareURL(changelog, previousChangelog);
 	}
 	return md;
@@ -54,27 +54,26 @@ function generateGithub(changelog, previousChangelog = null) {
 
 function githubFormatChanges(changes) {
 	var md = "";
-	changes.forEach((changes, category) => {
-		md += `## ${category.toUpperCase()}\n`;
-		changes.forEach(change => md += `- ${toMarkdown(change)}\n`);
+	for (const [category, changesList] of changes) {
+		md += `## ${category.toUpperCase()}\n\n`;
+		for (const change of changesList) {
+			md += `- ${toMarkdown(change)}\n`;
+		}
 		md += "\n";
-	});
+	};
 	return md;
 }
 
 function generateDiscordForum(changelog, previousChangelog = null) {
 	var md = "";
-	var mod = changelog.mod;
-	var type = discordFormatType(changelog.type);
-	var date = discordFormatDate(changelog.date);
-	var preamble = toMarkdown(changelog.preamble);
-	var changes = discordFormatChanges(changelog.changes);
-	md += `${mod} | ${changelog.tag} | ${type}\n`;
-	md += `released: ${date}\n`;
-	md += `${preamble}\n`;
-	md += `${changes}\n`;
+	md += `${changelog.mod} | ${changelog.tag} | ${discordFormatType(changelog.type)}\n\n`;
+	md += `released: ${discordFormatDate(changelog.date)}\n\n`;
+	if (changelog.preamble) {
+		md += toMarkdown(changelog.preamble) + "\n\n";
+	}
+	md += discordFormatChanges(changelog.changes);
 	if (previousChangelog != null) {
-		md += "# FULL CHANGELOG\n"
+		md += "# FULL CHANGELOG\n\n"
 		md += buildTagCompareURL(changelog, previousChangelog);
 	}
 	return md;
@@ -91,11 +90,13 @@ function discordFormatType(type) {
 
 function discordFormatChanges(changes) {
 	var md = "";
-	changes.forEach((changes, category) => {
-		md += `# ${category.toUpperCase()}\n`;
-		changes.forEach(change => md += `- ${toMarkdown(change)}\n`);
+	for (const [category, changesList] of changes) {
+		md += `# ${category.toUpperCase()}\n\n`;
+		for (const change of changesList) {
+			md += `- ${toMarkdown(change)}\n`;
+		}
 		md += "\n";
-	});
+	};
 	return md;
 }
 
