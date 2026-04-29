@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-model href="changelogs.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+
 <changelogs>
 
 	<changelog mod="sVisual" tag="v1.0.2" branch="main" date="2021-05-05T00:00:00+02:00">
@@ -743,13 +745,13 @@
 
 	<changelog mod="sGunplay" tag="v2.0.0" branch="main" date="2022-10-20T17:00:00+02:00">
 		<preamble>
-			<blockquote>WHY VERSION 2.0 ?</blockquote>
+			<blockquote><p>WHY VERSION 2.0 ?</p></blockquote>
 			<p>
 				Because it has some radical changes to the overall feeling of the gunplay, with many possible breaking
 				changes.
 			</p>
 			<p>But no worries, the core principles of sGunplay are still the foundations of the mod!</p>
-			<blockquote>SUMMARY OF THE CHANGES</blockquote>
+			<blockquote><p>SUMMARY OF THE CHANGES</p></blockquote>
 			<ul>
 				<li>Overall <b>more responsive</b> aiming model</li>
 				<li>Completely <b>new recoil</b> system
@@ -1381,7 +1383,7 @@
 	<changelog mod="sVisual" tag="v2.0.0" branch="main" date="2024-02-20T18:00:00+02:00">
 		<preamble>
 			<i>
-				sVisual 2.0 now relies on <em>sFramework 2.0</em> to implement its effects. For more technical
+				sVisual 2.0 now relies on <i>sFramework 2.0</i> to implement its effects. For more technical
 				details, read the <a href="#sFramework_v2.0.0">sFramework 2.0 changelog</a>
 			</i>
 			<p>
@@ -1779,7 +1781,3 @@
 	</changelog>
 
 </changelogs>
-
-<!--
-vim: cc=120 tw=120 ft=html
--->

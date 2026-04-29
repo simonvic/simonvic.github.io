@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+	attributeFormDefault="unqualified"
+	elementFormDefault="qualified"
+	xmlns:simonvic="http://www.simonvic.it"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
+
+	<xs:import
+		namespace="http://www.w3.org/1999/xhtml"
+		schemaLocation="http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd"
+	/>
+
+	<xs:element name="br" substitutionGroup="xhtml:br"/>
+	<xs:element name="p" substitutionGroup="xhtml:p"/>
+	<xs:element name="code" substitutionGroup="xhtml:code"/>
+	<xs:element name="b" substitutionGroup="xhtml:b"/>
+	<xs:element name="i" substitutionGroup="xhtml:i"/>
+	<xs:element name="em" substitutionGroup="xhtml:em"/>
+	<xs:element name="s" substitutionGroup="xhtml:del"/>
+	<xs:element name="a" substitutionGroup="xhtml:a"/>
+	<xs:element name="blockquote" substitutionGroup="xhtml:blockquote"/>
+	<xs:element name="ul" substitutionGroup="xhtml:ul"/>
+	<xs:element name="li" substitutionGroup="xhtml:li"/>
+	<xs:element name="ol" substitutionGroup="xhtml:ol"/>
+
+	<xs:element name="changelogs">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="changelog" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:annotation>
+							<xs:documentation>A single changelog</xs:documentation>
+						</xs:annotation>
+
+						<xs:sequence>
+
+							<xs:element name="preamble" minOccurs="0" maxOccurs="1">
+								<xs:complexType mixed="true">
+									<xs:annotation>
+										<xs:documentation>A preamble text for the changelog</xs:documentation>
+									</xs:annotation>
+									<xs:sequence>
+										<xs:choice minOccurs="0" maxOccurs="unbounded">
+											<xs:element ref="br"/>
+											<xs:element ref="p"/>
+											<xs:element ref="code"/>
+											<xs:element ref="b"/>
+											<xs:element ref="i"/>
+											<xs:element ref="em"/>
+											<xs:element ref="s"/>
+											<xs:element ref="a"/>
+											<xs:element ref="blockquote"/>
+											<xs:element ref="ul"/>
+											<xs:element ref="ol"/>
+										</xs:choice>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+
+							<xs:element name="changes" minOccurs="1" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="change" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType mixed="true">
+												<xs:annotation>
+													<xs:documentation>A single change in the changelog</xs:documentation>
+												</xs:annotation>
+												<xs:choice minOccurs="0" maxOccurs="unbounded">
+													<xs:element ref="br"/>
+													<xs:element ref="code"/>
+													<xs:element ref="b"/>
+													<xs:element ref="i"/>
+													<xs:element ref="em"/>
+													<xs:element ref="a"/>
+													<xs:element ref="s"/>
+													<xs:element ref="ul"/>
+												</xs:choice>
+												<xs:attribute name="commit" type="xs:string"/>
+												<xs:attribute name="breaking" type="xs:boolean"/>
+												<xs:attribute name="type" use="required">
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:enumeration value="feat"/>
+															<xs:enumeration value="fix"/>
+															<xs:enumeration value="revert"/>
+															<xs:enumeration value="refactor"/>
+															<xs:enumeration value="build"/>
+															<xs:enumeration value="chore"/>
+															<xs:enumeration value="docs"/>
+															<xs:enumeration value="style"/>
+															<xs:enumeration value="change"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="category" type="xs:string"/>
+								</xs:complexType>
+							</xs:element>
+
+						</xs:sequence>
+
+						<xs:attribute name="mod" use="required">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="sFramework"/>
+									<xs:enumeration value="sGunplay"/>
+									<xs:enumeration value="sVisual"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="tag" type="xs:string" use="required"/>
+						<xs:attribute name="branch" type="xs:string"/>
+						<xs:attribute name="date" type="xs:dateTime" use="required"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>
