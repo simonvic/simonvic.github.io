@@ -127,7 +127,7 @@
 		<changes>
 			<change type="feat">
 				When getting close to a wall, you will "retract" your weapon before lifting it up.
-				<br />
+				<br/>
 				(This is useful to understand when you will touch the wall with the weapon)
 			</change>
 			<change type="feat">
@@ -140,9 +140,9 @@
 			<change type="feat">Added a slight "misalignment" when doing rapid movements while in ADS</change>
 			<change type="change">
 				New lens (PiP) system. It's much more reliable, more performant and it's now compatible with all weapons
-				and all scopes.<br />
+				and all scopes.<br/>
 				(if you want to make your modded optics compatible, you may still need to modify the
-				<code>PPEMaskProperties</code> in the config.cpp.)<br />
+				<code>PPEMaskProperties</code> in the config.cpp.)<br/>
 				For the best result, set both X and Y position to "0.0" and adjust the radius accordingly)
 			</change>
 			<change type="change">Tweaked all vanilla optic lenses</change>
@@ -185,13 +185,13 @@
 			<change type="change">SMGs now are a bit more stable</change>
 			<change type="change">
 				Completely reworked recoil control system
-				<br />
+				<br/>
 				All modifiers are now additive, fixing many inconsistencies and making them more easily tweaked and
 				extended
-				<br />
+				<br/>
 				Recoil is now slightly more reasonable while standing erect and still, easier when crouched, but still
 				punishing while moving
-				<br />
+				<br/>
 				Inventory weight "confort weight range" is now at ~25kg (you'll start to see benefits below 25, and
 				deficits if above)
 			</change>
@@ -233,7 +233,7 @@
 			<change type="change">Slightly reduced shotguns recoil</change>
 			<change type="change">
 				Renamed some focus speed constants and methods
-				<br />
+				<br/>
 				https://github.com/simonvic/sGunplay/commit/70c362c7efe0b5891667f218ff19d089d1c0ab22
 			</change>
 			<change type="fix">Possible clipping caused by the weapon retraction</change>
@@ -304,7 +304,7 @@
 		<changes>
 			<change type="feat">
 				New sounds will play when interacting with weapon (changing zoom, zeroing and firemode)
-				<br />
+				<br/>
 				NOTE: they will only be client side, other players won't be able to hear it
 			</change>
 			<change type="change">Reduced inertia caused by walking by ~25%</change>
@@ -424,7 +424,7 @@
 				</ul>
 			</change>
 			<change type="change">
-				Added DEFAULT, COPY, INTERPOLATE, UNION and INTERSECTION merge flags<br />
+				Added DEFAULT, COPY, INTERPOLATE, UNION and INTERSECTION merge flags<br/>
 				By default the merging will be done with INTERPOLATE and UNION flags
 			</change>
 			<change type="change">Improved merging performance</change>
@@ -441,12 +441,12 @@
 			<change type="change">Moved cameras transitions logic to sFramework</change>
 			<change type="change">
 				Rewrote from scratch options menu UI/UX
-				<br />
+				<br/>
 				sGunplay tab will now be under the sUDE tab
 			</change>
 			<change type="change">
 				Improved camera shake aiming model filter
-				<br />
+				<br/>
 				The shake of the weapon (caused by cold or kuru) will only shake the weapon and not the camera
 			</change>
 			<change type="change">Tweaked sight misalignment animation when moving</change>
@@ -474,18 +474,18 @@
 			</change>
 			<change type="change">The ppe bleeding animation is now in sync with the overlay animation</change>
 			<change type="change">
-				Improved tunnel vision effect (from low shock value)<br />
+				Improved tunnel vision effect (from low shock value)<br/>
 				It will now use radial blur and vignette as fallback if radial blur is disabled
 			</change>
 			<change type="change">Improved death darkening effect</change>
 			<change type="change">Improved headbob animation (reduced horizontal movement)</change>
 			<change type="change">Unconscious ppeffect has been replaced with an overlay</change>
 			<change type="change">
-				Rewrote from scratch options menu UI/UX<br />
+				Rewrote from scratch options menu UI/UX<br/>
 				sVisual tab will now be under the sUDE tab
 			</change>
 			<change type="change">
-				Refactored sCameraManager<br />
+				Refactored sCameraManager<br/>
 				It will now handle DDoF and headbob logic
 			</change>
 			<change type="change">
@@ -537,12 +537,12 @@
 	<changelog mod="sFramework" tag="v1.1.0" branch="main" date="2021-10-25T00:00:00+02:00">
 		<changes>
 			<change type="feat">
-				ServerSide config constraints<br />
+				ServerSide config constraints<br/>
 				sUserConfig can now be constrained based on constraints defined on the server
 			</change>
 			<change type="feat">InfoBox in options menu, containing option (and constraints) description</change>
 			<change type="feat">
-				sUserConfigOption<br />
+				sUserConfigOption<br/>
 				A generic option, to replace the old coupled way of creating UserConfig
 			</change>
 			<change type="feat">JSONSerializable interface</change>
@@ -581,9 +581,9 @@
 			<change type="change">Updated sUserConfigVisual to the new sUserConfig system</change>
 			<change type="change">Updated stringtables with new option description</change>
 			<change type="fix">
-				Occasional game crashes when receiving shock damage.<br />
+				Occasional game crashes when receiving shock damage.<br/>
 				A vanilla effect was setting huge values to the radial blur effect, causing a massive performance
-				drop.<br />
+				drop.<br/>
 				Technically the game didn't crash, but only ran at 0.00001 FPS :p
 			</change>
 			<change type="fix">Fixed sun flicker when looking at it</change>
@@ -691,7 +691,7 @@
 	<changelog mod="sFramework" tag="v1.3.0" branch="main" date="2022-10-20T17:00:00+02:00">
 		<preamble>
 			Because of some breaking changes to user config constraints, server owners are advised to delete the
-			current constraints.json file and let the server regenerate it.<br />
+			current constraints.json file and let the server regenerate it.<br/>
 			Alternatively you can use this tool to edit the constraints:
 			<a href="https://simonvic.github.io/sUDE/tools/sConstraintsEditor/">sConstraintsEditor</a>
 		</preamble>
@@ -779,7 +779,7 @@
 			</change>
 			<change type="feat">
 				Recoil intensity will "accumulate" if you shoot faster than your ability to control the recoil and to
-				reset the weapon.<br />
+				reset the weapon.<br/>
 				While short burst are manegeable, being accurate with a long spray is not an easy task (especially at
 				long engagements), but it will become easier once you reach the "apex" of the recoil. At that point,
 				you'll be able to be more consistent in controlling it.
@@ -1252,7 +1252,7 @@
 
 	<changelog mod="sGunplay" tag="v2.2.0.exp.2" branch="dev" date="2023-11-18T17:45:00+02:00">
 		<preamble>
-			<b>Changes are relative to previous experimental revision</b><br />
+			<b>Changes are relative to previous experimental revision</b><br/>
 			Given the major changes to recoils and attachment stats, some
 			compatibility mods may not be balanced. Updates for them are on the
 			way.
@@ -1310,7 +1310,7 @@
 		<changes>
 			<change type="change">
 				Temporarily disabled the deadzone when aiming in low ready
-				stance (hipfire).<br />
+				stance (hipfire).<br/>
 				See <a href="https://feedback.bistudio.com/T178620">T178620</a>
 			</change>
 			<change type="fix">Stamina depletion when holding breath (DayZ 1.24 update)</change>
@@ -1330,16 +1330,16 @@
 			</p>
 			<p>
 				With this update, sFramework removes its implementation of the <code>sPPEManager</code>, since vanilla
-				DayZ added its own implementation (<code>PPEManager</code>).<br />
+				DayZ added its own implementation (<code>PPEManager</code>).<br/>
 				That leads to the <code>sPPEffect</code> now extending the vanilla <code>PPERequester</code> class.
 			</p>
 			<b>But why all these breaking changes?</b>
 			<p>
-				Compatibility!<br />
+				Compatibility!<br/>
 				Previously, sFramework's PPEffect system was necessary since vanilla DayZ lacked one, and
-				if two mods wanted to use ppeffects at the same time without sFramework, all bets were off!<br />
+				if two mods wanted to use ppeffects at the same time without sFramework, all bets were off!<br/>
 				With the <s>new</s> vanilla system (which all mods can and should use) it's much easier for mods to
-				cooperate.<br />
+				cooperate.<br/>
 				For this reason, sFramework now relies on it too to provide you the API for defining PPEffects, with the
 				benefit of compatibility with any other mod, without the need to make <i>compatibility mods</i>.
 			</p>
@@ -1388,7 +1388,7 @@
 			</i>
 			<p>
 				With this update, sVisual has a <b>new effects intensity option</b> which allows you to choose your
-				preference on how "intense" effects will be.<br />
+				preference on how "intense" effects will be.<br/>
 				You can find and change this setting in the in-game options menu.
 			</p>
 			<p>
@@ -1432,7 +1432,7 @@
 			</change>
 			<change type="feat">M14 recoil</change>
 			<change type="feat">
-				DepthOfField blur is now applied to magnifying optics too to emulate focusing inside the optic.<br />
+				DepthOfField blur is now applied to magnifying optics too to emulate focusing inside the optic.<br/>
 				Its intensity depends on the magnification intensity of the optic itself, and can optionally be
 				tweaked in the settings.
 			</change>
@@ -1624,9 +1624,9 @@
 				(<code>DayZGame::DeferredInit</code>)
 			</change>
 			<change type="change">
-				Removed default user configuration.<br />
+				Removed default user configuration.<br/>
 				The implementation was meh, it was unused and it only complicated the user configuration APIs with no
-				real benefit.<br />
+				real benefit.<br/>
 				<i>SPOILER: it might come back once the user configuration gets refactored to be more similar to DayZ
 					vanilla settings</i>
 			</change>
@@ -1655,19 +1655,19 @@
 		<preamble>
 			Due to the new available options and some changes to old ones, your current configuration file
 			(<i>sVisual.json</i>) is not compatible anymore and will be regenerated, reverting all options to their
-			default value.<br />
-			You can configure the settings again in the options menu.<br />
+			default value.<br/>
+			You can configure the settings again in the options menu.<br/>
 			Sorry for the inconvenience :)
 		</preamble>
 		<changes>
 			<change type="feat">
-				New user option to <b>toggle clothing overlays</b>!<br />
+				New user option to <b>toggle clothing overlays</b>!<br/>
 				Toggling the option off will turn off all overlays added by clothing items such as headgear, sunglasses,
 				mask etc.
 			</change>
 			<change type="feat">
 				New user option to <b>tweak headbob intensity for each stance</b> (idle, walking, running,
-				sprinting)<br />
+				sprinting)<br/>
 				The default intensity is 1.00. Setting it to 0.00 will disable the headbob completely (for the
 				configured stance).
 			</change>
@@ -1729,7 +1729,7 @@
 			<change type="fix">Bloom effect not starting when loading in</change>
 			<change type="fix">Motion blur effect not starting when loading in</change>
 			<change type="fix">
-				Camera doesn't jiggle when the head lean angle user option is disabled.<br />
+				Camera doesn't jiggle when the head lean angle user option is disabled.<br/>
 				The issue is still present otherwise. See <a href="https://feedback.bistudio.com/T195618">T195618</a>
 			</change>
 		</changes>
@@ -1756,7 +1756,7 @@
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
 		<changes>
-			<change type="feat">New user option to <b>toggle bleeding overlay</b>!<br /></change>
+			<change type="feat">New user option to <b>toggle bleeding overlay</b>!<br/></change>
 			<change type="fix">Logging level for constraints messages</change>
 			<change type="change">
 				Rewrote clothing overlay activation logic, leading to better performance and better moddability
