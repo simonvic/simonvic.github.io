@@ -65,10 +65,10 @@ function githubFormatChanges(changes) {
 function generateDiscordForum(changelog, previousChangelog = null) {
 	var md = "";
 	var mod = changelog.mod;
-	var type = discordForumFormatType(changelog.type);
+	var type = discordFormatType(changelog.type);
 	var date = discordFormatDate(changelog.date);
 	var preamble = toMarkdown(changelog.preamble);
-	var changes = discordForumFormatChanges(changelog.changes);
+	var changes = discordFormatChanges(changelog.changes);
 	md += `${mod} | ${changelog.tag} | ${type}\n`;
 	md += `released: ${date}\n`;
 	md += `${preamble}\n`;
@@ -80,7 +80,7 @@ function generateDiscordForum(changelog, previousChangelog = null) {
 	return md;
 }
 
-function discordForumFormatType(type) {
+function discordFormatType(type) {
 	switch (type.toLowerCase()) {
 		case "major": return "Major";
 		case "minor": return "minor";
@@ -89,7 +89,7 @@ function discordForumFormatType(type) {
 	}
 }
 
-function discordForumFormatChanges(changes) {
+function discordFormatChanges(changes) {
 	var md = "";
 	changes.forEach((changes, category) => {
 		md += `# ${category.toUpperCase()}\n`;
@@ -99,56 +99,9 @@ function discordForumFormatChanges(changes) {
 	return md;
 }
 
-function generateDiscord(changelog, previousChangelog = null) {
-	var md = "";
-	var mod = discordFormatMod(changelog.mod);
-	var type = discordFormatType(changelog.type);
-	var date = discordFormatDate(changelog.date);
-	var preamble = toMarkdown(changelog.preamble);
-	var changes = discordFormatChanges(changelog.changes);
-	md += `> ${mod} | **${changelog.tag}** | ${type} | ${date}\n`;
-	md += `${preamble}\n`;
-	md += `${changes}\n`;
-	if (previousChangelog != null) {
-		md += `*full changelog: ${buildTagCompareURL(changelog, previousChangelog)}*`;
-	}
-	return md;
-}
-
-function discordFormatMod(mod) {
-	switch (mod) {
-		case "sFramework": return "#sframework";
-		case "sVisual": return "#svisual";
-		case "sGunplay": return "#sgunplay";
-		default: return changelog.mod;
-	}
-}
-
-function discordFormatType(type) {
-	switch (type.toLowerCase()) {
-		case "major": return "**Major**";
-		case "minor": return "minor";
-		case "hotfix": return "__hotfix__";
-		default: return type;
-	}
-}
-
 function discordFormatDate(date) {
 	return `<t:${new Date(date).getTime() / 1000}:R>`;
 }
-
-function discordFormatChanges(changes) {
-	var md = "";
-	md += "```\n";
-	changes.forEach((changes, category) => {
-		md += `${category.toUpperCase()}\n`;
-		changes.forEach(change => md += `\t- ${toMarkdown(change)}\n`);
-		md += "\n";
-	});
-	md += "```\n";
-	return md;
-}
-
 
 function toMarkdown(text) {
 	return text
