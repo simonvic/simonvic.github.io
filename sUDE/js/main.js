@@ -104,8 +104,10 @@ function buildChangelog(changelog) {
 		</table></big>
 	</summary>
 	<small>${changelog.date}</small>
-	<p>${changelog.preamble}</p>
 `;
+	if (changelog.preamble) {
+		html += `<p>${changelog.preamble}</p>`;
+	}
 	changelog.changes.forEach((changes, category) => {
 		html += `<h5>${category.toUpperCase()}</h5>`;
 		html += "<ul>";
