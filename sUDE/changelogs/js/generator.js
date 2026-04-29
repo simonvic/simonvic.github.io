@@ -38,9 +38,9 @@ function findPreviousChangelog(head, headIndex, xmlChangelogs) {
 }
 
 function generate(changelog, previousChangelog) {
-	var steam = generateSteam(changelog, previousChangelog);
-	var discord = generateDiscordForum(changelog, previousChangelog);
-	var github = generateGithub(changelog, previousChangelog);
+	var steam = he.encode(generateSteam(changelog, previousChangelog));
+	var discord = he.encode(generateDiscordForum(changelog, previousChangelog));
+	var github = he.encode(generateGithub(changelog, previousChangelog));
 	var html = "";
 	html += `<details><summary><table role="grid"><td>${changelog.mod}</td><td>${changelog.tag}</td></table></summary>`;
 	html += `<details open><summary><small>github</small></summary><pre><code>${github}</pre></code></details>`;
