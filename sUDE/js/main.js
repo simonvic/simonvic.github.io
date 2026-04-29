@@ -59,9 +59,6 @@ function parseChangelog(xml) {
 	var changes = new Map();
 	Array.from(xml.getElementsByTagName("changes")[0].children).forEach(change => {
 		var category = change.tagName;
-		if (change.hasAttribute("name")) {
-			category = $(change).attr("name");
-		}
 		if (!changes.has(category)) {
 			changes.set(category, new Array());
 		}
