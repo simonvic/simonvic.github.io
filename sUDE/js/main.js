@@ -94,14 +94,14 @@ function buildChangelog(changelog) {
 	${document.location.href.endsWith("#" + changelogId) ? "open" : ""}
 >
 	<summary>
-		<b><table role="grid">
+		<big><table role="grid">
 			<tr>
 				<td><a href="#${changelogId}" onclick="onClickDetailAnchor('${changelogId}')">#</a> ${changelog.mod}</td>
 				<td>${changelog.tag}</td>
 				<td>${relativeTimeTag}</td>
 				<td hidden>${changelog.branch}</td>
 			</tr>
-		</table></b>
+		</table></big>
 	</summary>
 	<small>${changelog.date}</small>
 	<p>${changelog.preamble}</p>
