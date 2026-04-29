@@ -59,7 +59,7 @@
 				Color class comes with plenty of predefined colors taken from
 				https://www.w3schools.com/cssref/css_colors.asp
 			</added>
-			<added>Added `PPEManager.toggle( )`, to more easily enable/disable a PPE</added>
+			<added>Added <code>PPEManager.toggle( )</code>, to more easily enable/disable a PPE</added>
 			<changed>
 				All color parameters are now compatible with new Color class (they remain retrocompatible with old
 				color type)
@@ -137,11 +137,9 @@
 			<added>Added a slight "misalignment" when doing rapid movements while in ADS</added>
 			<changed>
 				New lens (PiP) system. It's much more reliable, more performant and it's now compatible with all weapons
-				and all scopes
-				<br />
-				(if you want to make your modded optics compatible, you may still need to modify the `PPEMaskProperties`
-				in the config.cpp.
-				<br />
+				and all scopes.<br />
+				(if you want to make your modded optics compatible, you may still need to modify the
+				<code>PPEMaskProperties</code> in the config.cpp.)<br />
 				For the best result, set both X and Y position to "0.0" and adjust the radius accordingly)
 			</changed>
 			<changed>Tweaked all vanilla optic lenses</changed>
@@ -315,8 +313,8 @@
 		<preamble></preamble>
 		<changes>
 			<added>Camera Overlays ! A new framework to work with overlays</added>
-			<added>Added `SCameraOverlay` (and their animated version)</added>
-			<added>Added `SCameraOverlaysManager`</added>
+			<added>Added <code>SCameraOverlay</code> (and their animated version)</added>
+			<added>Added <code>SCameraOverlaysManager</code></added>
 			<added>
 				Clothing overlays: overlays can be automatically activated based on the health level of an equipped
 				clothing
@@ -326,25 +324,30 @@
 			<added>
 				Added sample overlays to:
 				<ul>
-					<li>`AviatorGlasses`</li>
-					<li>`SportGlasses`</li>
-					<li>`MotoHelmet`</li>
-					<li>`BurlapSack`</li>
+					<li><code>AviatorGlasses</code></li>
+					<li><code>SportGlasses</code></li>
+					<li><code>MotoHelmet</code></li>
+					<li><code>BurlapSack</code></li>
 					<li>gas masks</li>
 				</ul>
 			</added>
 			<changed>AviatorGlasses will only remove bloom when equipped (removed PPE overlay)</changed>
 			<changed>Spawn PPE animation has been replaced by an overlay</changed>
 			<changed>Bleeding animation won't have red vignette anymore (replaced by an overlay)</changed>
-			<changed>Improved `SGameConfig`</changed>
-			<changed>Refactored and improved `SFlagOperator` (formerly FlagOperation)</changed>
+			<changed>Improved <code>SGameConfig</code></changed>
+			<changed>Refactored and improved <code>SFlagOperator</code> (formerly FlagOperation)</changed>
 			<changed>
-				PPEparams variables in `PlayerBase` have been renamed [ 82170116bda2884aa94cc4281f15309b28f0457a ]
+				PPEparams variables in <code>PlayerBase</code> have been renamed [
+				82170116bda2884aa94cc4281f15309b28f0457a ]
 			</changed>
 			<changed>
-				Renamed some PP effects related methods in `PlayerBase` [ 7d8163554b17ab79b4b5df99a3488393f296fa69 ]
+				Renamed some PP effects related methods in <code>PlayerBase</code> [
+				7d8163554b17ab79b4b5df99a3488393f296fa69 ]
 			</changed>
-			<changed>PP effects and overlays are now activated `OnPlayerLoaded` instead of `OnPlayerSelect`</changed>
+			<changed>
+				PP effects and overlays are now activated <code>OnPlayerLoaded</code> instead of
+				<code>OnPlayerSelect</code>
+			</changed>
 			<fixed>The screen won't become red when player is low on shock and bleeding (thanks overlays!)</fixed>
 			<fixed>Spawn ppe animation won't play when exiting from freecam</fixed>
 		</changes>
@@ -354,8 +357,8 @@
 		<changes>
 			<added>Added ruined motohelmet overlay</added>
 			<added>
-				Added `onPreBuild()` and `onPostBuild()` widget method to allow correct change of widget flag [
-				6d406401643988f058be976b9fdcca02d94b2d13 ]
+				Added <code>onPreBuild()</code> and <code>onPostBuild()</code> widget method to allow correct change of
+				widget flag [ 6d406401643988f058be976b9fdcca02d94b2d13 ]
 			</added>
 			<added>Added sUDE log to ingame menu</added>
 			<changed>Reworked generic scratches overlays</changed>
@@ -373,8 +376,8 @@
 			<changed>Reworked bleeding overlay</changed>
 			<changed>Removed sample gasmasks overlay</changed>
 			<changed>
-				Hit received PPE animation activation has been moved to `OnPlayerRecievedHit` to avoid possible
-				future vanilla incompatibilities
+				Hit received PPE animation activation has been moved to <code>OnPlayerRecievedHit</code> to avoid
+				possible future vanilla incompatibilities
 			</changed>
 			<changed>Removed unused logs</changed>
 		</changes>
@@ -641,8 +644,8 @@
 		<changes>
 			<added>Added sObservableArray API</added>
 			<added>
-				Added sTest framework (UnitTesting). sTest related stuff is only compiled with `DIAG_DEVELOPER`
-				directive
+				Added sTest framework (UnitTesting). sTest related stuff is only compiled with
+				<code>DIAG_DEVELOPER</code> directive
 			</added>
 			<added>Added test unit for sMath</added>
 			<added>Added test unit for sConstraints</added>
