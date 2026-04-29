@@ -17,7 +17,7 @@ function generate(changelog, previousChangelog) {
 	var discord = he.encode(generateDiscordForum(changelog, previousChangelog));
 	var github = he.encode(generateGithub(changelog, previousChangelog));
 	var html = "";
-	html += `<details><summary>${changelog.mod} | ${changelog.tag} | ${changelog.type}</summary>`;
+	html += `<details><summary><table role="grid"><td>${changelog.mod}</td><td>${changelog.tag}</td><td>${changelog.type}</td></table></summary>`;
 	html += `<details open><summary><small>github</small></summary><pre><code>${github}</pre></code></details>`;
 	html += `<details open><summary><small>discord</small></summary><pre><code>${discord}</pre></code></details>`;
 	html += `<details open><summary><small>steam</small></summary><pre><code>${steam}</pre></code></details>`;
