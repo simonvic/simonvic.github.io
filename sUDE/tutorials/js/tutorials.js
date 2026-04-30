@@ -17,7 +17,8 @@ window.onload = () => {
 
 	var split = document.location.href.split("/");
 	var id = split[split.length - 2];
-	fetchXML("/sUDE/tutorials/tutorials.xml", xml => onTutorialLoad(currentBreadcrumb, parseTutorialCard(xml.getElementById(id))));
+	fetchXML("/sUDE/tutorials/tutorials.xml")
+		.then(xml => onTutorialLoad(currentBreadcrumb, parseTutorialCard(xml.getElementById(id))));
 };
 
 function onTutorialLoad(currentBreadcrumb, tutorial) {

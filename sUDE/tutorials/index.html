@@ -44,7 +44,7 @@
 		</section>
 		<div id="tutorialsCardsContainer"></div>
 		<script>
-			fetchXML("tutorials.xml", xml => {
+			fetchXML("tutorials.xml").then(xml => {
 				const container = document.getElementById("tutorialsCardsContainer");
 				const cards = Array.from(xml.getElementsByTagName("tutorial"));
 				cards.forEach(card => container.innerHTML += buildTutorialCard(parseTutorialCard(card)));
