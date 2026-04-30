@@ -12,7 +12,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sVisual" tag="v1.0.2a" branch="main" date="2021-05-05T00:00:00+02:00">
+	<changelog mod="sVisual" tag="v1.0.2+hotfix.a" branch="main" date="2021-05-05T00:00:00+02:00">
 		<changes>
 			<change type="fix">PPEffects were being applied to both client and client_remote</change>
 		</changes>
@@ -71,14 +71,14 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sVisual" tag="v1.1.1a" branch="main" date="2021-05-16T00:00:00+02:00">
+	<changelog mod="sVisual" tag="v1.1.1+hotfix.a" branch="main" date="2021-05-16T00:00:00+02:00">
 		<changes>
 			<change type="change">The Color class has been renamed to SColor in order to avoid possible mod conflicts</change>
 			<change type="fix">Possible fix for the compiler issue</change>
 		</changes>
 	</changelog>
 
-	<changelog mod="sVisual" tag="v1.1.1b" branch="main" date="2021-05-18T00:00:00+02:00">
+	<changelog mod="sVisual" tag="v1.1.1+hotfix.b" branch="main" date="2021-05-18T00:00:00+02:00">
 		<changes>
 			<change type="fix">Blood loss saturation was not being updated</change>
 		</changes>
@@ -209,7 +209,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sVisual" tag="v1.2.2a" branch="main" date="2021-06-09T00:00:00+02:00">
+	<changelog mod="sVisual" tag="v1.2.2+hotfix.a" branch="main" date="2021-06-09T00:00:00+02:00">
 		<changes>
 			<change type="feat">Warning logs when activating/deactivating PPE on server</change>
 			<change type="change">Reduced chromatic aberration by 75% when bleeding</change>
@@ -217,7 +217,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sVisual" tag="v1.2.2b" branch="main" date="2021-06-12T00:00:00+02:00">
+	<changelog mod="sVisual" tag="v1.2.2+hotfix.b" branch="main" date="2021-06-12T00:00:00+02:00">
 		<changes>
 			<change type="fix">Effects work again in offline mode</change>
 			<change type="fix">Fixed SColor constructor</change>
@@ -240,7 +240,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sVisual" tag="v1.2.2c" branch="main" date="2021-06-21T00:00:00+02:00">
+	<changelog mod="sVisual" tag="v1.2.2+hotfix.c" branch="main" date="2021-06-21T00:00:00+02:00">
 		<changes>
 			<change type="fix">Invisible player would remain on server when logging out</change>
 		</changes>
@@ -630,7 +630,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sFramework" tag="v1.1.1a" branch="main" date="2022-02-18T00:00:00+02:00">
+	<changelog mod="sFramework" tag="v1.1.1+hotfix.a" branch="main" date="2022-02-18T00:00:00+02:00">
 		<changes>
 			<change type="fix">
 				Fixed server constraints not being sent to clients when joined while not having an alive character
@@ -668,7 +668,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sVisual" tag="v1.6.2a" branch="main" date="2022-05-05T00:00:00+02:00">
+	<changelog mod="sVisual" tag="v1.6.2+hotfix.a" branch="main" date="2022-05-05T00:00:00+02:00">
 		<changes>
 			<change type="fix">Fixed Dynamic FieldOfView not working in first person camera after DayZ 1.17.154754 hotifx</change>
 		</changes>
@@ -825,7 +825,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sFramework" tag="v1.3.1.exp" branch="dev" date="2023-01-27T23:00:00+02:00">
+	<changelog mod="sFramework" tag="v1.3.1-exp" branch="dev" date="2023-01-27T23:00:00+02:00">
 		<changes>
 			<change type="feat">New camera transition timing from 3rd person vehicle to 3rd person (DayZ 1.20)</change>
 		</changes>
@@ -834,7 +834,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sVisual" tag="v1.7.1.exp" branch="dev" date="2023-01-27T23:00:00+02:00">
+	<changelog mod="sVisual" tag="v1.7.1-exp" branch="dev" date="2023-01-27T23:00:00+02:00">
 		<preamble>
 			This update brings a different headbob animation, you may want to tweak the headbob intensity;
 			you can do it in the options menu.
@@ -848,7 +848,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sGunplay" tag="v2.1.0.exp" branch="dev" date="2023-01-27T23:00:00+02:00">
+	<changelog mod="sGunplay" tag="v2.1.0-exp" branch="dev" date="2023-01-27T23:00:00+02:00">
 		<preamble>
 			Thanks to the fixes done in DayZ 1.20, sGunplay is now capable of properly implementing player
 			movement inertia based on the inventory weight.
@@ -876,7 +876,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sFramework" tag="v1.4.0.exp" branch="dev" date="2023-02-15T21:00:00+02:00">
+	<changelog mod="sFramework" tag="v1.4.0-exp" branch="dev" date="2023-02-15T21:00:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
@@ -886,7 +886,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sGunplay" tag="v2.1.0.exp.1" branch="dev" date="2023-02-15T21:00:00+02:00">
+	<changelog mod="sGunplay" tag="v2.1.0-exp.1" branch="dev" date="2023-02-15T21:00:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
@@ -908,7 +908,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sGunplay" tag="v2.1.0.exp.2" branch="dev" date="2023-03-28T19:00:00+02:00">
+	<changelog mod="sGunplay" tag="v2.1.0-exp.2" branch="dev" date="2023-03-28T19:00:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
@@ -920,7 +920,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sGunplay" tag="v2.1.0.exp.3" branch="dev" date="2023-05-06T17:30:00+02:00">
+	<changelog mod="sGunplay" tag="v2.1.0-exp.3" branch="dev" date="2023-05-06T17:30:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
@@ -947,7 +947,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sFramework" tag="v1.4.0.exp.1" branch="dev" date="2023-05-06T17:30:00+02:00">
+	<changelog mod="sFramework" tag="v1.4.0-exp.1" branch="dev" date="2023-05-06T17:30:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
@@ -975,7 +975,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sGunplay" tag="v2.1.0.exp.4" branch="dev" date="2023-05-23T15:00:00+02:00">
+	<changelog mod="sGunplay" tag="v2.1.0-exp.4" branch="dev" date="2023-05-23T15:00:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
@@ -987,7 +987,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sVisual" tag="v1.7.1.exp.1" branch="dev" date="2023-05-23T15:00:00+02:00">
+	<changelog mod="sVisual" tag="v1.7.1-exp.1" branch="dev" date="2023-05-23T15:00:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
@@ -1101,7 +1101,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sFramework" tag="v2.0.0.exp" branch="dev" date="2023-05-25T21:00:00+02:00">
+	<changelog mod="sFramework" tag="v2.0.0-exp" branch="dev" date="2023-05-25T21:00:00+02:00">
 		<changes>
 			<change type="feat">Builder classes for camera overlays</change>
 			<change type="feat">
@@ -1136,7 +1136,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sVisual" tag="v2.0.0.exp" branch="dev" date="2023-05-25T21:00:00+02:00">
+	<changelog mod="sVisual" tag="v2.0.0-exp" branch="dev" date="2023-05-25T21:00:00+02:00">
 		<changes>
 			<change type="feat">New overall effects intensity option</change>
 			<change type="feat">
@@ -1169,7 +1169,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sGunplay" tag="v2.2.0.exp" branch="dev" date="2023-05-25T21:00:00+02:00">
+	<changelog mod="sGunplay" tag="v2.2.0-exp" branch="dev" date="2023-05-25T21:00:00+02:00">
 		<changes>
 			<change type="change">Update to support sFramework and sVisual 2.0 update</change>
 			<change type="fix">Depth of Field not resetting when exiting ADS while inspecting a weapon</change>
@@ -1177,7 +1177,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sVisual" tag="v2.0.0.exp.1" branch="dev" date="2023-05-29T17:00:00+02:00">
+	<changelog mod="sVisual" tag="v2.0.0-exp.1" branch="dev" date="2023-05-29T17:00:00+02:00">
 		<changes>
 			<change type="change">Tweaked minimum and maximum duration of the hit received ppeffect</change>
 			<change type="fix">
@@ -1190,7 +1190,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sFramework" tag="v2.0.0.exp.1" branch="dev" date="2023-11-12T19:00:00+02:00">
+	<changelog mod="sFramework" tag="v2.0.0-exp.1" branch="dev" date="2023-11-12T19:00:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
@@ -1200,7 +1200,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sVisual" tag="v2.0.0.exp.2" branch="dev" date="2023-11-12T19:00:00+02:00">
+	<changelog mod="sVisual" tag="v2.0.0-exp.2" branch="dev" date="2023-11-12T19:00:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
@@ -1212,7 +1212,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sGunplay" tag="v2.2.0.exp.1" branch="dev" date="2023-11-12T19:00:00+02:00">
+	<changelog mod="sGunplay" tag="v2.2.0-exp.1" branch="dev" date="2023-11-12T19:00:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
@@ -1245,7 +1245,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sGunplay" tag="v2.2.0.exp.2" branch="dev" date="2023-11-18T17:45:00+02:00">
+	<changelog mod="sGunplay" tag="v2.2.0-exp.2" branch="dev" date="2023-11-18T17:45:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b><br/>
 			Given the major changes to recoils and attachment stats, some
@@ -1269,7 +1269,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sFramework" tag="v2.0.0.exp.2" branch="dev" date="2024-02-15T19:30:00+02:00">
+	<changelog mod="sFramework" tag="v2.0.0-exp.2" branch="dev" date="2024-02-15T19:30:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
@@ -1281,7 +1281,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sVisual" tag="v2.0.0.exp.3" branch="dev" date="2024-02-15T19:30:00+02:00">
+	<changelog mod="sVisual" tag="v2.0.0-exp.3" branch="dev" date="2024-02-15T19:30:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
@@ -1298,7 +1298,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sGunplay" tag="v2.2.0.exp.3" branch="dev" date="2024-02-15T19:30:00+02:00">
+	<changelog mod="sGunplay" tag="v2.2.0-exp.3" branch="dev" date="2024-02-15T19:30:00+02:00">
 		<preamble>
 			<b>Changes are relative to previous experimental revision</b>
 		</preamble>
@@ -1453,7 +1453,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sVisual" tag="v2.0.0a" branch="main" date="2024-02-21T16:00:00+02:00">
+	<changelog mod="sVisual" tag="v2.0.0+hotfix.a" branch="main" date="2024-02-21T16:00:00+02:00">
 		<changes>
 			<change type="change">
 				The overlays for sunglasses, helmets and gasmasks have been tweaked to improve visibility and to be more
@@ -1494,7 +1494,7 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sFramework" tag="v2.0.1.exp" branch="dev" date="2025-04-23T16:30:00+02:00">
+	<changelog mod="sFramework" tag="v2.0.1-exp" branch="dev" date="2025-04-23T16:30:00+02:00">
 		<changes>
 			<change type="fix">Various syntax errors</change>
 		</changes>
@@ -1506,14 +1506,14 @@
 		</changes>
 	</changelog>
 
-	<changelog mod="sVisual" tag="v2.0.1.exp" branch="dev" date="2025-04-23T16:30:00+02:00">
+	<changelog mod="sVisual" tag="v2.0.1-exp" branch="dev" date="2025-04-23T16:30:00+02:00">
 		<changes>
 			<change type="fix">The hit effect would be shown even when succesfully blocking a zombie attack</change>
 			<change type="fix">Various syntax errors</change>
 		</changes>
 	</changelog>
 
-	<changelog mod="sGunplay" tag="v2.3.0.exp" branch="dev" date="2025-04-23T16:30:00+02:00">
+	<changelog mod="sGunplay" tag="v2.3.0-exp" branch="dev" date="2025-04-23T16:30:00+02:00">
 		<changes>
 			<change type="feat">
 				Static dot crosshair: can be toggled indipendently from the dynamic crosshair and it's shown when the
