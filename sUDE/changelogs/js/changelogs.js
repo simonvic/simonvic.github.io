@@ -27,7 +27,7 @@ async function fetchChangelogs() {
 	const flatChangelogs = new Array(); // [changelog]
 	const changelogsByMod = new Map(); // [mod : [changelog]]
 	const xml = await fetchXML("changelogs.xml", { cache: "no-store" });
-	for (const xmlChangelog of Array.from(xml.getElementsByTagName("changelog"))) {
+	for (const xmlChangelog of xml.getElementsByTagName("changelog")) {
 		const changelog = parseChangelog(xmlChangelog);
 		flatChangelogs.push(changelog);
 		changelogsByMod.getOrInsert(changelog.mod, new Array()).push(changelog)

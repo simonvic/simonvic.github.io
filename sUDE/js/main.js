@@ -44,10 +44,14 @@ function onClickDetailAnchor(id) {
 
 function parseTutorialCard(xml) {
 	var prerequisiteIDs = new Array();
-	Array.from(xml.getElementsByTagName("prerequisites")[0].children).forEach(id => prerequisiteIDs.push(id.innerHTML));
+	for (const id of xml.getElementsByTagName("prerequisites")[0].children) {
+		prerequisiteIDs.push(id.innerHTML);
+	}
 
 	var tags = new Array();
-	Array.from(xml.getElementsByTagName("tags")[0].children).forEach(tag => tags.push(tag.innerHTML));
+	for (const tag of xml.getElementsByTagName("tags")[0].children) {
+		tags.push(tag.innerHTML);
+	}
 
 	var href = xml.getAttribute("href");
 
