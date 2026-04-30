@@ -110,7 +110,7 @@ function generateDiscordForum(changelog, previousChangelog = null) {
 }
 
 function discordFormatDate(date) {
-	return `<t:${new Date(date).getTime() / 1000}:R>`;
+	return `<t:${date.getTime() / 1000}:R>`;
 }
 
 function toMarkdown(text) {

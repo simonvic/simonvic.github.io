@@ -80,7 +80,7 @@ function parseChangelog(xml) {
 	return {
 		mod: xml.getAttribute("mod"),
 		tag: xml.getAttribute("tag"),
-		date: xml.getAttribute("date"),
+		date: new Date(xml.getAttribute("date")),
 		branch: xml.getAttribute("branch"),
 		preamble: xml.getElementsByTagName("preamble")[0]?.innerHTML,
 		changes: changes,
@@ -95,8 +95,8 @@ function onClickDetailAnchor(id) {
 
 function buildChangelog(changelog) {
 	var changelogId = changelog.mod + "_" + changelog.tag;
-	var differenceInDays = (new Date().getTime() - new Date(changelog.date).getTime()) / (1000 * 3600 * 24);
-	var timeDiff = relativeTimeDifference(new Date(changelog.date));
+	var differenceInDays = (new Date().getTime() - changelog.date.getTime()) / (1000 * 3600 * 24);
+	var timeDiff = relativeTimeDifference(changelog.date);
 	var relativeTimeTag = differenceInDays > 7 ? timeDiff : `<mark>${timeDiff}</mark>`;
 	var html = `
 <details id="${changelogId}"
