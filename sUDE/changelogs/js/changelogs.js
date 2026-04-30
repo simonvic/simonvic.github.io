@@ -17,7 +17,7 @@ function applyFiltersChangelogs() {
 	var date = new Date(document.getElementById("filter_date").value);
 	document.querySelectorAll("#changelogContainer details")
 		.forEach(node => node.hidden =
-			(node.getAttribute("data-branch") == "dev" && !showExperimental)
+			(node.getAttribute("data-prerelease") == "true" && !showExperimental)
 			|| !modsFilter.get(node.getAttribute("data-mod"))
 			|| new Date(node.getAttribute("data-date")) <= date
 		);
@@ -39,12 +39,11 @@ async function fetchChangelogs() {
 	}
 	// find and assign previous changelogs
 	for (const changelog of flatChangelogs) {
-		const isPrerelease = semver.prerelease(changelog.tag) != null;
 		// TODO: since it's sorted by tags, use binary search
 		const previousChangelog = changelogsByMod.get(changelog.mod)
 			.findLast(x =>
 				// NOTE: compare non-prereleases only with other non-prereleases
-				(isPrerelease)
+				(changelog.isPrerelease)
 					? semver.compareBuild(x.tag, changelog.tag) < 0
 					: semver.prerelease(x.tag) == null && semver.compareBuild(x.tag, changelog.tag) < 0
 			);
@@ -74,11 +73,13 @@ function parseChangelog(xml) {
 			})
 		}
 	}
+	const tag = xml.getAttribute("tag");
 	return {
 		mod: xml.getAttribute("mod"),
-		tag: xml.getAttribute("tag"),
+		tag: tag,
 		date: new Date(xml.getAttribute("date")),
 		branch: xml.getAttribute("branch"),
+		isPrerelease: semver.prerelease(tag) != null,
 		preamble: xml.getElementsByTagName("preamble")[0]?.innerHTML,
 		changes: changes,
 		previousChangelog: null,
@@ -100,6 +101,7 @@ function buildChangelog(changelog) {
 	data-tag="${changelog.tag}"
 	data-date="${changelog.date.toISOString()}"
 	data-branch="${changelog.branch}"
+	data-prerelease=${changelog.isPrerelease}
 	data-type="${changelog.type}"
 	${document.location.href.endsWith("#" + changelogId) ? "open" : ""}
 >
