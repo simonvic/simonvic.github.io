@@ -116,7 +116,7 @@ function buildChangelog(changelog) {
 			</tr>
 		</table></big>
 	</summary>
-	<small>${changelog.date}</small>
+	<small><time datetime="${changelog.date.toUTCString()}">${changelog.date.toLocaleString()}</time></small>
 `;
 	if (changelog.preamble) {
 		html += `<p>${changelog.preamble}</p>`;
