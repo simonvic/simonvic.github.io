@@ -105,7 +105,6 @@ function parseChangelog(xml) {
 				commit: change.getAttribute("commit"),
 				isBreaking: change.getAttribute("breaking"),
 				body: change.innerHTML,
-				previousChangelog: null,
 			})
 		}
 	}
@@ -116,6 +115,7 @@ function parseChangelog(xml) {
 		branch: xml.getAttribute("branch"),
 		preamble: xml.getElementsByTagName("preamble")[0]?.innerHTML,
 		changes: changes,
+		previousChangelog: null,
 	};
 }
 
