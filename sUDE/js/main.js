@@ -175,6 +175,8 @@ function buildChangelog(changelog) {
 	if (changelog.previousChangelog) {
 		html += "<h3>FULL CHANGELOG</h3>";
 		html += `<a href="${buildTagCompareURL(changelog, changelog.previousChangelog)}">${changelog.tag} ... ${changelog.previousChangelog.tag}</a>`;
+		const previousChangelogId = `${changelog.mod}_${changelog.previousChangelog.tag}`
+		html += `<p>Previous version changelog: <a onclick="onClickDetailAnchor('${previousChangelogId}')" href="#${previousChangelogId}">${changelog.previousChangelog.tag}</a></p>`;
 	}
 	html += "</details>";
 	html += "<hr/>";
