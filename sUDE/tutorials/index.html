@@ -42,12 +42,14 @@
 				</label>
 			</fieldset>
 		</section>
-		<div id="tutorialsCardsContainer"></div>
+		<section id="tutorialsCardsContainer"></section>
 		<script>
 			fetchXML("tutorials.xml").then(xml => {
-				const container = document.getElementById("tutorialsCardsContainer");
-				const cards = Array.from(xml.getElementsByTagName("tutorial"));
-				cards.forEach(card => container.innerHTML += buildTutorialCard(parseTutorialCard(card)));
+				let html = ""
+				for (const xmlTutorial of xml.getElementsByTagName("tutorial")) {
+					html += buildTutorialCard(parseTutorialCard(xmlTutorial));
+				}
+				document.getElementById("tutorialsCardsContainer").innerHTML += html;
 				location.hash = location.hash; // lol... lazily go to current hash
 			});
 		</script>
