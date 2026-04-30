@@ -79,13 +79,17 @@ async function fetchChangelogs() {
 	for (const changelog of flatChangelogs) {
 		const isPrerelease = semver.prerelease(changelog.tag) != null;
 		// TODO: since it's sorted by tags, use binary search
-		changelog.previousChangelog = changelogsByMod.get(changelog.mod)
+		const previousChangelog = changelogsByMod.get(changelog.mod)
 			.findLast(x =>
 				// NOTE: compare non-prereleases only with other non-prereleases
 				(isPrerelease)
 					? semver.compareBuild(x.tag, changelog.tag) < 0
 					: semver.prerelease(x.tag) == null && semver.compareBuild(x.tag, changelog.tag) < 0
 			);
+		if (previousChangelog) {
+			changelog.previousChangelog = previousChangelog;
+			changelog.type = semver.diff(changelog.tag, previousChangelog.tag);
+		}
 	}
 	return {
 		flatChangelogs: flatChangelogs,
@@ -140,6 +144,7 @@ function buildChangelog(changelog) {
 	data-tag="${changelog.tag}"
 	data-date="${changelog.date.toISOString()}"
 	data-branch="${changelog.branch}"
+	data-type="${changelog.type}"
 	${document.location.href.endsWith("#" + changelogId) ? "open" : ""}
 >
 	<summary>
@@ -149,6 +154,7 @@ function buildChangelog(changelog) {
 				<td>${changelog.tag}</td>
 				<td>${relativeTimeTag}</td>
 				<td hidden>${changelog.branch}</td>
+				<td hidden>${changelog.type || ""}</td>
 			</tr>
 		</table></big>
 	</summary>
