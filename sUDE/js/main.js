@@ -138,7 +138,7 @@ function buildChangelog(changelog) {
 <details id="${changelogId}"
 	data-mod="${changelog.mod}"
 	data-tag="${changelog.tag}"
-	data-date="${changelog.date}"
+	data-date="${changelog.date.toISOString()}"
 	data-branch="${changelog.branch}"
 	${document.location.href.endsWith("#" + changelogId) ? "open" : ""}
 >
@@ -152,7 +152,7 @@ function buildChangelog(changelog) {
 			</tr>
 		</table></big>
 	</summary>
-	<small><time datetime="${changelog.date.toUTCString()}">${changelog.date.toLocaleString()}</time></small>
+	<small><time datetime="${changelog.date.toISOString()}">${changelog.date.toLocaleString()}</time></small>
 `;
 	if (changelog.preamble) {
 		html += `<p>${changelog.preamble}</p>`;
