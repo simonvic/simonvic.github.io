@@ -114,7 +114,17 @@
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:attribute>
-						<xs:attribute name="tag" type="xs:string" use="required"/>
+						<xs:attribute name="tag" use="required">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:pattern
+										value="v?(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(-(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(\.(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*)?(\+([0-9a-zA-Z-]+(\.[0-9a-zA-Z-]+)*))?"/>
+									<!--       v major        . minor       . patch       - prerelease                             . 1.2.3                                      + build.1.2.3                       -->
+									<!-- https://semver.org/ -->
+									<!-- NOTE: head and tail is implicit, and non-capturing groups are not supported -->
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
 						<xs:attribute name="branch" type="xs:string"/>
 						<xs:attribute name="date" type="xs:dateTime" use="required"/>
 					</xs:complexType>
