@@ -6,6 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/sUDE/css/style.css">
+	<script src="https://unpkg.com/semver-ts/dist/index.global.js"></script>
 	<script src="/sUDE/js/main.js"></script>
 </head>
 
@@ -55,20 +56,28 @@
 				<br />
 				<label for="filter_show_experimental">
 					<input id="filter_show_experimental" type="checkbox" role="switch" checked>
-					Show experimental changelogs
+					Show experimental versions changelogs
 				</label>
 			</fieldset>
 		</section>
-		<div id="changelogContainer">
-			<script>
-				fetchXML("changelogs.xml", xml => {
-					const container = document.getElementById("changelogContainer");
-					const changelogs = Array.from(xml.getElementsByTagName("changelog")).reverse();
-					changelogs.forEach(changelog => container.innerHTML += buildChangelog(parseChangelog(changelog)));
-					location.hash = location.hash; // lol... lazily go to current hash
-				}, {cache: "no-store"});
-			</script>
-		</div>
+		<section id="changelogContainer">
+		</section>
+		<script>
+			fetchChangelogs().then(result => {
+				let html = ""
+				// TODO: sort by date or by tag
+				// flatChangelogs.sort((x, y) => {
+				// 	let cmp = y.date - x.date;
+				// 	return (cmp) ? cmp : semver.compareBuild(y.tag, x.tag)
+				// });
+				for (const changelog of result.flatChangelogs.reverse()) {
+					html += buildChangelog(changelog);
+				}
+				document.getElementById("changelogContainer").innerHTML += html;
+				location.hash = location.hash; // lol... lazily go to current hash
+				// TODO: implement goToHash()
+			});
+		</script>
 	</main>
 </body>
 

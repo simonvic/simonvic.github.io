@@ -55,11 +55,42 @@ function relativeTimeDifference(previous) {
 	return timeDifference(previous, new Date());
 }
 
-function fetchXML(url, onSuccess, options = {}) {
-	return fetch(url, options)
-		.then(response => response.text())
-		.then(str => new window.DOMParser().parseFromString(str, "text/xml"))
-		.then(xml => onSuccess(xml));
+async function fetchXML(url, options = {}) {
+	const response = await fetch(url, options);
+	const str = await response.text();
+	return new window.DOMParser().parseFromString(str, "text/xml");
+}
+
+async function fetchChangelogs() {
+	const flatChangelogs = new Array(); // [changelog]
+	const changelogsByMod = new Map(); // [mod : [changelog]]
+	const xml = await fetchXML("changelogs.xml", { cache: "no-store" });
+	for (const xmlChangelog of Array.from(xml.getElementsByTagName("changelog"))) {
+		const changelog = parseChangelog(xmlChangelog);
+		flatChangelogs.push(changelog);
+		changelogsByMod.getOrInsert(changelog.mod, new Array()).push(changelog)
+	}
+	// sort by tags semantically
+	// HACK: compareBuild to support old semantically invalid tags
+	for (const [_, changelogs] of changelogsByMod) {
+		changelogs.sort((x, y) => semver.compareBuild(x.tag, y.tag));
+	}
+	// find and assign previous changelogs
+	for (const changelog of flatChangelogs) {
+		const isPrerelease = semver.prerelease(changelog.tag) != null;
+		// TODO: since it's sorted by tags, use binary search
+		changelog.previousChangelog = changelogsByMod.get(changelog.mod)
+			.findLast(x =>
+				// NOTE: compare non-prereleases only with other non-prereleases
+				(isPrerelease)
+					? semver.compareBuild(x.tag, changelog.tag) < 0
+					: semver.prerelease(x.tag) == null && semver.compareBuild(x.tag, changelog.tag) < 0
+			);
+	}
+	return {
+		flatChangelogs: flatChangelogs,
+		changelogsByMod: changelogsByMod,
+	}
 }
 
 function parseChangelog(xml) {
@@ -74,6 +105,7 @@ function parseChangelog(xml) {
 				commit: change.getAttribute("commit"),
 				isBreaking: change.getAttribute("breaking"),
 				body: change.innerHTML,
+				previousChangelog: null,
 			})
 		}
 	}

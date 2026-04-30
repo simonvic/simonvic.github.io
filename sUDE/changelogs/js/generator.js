@@ -23,24 +23,10 @@ turndownService.addRule("underline", {
 
 // TODO: add spoiler
 
-function findPreviousChangelog(head, headIndex, xmlChangelogs) {
-	for (let i = headIndex - 1; i >= 0; i--) {
-		let xmlChangelog = xmlChangelogs[i];
-		let previousChangelog = parseChangelog(xmlChangelog)
-		if (
-			previousChangelog.mod == head.mod
-			&& previousChangelog.branch == head.branch
-		) {
-			return previousChangelog;
-		}
-	}
-	return null;
-}
-
-function generate(changelog, previousChangelog) {
-	var steam = he.encode(generateSteam(changelog, previousChangelog));
-	var discord = he.encode(generateDiscordForum(changelog, previousChangelog));
-	var github = he.encode(generateGithub(changelog, previousChangelog));
+function generate(changelog) {
+	var steam = he.encode(generateSteam(changelog));
+	var discord = he.encode(generateDiscordForum(changelog));
+	var github = he.encode(generateGithub(changelog));
 	var html = "";
 	html += `<details><summary><table role="grid"><td>${changelog.mod}</td><td>${changelog.tag}</td></table></summary>`;
 	html += `<details open><summary><small>github</small></summary><pre><code>${github}</pre></code></details>`;
@@ -50,29 +36,28 @@ function generate(changelog, previousChangelog) {
 	return html;
 }
 
-
 function buildTagCompareURL(changelog, previousChangelog) {
 	return `https://github.com/simonvic/${changelog.mod}/compare/${previousChangelog.tag}...${changelog.tag}`;
 }
 
-function generateSteam(changelog, previousChangelog = null) {
+function generateSteam(changelog) {
 	var txt = `Read the changelog here: [url=https://simonvic.github.io/sUDE/changelogs/#${changelog.mod}_${changelog.tag}]${changelog.mod} ${changelog.tag}[/url]`;
-	if (previousChangelog != null) {
+	if (changelog.previousChangelog != null) {
 		txt += "\n";
-		txt += `[i]full changelog: ${buildTagCompareURL(changelog, previousChangelog)}[/i]`;
+		txt += `[i]full changelog: ${buildTagCompareURL(changelog, changelog.previousChangelog)}[/i]`;
 	}
 	return txt;
 }
 
-function generateGithub(changelog, previousChangelog = null) {
+function generateGithub(changelog) {
 	var md = "";
 	if (changelog.preamble) {
 		md += toMarkdown(changelog.preamble) + "\n\n";
 	}
 	md += githubFormatChanges(changelog.changes);
-	if (previousChangelog != null) {
+	if (changelog.previousChangelog != null) {
 		md += "## FULL CHANGELOG\n\n"
-		md += buildTagCompareURL(changelog, previousChangelog);
+		md += buildTagCompareURL(changelog, changelog.previousChangelog);
 	}
 	return md;
 }
@@ -94,7 +79,7 @@ function githubFormatChanges(changes) {
 	return md;
 }
 
-function generateDiscordForum(changelog, previousChangelog = null) {
+function generateDiscordForum(changelog) {
 	var md = "";
 	md += `${changelog.mod} | ${changelog.tag}\n\n`;
 	md += `released: ${discordFormatDate(changelog.date)}\n\n`;
@@ -102,9 +87,9 @@ function generateDiscordForum(changelog, previousChangelog = null) {
 		md += toMarkdown(changelog.preamble) + "\n\n";
 	}
 	md += githubFormatChanges(changelog.changes);
-	if (previousChangelog != null) {
+	if (changelog.previousChangelog != null) {
 		md += "# FULL CHANGELOG\n\n"
-		md += buildTagCompareURL(changelog, previousChangelog);
+		md += buildTagCompareURL(changelog, changelog.previousChangelog);
 	}
 	return md;
 }
