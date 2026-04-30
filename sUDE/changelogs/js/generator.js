@@ -36,10 +36,6 @@ function generate(changelog) {
 	return html;
 }
 
-function buildTagCompareURL(changelog, previousChangelog) {
-	return `https://github.com/simonvic/${changelog.mod}/compare/${previousChangelog.tag}...${changelog.tag}`;
-}
-
 function generateSteam(changelog) {
 	var txt = `Read the changelog here: [url=https://simonvic.github.io/sUDE/changelogs/#${changelog.mod}_${changelog.tag}]${changelog.mod} ${changelog.tag}[/url]`;
 	if (changelog.previousChangelog != null) {

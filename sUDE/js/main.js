@@ -125,6 +125,10 @@ function onClickDetailAnchor(id) {
 	// history.replaceState(null, null, '#' + id);
 }
 
+function buildTagCompareURL(changelog, previousChangelog) {
+	return `https://github.com/simonvic/${changelog.mod}/compare/${previousChangelog.tag}...${changelog.tag}`;
+}
+
 function buildChangelog(changelog) {
 	var changelogId = changelog.mod + "_" + changelog.tag;
 	var differenceInDays = (new Date().getTime() - changelog.date.getTime()) / (1000 * 3600 * 24);
@@ -167,6 +171,10 @@ function buildChangelog(changelog) {
 			}
 			html += "</ul>";
 		}
+	}
+	if (changelog.previousChangelog) {
+		html += "<h3>FULL CHANGELOG</h3>";
+		html += `<a href="${buildTagCompareURL(changelog, changelog.previousChangelog)}">${changelog.tag} ... ${changelog.previousChangelog.tag}</a>`;
 	}
 	html += "</details>";
 	html += "<hr/>";
