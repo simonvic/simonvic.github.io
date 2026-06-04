@@ -75,8 +75,10 @@
 					html += buildChangelog(changelog);
 				}
 				document.getElementById("changelogContainer").innerHTML += html;
-				location.hash = location.hash; // lol... lazily go to current hash
-				// TODO: implement goToHash()
+				if (location.hash) {
+					document.getElementById(location.hash.replace("#", ""))
+						.scrollIntoView();
+				}
 			});
 		</script>
 	</main>

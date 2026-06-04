@@ -50,7 +50,10 @@
 					html += buildTutorialCard(parseTutorialCard(xmlTutorial));
 				}
 				document.getElementById("tutorialsCardsContainer").innerHTML += html;
-				location.hash = location.hash; // lol... lazily go to current hash
+				if (location.hash) {
+					document.getElementById(location.hash.replace("#", ""))
+						.scrollIntoView();
+				}
 			});
 		</script>
 	</main>
