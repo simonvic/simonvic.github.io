@@ -1775,4 +1775,14 @@
 		</changes>
 	</changelog>
 
+	<changelog mod="sGunplay" tag="v2.4.0-exp.3" branch="dev" date="2026-07-15T20:30:00+02:00">
+		<preamble>
+			<b>Changes are relative to previous experimental revision</b>
+		</preamble>
+		<changes>
+			<change type="feat">Added stats to SCAR-H and its attachments</change>
+			<change type="feat">Added custom recoil for SCAR-H</change>
+		</changes>
+	</changelog>
+
 </changelogs>
