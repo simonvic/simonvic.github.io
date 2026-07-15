@@ -62,7 +62,8 @@ function parseChangelog(xml) {
 	// category : [type : [changes]]
 	var changes = new Map();
 	for (const changesCategory of xml.getElementsByTagName("changes")) {
-		var categories = changes.getOrInsert(changesCategory.getAttribute("category"), new Map());
+		let category = changesCategory.getAttribute("category")
+		var categories = changes.getOrInsert(category != null ? category : "", new Map());
 		for (const change of changesCategory.getElementsByTagName("change")) {
 			categories.getOrInsert(change.getAttribute("type"), new Array()).push({
 				category: change.getAttribute("category"),
