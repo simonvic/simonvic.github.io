@@ -23,10 +23,10 @@ function applyFiltersChangelogs() {
 		);
 }
 
-async function fetchChangelogs() {
+async function fetchChangelogs(useCache = false) {
 	const flatChangelogs = new Array(); // [changelog]
 	const changelogsByMod = new Map(); // [mod : [changelog]]
-	const xml = await fetchXML("changelogs.xml", { cache: "no-store" });
+	const xml = await fetchXML("/sUDE/changelogs/changelogs.xml", (useCache) ? {} : { cache: "no-store" });
 	for (const xmlChangelog of xml.getElementsByTagName("changelog")) {
 		const changelog = parseChangelog(xmlChangelog);
 		flatChangelogs.push(changelog);
