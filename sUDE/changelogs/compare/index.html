@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>sUDE | Changelogs | Compare</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/sUDE/css/style.css">
+	<script src="https://unpkg.com/semver-ts/dist/index.global.js"></script>
+	<script src="/sUDE/js/main.js"></script>
+	<script src="/sUDE/changelogs/js/changelogs.js"></script>
+</head>
+
+<body>
+	<header>
+		<nav aria-label="breadcrumb">
+			<a href="/">Home</a>
+			<a href="/sUDE">sUDE</a>
+			<a href="/sUDE/changelogs">Changelogs</a>
+			<a href="" aria-current="page">Compare</a>
+		</nav>
+	</header>
+	<main>
+		<script>
+
+			function buildMods() {
+				fetchChangelogs(true).then(result => {
+					let html = "";
+					let params = new URLSearchParams(document.location.search);
+					let paramMod = params.get("mod")
+					for (const [mod, _] of result.changelogsByMod) {
+						html += `<option ${mod == paramMod ? "selected" : ""}>${mod}</option>`
+					}
+					document.getElementById("selected_mod").innerHTML = html;
+				});
+			}
+
+			function buildTags() {
+				fetchChangelogs(true).then(result => {
+					const selectedMod = document.getElementById("selected_mod").value
+					let htmlFrom = "";
+					let htmlTo = "";
+					let params = new URLSearchParams(document.location.search);
+					let paramFrom = params.get("from")
+					let paramTo = params.get("to")
+					for (const changelog of result.changelogsByMod.get(selectedMod).toReversed()) {
+						htmlFrom += `<option ${changelog.tag == paramFrom ? "selected" : ""}>${changelog.tag}</option>`
+						htmlTo += `<option ${changelog.tag == paramTo ? "selected" : ""}>${changelog.tag}</option>`
+					}
+					document.getElementById("list_from").innerHTML = htmlFrom;
+					document.getElementById("list_to").innerHTML = htmlTo;
+				});
+			}
+
+
+			function buildComparisonChangelog() {
+				fetchChangelogs(true).then(result => {
+					const selectedMod = document.getElementById("selected_mod").value
+					const from = document.getElementById("list_from").value;
+					const to = document.getElementById("list_to").value;
+					const lastChangelog = result.changelogsByMod.get(selectedMod).findLast(x => x.tag === to)
+					let html = "<ul>";
+					let c = lastChangelog;
+					let mergedChanges = new Map();
+					while (c != null && semver.compareBuild(c.tag, from) > 0) {
+						html += `<li><a href="/sUDE/changelogs/#${selectedMod}_${c.tag}">${c.tag}</a></li>`;
+						for (const [category, changesByType] of c.changes) {
+							let mergedCategory = mergedChanges.getOrInsert(category, new Map());
+							for (const [type, changes] of changesByType) {
+								mergedCategory.getOrInsert(type, new Array())
+									.push(...changes)
+							}
+						}
+						c = c.previousChangelog;
+					}
+					html += "</ul>"
+					html += buildChanges(mergedChanges)
+					document.getElementById("changelogContainer").innerHTML = html;
+				})
+			}
+
+		</script>
+		<section>
+			<fieldset>
+				<label>
+					Mod
+					<select id="selected_mod" onchange="buildTags()"></select>
+				</label>
+			</fieldset>
+			<fieldset onchange="buildComparisonChangelog()">
+				<label>
+					From
+					<select id="list_from"></select>
+				</label>
+				<label>
+					To
+					<select id="list_to"></select>
+				</label>
+			</fieldset>
+			<script>
+				buildMods();
+				buildTags();
+			</script>
+		</section>
+		<section id="changelogContainer"></section>
+	</main>
+</body>
+
+</html>
