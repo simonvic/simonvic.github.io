@@ -71,7 +71,7 @@
 				// 	let cmp = y.date - x.date;
 				// 	return (cmp) ? cmp : semver.compareBuild(y.tag, x.tag)
 				// });
-				for (const changelog of result.flatChangelogs.reverse()) {
+				for (const changelog of result.flatChangelogs.toReversed()) {
 					html += buildChangelog(changelog);
 				}
 				document.getElementById("changelogContainer").innerHTML += html;

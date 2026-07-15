@@ -34,7 +34,7 @@
 		<script>
 			fetchChangelogs().then(result => {
 				let html = ""
-				for (const changelog of result.flatChangelogs.reverse()) {
+				for (const changelog of result.flatChangelogs.toReversed()) {
 					html += generate(changelog);
 				}
 				document.getElementById("output").innerHTML += html;
