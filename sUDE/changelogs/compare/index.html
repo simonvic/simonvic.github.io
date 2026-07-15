@@ -38,12 +38,16 @@
 			function buildTags() {
 				fetchChangelogs(true).then(result => {
 					const selectedMod = document.getElementById("selected_mod").value
+					const showPrereleases = document.getElementById("show_prereleases").checked;
 					let htmlFrom = "";
 					let htmlTo = "";
 					let params = new URLSearchParams(document.location.search);
 					let paramFrom = params.get("from")
 					let paramTo = params.get("to")
 					for (const changelog of result.changelogsByMod.get(selectedMod).toReversed()) {
+						if (changelog.isPrerelease && !showPrereleases) {
+							continue;
+						}
 						htmlFrom += `<option ${changelog.tag == paramFrom ? "selected" : ""}>${changelog.tag}</option>`
 						htmlTo += `<option ${changelog.tag == paramTo ? "selected" : ""}>${changelog.tag}</option>`
 					}
@@ -81,10 +85,15 @@
 
 		</script>
 		<section>
-			<fieldset>
+			<fieldset onchange="buildTags()">
 				<label>
 					Mod
-					<select id="selected_mod" onchange="buildTags()"></select>
+					<select id="selected_mod"></select>
+				</label>
+				<br />
+				<label>
+					<input id="show_prereleases" type="checkbox" role="switch" checked>
+					Show experimental versions
 				</label>
 			</fieldset>
 			<fieldset onchange="buildComparisonChangelog()">
