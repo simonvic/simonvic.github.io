@@ -121,7 +121,21 @@ function buildChangelog(changelog) {
 	if (changelog.preamble) {
 		html += `<p>${changelog.preamble}</p>`;
 	}
-	for (const [category, changesByType] of changelog.changes) {
+	html += buildChanges(changelog.changes);
+	if (changelog.previousChangelog) {
+		html += "<h3>FULL CHANGELOG</h3>";
+		html += `<a href="${buildTagCompareURL(changelog, changelog.previousChangelog)}">${changelog.tag} ... ${changelog.previousChangelog.tag}</a>`;
+		const previousChangelogId = `${changelog.mod}_${changelog.previousChangelog.tag}`
+		html += `<p>Previous version changelog: <a onclick="onClickDetailAnchor('${previousChangelogId}')" href="#${previousChangelogId}">${changelog.previousChangelog.tag}</a></p>`;
+	}
+	html += "</details>";
+	html += "<hr/>";
+	return html;
+}
+
+function buildChanges(changesByCategory) {
+	let html = "";
+	for (const [category, changesByType] of changesByCategory) {
 		if (category) {
 			html += `<h3>${category.toUpperCase()}</h3>`;
 		}
@@ -136,14 +150,5 @@ function buildChangelog(changelog) {
 			html += "</ul>";
 		}
 	}
-	if (changelog.previousChangelog) {
-		html += "<h3>FULL CHANGELOG</h3>";
-		html += `<a href="${buildTagCompareURL(changelog, changelog.previousChangelog)}">${changelog.tag} ... ${changelog.previousChangelog.tag}</a>`;
-		const previousChangelogId = `${changelog.mod}_${changelog.previousChangelog.tag}`
-		html += `<p>Previous version changelog: <a onclick="onClickDetailAnchor('${previousChangelogId}')" href="#${previousChangelogId}">${changelog.previousChangelog.tag}</a></p>`;
-	}
-	html += "</details>";
-	html += "<hr/>";
 	return html;
 }
-
