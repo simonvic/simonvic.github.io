@@ -1785,4 +1785,139 @@
 		</changes>
 	</changelog>
 
+	<changelog mod="sFramework" tag="v3.0.0" branch="main" date="2026-08-13T15:00:00+02:00">
+		<changes>
+			<change type="feat">Improved documentation about user configuration and server constraints</change>
+			<change type="feat">
+				A <code>preload</code> function that implementing user configurations could hook into for preloading
+			</change>
+			<change type="feat">New <code>SLOG</code> logger implementation superseding the now deprecated <code>SLog</code></change>
+			<change type="feat">New <code>SLOG</code> options added in the diagnostic menu</change>
+			<change type="feat">New <code>sDebugUI</code> function for building checkbox returning its boolean state</change>
+			<change type="feat">New <code>sDebugUI</code> function for building sliders returning its float value</change>
+			<change type="feat">
+				New <code>onValueChange</code> event (ScriptInvoker) for user configuration options that gets fired when
+				the value of the option effectively changes
+			</change>
+			<change type="change">
+				The default message of a server constraint is now an empty string and it will default to the localized
+				string in the UI. This resulted in a slight reduction in the data size being sent to the clients over
+				the wire
+			</change>
+			<change type="change">Improved logging related to user configurations and server constraints</change>
+			<change type="change">
+				User configuration and server constraints are initialized earlier in the game lifecycle
+				(<code>DayZGame::DeferredInit</code>)
+			</change>
+			<change type="change">
+				Removed default user configuration.<br/>
+				The implementation was meh, it was unused and it only complicated the user configuration APIs with no
+				real benefit.<br/>
+				<i>SPOILER: it might come back once the user configuration gets refactored to be more similar to DayZ
+					vanilla settings</i>
+			</change>
+			<change type="change">Removed user configuration and server constraints validation step.</change>
+			<change type="change">Removed unnecessary typedefs in favor of the actual type</change>
+			<change type="change">Replaced client/server checks with <code>IsDedicatedServer</code></change>
+			<change type="change">Cleaner and more human readable log entry format</change>
+			<change type="change">Improved UI and localization for boolean based constraints</change>
+			<change type="change">The method loading a user configuration will now return the loaded instance</change>
+			<change type="change">The method loading a server constraint will now return the loaded instance</change>
+			<change type="change">
+				<code>sJONSSerializable</code> serialization and deserialization now returns a boolean value based on
+				whether or not the operation was successful
+			</change>
+			<change type="change">The new logging implementation is now used throughout sFramework</change>
+			<change type="change">Performance improvements</change>
+			<change type="fix">Mod list in log files wouldn't be printed entirely if too long</change>
+			<change type="fix">File handles are now being closed only if it was actually open</change>
+			<change type="fix">
+				The user configuration constraint reading flow has been refactored, and should fix a rare case of
+				constraints not being applied correctly.
+			</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">
+				Camera modded static methods now invoke the super implementation yielding better compatibility with
+				other mods
+			</change>
+		</changes>
+	</changelog>
+
+	<changelog mod="sVisual" tag="v2.1.0" branch="main" date="2026-08-13T15:00:00+02:00">
+		<preamble>
+			Due to the new available options and some changes to old ones, your current configuration file
+			(<i>sVisual.json</i>) is not compatible anymore and will be regenerated, reverting all options to their
+			default value.<br/>
+			You can configure the settings again in the options menu.<br/>
+			Sorry for the inconvenience :)
+		</preamble>
+		<changes>
+			<change type="feat">
+				New user option to <b>toggle clothing overlays</b>!<br/>
+				Toggling the option off will turn off all overlays added by clothing items such as headgear, sunglasses,
+				mask etc.
+			</change>
+			<change type="feat">New user option to <b>toggle bleeding overlay</b>!<br/></change>
+			<change type="feat">
+				New user option to <b>tweak headbob intensity for each stance</b> (idle, walking, running,
+				sprinting)<br/>
+				The default intensity is 1.00. Setting it to 0.00 will disable the headbob completely (for the
+				configured stance).
+			</change>
+			<change type="change">The default headbob intensity when idle has been increased</change>
+			<change type="change">Performance improvements</change>
+			<change type="change">More detailed logging when loading user configurations</change>
+			<change type="change">More detailed logging about server constraints</change>
+			<change type="change">
+				Rewrote clothing overlay activation logic, leading to better performance and better moddability
+			</change>
+			<change type="change">Refactored burlap sack overlay activation logic</change>
+			<change type="change">Performance improvements</change>
+			<change type="fix">The headbob is now correctly applied when walking in crouched stance with the weapon raised</change>
+			<change type="fix">The headbob is now correctly applied when idle</change>
+			<change type="fix">Bloom effect not starting when loading in</change>
+			<change type="fix">Motion blur effect not starting when loading in</change>
+			<change type="fix">
+				Camera doesn't jiggle when the head lean angle user option is disabled.<br/>
+				The issue is still present otherwise. See <a href="https://feedback.bistudio.com/T195618">T195618</a>
+			</change>
+		</changes>
+		<changes category="modding">
+			<change type="change">Updated to support the latest user configuration and server constraints version</change>
+			<change type="change">User configuration is now preloaded in <code>sUserConfig::preload</code></change>
+			<change type="change">Moved bleeding PPE and camera overlay logic to <code>PlayerBase</code></change>
+			<change type="change">Improved code documentation</change>
+			<change type="change">Clothing overlays loading is now deferred as late as possible</change>
+		</changes>
+	</changelog>
+
+	<changelog mod="sGunplay" tag="v2.4.0" branch="main" date="2026-08-13T15:00:00+02:00">
+		<changes>
+			<change type="feat">Added stats to SCAR-H and its attachments</change>
+			<change type="feat">Added custom recoil for SCAR-H</change>
+			<change type="change">Performance improvements</change>
+			<change type="change">More detailed logging when loading user configurations</change>
+			<change type="change">More detailed logging about server constraints</change>
+			<change type="change"><code>GetWeightEx()</code> is now used instead of the deprecated <code>GetWeight()</code></change>
+		</changes>
+		<changes category="modding">
+			<change type="change">
+				The <code>SCOFocusing</code> overlay has been move from the <i>4_World</i> script module to the
+				<i>3_Game</i> script module
+			</change>
+			<change type="change">Updated to support the latest user configuration and server constraints version</change>
+			<change type="change">User configuration is now preloaded in <code>sUserConfig::preload</code></change>
+			<change type="change">
+				Added <code>SHOW_ATTACHMENT_STATS</code> constant to toggle attachment stats widgets in the UI
+			</change>
+			<change type="change">Added <code>SHOW_PLAYER_STATS</code> constant to toggle player stats widgets in the UI</change>
+			<change type="change">The <code>m_CurrentCameraYaw</code> is now correctly updated</change>
+			<change type="change">
+				<code>m_iDirectBoneMode</code> has been reverted to <code>4</code>. See <a
+					href="https://feedback.bistudio.com/T195618">T195618</a>
+			</change>
+		</changes>
+	</changelog>
+
 </changelogs>
