@@ -1920,4 +1920,10 @@
 		</changes>
 	</changelog>
 
+	<changelog mod="sVisual" tag="v2.1.1" branch="main" date="2026-09-25T15:00:00+02:00">
+		<changes>
+			<change type="fix">Burlap sack overlay would apply to nearby players</change>
+		</changes>
+	</changelog>
+
 </changelogs>
