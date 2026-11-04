@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<title>Minerals theme</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/atto.css">
+	<link rel="stylesheet" href="/css/hljs/styles/minerals/silver.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
+	<script src="/giovi/js/hljs_giovi.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body>
+	<style>
+		:root {
+			--atto-font-size-code: .75rem;
+			--atto-line-height-code: 1.0rem;
+		}
+
+		.grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 0.5rem;
+			margin: 0 auto;
+			max-width: 80rem;
+		}
+
+		pre {
+			height: 15rem;
+			display: flex;
+			flex-direction: column;
+		}
+
+		code {
+			height: 100%;
+		}
+
+		@media screen and (width < 50rem) {
+			.grid {
+				grid-template-columns: 1fr;
+			}
+		}
+	</style>
+	<main>
+		<div class="grid">
+			<pre><code class="language-c">&#x2F;&#x2F; comment
+&#x2F;** doc *&#x2F;
+#define FOO
+int main() {
+	bool b &#x3D; true;
+	int i &#x3D; 69 + 420;
+	const double pi &#x3D; 3.14;
+	println(&quot;hello \n world&quot;);
+}</code></pre>
+			<pre><code class="language-java">&#x2F;&#x2F; comment
+&#x2F;&#x2F;&#x2F; doc
+@Attribute
+class Main { &#x2F;** doc *&#x2F;
+	void main() {
+		boolean b &#x3D; true;
+		int i &#x3D; 69 + 420;
+		final double PI &#x3D; 3.14;
+		IO.println(&quot;hello \n world&quot;);
+	}
+}</code></pre>
+			<pre><code class="language-rust">&#x2F;&#x2F; comment
+&#x2F;&#x2F;&#x2F; doc
+struct Main { }
+fn main() {
+	let b:bool &#x3D; true;
+	let i:i32 &#x3D; 64 + 420;
+	let PI:f32 &#x3D; 3.14;
+	println!(&quot;hello \n world&quot;);
+}</code></pre>
+			<pre><code class="language-bash">#!&#x2F;bin&#x2F;bash
+# comment
+function main() {
+	b&#x3D;true
+	i&#x3D;69
+	PI&#x3D;3.14
+	println &quot;hello \n world&quot;
+	$(foo)
+	$((1 + 2))
+}</code></pre>
+			<pre><code class="language-python"># comment
+@Attribute
+class Main:
+	def main():
+		b &#x3D; True
+		i &#x3D; 69 + 420
+		PI &#x3D; 3.14
+		print(&quot;hello \n world&quot;)
+</code></pre>
+			<pre><code class="language-giovi"># comment
+#? doc
+Main &lt;
+	main() {
+		b Bool &lt;- true
+		i Int &lt;- 69 + 420
+		const PI Real &lt;- 3.14
+		print(&quot;hello \n world&quot;)
+	}
+&gt;
+</code></pre>
+			<pre><code class="language-html">&lt;style&gt;
+@media (max-width: 1250px) {
+	div.foo li:hover {
+		font: &quot;foo&quot;;
+	}
+	.foo[role=&quot;grid&quot;] &gt; #ul &gt; *::after  {
+		font: &quot;foo&quot;
+	}
+}
+&lt;&#x2F;style&gt; &lt;!-- comment --&gt;
+&lt;div foo bar&#x3D;bar baz&#x3D;&quot;baz&quot;&gt;&lt;&#x2F;div&gt;
+</code></pre>
+			<pre><code class="language-ini"># comment
+[foo]
+bar&#x3D;baz
+</code></pre>
+			<pre><code class="language-markdown"># Test file
+the *lazy* &#x60;fox&#x60; jumped **over** the
+brown &#x60;dog&#x60;
+[link](https:&#x2F;&#x2F;foo&#x2F;bar)
+
+&gt; the lazy fox jumped over the brown dog
+
+&#x60;&#x60;&#x60;
+code block
+&#x60;&#x60;&#x60;
+
+- foo
+- bar
+- qux</code></pre>
+		</div>
+	</main>
+</body>
+
+</html>
