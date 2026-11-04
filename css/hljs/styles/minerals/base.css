@@ -115,6 +115,10 @@
 	color: var(--minerals-color-code-syntax-normal);
 }
 
+.hljs-constant {
+	color: var(--minerals-color-code-syntax-constant);
+}
+
 .hljs-comment {
 	color: var(--minerals-color-code-syntax-comment);
 	font-style: italic;
