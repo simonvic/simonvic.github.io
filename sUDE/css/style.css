@@ -27,7 +27,7 @@ footer>nav>ul>li {
 }
 
 .hljs {
-	color: var(--atto-color-code-syhntax-normal);
+	color: var(--atto-color-code-syntax-normal);
 	background: var(--atto-color-code-bg--1);
 }
 
