@@ -80,20 +80,12 @@ hljs.registerLanguage("giovi", function() {
 				match: /\b([0-9][0-9_]*(r|\.[0-9][0-9_]*(e[+-]?[0-9]+)?r?|e[+-]?[0-9]+r?)|0x[0-9a-fA-F][0-9a-fA-F_]*(e[+-]?[0-9]+)?p[+-]?[0-9]+r?)/,
 			},
 			{
-				scope: "number.hex",
-				match: /\b0x[0-9a-fA-F][0-9a-fA-F_]*[ni]?/
-			},
-			{
-				scope: "number.bin",
-				match: /\b0b[01][01_]*[ni]?/
-			},
-			{
-				scope: "number.oct",
-				match: /\b0o[0-7][0-7_]*[ni]?/
+				scope: "number.natural",
+				match: /\b([1-9][0-9_]*|0x[0-9a-fA-F][0-9a-fA-F_]*|0b[01][01_]*|0o[0-7][0-7_]*|0)n/
 			},
 			{
 				scope: "number.integer",
-				match: /\b(0|[1-9][0-9_]*)[ni]?/
+				match: /\b([1-9][0-9_]*|0x[0-9a-fA-F][0-9a-fA-F_]*|0b[01][01_]*|0o[0-7][0-7_]*|0)i?/
 			},
 			{
 				scope: "operator",
