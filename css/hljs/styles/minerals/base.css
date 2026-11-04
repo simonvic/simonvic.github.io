@@ -1,0 +1,204 @@
+:root {
+	--minerals-color-code-bg--1: #303030;
+	--minerals-color-code-bg: #404040;
+	--minerals-color-code-bg-1: #505050;
+	--minerals-color-code-syntax-normal: #DADADA;
+	--minerals-color-code-syntax-comment: #666666;
+	--minerals-color-code-syntax-documentation: #738796;
+	--minerals-color-code-syntax-punctuation: var(--minerals-color-code-syntax-keyword);
+	--minerals-color-code-syntax-operator: var(--minerals-color-code-syntax-keyword);
+	--minerals-color-code-syntax-keyword: #CC7832;
+	--minerals-color-code-syntax-keyword-alt: #DB9B5A;
+	--minerals-color-code-syntax-constant: #9876AA;
+	--minerals-color-code-syntax-member: #9876AA;
+	--minerals-color-code-syntax-function: #FFC66D;
+	--minerals-color-code-syntax-meta: #BBB529;
+	--minerals-color-code-syntax-string: #6A8759;
+	--minerals-color-code-syntax-string-special: #CC7832;
+	--minerals-color-code-syntax-number: #6897BB;
+	--minerals-color-code-syntax-bool: #8CB0FF;
+	--minerals-color-code-syntax-type: #FAFAFA;
+	--minerals-color-title: #DADADA;
+	--minerals-color-url: #6897BB;
+	--minerals-color-added: #3A8C62;
+	--minerals-color-deleted: #C13C40;
+}
+
+@media only screen and (prefers-color-scheme: light) {
+	:root {
+		--minerals-color-code-bg--1: #EEEEEE;
+		--minerals-color-code-bg: #DDDDDD;
+		--minerals-color-code-bg-1: #E7E7E7;
+		--minerals-color-code-syntax-normal: #444444;
+		--minerals-color-code-syntax-comment: #999999;
+		--minerals-color-code-syntax-documentation: #738796;
+		--minerals-color-code-syntax-operator: #CC5E32;
+		--minerals-color-code-syntax-keyword: #BF6318;
+		--minerals-color-code-syntax-keyword-alt: #D67322;
+		--minerals-color-code-syntax-function: #C37C02;
+		--minerals-color-code-syntax-meta: #A0A512;
+		--minerals-color-code-syntax-string: #6A8759;
+		--minerals-color-code-syntax-string-special: #CC7832;
+		--minerals-color-code-syntax-number: #6897BB;
+		--minerals-color-code-syntax-bool: #8CB0FF;
+		--minerals-color-code-syntax-type: #111111;
+		--minerals-color-title: #444444;
+	}
+}
+
+.hljs {
+	color: var(--minerals-color-code-syntax-normal);
+	background: var(--minerals-color-code-bg--1);
+}
+
+/* CODING */
+
+.hljs-keyword {
+	color: var(--minerals-color-code-syntax-keyword);
+}
+
+.hljs-built_in {
+	color: var(--minerals-color-code-syntax-keyword-alt);
+}
+
+.hljs-type {
+	color: var(--minerals-color-code-syntax-type);
+	/* font-weight: bold; */
+}
+
+.hljs-literal {
+	color: var(--minerals-color-code-syntax-keyword);
+}
+
+.hljs-number {
+	color: var(--minerals-color-code-syntax-number);
+}
+
+.hljs-operator {
+	color: var(--minerals-color-code-syntax-operator);
+}
+
+.hljs-punctuation {
+	color: var(--minerals-color-code-syntax-punctuation);
+}
+
+.hljs-property {
+	color: var(--minerals-color-code-syntax-member);
+}
+
+
+.hljs-string {
+	color: var(--minerals-color-code-syntax-string);
+}
+
+.hljs-regexp,
+.hljs-subst,
+.hljs-char.escape_ {
+	color: var(--minerals-color-code-syntax-string-special);
+}
+
+.hljs-symbol {
+	color: var(--minerals-color-code-syntax-keyword);
+}
+
+.hljs-class,
+.hljs-title.class_ {
+	color: var(--minerals-color-code-syntax-type);
+}
+
+.hljs-function,
+.hljs-title.function_ {
+	color: var(--minerals-color-code-syntax-function);
+}
+
+.hljs-variable {
+	color: var(--minerals-color-code-syntax-normal);
+}
+
+.hljs-comment {
+	color: var(--minerals-color-code-syntax-comment);
+	font-style: italic;
+}
+
+.hljs-comment.documentation_ {
+	color: var(--minerals-color-code-syntax-documentation);
+}
+
+.hljs-doctag {
+	color: var(--minerals-color-code-syntax-keyword);
+}
+
+.hljs-meta {
+	color: var(--minerals-color-code-syntax-meta);
+}
+
+.hljs-meta.prompt_ {
+	color: var(--minerals-color-code-syntax-meta);
+}
+
+/* TAGS & MARKUP */
+
+.hljs-section {
+	color: var(--minerals-color-title);
+	font-weight: bold;
+}
+
+.hljs-bullet,
+.hljs-name,
+.hljs-tag {
+	color: var(--minerals-color-code-syntax-keyword);
+}
+
+.hljs-attribute,
+.hljs-attr {
+	color: var(--minerals-color-code-syntax-keyword-alt);
+}
+
+.hljs-quote,
+.hljs-code {
+	background: var(--minerals-color-code-bg-1)
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+
+.hljs-link {
+	color: var(--minerals-color-url);
+}
+
+/* CSS */
+
+.hljs-selector-tag {
+	color: var(--minerals-color-code-syntax-keyword);
+}
+
+.hljs-selector-id {
+	color: var(--minerals-color-code-syntax-constant);
+}
+
+.hljs-selector-class {
+	color: var(--minerals-color-code-syntax-type);
+}
+
+.hljs-selector-attr {
+	color: var(--minerals-color-code-syntax-keyword-alt);
+}
+
+.hljs-selector-pseudo {
+	color: var(--minerals-color-code-syntax-meta);
+}
+
+/* DIFF */
+
+.hljs-addition {
+	color: var(--minerals-color-added);
+}
+
+.hljs-deletion {
+	color: var(--minerals-color-deleted);
+}

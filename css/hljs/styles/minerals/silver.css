@@ -1,0 +1,46 @@
+@import url(base.css);
+
+.hljs-keyword {
+	font-weight: bold;
+}
+
+.hljs-string {
+	background: #252525;
+}
+
+:root {
+	--minerals-color-code-syntax-documentation: #777777;
+	--minerals-color-code-syntax-constant: #FFFFFF;
+	--minerals-color-code-syntax-member: #FAFAFA;
+	--minerals-color-code-syntax-function: #CACACA;
+	--minerals-color-code-syntax-meta: #FFFFFF;
+	--minerals-color-code-syntax-keyword: #FFFFFF;
+	--minerals-color-code-syntax-keyword-alt: #FFFFFF;
+	--minerals-color-code-syntax-string: #EFEFEF;
+	--minerals-color-code-syntax-bool: #EFEFEF;
+	--minerals-color-code-syntax-number: #EFEFEF;
+	--minerals-color-url: #EFEFEF;
+}
+
+@media only screen and (prefers-color-scheme: light) {
+	:root {
+		--minerals-color-code-syntax-normal: #444444;
+		--minerals-color-code-syntax-punctuation: #000000;
+		--minerals-color-code-syntax-operator: #000000;
+		--minerals-color-code-syntax-keyword: #000000;
+		--minerals-color-code-syntax-keyword-alt: #000000;
+		--minerals-color-code-syntax-function: #222222;
+		--minerals-color-code-syntax-meta: #000000;
+		--minerals-color-code-syntax-string: #333333;
+		--minerals-color-code-syntax-string-special: #333333;
+		--minerals-color-code-syntax-number: #333333;
+		--minerals-color-code-syntax-bool: #333333;
+		--minerals-color-code-syntax-type: #111111;
+		--minerals-color-title: #444444;
+	}
+
+	.hljs-string {
+		background: #DDDDDD;
+	}
+
+}

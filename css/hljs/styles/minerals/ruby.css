@@ -1,0 +1,10 @@
+@import url(base.css);
+
+:root {
+	--minerals-color-code-syntax-constant: #EF8D4C;
+	--minerals-color-code-syntax-member: #EF8D4C;
+	--minerals-color-code-syntax-function: #F27F79;
+	--minerals-color-code-syntax-meta: #CFD651;
+	--minerals-color-code-syntax-keyword: #F0544C;
+	--minerals-color-code-syntax-keyword-alt: #F27F79;
+}
