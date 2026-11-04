@@ -67,7 +67,7 @@
 }
 
 .hljs-literal {
-	color: var(--minerals-color-code-syntax-keyword);
+	color: var(--minerals-color-code-syntax-bool);
 }
 
 .hljs-number {
