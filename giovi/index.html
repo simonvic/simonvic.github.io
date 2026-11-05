@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Giovi</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/atto.css">
+	<link rel="stylesheet" href="/css/hljs/styles/minerals/ruby.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="/sUDE/js/highlight.js"></script>
+	<script src="/giovi/js/hljs_giovi.js"></script>
+	<script>hljs.highlightAll();</script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/he/1.2.0/he.min.js"
+		integrity="sha512-PEsccDx9jqX6Dh4wZDCnWMaIO3gAaU0j46W//sSqQhUQxky6/eHZyeB3NrXD2xsyugAKd4KPiDANkcuoEa2JuA=="
+		crossorigin="anonymous"
+		referrerpolicy="no-referrer">
+		</script>
+	<script src="https://cjrtnc.leaningtech.com/5.0/loader.js"></script>
+	<script type="module"></script>
+</head>
+
+<body>
+	<main>
+		<h1>Giovi</h1>
+		<button id="run">Run</button>
+		<div class="container">
+			<div class="editor">
+				<div class="preview">
+					<pre><code id="preview" class="language-giovi"></code></pre>
+				</div>
+				<div class="input">
+					<textarea id="input" spellcheck="false"></textarea>
+				</div>
+			</div>
+			<pre><samp id="output">Click run to execute</samp></pre>
+		</div>
+	</main>
+
+	<script>
+		const input = document.getElementById("input");
+		const preview = document.getElementById("preview");
+		const runBtn = document.getElementById("run");
+		const output = document.getElementById("output");
+		function updatePreview() {
+			preview.innerHTML = input.value ?? input.textContent;
+			hljs.highlightElement(preview);
+		}
+		document.addEventListener('DOMContentLoaded', updatePreview);
+		input.addEventListener("input", updatePreview);
+	</script>
+
+	<script type="module">
+		await cheerpjInit({version: 25});
+		const cj = await cheerpjRunLibrary("/app/giovi/Giovi.jar");
+		const ByteArrayOutputStream = await cj.java.io.ByteArrayOutputStream;
+		const ByteArrayInputStream = await cj.java.io.ByteArrayInputStream;
+		const PrintStream = await cj.java.io.PrintStream;
+		const System = await cj.java.lang.System;
+		const Giovi = await cj.it.simonvic.giovi.Giovi;
+
+		runBtn.addEventListener("click", async () => {
+			runBtn.disabled = true;
+			output.setAttribute("aria-busy", "true");
+			output.textContent = "Running..."
+			const out = await new ByteArrayOutputStream();
+			await System.setOut(await new PrintStream(out, true));
+			await Giovi.main(["--from", input.value ?? input.textContent])
+			output.textContent = await out.toString();
+			output.setAttribute("aria-busy", "false");
+			runBtn.disabled = false;
+		});
+	</script>
+</body>
+
+</html>
