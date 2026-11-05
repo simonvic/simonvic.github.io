@@ -47,7 +47,12 @@
 			preview.innerHTML = input.value ?? input.textContent;
 			hljs.highlightElement(preview);
 		}
-		document.addEventListener('DOMContentLoaded', updatePreview);
+		document.addEventListener('DOMContentLoaded', () => {
+			if (input.value === "") {
+				input.value = '"hello world" -> _out'
+			}
+			updatePreview()
+		});
 		input.addEventListener("input", updatePreview);
 	</script>
 
