@@ -50,8 +50,7 @@
 	margin: 0;
 	padding: 0;
 	border: 0;
-	white-space: pre-wrap;
-	overflow-wrap: break-word;
+	text-wrap: nowrap;
 }
 
 .preview pre code,
