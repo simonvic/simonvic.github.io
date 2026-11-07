@@ -997,6 +997,7 @@ input[type="submit"]:active,
 	background-color: var(--atto-color-accent--2);
 }
 
+button:disabled,
 input:disabled {
 	background-color: var(--atto-color-bg);
 	cursor: not-allowed;
