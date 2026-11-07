@@ -44,7 +44,7 @@
 		const runBtn = document.getElementById("run");
 		const output = document.getElementById("output");
 		function updatePreview() {
-			preview.innerHTML = input.value ?? input.textContent;
+			preview.innerHTML = he.encode(input.value ?? input.textContent);
 			hljs.highlightElement(preview);
 		}
 		document.addEventListener('DOMContentLoaded', () => {
