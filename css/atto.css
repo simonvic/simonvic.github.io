@@ -278,6 +278,8 @@ a:hover {
 	text-decoration: underline;
 }
 
+/* TODO: a[download] */
+
 h1 {
 	font-size: 2.0rem;
 	line-height: 2.0rem;
