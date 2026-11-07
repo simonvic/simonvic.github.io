@@ -57,6 +57,8 @@
 	</script>
 
 	<script type="module">
+		runBtn.disabled = true;
+		runBtn.innerHTML = "Loading..."
 		await cheerpjInit({version: 25});
 		const cj = await cheerpjRunLibrary("/app/giovi/Giovi.jar");
 		const ByteArrayOutputStream = await cj.java.io.ByteArrayOutputStream;
@@ -64,6 +66,8 @@
 		const PrintStream = await cj.java.io.PrintStream;
 		const System = await cj.java.lang.System;
 		const Giovi = await cj.it.simonvic.giovi.Giovi;
+		runBtn.disabled = false;
+		runBtn.innerHTML = "Run"
 
 		runBtn.addEventListener("click", async () => {
 			runBtn.disabled = true;
