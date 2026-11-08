@@ -1363,6 +1363,16 @@ nav[role="tree"] li {
 
 main[role="list"] {
 	counter-reset: section_step2;
+
+	/* h2[role="listitem"], */
+	/* h3[role="listitem"], */
+	/* h4[role="listitem"], */
+	/* h5[role="listitem"], */
+	/* h6[role="listitem"], */
+	/* a[href^="#"]:not([href$="#"]) { */
+	/* 	font-variant: small-caps; */
+	/* } */
+
 }
 
 /* TODO: require nested sections for more specificity? */
