@@ -1036,6 +1036,25 @@ img {
 /******************************************************************************/
 /*                                                             EXTRA FEATURES */
 
+/*                                                               Margin notes */
+aside[role="note"] {
+	width: calc(var(--atto-max-width-main) / 3);
+	font-size: 0.75rem;
+	line-height: 0.75rem;
+}
+
+@media (min-width: 90rem) {
+	aside[role="note"] {
+		position: absolute;
+		left: calc(50% + var(--atto-max-width-main) / 2 + 1rem);
+	}
+}
+
+@media (max-width: 90rem) {
+	aside[role="note"] {
+		float: right;
+	}
+}
 
 /*                                                          Presentation form */
 form[role="presentation"] {
