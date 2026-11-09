@@ -24,6 +24,7 @@
 
 @media only screen and (prefers-color-scheme: light) {
 	:root {
+		--minerals-color-code-syntax-constant: #000000;
 		--minerals-color-code-syntax-normal: #444444;
 		--minerals-color-code-syntax-punctuation: #000000;
 		--minerals-color-code-syntax-operator: #000000;
