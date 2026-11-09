@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/css/atto.css">
-	<link rel="stylesheet" href="/css/hljs/styles/minerals/ruby.css">
+	<link id="hljs_theme" rel="stylesheet" href="/css/hljs/styles/minerals/opal.css">
 	<link rel="stylesheet" href="css/style.css">
 	<script src="/sUDE/js/highlight.js"></script>
 	<script src="/giovi/js/hljs_giovi.js"></script>
@@ -24,7 +24,19 @@
 <body>
 	<main>
 		<h1>Giovi</h1>
-		<button id="run">Run</button>
+		<fieldset>
+			<label>
+				Syntax theme
+				<select
+					onchange="document.getElementById('hljs_theme').href='/css/hljs/styles/minerals/'+this.value+'.css'">
+					<option>opal</option>
+					<option>ruby</option>
+					<option>silver</option>
+				</select>
+			</label>
+			<br />
+			<button id="run">Run</button>
+		</fieldset>
 		<div class="container">
 			<div class="editor">
 				<div class="preview">
