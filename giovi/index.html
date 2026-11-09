@@ -75,7 +75,12 @@
 			output.textContent = "Running..."
 			const out = await new ByteArrayOutputStream();
 			await System.setOut(await new PrintStream(out, true));
-			await Giovi.main(["--from", input.value ?? input.textContent])
+			try {
+				await Giovi.main(["--from", input.value ?? input.textContent])
+			} catch (e) {
+				console.log(e)
+				await e.printStackTrace()
+			}
 			output.textContent = await out.toString();
 			output.setAttribute("aria-busy", "false");
 			runBtn.disabled = false;
